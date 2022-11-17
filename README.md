@@ -5,6 +5,7 @@ This repository contains scripts, data links, and compiled data I use for my mas
 ## Data sources
 
 * [Reef Life Survey data on reef-fish abundance and biomass](https://portal.aodn.org.au/search)
+* [FishBase data on life-hitory traits](https://www.fishbase.se/search.php)
 * [Fish egg size data from Barneche et al. (2018)](https://github.com/dbarneche/fishEggSize/blob/master/data/fishEggsMSData.csv)
 * [Pelagic larval duration data from Luiz et al. (2013)](https://doi.org/10.1073/pnas.1304074110)
 * [Sea surface temperature data](https://cds.climate.copernicus.eu/cdsapp#!/dataset/satellite-sea-surface-temperature?tab=form)
