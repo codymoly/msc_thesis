@@ -9,4 +9,5 @@
 Helpful sources:
 
 [netCDF in R](https://pjbartlein.github.io/REarthSysSci/netCDF.html#get-coordinate-including-time-variables)
+
 [Cheat sheet for netCDF handling](https://www.r-bloggers.com/2016/08/a-netcdf-4-in-r-cheatsheet/)
