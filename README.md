@@ -1,3 +1,5 @@
+![logo](./msc_logo.png)
+
 # Master's thesis: linking environmental predictability and life-history traits of coral reef fish in Australia
 
 This repository contains scripts, data links, and compiled data I use for my master's thesis. Dependencies are listed in the [requirements.txt](https://github.com/codymoly/msc_thesis/blob/main/requirements.txt).
