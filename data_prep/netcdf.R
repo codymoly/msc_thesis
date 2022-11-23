@@ -60,8 +60,8 @@ sst_array[sst_array == fillvalue$value] <- NA
 
 # convert time units into YYYY-MM-DD format
 time_obs = as.POSIXct.Date(time,
-                           origin = "2018–01–01",
-                           tz ="GMT")
+                           tz ="GMT",
+                           format = "%Y-%m-%d %H:%M:%S") # wrong year... why?
 dim(time_obs) # output: [1] 365
 range(time_obs) # check start and end date
 
@@ -75,9 +75,10 @@ dim_mx = as.matrix(expand.grid(lon, lat, time_obs))
 ## write sst array into vector
 sst_vec_long <- as.vector(sst_array)
 length(sst_vec_long) 
-# merge all into dataframe
+## merge all into dataframe
 sst_df <- data.frame(cbind(dim_mx, sst_vec_long))
-
+## rename column names
+colnames(sst_df) = c("Long", "Lat", "Date", "SST_degc")
 
 
 
