@@ -6,7 +6,7 @@
 # load required libraries
 #library(forecast)
 library(ncdf4)
-#library(raster)
+library(raster)
 #library(rerddap)
 library(tidyverse)
 #library(envPred)
@@ -27,7 +27,6 @@ print(sst_2018)
 attributes(sst_2018$var) # sst
 attributes(sst_2018$dim) # t, lon, lat
 
-# write lats and lons into objects
 ## latitude
 lat = ncvar_get(sst_2018, "lat")
 nlat = dim(lat)
@@ -66,19 +65,41 @@ dim(time_obs) # output: [1] 365
 range(time_obs) # check start and end date
 
 # create a dataframe with all netCDF variables
+
+## excursus: temporal subset
 ## write sst values of the whole area at day 50 
-sst_slice <- sst_array[ , , 50]
+#sst_slice <- sst_array[ , , 50]
 ## plot sst at day 50
-image(lon, lat, sst_slice)
-## 2D-matrix with lat, lon, time
-dim_mx = as.matrix(expand.grid(lon, lat, time_obs))
-## write sst array into vector
-sst_vec_long <- as.vector(sst_array)
-length(sst_vec_long) 
-## merge all into dataframe
-sst_df <- data.frame(cbind(dim_mx, sst_vec_long))
-## rename column names
-colnames(sst_df) = c("Long", "Lat", "Date", "SST_degc")
+#image(lon, lat, sst_slice)
+
+# write lats and lons into objects
+r_brick <- brick(sst_array,
+                 xmn=min(lat),
+                 xmx=max(lat),
+                 ymn=min(lon),
+                 ymx=max(lon),
+                 crs=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0")
+                 )
+
+r_brick <- flip(t(r_brick), direction='y')
+
+site_lon = 
+site_lat = 
+site_sst_series = extract(r_brick, matrix(c(-12.24, 122.98), ncol = 2))
+
+
+
+# ## 2D-matrix with lat, lon, time
+# ######dim_mx = as.matrix(expand.grid(lon_sitex, lat_sitex, time_obs))
+# ## write sst array into vector
+# sst_vec_long <- as.vector(sst_array)
+# length(sst_vec_long) 
+# ## merge all into dataframe
+# sst_df <- data.frame(cbind(dim_mx, sst_vec_long))
+# ## rename column names
+# colnames(sst_df) = c("Long", "Lat", "Date", "SST_degc")
+# ## save as csv
+# write.csv(sst_df,"~/projects/msc_thesis/data_prep/sst_2018_subset.csv", row.names = FALSE)
 
 
 
