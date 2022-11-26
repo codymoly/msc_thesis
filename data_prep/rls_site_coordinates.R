@@ -18,7 +18,12 @@ rls_raw = read_delim("/media/mari/Crucial X8/RLS_20190101_20221120.csv", skip = 
 # extract coordinates for survey sites
 ## we need this to subset the sst & chlA data based on the RLS sites
 ## subset unique coordinate pairs
-survey_coordinates = rls_raw %>% select(latitude, longitude) %>% distinct
+survey_coordinates = rls_raw %>%
+  select(latitude, longitude) %>%
+  distinct
+
+survey_coordinates$latitude = format(survey_coordinates$latitude, nsmall = 2)
+survey_coordinates$longitude = format(survey_coordinates$longitude, nsmall = 2)
 
 ## write coordinates in csv
 write.csv(survey_coordinates,"/media/mari/Crucial X8/survey_coordinates.csv", row.names = FALSE) # comma as sep.
