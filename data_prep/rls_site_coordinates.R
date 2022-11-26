@@ -22,8 +22,5 @@ survey_coordinates = rls_raw %>%
   select(latitude, longitude) %>%
   distinct
 
-survey_coordinates$latitude = format(survey_coordinates$latitude, nsmall = 2)
-survey_coordinates$longitude = format(survey_coordinates$longitude, nsmall = 2)
-
 ## write coordinates in csv
 write.csv(survey_coordinates,"/media/mari/Crucial X8/survey_coordinates.csv", row.names = FALSE) # comma as sep.
