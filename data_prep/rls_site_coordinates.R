@@ -1,7 +1,7 @@
 # REEF LIFE SURVEY - Script 1: get survey coordinates
 ## settings for subset data on https://portal.aodn.org.au/search: 
-## geogr. range: -8.17°N, 170.02°E, -45.62°S, 108.15°W
-## period: 2020-01-01 - 2021-12-31
+## geographical range: -6.5°N, 170.9°E, -47.37°S, 102.26°W
+## period: 2019-01-01 - 2022-11-22
 
 # load required libraries
 library(tidyverse) # v. 1.3.2
