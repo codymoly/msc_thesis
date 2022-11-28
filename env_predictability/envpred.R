@@ -3,7 +3,7 @@
 ## installation: library(devtools), install_github("dbarneche/envPred")
 
 # load libraries
-library(tidverse)
+library(tidyverse)
 library(envPred)
 
 # clean memory
@@ -30,12 +30,20 @@ setwd("~/projects/msc_thesis")
 # apply the following function relative to the survey time in rls_site_depth_ID.csv
 # calculate envPred statistics -12.24_122.98.csv
 
-# read sst data
-test_csv = read.table("/media/mari/Crucial X8/sst_csv/-11.98_123.38.csv", quote="\"")
+# list files in vector
+list_csv_files <- list.files(path = "/media/mari/Crucial X8/sst_csv/", pattern="*.csv")
+
+# remove .csv from filenames
+file_names = substring(list_csv_files, 1, nchar(list_csv_files)-4)
+
+test_csv = read.table("/media/mari/Crucial X8/sst_csv/-11.98_123.38.csv", quote="\"", fill = TRUE)
 
 # read data from github
-rls_unique = read_delim("~/projects/msc_thesis/data/rls_site_depth_ID.csv", delim = ",")
-rls_coords = read_delim("~/projects/msc_thesis/data/survey_coordinates_2021_2022.csv", delim = ",")
+rls_unique = read_delim("/media/mari/Crucial X8/rls_site_depth_ID.csv", delim = ",")
+rls_coords = read_delim("/media/mari/Crucial X8/survey_coordinates_2021_2022.csv", delim = ",")
+
+# write filenames into vector
+# raw_files <- tibble(filename = list.files('/media/mari/Crucial X8/sst_csv/'))
 
 # rename column names
 colnames(test_csv) <- c('dates','value','variable')
@@ -53,7 +61,7 @@ test_csv_wide$dates = as.Date(test_csv_wide$dates, "%Y/%m/%d")
 # select sst and subset a period of 10 years between 2010 and 2020
 test_ts = test_csv_wide %>%
   select(dates, analysed_sst) %>% 
-  filter(dates > "2009-12-31" & dates < "2021-01-02")
+  dplyr::filter(dates > "2009-12-31" & dates < "2021-01-02")
 
 # envPred
 env_stats = env_stats(time_series = test_ts$analysed_sst,
