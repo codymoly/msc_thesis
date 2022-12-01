@@ -72,6 +72,11 @@ nmds_dat %>%
   cor(x = ., method = c("pearson")) %>%
   corrplot(method = "number")
 
+# mediation analysis
+summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude))) # z-transformation
+summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$depth)))
+summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude) + scale(nmds_dat$depth)))
+
 # plot nMDS
 ## turn depth and latitude into discrete variables
 nmds_dat$depth = as.character(nmds_dat$depth)

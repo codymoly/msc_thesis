@@ -38,9 +38,45 @@ file_names = substring(list_csv_files, 1, nchar(list_csv_files)-4)
 
 test_csv = read.table("/media/mari/Crucial X8/sst_csv/-11.98_123.38.csv", quote="\"", fill = TRUE)
 
+rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
+
+
+# 
+# average over depth grouped by survey date
+# unique coordinate AND survey date
+# stringr, write coords from string in columns
+
+# distinct lat, long, survey date
+rls_summary = rls_2021_2022 %>% 
+  select(longitude, latitude, survey_date) %>% 
+  distinct()
+
+rls_summary$sst_filename = paste(rls_summary$latitude, "_", rls_summary$longitude, ".csv", sep = "")
+list_csv_files
+
+rls_summary$sst_mean = NA
+
+for (i in 1:nrow(rls_summary)){
+  temp_filename = paste("/media/mari/Crucial X8/sst_csv/", as.character(rls_summary[i,4]), sep = "")
+  if(file.exists(temp_filename)){
+    print(i)
+    
+    temp_sst_data = read_delim(temp_filename, delim = ',')
+    print(mean(temp_sst_data$analysed_sst))
+    
+    # rls_summary$sst_mean[i] = mean(temp_sst_data$analysed_sst)
+  }
+}
+
+
+
+
+
+
+
 # read data from github
 rls_unique = read_delim("/media/mari/Crucial X8/rls_site_depth_ID.csv", delim = ",")
-rls_coords = read_delim("/media/mari/Crucial X8/survey_coordinates_2021_2022.csv", delim = ",")
+rls_coords = read_delim("/media/mari/Crucial X8/survey_coordinates_2021_2022.csv", skip = 71, delim = ",")
 
 # write filenames into vector
 # raw_files <- tibble(filename = list.files('/media/mari/Crucial X8/sst_csv/'))
