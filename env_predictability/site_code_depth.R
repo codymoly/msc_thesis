@@ -1,5 +1,5 @@
 # CREATE A UNIQUE IDENTIFIER FOR EACH SITE AND DEPTH
-## we need this to calculate the environmental measures for each site and depth relative to the survey date
+## we don't need this anymore since we averaged the abundance data over depth
 
 # required libraries
 library(tidyverse)
