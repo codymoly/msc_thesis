@@ -68,3 +68,15 @@ for (i in 1:nrow(rls_unique)) {
     rls_unique[i, statname] = envpred_statistics[, statname]
   }
 }
+
+# add postfix to statnames
+colnames(rls_unique)[6:24] = paste("sst", colnames(rls_unique)[6:24], sep = "_")
+
+# nrow(na.omit(rls_unique))
+# 
+# NAS = rls_unique[!complete.cases(rls_unique), ]
+# NAS = NAS %>% distinct(latitude, longitude)
+
+# decpl = paste(format(rls_unique$latitude, nsmall = 2), "_", rls_unique$longitude, ".csv", sep = "")
+# decpl[[75]]
+
