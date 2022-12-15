@@ -5,6 +5,7 @@
 # load libraries
 library(tidyverse)
 library(envPred)
+library(stringr)
 
 # clean memory
 rm(list=ls())
@@ -37,7 +38,12 @@ rls_unique = rls_avg %>%
   mutate(ts_startdate = survey_date - 365.25*10) # create new column with start date for envPred (survey date - 10y)
 
 # write new column with latitude, longitude, and .csv
-rls_unique$sst_filename = paste(rls_unique$latitude, "_", rls_unique$longitude, ".csv", sep = "")
+## write function that pastes all components
+CompFilename = function(row){
+  return(str_squish(paste(row[2], "_", row[1], ".csv", sep = "")))
+}
+## apply function and write output into new column
+rls_unique$sst_filename = apply(rls_unique, 1, CompFilename)
 
 # create "empty" columns with NAs, one for each env_stats variable
 for (statname in env_stats_cols) {
@@ -46,6 +52,7 @@ for (statname in env_stats_cols) {
 
 # iteratre through the time series CSVs to calculate the predictability of sst
 for (i in 1:nrow(rls_unique)) {
+  #if (rls_unique[i,2] != -9.99) {next}
   temp_filename = paste("/media/mari/Crucial X8/sst_csv/", as.character(rls_unique[i,"sst_filename"]), sep = "")
   # create new column in the rls dataset with string containing the file names of the time series data
   if (!file.exists(temp_filename)) {
@@ -72,11 +79,13 @@ for (i in 1:nrow(rls_unique)) {
 # add postfix to statnames
 colnames(rls_unique)[6:24] = paste("sst", colnames(rls_unique)[6:24], sep = "_")
 
-# nrow(na.omit(rls_unique))
-# 
-# NAS = rls_unique[!complete.cases(rls_unique), ]
-# NAS = NAS %>% distinct(latitude, longitude)
+# sanity check
+## count rows that have missing values
+nrow(na.omit(rls_unique))
+## write missing rows into dataframe
+NAS = rls_unique[!complete.cases(rls_unique), ]
+NAS_coord = NAS %>% select(longitude, latitude)
 
-# decpl = paste(format(rls_unique$latitude, nsmall = 2), "_", rls_unique$longitude, ".csv", sep = "")
-# decpl[[75]]
-
+# write new files
+#write.csv(rls_unique,"~/projects/msc_thesis/data/rls_2021_2022_avg.csv", row.names = FALSE)
+#write.csv(rls_unique,"/media/mari/Crucial X8/rls_2021_2022_avg.csv", row.names = FALSE)
