@@ -13,6 +13,12 @@ setwd("~/projects/msc_thesis")
 # read RLS dataset
 rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
 
+## remove brackets from species name
+rmBrackets = function(spname){
+  return(str_replace_all(spname, "sp\\. \\[([^\\\\]*)\\]", "\\1"))
+}
+rls_2021_2022["species_name"] <- lapply(rls_2021_2022["species_name"], rmBrackets)
+
 # select relevant columns
 rls_sub = rls_2021_2022 %>%
   select(

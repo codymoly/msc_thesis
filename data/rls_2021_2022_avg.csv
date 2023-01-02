@@ -134,7 +134,7 @@
 -20.07,148.93,2021-01-04,"Pomacentrus coelestis",5,1,4.1
 -20.07,148.93,2021-01-04,"Pomacentrus lepidogenys",5,4,23.6
 -20.07,148.93,2021-01-04,"Pomacentrus moluccensis",5,13.7,130.6
--20.07,148.93,2021-01-04,"Pomacentrus sp. [rhodonotus]",2.5,2,NA
+-20.07,148.93,2021-01-04,"Pomacentrus rhodonotus",2.5,2,NA
 -20.07,148.93,2021-01-04,"Pomacentrus wardi",5,17.9,78.4
 -20.07,148.93,2021-01-04,"Pseudochromis wilsoni",5,2.8,7.8
 -20.07,148.93,2021-01-04,"Pseudolabrus guentheri",8.8,1.5,24.2
@@ -199,7 +199,7 @@
 -20.05,148.88,2021-01-04,"Pomacentrus amboinensis",5.6,8.2,91.5
 -20.05,148.88,2021-01-04,"Pomacentrus australis",5,6.7,27.5
 -20.05,148.88,2021-01-04,"Pomacentrus coelestis",3.5,4.8,9.4
--20.05,148.88,2021-01-04,"Pomacentrus sp. [rhodonotus]",4.2,2.3,NA
+-20.05,148.88,2021-01-04,"Pomacentrus rhodonotus",4.2,2.3,NA
 -20.05,148.88,2021-01-04,"Pomacentrus wardi",5,12.2,46
 -20.05,148.88,2021-01-04,"Pseudochromis wilsoni",5,3,8.5
 -20.05,148.88,2021-01-04,"Ptereleotris evides",10,1,20.5
@@ -347,7 +347,7 @@
 -20.09,148.95,2021-01-05,"Pomacentrus brachialis",5,4,17.5
 -20.09,148.95,2021-01-05,"Pomacentrus lepidogenys",5,11,65
 -20.09,148.95,2021-01-05,"Pomacentrus moluccensis",3.8,12.2,58.7
--20.09,148.95,2021-01-05,"Pomacentrus sp. [rhodonotus]",2.5,2,NA
+-20.09,148.95,2021-01-05,"Pomacentrus rhodonotus",2.5,2,NA
 -20.09,148.95,2021-01-05,"Pomacentrus wardi",5,27.5,110.7
 -20.09,148.95,2021-01-05,"Pseudochromis wilsoni",5,1,2.8
 -20.09,148.95,2021-01-05,"Sargocentron rubrum",12.5,2,150.3
@@ -5048,14 +5048,14 @@
 -26.12,113.24,2021-05-29,"Coris caudimacula",15,1,34.6
 -26.12,113.24,2021-05-29,"Dascyllus trimaculatus",2.5,11.3,8.3
 -26.12,113.24,2021-05-29,"Epinephelus rivulatus",19.2,1.3,294.5
+-26.12,113.24,2021-05-29,"Halichoeres brownfieldi",6.2,6,22.2
 -26.12,113.24,2021-05-29,"Halichoeres nebulosus",7.5,1,9.2
--26.12,113.24,2021-05-29,"Halichoeres sp. [brownfieldi]",6.2,6,22.2
 -26.12,113.24,2021-05-29,"Helcogramma decurrens",3.8,1,0.9
 -26.12,113.24,2021-05-29,"Hemigymnus melapterus",12.5,1,66.3
 -26.12,113.24,2021-05-29,"Labracinus cyclophthalmus",16.9,1.2,129
 -26.12,113.24,2021-05-29,"Labracinus lineatus",17.5,1,101.4
 -26.12,113.24,2021-05-29,"Labroides dimidiatus",4.3,2,3.1
--26.12,113.24,2021-05-29,"Lethrinus sp. [punctulatus]",25,1,NA
+-26.12,113.24,2021-05-29,"Lethrinus punctulatus",25,1,NA
 -26.12,113.24,2021-05-29,"Lutjanus carponotatus",20,1,219.5
 -26.12,113.24,2021-05-29,"Microcanthus strigatus",6.7,1.3,26.6
 -26.12,113.24,2021-05-29,"Monacanthus chinensis",12.5,1,53.1
@@ -5148,12 +5148,12 @@
 -20.58,116.54,2021-06-03,"Choerodon cauteroma",8.3,6.8,77.1
 -20.58,116.54,2021-06-03,"Choerodon cyanodus",16.3,1.1,258.1
 -20.58,116.54,2021-06-03,"Epinephelus quoyanus",9.4,1.2,33.6
+-20.58,116.54,2021-06-03,"Halichoeres brownfieldi",5,3.3,12.3
 -20.58,116.54,2021-06-03,"Halichoeres erdmanni",5,1,2.6
 -20.58,116.54,2021-06-03,"Halichoeres nebulosus",2.5,1,0.3
 -20.58,116.54,2021-06-03,"Halichoeres nigrescens",7.2,10.8,66.1
--20.58,116.54,2021-06-03,"Halichoeres sp. [brownfieldi]",5,3.3,12.3
 -20.58,116.54,2021-06-03,"Labroides dimidiatus",6.2,1,4.5
--20.58,116.54,2021-06-03,"Lethrinus sp. [punctulatus]",10,5.8,NA
+-20.58,116.54,2021-06-03,"Lethrinus punctulatus",10,5.8,NA
 -20.58,116.54,2021-06-03,"Lutjanus carponotatus",8.8,1,30.6
 -20.58,116.54,2021-06-03,"Neopomacentrus cyanomos",5,2,5.9
 -20.58,116.54,2021-06-03,"Ostorhinchus cookii",5,1.5,NA
@@ -5183,15 +5183,15 @@
 -20.57,116.54,2021-06-03,"Epinephelus quoyanus",11.2,1,50.8
 -20.57,116.54,2021-06-03,"Epinephelus rivulatus",25,1,291.2
 -20.57,116.54,2021-06-03,"Gymnothorax thrysoideus",30,1,26.8
+-20.57,116.54,2021-06-03,"Halichoeres brownfieldi",6.2,1.5,7.2
 -20.57,116.54,2021-06-03,"Halichoeres erdmanni",6.6,8.5,44.9
 -20.57,116.54,2021-06-03,"Halichoeres marginatus",10,1,32.2
 -20.57,116.54,2021-06-03,"Halichoeres melanochir",10,2.2,40
 -20.57,116.54,2021-06-03,"Halichoeres nigrescens",7.7,11.9,83.7
--20.57,116.54,2021-06-03,"Halichoeres sp. [brownfieldi]",6.2,1.5,7.2
 -20.57,116.54,2021-06-03,"Hemigymnus melapterus",7.5,1,14.9
 -20.57,116.54,2021-06-03,"Labracinus cyclophthalmus",15,1,65.5
 -20.57,116.54,2021-06-03,"Labroides dimidiatus",6.1,1.7,7
--20.57,116.54,2021-06-03,"Lethrinus sp. [punctulatus]",11.2,1.7,NA
+-20.57,116.54,2021-06-03,"Lethrinus punctulatus",11.2,1.7,NA
 -20.57,116.54,2021-06-03,"Lutjanus carponotatus",16.9,1.6,318.1
 -20.57,116.54,2021-06-03,"Lutjanus fulviflamma",18.3,1,170.2
 -20.57,116.54,2021-06-03,"Nebrius ferrugineus",150,1,1894.1
@@ -5528,12 +5528,12 @@
 -20.54,116.53,2021-06-05,"Choerodon cyanodus",18.1,1,215.3
 -20.54,116.53,2021-06-05,"Epinephelus quoyanus",11.8,1.3,77.9
 -20.54,116.53,2021-06-05,"Epinephelus rivulatus",15,1,85.2
+-20.54,116.53,2021-06-05,"Halichoeres brownfieldi",10,1.7,32.1
 -20.54,116.53,2021-06-05,"Halichoeres erdmanni",5.2,3,9.6
 -20.54,116.53,2021-06-05,"Halichoeres nebulosus",7.4,19.8,93.4
--20.54,116.53,2021-06-05,"Halichoeres sp. [brownfieldi]",10,1.7,32.1
 -20.54,116.53,2021-06-05,"Labroides dimidiatus",5.6,1.2,3.7
 -20.54,116.53,2021-06-05,"Leptoscarus vaigiensis",20,1,196
--20.54,116.53,2021-06-05,"Lethrinus sp. [punctulatus]",11.3,1.8,NA
+-20.54,116.53,2021-06-05,"Lethrinus punctulatus",11.3,1.8,NA
 -20.54,116.53,2021-06-05,"Lutjanus carponotatus",20,1,229.3
 -20.54,116.53,2021-06-05,"Lutjanus lemniscatus",15,1,101.3
 -20.54,116.53,2021-06-05,"Ostorhinchus cookii",6.1,3,NA
@@ -5576,7 +5576,7 @@
 -20.62,116.51,2021-06-06,"Heniochus acuminatus",20,1,415.4
 -20.62,116.51,2021-06-06,"Istigobius decoratus",3.3,4.7,3.6
 -20.62,116.51,2021-06-06,"Labroides dimidiatus",5.6,1.5,4.2
--20.62,116.51,2021-06-06,"Lethrinus sp. [punctulatus]",25,1,NA
+-20.62,116.51,2021-06-06,"Lethrinus punctulatus",25,1,NA
 -20.62,116.51,2021-06-06,"Lutjanus carponotatus",21.6,1,260.3
 -20.62,116.51,2021-06-06,"Lutjanus lemniscatus",21.7,1,268.1
 -20.62,116.51,2021-06-06,"Lutjanus quinquelineatus",15,1,92.2
@@ -5680,14 +5680,14 @@
 -20.58,116.53,2021-06-06,"Epinephelus rivulatus",17.5,1,137.1
 -20.58,116.53,2021-06-06,"Gymnothorax spp.",40,1,49.4
 -20.58,116.53,2021-06-06,"Gymnothorax thrysoideus",30,2,53.5
+-20.58,116.53,2021-06-06,"Halichoeres brownfieldi",11.1,1.9,56.7
 -20.58,116.53,2021-06-06,"Halichoeres erdmanni",5.8,4.6,19.4
 -20.58,116.53,2021-06-06,"Halichoeres melanochir",6.5,1.8,12.6
 -20.58,116.53,2021-06-06,"Halichoeres nebulosus",7.9,5.9,40.9
 -20.58,116.53,2021-06-06,"Halichoeres nigrescens",6.1,6.3,30.2
--20.58,116.53,2021-06-06,"Halichoeres sp. [brownfieldi]",11.1,1.9,56.7
 -20.58,116.53,2021-06-06,"Hemiramphus far",25,10,1163.5
 -20.58,116.53,2021-06-06,"Labroides dimidiatus",8.5,1.6,18.1
--20.58,116.53,2021-06-06,"Lethrinus sp. [punctulatus]",9.8,2.2,NA
+-20.58,116.53,2021-06-06,"Lethrinus punctulatus",9.8,2.2,NA
 -20.58,116.53,2021-06-06,"Lutjanus carponotatus",10,1.2,47.2
 -20.58,116.53,2021-06-06,"Neopomacentrus filamentosus",4,5.6,14.6
 -20.58,116.53,2021-06-06,"Ostorhinchus cookii",5,2,NA
@@ -6856,7 +6856,7 @@
 -23.32,113.78,2021-08-05,"Dascyllus trimaculatus",3.8,1.5,3.7
 -23.32,113.78,2021-08-05,"Epibulus insidiator",22.5,1,290.5
 -23.32,113.78,2021-08-05,"Epinephelus fasciatus",22,1,247.6
--23.32,113.78,2021-08-05,"Eviota sp. [green]",2.5,1,0.3
+-23.32,113.78,2021-08-05,"Eviota green",2.5,1,0.3
 -23.32,113.78,2021-08-05,"Fistularia commersonii",100,1,470.3
 -23.32,113.78,2021-08-05,"Gnatholepis cauerensis",4.4,1.2,3
 -23.32,113.78,2021-08-05,"Gobiodon histrio",2.5,1,0.8
@@ -7192,7 +7192,7 @@
 -23.18,113.76,2021-08-06,"Labroides dimidiatus",7.2,2.8,16.6
 -23.18,113.76,2021-08-06,"Leptoscarus vaigiensis",12.5,1,53.1
 -23.18,113.76,2021-08-06,"Lethrinus atkinsoni",6.2,2,20.3
--23.18,113.76,2021-08-06,"Lethrinus sp. [punctulatus]",18.1,1.5,NA
+-23.18,113.76,2021-08-06,"Lethrinus punctulatus",18.1,1.5,NA
 -23.18,113.76,2021-08-06,"Ostorhinchus aureus",11,3.6,172.2
 -23.18,113.76,2021-08-06,"Ostorhinchus wassinki",3.3,33.3,56.3
 -23.18,113.76,2021-08-06,"Ostracion cubicus",7.5,1,29.8
@@ -7644,7 +7644,7 @@
 -22.1,113.88,2021-08-07,"Thalassoma hardwicke",6.2,1,5
 -22.1,113.88,2021-08-07,"Thalassoma lunare",8.3,12.3,199.5
 -22.1,113.88,2021-08-07,"Thalassoma lutescens",8.1,12.9,110.1
--22.1,113.88,2021-08-07,"Tripterygiidae sp. [Ningaloo]",2.5,1,0.3
+-22.1,113.88,2021-08-07,"Tripterygiidae Ningaloo",2.5,1,0.3
 -22.1,113.88,2021-08-07,"Zanclus cornutus",15,1,249.8
 -22.1,113.88,2021-08-07,"Zebrasoma velifer",10,3,127.5
 -19.79,149.07,2021-08-07,"Abudefduf vaigiensis",10,10,483.9
@@ -8012,7 +8012,7 @@
 -21.85,114.17,2021-08-08,"Synodus binotatus",15,1,36.8
 -21.85,114.17,2021-08-08,"Thalassoma lunare",9.9,14.1,445
 -21.85,114.17,2021-08-08,"Thalassoma lutescens",11.5,7.5,185.2
--21.85,114.17,2021-08-08,"Tripterygiidae sp. [Ningaloo]",2.5,1.5,0.5
+-21.85,114.17,2021-08-08,"Tripterygiidae Ningaloo",2.5,1.5,0.5
 -21.85,114.17,2021-08-08,"Zanclus cornutus",12.5,1,135.1
 -21.85,114.17,2021-08-08,"Zebrasoma velifer",10,1,42.5
 -21.84,114.18,2021-08-08,"Abudefduf bengalensis",12.5,1,81.8
@@ -8445,7 +8445,7 @@
 -21.87,114.16,2021-08-09,"Thalassoma hardwicke",7.5,1,7.7
 -21.87,114.16,2021-08-09,"Thalassoma lunare",8.5,13.6,208.7
 -21.87,114.16,2021-08-09,"Thalassoma lutescens",10,10.3,178
--21.87,114.16,2021-08-09,"Tripterygiidae sp. [Ningaloo]",2.5,4,1.3
+-21.87,114.16,2021-08-09,"Tripterygiidae Ningaloo",2.5,4,1.3
 -21.87,114.16,2021-08-09,"Zebrasoma velifer",10,1,42.5
 -21.84,114.18,2021-08-09,"Abudefduf bengalensis",11.2,9.2,799.9
 -21.84,114.18,2021-08-09,"Abudefduf sexfasciatus",8,46,1290.2
@@ -11480,9 +11480,9 @@
 -11.94,135.6,2021-09-04,"Choerodon schoenleinii",28.8,1.2,678.7
 -11.94,135.6,2021-09-04,"Diademichthys lineatus",2.5,1,0.3
 -11.94,135.6,2021-09-04,"Epinephelus quoyanus",22.5,1.5,403.3
+-11.94,135.6,2021-09-04,"Halichoeres brownfieldi",7.5,2,18.5
 -11.94,135.6,2021-09-04,"Halichoeres erdmanni",6.5,1.4,8.9
 -11.94,135.6,2021-09-04,"Halichoeres nigrescens",5,25.6,73.2
--11.94,135.6,2021-09-04,"Halichoeres sp. [brownfieldi]",7.5,2,18.5
 -11.94,135.6,2021-09-04,"Lutjanus carponotatus",10,1.5,45.8
 -11.94,135.6,2021-09-04,"Neopomacentrus bankieri",2.5,8,3.2
 -11.94,135.6,2021-09-04,"Ostorhinchus cookii",2.5,3,NA
@@ -14253,7 +14253,7 @@
 -12.54,123.57,2021-10-15,"Ctenochaetus striatus",21.7,4,1042
 -12.54,123.57,2021-10-15,"Dascyllus reticulatus",5.7,20,272
 -12.54,123.57,2021-10-15,"Ecsenius bicolor",3.8,5,6.4
--12.54,123.57,2021-10-15,"Ecsenius sp. [black eye]",4.2,1,NA
+-12.54,123.57,2021-10-15,"Ecsenius black eye",4.2,1,NA
 -12.54,123.57,2021-10-15,"Elagatis bipinnulata",112.5,1,13794.3
 -12.54,123.57,2021-10-15,"Gomphosus varius",11.9,1.3,46.3
 -12.54,123.57,2021-10-15,"Halichoeres hortulanus",13.4,2,154
@@ -14429,7 +14429,7 @@
 -12.53,123.58,2021-10-15,"Dascyllus reticulatus",2.5,17.5,12.8
 -12.53,123.58,2021-10-15,"Dascyllus trimaculatus",4.5,6.8,25.4
 -12.53,123.58,2021-10-15,"Ecsenius bicolor",3.9,17.6,29.3
--12.53,123.58,2021-10-15,"Ecsenius sp. [black eye]",3.5,3.6,NA
+-12.53,123.58,2021-10-15,"Ecsenius black eye",3.5,3.6,NA
 -12.53,123.58,2021-10-15,"Eviota guttata",2.5,1,0.3
 -12.53,123.58,2021-10-15,"Forcipiger flavissimus",8.8,2,27.7
 -12.53,123.58,2021-10-15,"Gomphosus varius",10.2,1.7,41.5
@@ -14539,7 +14539,7 @@
 -12.52,123.56,2021-10-15,"Dascyllus reticulatus",5.6,20.7,230.1
 -12.52,123.56,2021-10-15,"Dascyllus trimaculatus",5,6.2,42.7
 -12.52,123.56,2021-10-15,"Ecsenius bicolor",3.8,1.5,1.9
--12.52,123.56,2021-10-15,"Ecsenius sp. [black eye]",3.8,1.5,NA
+-12.52,123.56,2021-10-15,"Ecsenius black eye",3.8,1.5,NA
 -12.52,123.56,2021-10-15,"Forcipiger flavissimus",10,1,19.5
 -12.52,123.56,2021-10-15,"Gomphosus varius",11.2,1.6,40.4
 -12.52,123.56,2021-10-15,"Gymnothorax javanicus",87.5,1,638.7
@@ -15348,7 +15348,7 @@
 -10.5,141.23,2021-11-09,"Plectropomus maculatus",35,1,1515.6
 -10.5,141.23,2021-11-09,"Pomacanthus sexstriatus",35,2,1300.3
 -10.5,141.23,2021-11-09,"Pomacentrus milleri",4.5,3.4,11.9
--10.5,141.23,2021-11-09,"Pomacentrus sp. [rhodonotus]",5,1,NA
+-10.5,141.23,2021-11-09,"Pomacentrus rhodonotus",5,1,NA
 -10.5,141.23,2021-11-09,"Pseudochromis wilsoni",2.5,1,0.4
 -10.5,141.23,2021-11-09,"Scarus ghobban",20,1,181.2
 -10.5,141.23,2021-11-09,"Scolopsis monogramma",20,1,175.5
@@ -15445,7 +15445,7 @@
 -10.52,143.09,2021-11-11,"Pomacentrus grammorhynchus",4.8,2.3,5.6
 -10.52,143.09,2021-11-11,"Pomacentrus milleri",3.8,10.5,30.5
 -10.52,143.09,2021-11-11,"Pomacentrus moluccensis",3.6,45.9,111.9
--10.52,143.09,2021-11-11,"Pomacentrus sp. [rhodonotus]",3.8,7.7,NA
+-10.52,143.09,2021-11-11,"Pomacentrus rhodonotus",3.8,7.7,NA
 -10.52,143.09,2021-11-11,"Pseudochromis fuscus",2.5,1,0.4
 -10.52,143.09,2021-11-11,"Scarus flavipectoralis",35,1,730.8
 -10.52,143.09,2021-11-11,"Scarus ghobban",25,1,277.3
@@ -15689,7 +15689,7 @@
 -14.66,145.45,2021-11-15,"Pomacentrus coelestis",2.5,38.1,25.4
 -14.66,145.45,2021-11-15,"Pomacentrus lepidogenys",2.5,37,25.8
 -14.66,145.45,2021-11-15,"Pomacentrus moluccensis",2.5,44.9,51
--14.66,145.45,2021-11-15,"Pomacentrus sp. [rhodonotus]",3.3,13,NA
+-14.66,145.45,2021-11-15,"Pomacentrus rhodonotus",3.3,13,NA
 -14.66,145.45,2021-11-15,"Pomacentrus wardi",3.3,3.7,3.3
 -14.66,145.45,2021-11-15,"Pseudocheilinus hexataenia",2.5,1,0.3
 -14.66,145.45,2021-11-15,"Pseudochromis fuscus",5,1,2.8
@@ -16600,7 +16600,7 @@
 -33.8,151.27,2022-01-08,"Enneapterygius atrogulare",5,2,3.2
 -33.8,151.27,2022-01-08,"Gerres subfasciatus",11.4,1.7,147.4
 -33.8,151.27,2022-01-08,"Girella tricuspidata",35,7.5,4558
--33.8,151.27,2022-01-08,"Hypoplectrodes sp. [Lord Howe]",7.5,2,20.4
+-33.8,151.27,2022-01-08,"Hypoplectrodes Lord Howe",7.5,2,20.4
 -33.8,151.27,2022-01-08,"Istigobius hoesei",5,11,29.4
 -33.8,151.27,2022-01-08,"Kyphosus sydneyanus",32.5,5,4317
 -33.8,151.27,2022-01-08,"Labroides dimidiatus",10,1,18.1
@@ -16995,9 +16995,9 @@
 -35.11,150.77,2022-02-11,"Girella tricuspidata",26.4,12.3,4476.2
 -35.11,150.77,2022-02-11,"Gymnothorax prasinus",87.5,1,638.7
 -35.11,150.77,2022-02-11,"Heteroscarus acroptilus",16.9,1,95.9
+-35.11,150.77,2022-02-11,"Hypoplectrodes Lord Howe",6.8,2.1,21
 -35.11,150.77,2022-02-11,"Hypoplectrodes maccullochi",8.2,1.5,28.4
 -35.11,150.77,2022-02-11,"Hypoplectrodes nigroruber",15,1,90.3
--35.11,150.77,2022-02-11,"Hypoplectrodes sp. [Lord Howe]",6.8,2.1,21
 -35.11,150.77,2022-02-11,"Kyphosus sydneyanus",22,2.6,690.2
 -35.11,150.77,2022-02-11,"Labroides dimidiatus",5,1,1.9
 -35.11,150.77,2022-02-11,"Lethrinus nebulosus",40,1,737.7
@@ -17554,9 +17554,9 @@
 -35.09,150.8,2022-02-14,"Enoplosus armatus",14.5,1.4,93.9
 -35.09,150.8,2022-02-14,"Girella elevata",40,1,772.5
 -35.09,150.8,2022-02-14,"Gymnothorax prasinus",50,1,103
+-35.09,150.8,2022-02-14,"Hypoplectrodes Lord Howe",7.5,1.7,19.3
 -35.09,150.8,2022-02-14,"Hypoplectrodes maccullochi",7.5,5.1,77.5
 -35.09,150.8,2022-02-14,"Hypoplectrodes nigroruber",13.8,3.5,220.7
--35.09,150.8,2022-02-14,"Hypoplectrodes sp. [Lord Howe]",7.5,1.7,19.3
 -35.09,150.8,2022-02-14,"Labroides dimidiatus",0,1,NA
 -35.09,150.8,2022-02-14,"Mecaenichthys immaculatus",7.5,1.5,23.8
 -35.09,150.8,2022-02-14,"Meuschenia flavolineata",15.8,2.3,369.1
@@ -17601,8 +17601,8 @@
 -35.08,150.79,2022-02-14,"Enoplosus armatus",12.5,3,177.9
 -35.08,150.79,2022-02-14,"Gymnothorax prasinus",50.6,1,202.2
 -35.08,150.79,2022-02-14,"Heterodontus portusjacksoni",112.5,1,3716
+-35.08,150.79,2022-02-14,"Hypoplectrodes Lord Howe",6.9,1,15.4
 -35.08,150.79,2022-02-14,"Hypoplectrodes maccullochi",8.9,2.6,55.8
--35.08,150.79,2022-02-14,"Hypoplectrodes sp. [Lord Howe]",6.9,1,15.4
 -35.08,150.79,2022-02-14,"Labridae spp.",15,1,65.5
 -35.08,150.79,2022-02-14,"Latropiscis purpurissatus",30,1.5,530.6
 -35.08,150.79,2022-02-14,"Lotella rhacina",26.7,3,635.4
@@ -17941,7 +17941,7 @@
 -31.52,159.07,2022-03-13,"Ostorhinchus norfolcensis",15,2,NA
 -31.52,159.07,2022-03-13,"Parma polylepis",15,3.1,587.3
 -31.52,159.07,2022-03-13,"Plagiotremus tapeinosoma",10,1,7.3
--31.52,159.07,2022-03-13,"Pseudocaranx sp. [dentex]",75,1,NA
+-31.52,159.07,2022-03-13,"Pseudocaranx dentex",75,1,NA
 -31.52,159.07,2022-03-13,"Pseudolabrus luculentus",12.6,3.1,165.4
 -31.52,159.07,2022-03-13,"Stanulus talboti",5,1,2.9
 -31.52,159.07,2022-03-13,"Stegastes fasciolatus",10.2,7.7,440.1
@@ -18063,8 +18063,8 @@
 -31.54,159.07,2022-03-14,"Plectorhinchus picus",25,1,274
 -31.54,159.07,2022-03-14,"Plotosus lineatus",22.5,75.5,6549.4
 -31.54,159.07,2022-03-14,"Pomacentrus moluccensis",7.5,2,41.6
+-31.54,159.07,2022-03-14,"Pseudocaranx dentex",41.7,3,NA
 -31.54,159.07,2022-03-14,"Pseudocaranx georgianus",30,1.8,588.1
--31.54,159.07,2022-03-14,"Pseudocaranx sp. [dentex]",41.7,3,NA
 -31.54,159.07,2022-03-14,"Pseudocheilinus hexataenia",12.5,2.1,99.8
 -31.54,159.07,2022-03-14,"Pseudolabrus luculentus",15.9,2.4,228.1
 -31.54,159.07,2022-03-14,"Sargocentron rubrum",17.5,2,320.6
@@ -18224,7 +18224,7 @@
 -31.51,159.05,2022-03-15,"Plectorhinchus picus",40,1,929.2
 -31.51,159.05,2022-03-15,"Plectroglyphidodon johnstonianus",7.5,1,20
 -31.51,159.05,2022-03-15,"Pseudanthias squamipinnis",2.5,1,0.3
--31.51,159.05,2022-03-15,"Pseudocaranx sp. [dentex]",10,2,NA
+-31.51,159.05,2022-03-15,"Pseudocaranx dentex",10,2,NA
 -31.51,159.05,2022-03-15,"Pseudolabrus luculentus",16.6,3,289.3
 -31.51,159.05,2022-03-15,"Ptereleotris evides",10.8,1,28.9
 -31.51,159.05,2022-03-15,"Stegastes fasciolatus",10.3,2.4,147.8
@@ -18465,7 +18465,7 @@
 -31.56,159.07,2022-03-17,"Plectorhinchus picus",75,1,5109.9
 -31.56,159.07,2022-03-17,"Plectroglyphidodon johnstonianus",8.1,1,28.1
 -31.56,159.07,2022-03-17,"Prionurus maculatus",23.9,9.8,8785.6
--31.56,159.07,2022-03-17,"Pseudocaranx sp. [dentex]",50,18,NA
+-31.56,159.07,2022-03-17,"Pseudocaranx dentex",50,18,NA
 -31.56,159.07,2022-03-17,"Pseudolabrus luculentus",10.7,4.1,114.6
 -31.56,159.07,2022-03-17,"Scarus ghobban",27.5,2.5,822.9
 -31.56,159.07,2022-03-17,"Scorpaena cardinalis",20,1,501
@@ -18815,7 +18815,7 @@
 -31.52,159.08,2022-03-19,"Plagiotremus tapeinosoma",9.2,1.7,13
 -31.52,159.08,2022-03-19,"Plectroglyphidodon johnstonianus",7.5,1,20
 -31.52,159.08,2022-03-19,"Prionurus maculatus",40,1,1149.9
--31.52,159.08,2022-03-19,"Pseudocaranx sp. [dentex]",20,4,NA
+-31.52,159.08,2022-03-19,"Pseudocaranx dentex",20,4,NA
 -31.52,159.08,2022-03-19,"Pseudolabrus luculentus",10.7,3.6,95.9
 -31.52,159.08,2022-03-19,"Scolopsis bilineata",7.5,1,10.9
 -31.52,159.08,2022-03-19,"Stegastes fasciolatus",9.4,5.9,277.4
@@ -18856,7 +18856,7 @@
 -31.51,159.07,2022-03-19,"Plectorhinchus picus",37.5,1,863.9
 -31.51,159.07,2022-03-19,"Plectroglyphidodon johnstonianus",7.5,1,20
 -31.51,159.07,2022-03-19,"Prionurus maculatus",15,2,386.3
--31.51,159.07,2022-03-19,"Pseudocaranx sp. [dentex]",8.8,2.5,NA
+-31.51,159.07,2022-03-19,"Pseudocaranx dentex",8.8,2.5,NA
 -31.51,159.07,2022-03-19,"Pseudolabrus luculentus",10.2,7.6,140.4
 -31.51,159.07,2022-03-19,"Scarus altipinnis",35,1,730.8
 -31.51,159.07,2022-03-19,"Scarus ghobban",7.5,1,10
@@ -18901,8 +18901,8 @@
 -31.56,159.1,2022-03-21,"Plectroglyphidodon johnstonianus",5,1,6.9
 -31.56,159.1,2022-03-21,"Plotosus lineatus",6.2,200,680.5
 -31.56,159.1,2022-03-21,"Prionurus maculatus",18.8,5.5,1947.2
+-31.56,159.1,2022-03-21,"Pseudocaranx dentex",15,1.5,NA
 -31.56,159.1,2022-03-21,"Pseudocaranx georgianus",20.6,1.5,192.6
--31.56,159.1,2022-03-21,"Pseudocaranx sp. [dentex]",15,1.5,NA
 -31.56,159.1,2022-03-21,"Pseudolabrus luculentus",11.6,3.9,128.8
 -31.56,159.1,2022-03-21,"Seriola lalandi",50,1,961.9
 -31.56,159.1,2022-03-21,"Stegastes fasciolatus",5,8,45.3
@@ -19035,7 +19035,7 @@
 -31.5,159.07,2022-03-22,"Pomacentrus coelestis",3.8,6.5,19.9
 -31.5,159.07,2022-03-22,"Prionurus maculatus",46.7,2,3465.6
 -31.5,159.07,2022-03-22,"Pseudanthias squamipinnis",8.2,2.3,51.4
--31.5,159.07,2022-03-22,"Pseudocaranx sp. [dentex]",33.3,1.3,NA
+-31.5,159.07,2022-03-22,"Pseudocaranx dentex",33.3,1.3,NA
 -31.5,159.07,2022-03-22,"Pseudolabrus luculentus",11.8,6.8,214.7
 -31.5,159.07,2022-03-22,"Ptereleotris evides",7.5,2,18
 -31.5,159.07,2022-03-22,"Pterois volitans",25,1,794.9
@@ -19713,8 +19713,8 @@
 -33.83,151.26,2022-04-30,"Cirrhilabrus punctatus",2.5,1,0.3
 -33.83,151.26,2022-04-30,"Enoplosus armatus",7.5,1,9.7
 -33.83,151.26,2022-04-30,"Gerres subfasciatus",10,1,32.4
+-33.83,151.26,2022-04-30,"Hypoplectrodes Lord Howe",10,2,48.8
 -33.83,151.26,2022-04-30,"Hypoplectrodes maccullochi",9.6,1,43.4
--33.83,151.26,2022-04-30,"Hypoplectrodes sp. [Lord Howe]",10,2,48.8
 -33.83,151.26,2022-04-30,"Meuschenia freycineti",25,1.5,678.6
 -33.83,151.26,2022-04-30,"Monacanthidae spp.",15,1,62.7
 -33.83,151.26,2022-04-30,"Monodactylus argenteus",10,3,124.9
@@ -20391,8 +20391,8 @@
 -33.83,151.28,2022-05-10,"Eupetrichthys angustipes",10,1.8,32.2
 -33.83,151.28,2022-05-10,"Halichoeres nebulosus",2.5,2,0.6
 -33.83,151.28,2022-05-10,"Hypnos monopterygius",40,1,480
+-33.83,151.28,2022-05-10,"Hypoplectrodes Lord Howe",8.8,1,17.3
 -33.83,151.28,2022-05-10,"Hypoplectrodes maccullochi",10,2,53.4
--33.83,151.28,2022-05-10,"Hypoplectrodes sp. [Lord Howe]",8.8,1,17.3
 -33.83,151.28,2022-05-10,"Labroides dimidiatus",5.8,1,4.8
 -33.83,151.28,2022-05-10,"Mecaenichthys immaculatus",10,1.3,66.9
 -33.83,151.28,2022-05-10,"Meuschenia trachylepis",25,1,452.4
@@ -20420,8 +20420,8 @@
 -33.82,151.29,2022-05-10,"Eupetrichthys angustipes",10.6,1.2,30.6
 -33.82,151.29,2022-05-10,"Gerres subfasciatus",15,3,333.4
 -33.82,151.29,2022-05-10,"Halichoeres nebulosus",2.5,1,0.3
+-33.82,151.29,2022-05-10,"Hypoplectrodes Lord Howe",9.4,2.5,42.1
 -33.82,151.29,2022-05-10,"Hypoplectrodes maccullochi",12.5,1,52.2
--33.82,151.29,2022-05-10,"Hypoplectrodes sp. [Lord Howe]",9.4,2.5,42.1
 -33.82,151.29,2022-05-10,"Labroides dimidiatus",10,2,36.2
 -33.82,151.29,2022-05-10,"Mecaenichthys immaculatus",11.2,1,55.6
 -33.82,151.29,2022-05-10,"Meuschenia freycineti",16.2,1.2,227.5
