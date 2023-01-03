@@ -18,26 +18,6 @@ rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ","
 ## from Barneche's GitHub repo
 eggsize_raw = read.csv("https://raw.githubusercontent.com/dbarneche/fishEggSize/master/data/fishEggsMSData.csv")
 
-# # FishBase
-# ## write unique species names into a list
-# species_list = rls_avg %>%
-#   distinct(species_name) %>%
-#   pull(species_name) %>%
-#   as.list
-# 
-# ## check for one species
-# fish = "Aioliops novaeguineae"
-# fb_tbl("species") %>% 
-#   mutate(sci_name = paste(Genus, Species)) %>%
-#   filter(sci_name %in% fish) %>% 
-#   select(sci_name, FBname, Length)
-# 
-# ## check for all RLS species
-# fb_tbl("species") %>% 
-#   mutate(sci_name = paste(Genus, Species)) %>%
-#   filter(sci_name %in% species_list) %>% 
-#   select(sci_name, FBname, Length)
-
 # RLS DATA
 ## separate species name in rls data
 rls_avg_sep = rls_avg %>% 
