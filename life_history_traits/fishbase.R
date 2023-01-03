@@ -32,8 +32,8 @@ fb_tbl("species") %>%
   filter(sci_name %in% fish) %>%
   select(sci_name, FBname, Length)
 
-# ## check for all RLS species
-# fb_tbl("species") %>% 
-#   mutate(sci_name = paste(Genus, Species)) %>%
-#   filter(sci_name %in% species_list) %>% 
-#   select(sci_name, FBname, Length)
+## check for all RLS species
+fishbase_length = fb_tbl("species") %>%
+  mutate(sci_name = paste(Genus, Species)) %>%
+  filter(sci_name %in% species_list) %>%
+  select(sci_name, FBname, Length)
