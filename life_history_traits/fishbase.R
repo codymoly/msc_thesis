@@ -25,15 +25,20 @@ species_list = rls_avg %>%
   pull(species_name) %>%
   as.list
 
-## check for one species
-fish = "Aioliops novaeguineae"
-fb_tbl("species") %>%
-  mutate(sci_name = paste(Genus, Species)) %>%
-  filter(sci_name %in% fish) %>%
-  select(sci_name, FBname, Length)
+# ## check for one species
+# fish = "Aioliops novaeguineae"
+# fb_tbl("species") %>%
+#   mutate(sci_name = paste(Genus, Species)) %>%
+#   filter(sci_name %in% fish) %>%
+#   select(sci_name, FBname, Length)
 
-## check for all RLS species
-fishbase_length = fb_tbl("species") %>%
+## download length/ bodysize data for all RLS species
+# fb_traits = species(species_list, fields=c("Species", "Length")) # this function takes decades
+fb_traits = fb_tbl("species") %>%
   mutate(sci_name = paste(Genus, Species)) %>%
   filter(sci_name %in% species_list) %>%
-  select(sci_name, FBname, Length)
+  select(sci_name, Length) %>% 
+  mutate(Ref_eggsize = rep("Fishbase2022", length(Length)))
+
+write.csv(fb_traits,"~/projects/msc_thesis/data/fishbase_bodysize.csv", row.names = FALSE)
+write.csv(fb_traits,"/media/mari/Crucial X8/fishbase_bodysize.csv", row.names = FALSE)
