@@ -12,9 +12,10 @@ setwd("~/Documents/MSc_thesis")
 
 # import data
 ## from hard drive
+rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
 pld_raw = read_delim("/media/mari/Crucial X8/pld_luiz.csv", delim = ",")
 pld_alz_raw = read_delim("/media/mari/Crucial X8/Alzateetal_2018_EE_data_final.csv", delim = ",")
-rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
+fb_raw = read_delim("/media/mari/Crucial X8/fishbase_bodysize.csv", delim = ",")
 ## from Barneche's GitHub repo
 eggsize_raw = read.csv("https://raw.githubusercontent.com/dbarneche/fishEggSize/master/data/fishEggsMSData.csv")
 
@@ -28,12 +29,16 @@ pld_subset = pld_raw %>%
   select(-c("Region", "Reference")) %>% 
   mutate(Ref_pld = rep("Luiz2013", length(pld_raw$Family)))
 
-# PLD2 DATA
+# PLD ALZATE et al. DATA
 pld_alz_subset = pld_alz_raw %>% 
   select(Species, PLD, Egg, BodySize) %>%
   separate(Species, c("Genus", "Species"), extra = "merge", fill = "left") %>% 
   mutate(Ref_pld = rep("Alzate2018", length(pld_alz_raw$Family))) %>% 
   mutate(Ref_bodysize = rep("Alzate2018", length(pld_alz_raw$Family)))
+
+# FISHBASE DATA
+fb_bodysize = fb_raw %>% 
+  separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left")
 
 # EGGSIZE DATA
 eggsize_subset = eggsize_raw %>% 

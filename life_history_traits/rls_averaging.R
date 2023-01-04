@@ -47,6 +47,9 @@ rls_avg = rls_sub %>%
   mutate(ID = cur_group_id()) %>% # assign unique id number to each group
   ungroup()
 
+# add S for survey to each id
+rls_avg$ID = paste("S", rls_avg$ID, sep = "")
+
 # extract taxonomic information for each species from original file
 taxonomy = rls_2021_2022 %>% 
   select(class, order, family, species_name) %>% 

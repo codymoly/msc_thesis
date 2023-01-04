@@ -18,27 +18,18 @@ rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ","
 # species_names = select(rls_avg, species_name)
 # write.csv(species_names,"~/projects/msc_thesis/data/rls_species_names.csv", row.names = FALSE)
 
-## write unique species names into a list
-# species_names = list(unique(rls_avg$species_name))
+# write unique species names into a list
 species_list = rls_avg %>%
   distinct(species_name) %>%
   pull(species_name) %>%
   as.list
 
-# ## check for one species
-# fish = "Aioliops novaeguineae"
-# fb_tbl("species") %>%
-#   mutate(sci_name = paste(Genus, Species)) %>%
-#   filter(sci_name %in% fish) %>%
-#   select(sci_name, FBname, Length)
-
-## download length/ bodysize data for all RLS species
-# fb_traits = species(species_list, fields=c("Species", "Length")) # this function takes decades
+# download length/ bodysize data for all RLS species
 fb_traits = fb_tbl("species") %>%
-  mutate(sci_name = paste(Genus, Species)) %>%
-  filter(sci_name %in% species_list) %>%
-  select(sci_name, Length) %>% 
-  mutate(Ref_eggsize = rep("Fishbase2022", length(Length)))
+  mutate(species_name = paste(Genus, Species)) %>%
+  filter(species_name %in% species_list) %>%
+  select(species_name, Length) %>% 
+  mutate(Ref_bodysize = rep("Fishbase2022", length(Length)))
 
 write.csv(fb_traits,"~/projects/msc_thesis/data/fishbase_bodysize.csv", row.names = FALSE)
 write.csv(fb_traits,"/media/mari/Crucial X8/fishbase_bodysize.csv", row.names = FALSE)
