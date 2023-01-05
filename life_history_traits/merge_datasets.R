@@ -15,7 +15,7 @@ setwd("~/Documents/MSc_thesis")
 rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
 pld_raw = read_delim("/media/mari/Crucial X8/pld_luiz.csv", delim = ",")
 pld_alz_raw = read_delim("/media/mari/Crucial X8/Alzateetal_2018_EE_data_final.csv", delim = ",")
-fb_raw = read_delim("/media/mari/Crucial X8/fishbase_bodysize.csv", delim = ",")
+fb_raw = read_delim("/media/mari/Crucial X8/fishbase_bodysize_ed.csv", delim = ",")
 ## from Barneche's GitHub repo
 eggsize_raw = read.csv("https://raw.githubusercontent.com/dbarneche/fishEggSize/master/data/fishEggsMSData.csv")
 
@@ -54,7 +54,8 @@ pld_alz_subset$nocturnal = gsub('yes', 'YES', pld_alz_subset$nocturnal)
 pld_alz_subset$nocturnal = gsub('no', 'NO', pld_alz_subset$nocturnal)
 
 # FISHBASE DATA
-fb_bodysize = fb_raw %>% 
+fb_bodysize = fb_raw %>%
+  select(-c("entry")) %>% 
   separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left") %>% 
   rename(BodySize = Length) %>% 
   rename(ref_bodysize = Ref_bodysize)

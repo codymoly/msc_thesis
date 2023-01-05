@@ -527,10 +527,10 @@
 "Labridae","Macropharyngodon","meleagris",15,27.5,13454,30,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "Labridae","Macropharyngodon","negrosensis",12,25,10430,24,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "Labridae","Macropharyngodon","ornatus",13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"Labridae","Notolabrus","fucicola",38,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Labridae","Notolabrus","fucicola",38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Notolabrus","gymnogenis",23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Notolabrus","inscriptus",50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"Labridae","Notolabrus","parilus",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Labridae","Notolabrus","parilus",41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Notolabrus","tetricus",50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Novaculichthys","taeniourus",30,55.1,27631,22,0.6,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "Labridae","Ophthalmolepis","lineolatus",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -550,7 +550,7 @@
 "Labridae","Pseudolabrus","biserialis",17.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Pseudolabrus","guentheri",18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Pseudolabrus","luculentus",17,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"Labridae","Pseudolabrus","rubicundus",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Labridae","Pseudolabrus","rubicundus",20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Pteragogus","cryptus",9.5,20.6,17000,65,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "Labridae","Pteragogus","enneacanthus",15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Labridae","Stethojulis","bandanensis",15,30.7,20210,27,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -989,7 +989,7 @@
 "Scorpaenidae","Scorpaenodes","evides",10.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Scorpaenidae","Sebastapistes","cyanostigma",10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Scorpaenidae","Sebastapistes","strongia",9.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"Scyliorhinidae","Aulohalaelurus","labiosus",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Scyliorhinidae","Aulohalaelurus","labiosus",67,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Scyliorhinidae","Cephaloscyllium","laticeps",150,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "Sepiidae","Sepia","apama",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Sepiidae","Sepia","mestus",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
