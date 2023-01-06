@@ -1,7 +1,9 @@
 # PREDICT PLD
 
 # read libs
-library(dplyr)
+library(mice)
+library(ranger)
+library(tidyverse)
 
 # clean memory
 rm(list=ls())
@@ -20,9 +22,9 @@ missing_bodysize = trait_dat_raw %>%
 
 # subset data, here, we drop all sharkilies
 trait_dat = trait_dat_raw %>% 
-  select (class, family, genus, species, bodySize, PLD) %>%
-  dplyr::filter(trait_dat_raw$class == "Actinopterygii") %>% 
-  filter(!is.na(bodySize)) 
+  select (class, family, genus, species, bodySize, PLD)# %>%
+  #dplyr::filter(trait_dat_raw$class == "Actinopterygii") %>% 
+  #filter(!is.na(bodySize)) 
  
 # Model 1
 mod1 = lm(trait_dat$PLD ~ trait_dat$family)
@@ -31,20 +33,30 @@ summary(mod1)
 
 # Model 2
 mod2 = lm(trait_dat$PLD ~ trait_dat$bodySize)
-summary(mod2)
+summary(mod2) 
 
 # model 3
-mod3 = lm(trait_dat$PLD ~ trait_dat$genus * trait_dat$bodySize)
-summary(mod3)
+mod3 = lm(trait_dat$PLD ~ trait_dat$family + (trait_dat$bodySize))
+summary(mod3) # not sure if that makes sense...
 
-# Model 4
-mod4 = lm(trait_dat$PLD ~ trait_dat$genus)
-summary(mod4)
+mod3$fitted.values
 
-#
-family = trait_dat %>%
-  filter(is.na(PLD)) %>% 
-  select(family)
+predict(mod3)
 
-# prediction based on genus
-testo = predict(mod4)
+##########
+# identify predictors for PLD
+# model --> r2
+# correlation between fitted and original values
+# residuals-fitted values, QQnorm plot --> norm distribution, residuals-leverage 
+plot(na.omit(trait_dat$PLD), mod3$fitted.values)
+plot(log(trait_dat$bodySize), log(trait_dat$PLD))
+
+# goal: impute PLD and bodysize from family
+## make sure that bodySize is calculated from family, and PLD from both, so probably successively
+predMatr = list(family = trait_dat$family, bodySize = trait_dat$bodySize)
+blocks = list(family = trait_dat$bodySize, bodySize = trait_dat$PLD)
+test_pred = mice(trait_dat, 
+                 m =1, method = "rf", 
+                 predictorMatrix = matrix(predMatr), 
+                 blocks = blocks)
+complete(test_pred)
