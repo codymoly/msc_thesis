@@ -13,6 +13,10 @@ setwd("~/projects/msc_thesis")
 # read RLS dataset
 rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
 
+# remove redundant animals
+rls_2021_2022 = rls_2021_2022 %>% 
+  dplyr::filter(rls_2021_2022$class == "Actinopterygii" | rls_2021_2022$class == "Elasmobranchii")
+
 # data exploration
 # n_distinct(rls_2021_2022$survey_id) # 1276, identifier for each survey, note that we don't differ between depths
 # n_distinct(rls_2021_2022$site_code) # 475, identifier for each location
@@ -29,7 +33,7 @@ rmBrackets = function(spname){
 rls_2021_2022["species_name"] <- lapply(rls_2021_2022["species_name"], rmBrackets)
 
 # subset data 
-rls_sub = rls_2021_2022 %>%
+rls_sub = rls_2021_2022 %>% 
   select(
     latitude, longitude, survey_date, 
     class, order, family, species_name, 

@@ -1,7 +1,6 @@
 # COMBINE DATA FROM RLS (ABUNDANCE), LUIZ ET AL. (PLD), AND BARNECHE ET AL. (EGGSIZE)
 ######### test script
 # read libs
-#library(rfishbase)
 library(tidyverse)
 
 # clean memory
@@ -15,7 +14,7 @@ setwd("~/Documents/MSc_thesis")
 rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
 pld_raw = read_delim("/media/mari/Crucial X8/pld_luiz.csv", delim = ",")
 pld_alz_raw = read_delim("/media/mari/Crucial X8/Alzateetal_2018_EE_data_final.csv", delim = ",")
-fb_raw = read_delim("/media/mari/Crucial X8/fishbase_bodysize_ed.csv", delim = ",")
+fb_raw = read_delim("/media/mari/Crucial X8/fishbase_bodysize.csv", delim = ",")
 ## from Barneche's GitHub repo
 eggsize_raw = read.csv("https://raw.githubusercontent.com/dbarneche/fishEggSize/master/data/fishEggsMSData.csv")
 
@@ -55,7 +54,7 @@ pld_alz_subset$nocturnal = gsub('no', 'NO', pld_alz_subset$nocturnal)
 
 # FISHBASE DATA
 fb_bodysize = fb_raw %>%
-  select(-c("entry")) %>% 
+  #select(-c("entry")) %>% 
   separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left") %>% 
   rename(BodySize = Length) %>% 
   rename(ref_bodysize = Ref_bodysize)
@@ -150,9 +149,9 @@ final_trait_data <- data.frame(lapply(final_trait_data, function(x) if(is.numeri
 
 # subset data with unique species
 unique_species = final_trait_data %>% 
-  select(-c("ID", "latitude", "longitude", "survey_date", "class", "order", "biomass_mean", "size_class_mean", "total_mean")) %>% 
+  select(-c("ID", "latitude", "longitude", "survey_date", "order", "biomass_mean", "size_class_mean", "total_mean")) %>% 
   distinct(genus, species, .keep_all = TRUE) %>% 
-  arrange(family, genus, species)
+  arrange(class, family, genus, species)
 
 # write data
 ## full dataset with traits and survey sites

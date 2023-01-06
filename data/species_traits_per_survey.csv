@@ -1,10 +1,10 @@
 "ID","latitude","longitude","survey_date","class","order","family","genus","species","biomass_mean","size_class_mean","total_mean","bodySize","PLD","rangeSize","depthRange","eggsize_mean","egg","spawningMode","schooler","nocturnal","ref_bodysize","ref_pld","ref_eggsize"
 "S1",-43.5,147,2022-08-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","fucicola",72.4,15,1,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S1",-43.5,147,2022-08-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",129.5,18,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S1",-43.5,147,2022-08-28,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",65.5,15,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S1",-43.5,147,2022-08-28,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",65.5,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S2",-43.5,147,2022-09-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","fucicola",122.7,17.5,1,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S2",-43.5,147,2022-09-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",177.4,20.5,1.2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S2",-43.5,147,2022-09-07,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",14.2,8.8,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S2",-43.5,147,2022-09-07,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",14.2,8.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S3",-43.5,147,2022-05-24,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",410.8,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S3",-43.5,147,2022-05-24,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","spectabilis",760.2,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S3",-43.5,147,2022-05-24,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",278.4,22.7,1.5,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -79,7 +79,7 @@
 "S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Labridae","Notolabrus","fucicola",531.4,30.9,1.4,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",670.1,26.9,2.7,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",117.8,17.5,1.2,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",65.5,15,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",65.5,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S14",-43.3,147.2,2021-03-22,"Actinopterygii","Gadiformes","Moridae","Pseudophycis","bachus",883.2,50,1,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S14",-43.3,147.2,2021-03-22,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",3412.4,7.5,482.1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S15",-43.3,147.2,2022-03-04,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","spilomelanurus",5.5,5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -108,7 +108,7 @@
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Labridae","Notolabrus","fucicola",254.9,25,1,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",267.3,21.8,1.7,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",121.5,15.2,1.7,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",38.3,12.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",38.3,12.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",37.1,12.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",618.6,6.6,94.1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S16",-43.3,147.2,2021-03-27,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",314.7,25,1,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
@@ -145,7 +145,6 @@
 "S18",-43.3,147.1,2021-03-27,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",616.4,6.4,96.2,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",410.8,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Aplodactylidae","Aplodactylus","arctidens",552.3,40,1,65,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S19",-43.3,147.1,2022-03-04,"Mammalia","Carnivora","Otariidae","Arctocephalus","pusillus",NA,150,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Serranidae","Caesioperca","rasor",420.1,10.9,4.6,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Elasmobranchii","Carcharhiniformes","Scyliorhinidae","Cephaloscyllium","laticeps",1036.6,75,1,150,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Anguilliformes","Congridae","Conger","verreauxi",136.7,50,1,200,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -162,7 +161,7 @@
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",531.7,40,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",42,11.2,1,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",60.7,11.7,1.3,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",45.1,13.1,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",45.1,13.1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Gadiformes","Moridae","Pseudophycis","barbata",173.9,25,1,63,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",37.1,12.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S19",-43.3,147.1,2022-03-04,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",546.8,6,192.1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -177,7 +176,7 @@
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",90.1,16.1,1.2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",211.1,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",187.3,23.3,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",63.1,12.5,1.3,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",63.1,12.5,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",37.1,12.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",757.2,6.2,132.5,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S20",-43.1,147.9,2021-01-09,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","vlamingii",204.1,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -190,14 +189,14 @@
 "S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",166.6,17.3,1.6,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",85,12.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",81.2,15.8,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",116.3,14.8,1.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",116.3,14.8,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S21",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",634.8,5.8,146.1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Dinolestidae","Dinolestes","lewini",95.3,20,1,84,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","australis",85.2,12.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",11.2,7.5,1.3,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Labridae","Notolabrus","fucicola",133.7,15.3,1.6,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",267.2,20.8,1.3,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",37.7,10.4,1.2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",37.7,10.4,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S22",-43.1,148,2022-05-04,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",183.1,9,12.4,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",392.1,15,3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Serranidae","Caesioperca","lepidoptera",46.7,5.8,3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -208,7 +207,7 @@
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",87.2,17.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",1032.6,50,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",17.2,7.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",33.1,11.2,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",33.1,11.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S23",-43.1,148,2022-03-31,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",82.6,5.8,20.3,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",415.9,20.8,2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","spectabilis",760.2,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -218,7 +217,7 @@
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",359.2,22.9,1.6,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",305.7,30,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Carangidae","Pseudocaranx","georgianus",92.4,5,40,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",184.4,20,1.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",184.4,20,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",18.4,10,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S24",-43.1,148,2021-01-08,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",850,11.7,32.9,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S25",-43.1,148,2022-03-31,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",76.3,8.8,3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -248,7 +247,7 @@
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",442.4,23.3,2.3,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Pentacerotidae","Pentaceropsis","recurvirostris",653.1,40,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",162.6,17.8,1.4,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",82.9,14.5,1.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",82.9,14.5,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Gadiformes","Moridae","Pseudophycis","bachus",96.5,17.5,1.2,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",27.7,10,1.5,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S27",-43.1,147.3,2021-02-24,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",830.8,7.7,86.1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -332,7 +331,7 @@
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",119.8,13.3,1.8,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Pentacerotidae","Pentaceropsis","recurvirostris",371.7,30,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",127.8,18.9,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",211.1,25,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",211.1,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Gadiformes","Moridae","Pseudophycis","bachus",400.2,37.5,1,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",2.6,5,1,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S33",-43,147.3,2021-03-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",163.1,8.6,14.3,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -442,7 +441,6 @@
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",65.5,15,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",432.9,30,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",86.1,10.8,4,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S43",-42.6,148,2021-03-16,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",5.6,6.2,1,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","caudimaculatus",503.3,8.6,53.9,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S43",-42.6,148,2021-03-16,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","vlamingii",155,18.8,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -613,7 +611,7 @@
 "S53",-41.9,148.3,2021-04-22,"Elasmobranchii","Orectolobiformes","Parascylliidae","Parascyllium","ferrugineum",1682.2,87.5,1,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S53",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",4.8,5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S53",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",65.5,15,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S53",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",20.5,8.8,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S53",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",20.5,8.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",303.2,12.8,2.1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Aplodactylidae","Aplodactylus","arctidens",251.7,27.5,1,65,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S54",-41.9,148.3,2021-04-22,"Elasmobranchii","Carcharhiniformes","Scyliorhinidae","Cephaloscyllium","laticeps",2567.6,100,1,150,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -629,7 +627,7 @@
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",163.4,20,1,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Pentacerotidae","Pentaceropsis","recurvirostris",515,35,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",211.1,25,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",139.9,20,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",139.9,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",59,13.3,1.3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S54",-41.9,148.3,2021-04-22,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",139.9,20,1,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S55",-41.9,148.3,2021-04-21,"Actinopterygii","Tetraodontiformes","Monacanthidae","Acanthaluteres","vittiger",114.4,9.8,2.6,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -680,7 +678,7 @@
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",18.8,6.7,4.3,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Pentacerotidae","Pentaceropsis","recurvirostris",1408.6,45,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",223,19.2,1.7,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",82.2,13.8,1.5,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",82.2,13.8,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",717.2,35,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",44.9,11.4,1.7,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S57",-41.9,148.3,2021-04-21,"Actinopterygii","Perciformes","Carangidae","Trachurus","declivis",70801.6,33.6,228.6,64,NA,NA,NA,1,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
@@ -877,7 +875,6 @@
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",93.9,13.2,2.7,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",38,10,2.2,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",133.5,16.9,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S72",-38.3,144.7,2022-02-12,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,35,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",81.8,2.5,200,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",10.5,7.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S72",-38.3,144.7,2022-02-12,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","vlamingii",94.9,17.5,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1105,7 +1102,7 @@
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",182.2,18.8,2.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",281.6,11.6,2.9,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",104.1,17.5,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",115,12.5,3,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","rubicundus",115,12.5,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",1332.1,12.1,30.3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Tetractenos","glaber",101.9,15,1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S83",-37.5,150,2021-04-22,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",11299.4,13.1,150,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
@@ -1122,7 +1119,7 @@
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",566.1,22.5,1.5,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",762.8,23,1.8,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S84",-35.8,138.1,2021-02-22,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",222.8,26.7,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S84",-35.8,138.1,2021-02-22,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",222.8,26.7,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",277.3,20.2,2.1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",477.7,30.8,1.4,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S84",-35.8,138.1,2021-02-22,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",659.8,36.7,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1206,7 +1203,7 @@
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",465.5,25,1,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",621.8,16.4,3.1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",32.2,11.7,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",87.2,17.5,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",87.2,17.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",130.2,15.8,1.6,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",415.2,31.5,1.2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S88",-35.7,137.9,2021-02-23,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",413.4,7.5,55,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1231,7 +1228,7 @@
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",758,30,1.2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",431.8,15,3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",582.8,15.9,3.4,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",41.1,13.8,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",41.1,13.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",307.6,19.3,2.9,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",431.1,27.5,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S89",-35.7,138,2021-02-23,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",206.3,16.1,1.1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1303,7 +1300,7 @@
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",58.3,10.8,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",144.2,14.2,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",99,11.4,1.1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S92",-35.6,138.1,2021-02-24,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",190.8,25,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S92",-35.6,138.1,2021-02-24,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",190.8,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",74.5,13.8,2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",370.8,23.8,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S92",-35.6,138.1,2021-02-24,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",53.9,10,1.3,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1318,7 +1315,7 @@
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Enoplosidae","Enoplosus","armatus",195,15.6,1.8,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",65.5,15,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",143.9,15,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",139.9,20.6,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",139.9,20.6,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",119.4,16.2,1.6,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",419.4,30,1.2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",580.1,17.5,2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1326,7 +1323,6 @@
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",246.3,22.5,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",228.9,16.7,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",98.5,15,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S93",-35.6,138.1,2022-02-11,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S93",-35.6,138.1,2022-02-11,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",24.7,6.7,6.2,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Chaetodontidae","Chelmonops","curiosus",44.9,10,1,26,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Cheilodactylidae","Dactylophora","nigricans",1126.7,45,1,120,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1336,7 +1332,7 @@
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1141.3,26.7,1.7,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",322.8,17.5,1.4,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthidae","spp.",146.9,15,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",31.3,9.6,2.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",31.3,9.6,2.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",48.8,11.5,1.9,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Omegophora","armilla",101.9,15,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S94",-35.5,138.1,2021-01-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",42.3,10,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1372,7 +1368,7 @@
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Kyphosidae","Girella","zebra",195.7,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",102.7,17.5,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",235.9,17.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",211.6,19.2,1.7,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",211.6,19.2,1.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",167.9,16.7,2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",24.3,10.8,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S96",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",112.3,12.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1391,7 +1387,7 @@
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Labridae","Dotalabrus","aurantiacus",33.9,10,1.4,11.1,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",193.8,16.2,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",223.2,17.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",197.4,21.4,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",197.4,21.4,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",270.5,19.8,2.4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",241,30,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S97",-35.5,138.2,2022-02-11,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",243.5,17.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1414,7 +1410,7 @@
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2698.9,35,3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",65,11.2,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",99.3,11.9,1.2,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",54.7,12.8,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",54.7,12.8,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",61.2,12.5,1.6,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",531.7,40,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S98",-35.5,138.2,2021-01-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",105.9,12.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1435,7 +1431,7 @@
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1528.6,40,1.3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",94.4,12.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",253.4,13.2,2.2,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",85.5,16.4,1.2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",85.5,16.4,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",207.9,20.1,1.7,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",234.5,30,0.8,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S99",-35.5,138.2,2021-03-10,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",109.6,20,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1455,8 +1451,7 @@
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",65.5,15,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",644.9,30,1,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",452.4,25,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S100",-35.5,138.2,2022-01-30,"Mammalia","Carnivora","Otariidae","Neophoca","cinerea",NA,175,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",20.3,10,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",20.3,10,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",162.8,16,2.4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",499.4,30.7,1.3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S100",-35.5,138.2,2022-01-30,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",284.3,15.6,1.2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1479,7 +1474,7 @@
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",196.8,16.7,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",422.4,17.5,1.8,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",102.7,17.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",109.7,16.2,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",109.7,16.2,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",189.7,18.3,1.9,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",200.9,24.3,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",241,30,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1487,7 +1482,6 @@
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",162.7,15.4,2.1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",331.2,23.3,1.3,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",213,19.3,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S101",-35.5,138.2,2022-02-12,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",68.6,3.3,35.3,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",11.3,6.9,1.5,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S101",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",220.8,18.1,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1504,7 +1498,7 @@
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",210.5,14,1.6,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",114.6,13.8,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",227.5,14.2,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S102",-35.5,138.2,2021-03-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",55.9,13.8,1.2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S102",-35.5,138.2,2021-03-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",55.9,13.8,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",154.9,17.4,2.1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",467.2,30,1.4,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S102",-35.5,138.2,2021-03-23,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",51,15,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1524,13 +1518,12 @@
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Enoplosidae","Enoplosus","armatus",44.9,12.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Kyphosidae","Girella","zebra",89.7,15,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",151.8,12.9,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",91.5,15,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",91.5,15,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",311.1,17.6,4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",480.7,20,1.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",175.5,18.1,1.8,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",290.9,20.2,1.7,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",266.3,16.7,2.8,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S103",-35.5,138.2,2021-12-12,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,13.3,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",154.9,16.7,1.3,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",107.3,8,13.8,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S103",-35.5,138.2,2021-12-12,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","vlamingii",77.1,13.8,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1546,7 +1539,7 @@
 "S104",-35.5,138.2,2022-02-14,"Elasmobranchii","Torpediniformes","Hypnidae","Hypnos","monopterygius",1916,62.5,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1516.6,22.5,4.5,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S104",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",455.6,16,3,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",188.1,18,2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",188.1,18,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",213.1,17.2,2.4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",131,15,2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S104",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",515.2,19.7,1.6,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1571,7 +1564,7 @@
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",719.7,15,5,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",306.2,13.8,3.2,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",38.3,12.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",54.8,13.3,1.3,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",54.8,13.3,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",55.6,11.2,1.5,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",335.8,30,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S105",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",768.6,40,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1604,7 +1597,7 @@
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",65,11.2,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",1584.2,17.5,5.5,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",196.8,16.7,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",121.5,20,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",121.5,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",87.2,17.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",189.8,20.8,1.2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Omegophora","armilla",101.9,15,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1616,7 +1609,6 @@
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",164.6,16.9,1.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",52.1,10,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",734.6,15,8.2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S106",-35.5,138.2,2022-02-14,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",71.6,2.5,175,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",75.4,7.9,7.8,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S106",-35.5,138.2,2022-02-14,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",83,13.1,1.2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1643,7 +1635,6 @@
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",90.3,16.7,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",263.2,23.3,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",351.8,20,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S107",-35.5,138.2,2021-03-20,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,30,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",370.1,3.8,110,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",60.6,7.8,5.3,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S107",-35.5,138.2,2021-03-20,"Actinopterygii","Perciformes","Sphyraenidae","Sphyraena","novaehollandiae",270.2,46,1,100,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1661,7 +1652,7 @@
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",259.2,16.2,1.2,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",414.8,17.8,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",38.3,12.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S108",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",52.8,15,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S108",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",52.8,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",125.1,18.3,1.5,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",423.2,28,1.3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S108",-35.5,138.2,2022-02-12,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Omegophora","armilla",46.7,11.2,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1693,7 +1684,7 @@
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",575.2,20,1.8,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",377.4,22.5,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",106.8,12.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S109",-35.4,138.3,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",334.3,28.8,1.2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S109",-35.4,138.3,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",334.3,28.8,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",358.6,32.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",523,33.3,1.3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S109",-35.4,138.3,2021-03-10,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",225.5,7.5,30,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1719,7 +1710,7 @@
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",302.4,20,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",170.4,12.5,2,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",254.7,14.8,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S110",-35.4,138.3,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",176.3,22.1,1.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S110",-35.4,138.3,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",176.3,22.1,1.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",198.4,22.5,1.3,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",180.5,15.6,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S110",-35.4,138.3,2021-03-12,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",53.9,5,20,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1744,7 +1735,7 @@
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",398.4,18.3,1.7,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",215.9,15,1.5,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",304.7,15.7,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S111",-35.4,138.3,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",224.9,20,2.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S111",-35.4,138.3,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",224.9,20,2.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",337.4,25,1.4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",531.7,40,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S111",-35.4,138.3,2021-03-21,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",241,30,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1766,7 +1757,7 @@
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Eubalichthys","mosaicus",64.8,12.5,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2777.7,35,3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",499.5,20.7,1.4,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",153.7,21.7,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",153.7,21.7,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",64.1,15.6,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",336.7,20,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S112",-35.4,138.3,2021-03-11,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",119,17.5,1.1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1785,7 +1776,7 @@
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Eubalichthys","mosaicus",460,20,2,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",724.9,22.5,2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",450,20.7,1.5,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",197.4,22.8,1.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",197.4,22.8,1.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",176,22.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",531.7,40,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S113",-35.4,138.4,2021-03-11,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",190.6,15.8,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1808,7 +1799,7 @@
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Serranidae","Hypoplectrodes","nigroruber",90.3,15,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",5644.6,37.5,6,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",94.4,12.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",151.8,21.8,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",151.8,21.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",169.7,22.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",5.4,5,2,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S114",-35.4,138.4,2021-03-12,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",121.5,17,1.4,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1830,7 +1821,7 @@
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",65.5,15,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1799.3,35,2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",143.9,15,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",102.3,18.1,1.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",102.3,18.1,1.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",64.1,15.6,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",363.4,32.5,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S115",-35.4,138.4,2021-03-21,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",128.5,14.2,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1873,7 +1864,7 @@
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",177.2,15.8,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",452.4,25,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",528.6,24.3,1.3,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S117",-35.3,138.4,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",169.3,22.5,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S117",-35.3,138.4,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",169.3,22.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",360.2,26.9,1.4,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",447.5,36.2,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S117",-35.3,138.4,2021-02-15,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",356.2,17.5,1.8,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1906,7 +1897,7 @@
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",555.9,20.7,1.5,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","valenciennesi",855.8,35,2,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",8.5,7.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",116.2,18.3,1.3,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",116.2,18.3,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",508.4,36.2,1.2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",511.7,29.3,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",165.9,25,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1916,7 +1907,6 @@
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Labridae","Pictilabrus","laticlavius",72.2,15,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",307.4,20.3,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",253,16.3,2.2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S118",-35.3,138.4,2022-02-13,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,5,5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",29.6,3.8,52.5,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",41.2,9.4,2.8,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S118",-35.3,138.4,2022-02-13,"Actinopterygii","Perciformes","Sphyraenidae","Sphyraena","novaehollandiae",239.1,42.5,1,100,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1953,7 +1943,7 @@
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Clinidae","Heteroclinus","spp.",16.6,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",7457.3,37.5,5.5,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",240.9,15.6,1.5,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",137.5,20.8,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",137.5,20.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",114.5,17.8,1.1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Pomacentridae","Parma","victoriae",212.4,16.7,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Pentacerotidae","Pentaceropsis","recurvirostris",313.3,27.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -1963,7 +1953,6 @@
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",99.1,12.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",179.5,16.9,2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","georgiana",278,23.3,1.3,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S120",-35.1,138.5,2021-02-03,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,20,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",42.7,7.5,5,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",67.6,13.8,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S120",-35.1,138.5,2021-02-03,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",389.9,6.5,63.6,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2062,7 +2051,6 @@
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","fuscus",25.1,9.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",38.3,12.5,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",35.9,10,1.5,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S123",-35.1,150.7,2022-02-12,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,0,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",70.9,13.8,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",23.6,7.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S123",-35.1,150.7,2022-02-12,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",89.1,13.3,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2100,7 +2088,6 @@
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",526.2,25,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",781,23.8,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",34.4,8.8,3.5,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S124",-35.1,150.7,2021-04-11,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,62.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Perciformes","Sillaginidae","Sillago","ciliata",44.9,15,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",140.9,8.8,9.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S124",-35.1,150.7,2021-04-11,"Actinopterygii","Perciformes","Carangidae","Trachurus","declivis",1763.3,20,16,64,NA,NA,NA,1,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
@@ -2419,7 +2406,6 @@
 "S132",-35.1,150.7,2021-04-10,"Actinopterygii","Perciformes","Blenniidae","Plagiotremus","tapeinosoma",1,5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S132",-35.1,150.7,2021-04-10,"Actinopterygii","Perciformes","Acanthuridae","Prionurus","microlepidotus",373.3,11.4,2.3,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S132",-35.1,150.7,2021-04-10,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",67.6,9.3,5.3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S132",-35.1,150.7,2021-04-10,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,35,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S132",-35.1,150.7,2021-04-10,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",84.4,8.8,7.9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S132",-35.1,150.7,2021-04-10,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",5943.8,10.8,169.2,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S132",-35.1,150.7,2021-04-10,"Elasmobranchii","Rajiformes","Rhinobatidae","Trygonorrhina","fasciata",589.3,62.5,1,120,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2579,7 +2565,6 @@
 "S136",-35.1,150.8,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",302.4,20,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S136",-35.1,150.8,2022-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","trachylepis",377.4,22.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S136",-35.1,150.8,2022-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",240.8,24.3,1.1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S136",-35.1,150.8,2022-02-14,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,0,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S136",-35.1,150.8,2022-02-14,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",372.3,26.8,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S136",-35.1,150.8,2022-02-14,"Elasmobranchii","Orectolobiformes","Orectolobidae","Orectolobus","halei",27609.2,200,1,256,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S136",-35.1,150.8,2022-02-14,"Elasmobranchii","Orectolobiformes","Orectolobidae","Orectolobus","maculatus",22790.2,200,1,320,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2634,7 +2619,6 @@
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Labridae","Austrolabrus","maculatus",2.6,5,1,12.6,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","fuscus",379.7,24.1,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Chaetodontidae","Chelmonops","truncatus",646,20,2,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S138",-35.1,150.8,2021-04-10,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,62.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Chironemidae","Chironemus","marmoratus",88.8,13.8,2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Sparidae","Chrysophrys","auratus",154.8,16.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Labridae","Coris","picta",49,13.8,1,25,46.2,3148,22,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -2666,7 +2650,6 @@
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",913.6,17.5,6,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",721.4,10.4,9.9,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",7.5,7.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S138",-35.1,150.8,2021-04-10,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",3.7,5,1,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",205.9,8.7,19.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S138",-35.1,150.8,2021-04-10,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",13632.1,13.8,141.5,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
@@ -2732,7 +2715,6 @@
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","douglasii",64.2,15,1,81,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Gobiidae","Nesogobius","spp.",2.3,5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",37.8,11.6,1.2,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S140",-35.1,150.8,2022-02-13,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,32.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",143.6,18.9,1.2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",195.7,15.6,2.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S140",-35.1,150.8,2022-02-13,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",105.3,10.4,1.9,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2752,7 +2734,6 @@
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",540.3,20,2,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Perciformes","Labridae","Achoerodus","viridis",1308.3,46.7,1.1,62,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Perciformes","Aplodactylidae","Aplodactylus","lophodon",746.1,26.7,3.2,45,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S141",-35,150.8,2021-04-09,"Mammalia","Carnivora","Otariidae","Arctocephalus","pusillus",NA,168.8,2.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Perciformes","Kyphosidae","Atypichthys","strigatus",1152.2,9.3,13.5,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Canthigaster","callisterna",173.6,14.2,1.3,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S141",-35,150.8,2021-04-09,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","auriga",0.9,2.5,1,23,44.3,21500,34,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -2805,7 +2786,7 @@
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",370.3,22,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",452.4,25,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",231.4,26.7,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",231.4,26.7,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Labridae","Notolabrus","tetricus",406.5,35,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Omegophora","armilla",101.9,15,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",12.2,8.8,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2816,7 +2797,6 @@
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Pempheridae","Pempheris","multiradiata",199.8,11.8,4,28,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Pempheridae","Pempheris","ornata",6.9,3.8,3,7.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Cheilodactylidae","Pseudogoniistius","nigripes",360,21.8,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S142",-35,138.5,2021-02-15,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",8.5,7.5,1,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",85.9,15,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S142",-35,138.5,2021-02-15,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",1548.5,5.4,586.7,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2913,7 +2893,7 @@
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Tetraodontiformes","Monacanthidae","Eubalichthys","mosaicus",109.5,15,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",170.4,12.5,2,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","freycineti",397.5,15.8,2.7,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S145",-35,138.5,2022-04-05,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",190.8,25,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S145",-35,138.5,2022-04-05,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",190.8,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",23.6,8.7,1.8,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","ramsayi",14,7.5,2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S145",-35,138.5,2022-04-05,"Actinopterygii","Perciformes","Gerreidae","Parequula","melbournensis",23.9,9.3,1.3,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -2930,7 +2910,6 @@
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Cheilodactylidae","Dactylophora","nigricans",760.2,40,1,120,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Odacidae","Neoodax","balteatus",38.3,12.5,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",1,2.5,4,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S146",-34.9,138.4,2021-03-01,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,12.5,25,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Apogonidae","Siphamia","cephalotes",12.7,2.9,28.7,5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",42.7,7.5,5,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S146",-34.9,138.4,2021-03-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",3.2,3.8,5.8,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3163,8 +3142,6 @@
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Carangidae","Pseudocaranx","georgianus",384,25.5,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",56.5,14.2,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",309,10,5.8,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S157",-33.8,151.3,2021-03-07,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S157",-33.8,151.3,2021-03-07,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,13.8,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Labridae","Stethojulis","interrupta",0.3,2.5,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",107.8,6.4,20.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S157",-33.8,151.3,2021-03-07,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",86.3,12.9,1.2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3427,7 +3404,6 @@
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",3157.4,15,20,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",56.2,10,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",277.7,11.3,6.8,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S166",-33.8,151.3,2021-03-13,"Cephalopoda","Teuthoidea","Loliginidae","Sepioteuthis","australis",NA,25,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Aulopiformes","Synodontidae","Synodus","variegatus",127.8,20,1,28,42,21500,118,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Perciformes","Labridae","Thalassoma","lunare",10.6,7.5,1,45,50.1,20600,19,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S166",-33.8,151.3,2021-03-13,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",1014.6,7.5,129.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -3556,7 +3532,6 @@
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",65.5,15,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",1235.9,12.2,11.2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",90.9,12.5,2,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S170",-33.8,151.3,2022-05-07,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Perciformes","Pomacentridae","Stegastes","gascoynei",44.4,10,1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Perciformes","Labridae","Stethojulis","interrupta",22.1,10,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S170",-33.8,151.3,2022-05-07,"Actinopterygii","Aulopiformes","Synodontidae","Synodus","variegatus",127.8,20,1,28,42,21500,118,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -3795,7 +3770,7 @@
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",650.1,30,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",682.4,11.2,8,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","valenciennesi",316,30,1,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",276.4,23.4,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",276.4,23.4,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",299.6,20.6,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Apogonidae","Ostorhinchus","rueppellii",NA,5,21,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",175.3,25,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3808,7 +3783,6 @@
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Carangidae","Pseudocaranx","georgianus",107.3,17.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","biserialis",149.8,14.8,2.5,17.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","sumptuosa",1455.1,25,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S178",-33.6,115.2,2022-04-03,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Carangidae","Seriola","lalandi",403.6,35,1,250,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",1117.6,5,696.8,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S178",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","vlamingii",24.1,10,1.3,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3841,7 +3815,7 @@
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",896.9,23.3,2,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",860.2,10.5,11.4,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Gobiidae","Nesogobius","spp.",0.3,2.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",262.6,20.5,1.8,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",262.6,20.5,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",152,16.4,1.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",2964.4,62.5,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",7,7.5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3859,8 +3833,6 @@
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",1418.8,25,4.5,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","sumptuosa",1103.3,25,1.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","aequipinnis",478.1,35,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S179",-33.6,115.2,2022-04-03,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S179",-33.6,115.2,2022-04-03,"Cephalopoda","Sepioidea","Sepiidae","Sepia","spp.",NA,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Sillaginidae","Sillaginodes","punctatus",5005.4,30,30,72,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",584.6,35,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S179",-33.6,115.2,2022-04-03,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","brauni",59.9,4.2,45,8,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3889,7 +3861,7 @@
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",650.1,30,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",60.9,8.5,2.2,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","valenciennesi",463,30,1.5,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",234.5,24.7,1.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",234.5,24.7,1.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Omegophora","cyanopunctata",36,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",291.7,22.9,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",74.4,17,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3904,8 +3876,6 @@
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","biserialis",767.1,16.4,8.6,17.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Tetraodontiformes","Monacanthidae","Scobinichthys","granulatus",351.8,20,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","sumptuosa",794.9,25,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S180",-33.6,115.2,2022-04-01,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,30,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S180",-33.6,115.2,2022-04-01,"Cephalopoda","Sepioidea","Sepiidae","Sepia","spp.",NA,35,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","brauni",266.6,4.2,147.3,8,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S180",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",675,5,308.3,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Tetraodontiformes","Ostraciidae","Anoplocapros","lenticularis",179,15,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3930,7 +3900,7 @@
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",500.8,20,1.5,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",109.3,9.4,2.8,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","valenciennesi",748,42.5,1,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",179.7,21.5,1.2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",179.7,21.5,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",342.4,21.9,2.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",4.5,6.2,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",1524.8,21,6.8,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3944,7 +3914,6 @@
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Carangidae","Pseudocaranx","wrighti",276.7,25,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","biserialis",209.4,15,3,17.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","sumptuosa",1002.1,20,2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S181",-33.6,115.2,2022-04-01,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Odacidae","Siphonognathus","beddomei",170.9,7.5,20,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","brauni",27.5,5,14,8,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S181",-33.6,115.2,2022-04-01,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","noarlungae",1246,6.8,570.7,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3972,7 +3941,7 @@
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",650.1,30,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthus","chinensis",299.3,30,1,38,20,8957,9,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",123.8,9.2,3.5,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",243,23.6,1.3,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",243,23.6,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Apogonidae","Ostorhinchus","rueppellii",NA,5.4,21.8,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",196.1,20,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",5.4,6.2,1.5,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -3991,7 +3960,6 @@
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","biserialis",235.7,14.5,4.5,17.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",4159.4,20,20,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","sumptuosa",1725.6,35,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S182",-33.6,115.2,2022-04-02,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,17.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Carangidae","Seriola","hippos",1658.5,62.5,1,150,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Sillaginidae","Sillaginodes","punctatus",32235.1,37.5,57.5,72,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S182",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","brauni",41,5.5,16.2,8,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4019,7 +3987,7 @@
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",613.4,22.5,1.5,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",595.3,9.1,12.2,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Cheilodactylidae","Nemadactylus","valenciennesi",607.5,38.3,1,90,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",245.4,22.5,1.6,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",245.4,22.5,1.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",128.9,15.6,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",24.6,10,1.5,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S183",-33.6,115.2,2022-04-02,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",301.5,26.7,1.7,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4259,7 +4227,6 @@
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","trachylepis",NA,11,2.1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthus","chinensis",82.7,13,1.3,38,20,8957,9,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",96.1,16.1,1.4,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S191",-32.7,152.1,2021-05-16,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,30,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",29.4,10.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Labridae","Oxycheilinus","bimaculatus",10,7.5,1,15,50.5,19580,108,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","nebulosa",26.2,11.2,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4268,8 +4235,6 @@
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",59.2,13,1.4,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Pleuronectiformes","Paralichthyidae","Pseudorhombus","jenynsii",247.6,30,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",112.3,12.5,2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S191",-32.7,152.1,2021-05-16,"Cephalopoda","Sepioidea","Sepiidae","Sepia","mestus",NA,8.8,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S191",-32.7,152.1,2021-05-16,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,11.2,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S191",-32.7,152.1,2021-05-16,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","testacea",193.4,25,1,47,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S191",-32.7,152.1,2021-05-16,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",32.7,11.1,1.3,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Sparidae","Acanthopagrus","australis",270.6,15,3.5,66,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4290,7 +4255,6 @@
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","ramsayi",140.9,20,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",92.3,15,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",38.3,12.5,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S192",-32.7,152.1,2022-05-06,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",126.1,12.5,2,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S192",-32.7,152.1,2022-05-06,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","testacea",480,40,1,47,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S192",-32.7,152.1,2022-05-06,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",35.1,10.8,1.3,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4359,7 +4323,6 @@
 "S194",-32.7,152.2,2021-07-10,"Actinopterygii","Perciformes","Pomacentridae","Parma","unifasciata",63.6,11.2,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S194",-32.7,152.2,2021-07-10,"Actinopterygii","Perciformes","Acanthuridae","Prionurus","microlepidotus",97.1,7.5,2,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S194",-32.7,152.2,2021-07-10,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",60.4,11.1,1.7,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S194",-32.7,152.2,2021-07-10,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,15,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Tetraodontiformes","Ostraciidae","Anoplocapros","inermis",179,15,1,37,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Kyphosidae","Atypichthys","strigatus",369.2,8.8,13.8,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Labridae","Austrolabrus","maculatus",52,7.5,4,12.6,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4368,7 +4331,6 @@
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Labridae","Cheilio","inermis",52.2,20,1,50,56.1,23400,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","fuscus",505.1,15.8,4.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","vestitus",155.6,16.7,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S195",-32.7,152.2,2021-02-13,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,75,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Sparidae","Chrysophrys","auratus",312.8,15,2.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Tetraodontiformes","Diodontidae","Dicotylichthys","punctulatus",538.5,18.3,1.3,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Dinolestidae","Dinolestes","lewini",5957.7,20,62.5,84,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4391,7 +4353,6 @@
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Acanthuridae","Prionurus","microlepidotus",33.8,5.8,1.3,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",6984.9,12.5,75,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","cardinalis",504.4,20,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S195",-32.7,152.2,2021-02-13,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,12.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S195",-32.7,152.2,2021-02-13,"Actinopterygii","Perciformes","Sillaginidae","Sillago","robusta",100.4,20,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","testacea",275.5,30,1,47,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S195",-32.7,152.2,2021-02-13,"Elasmobranchii","Rajiformes","Rhinobatidae","Trygonorrhina","fasciata",589.3,62.5,1,120,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4409,7 +4370,6 @@
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","fuscus",1530.1,22.1,7.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","vestitus",142.9,15.8,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Chaetodontidae","Chelmonops","truncatus",646,20,2,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S196",-32.7,152.2,2021-05-14,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,75,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Chironemidae","Chironemus","marmoratus",129.3,20,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Labridae","Choerodon","cephalotes",2277.6,50,1,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Pomacentridae","Chromis","hypsilepis",769.6,11.2,5.5,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4448,7 +4408,6 @@
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",7387.4,12.5,92.5,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",1204.6,30,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaenodes","evides",9.7,6.2,1,10.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S196",-32.7,152.2,2021-05-14,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,12.5,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Carangidae","Seriola","lalandi",8505.4,68.8,4,250,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Perciformes","Labridae","Thalassoma","lunare",17.3,8.8,1,45,50.1,20600,19,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S196",-32.7,152.2,2021-05-14,"Actinopterygii","Scorpaeniformes","Platycephalidae","Thysanophrys","cirronasa",357.2,35,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -4550,7 +4509,6 @@
 "S198",-32.7,152.2,2021-07-09,"Actinopterygii","Perciformes","Acanthuridae","Prionurus","microlepidotus",57.3,6.2,1.5,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S198",-32.7,152.2,2021-07-09,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",41.8,11.5,1.2,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S198",-32.7,152.2,2021-07-09,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",1520.5,20,7,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S198",-32.7,152.2,2021-07-09,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,12.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S198",-32.7,152.2,2021-07-09,"Actinopterygii","Perciformes","Labridae","Stethojulis","interrupta",22.1,10,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S198",-32.7,152.2,2021-07-09,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","imitata",268.6,30,1,68.9,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S198",-32.7,152.2,2021-07-09,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","testacea",375.8,35,1,47,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4724,7 +4682,6 @@
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",10917.9,30,22.5,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","scalaripinnis",14344.2,12.5,155,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",1164.4,26.8,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S202",-32.7,152.2,2022-05-08,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Sillaginidae","Sillago","ciliata",194.3,23.3,1.3,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",33.4,7.5,3.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S202",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",58.4,15,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4834,7 +4791,6 @@
 "S205",-32.7,152.2,2021-03-28,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",104.8,11.8,3.1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S205",-32.7,152.2,2021-03-28,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",511.9,19.2,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S205",-32.7,152.2,2021-03-28,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",7.5,7.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S205",-32.7,152.2,2021-03-28,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,5.8,1.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S205",-32.7,152.2,2021-03-28,"Actinopterygii","Perciformes","Carangidae","Trachurus","novaezelandiae",2298.1,7.5,150,50,NA,NA,NA,0.8,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S205",-32.7,152.2,2021-03-28,"Elasmobranchii","Myliobatiformes","Urolophidae","Trygonoptera","testacea",135.5,15.8,2.7,47,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S205",-32.7,152.2,2021-03-28,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",43.5,9.6,2.7,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4952,7 +4908,6 @@
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","trachylepis",195.3,13.8,1.8,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthus","chinensis",155.5,17.9,1.3,38,20,8957,9,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",121.2,15.5,1.7,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S208",-32.7,152.2,2021-05-16,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,40,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",15.2,8.3,1.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Oxycheilinus","bimaculatus",42.6,12.5,1,15,50.5,19580,108,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Pomacentridae","Parma","microlepis",41.6,8.8,1.2,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -4966,7 +4921,6 @@
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Pseudolabrus","guentheri",89.1,16.2,1,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",630.6,25,2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",1260.2,30,1,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S208",-32.7,152.2,2021-05-16,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,9.5,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Stethojulis","interrupta",44.1,10,2,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Labridae","Thalassoma","lunare",21.3,7.5,2,45,50.1,20600,19,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S208",-32.7,152.2,2021-05-16,"Actinopterygii","Perciformes","Mullidae","Upeneichthys","lineatus",24.6,11.2,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5150,7 +5104,6 @@
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaena","jacksoniensis",1848.3,24,2.4,33.7,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Scorpaeniformes","Scorpaenidae","Scorpaenodes","evides",15,7.5,1,10.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",246.3,9.7,14,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S214",-32.7,152.2,2022-05-07,"Cephalopoda","Sepioidea","Sepiidae","Sepia","plangon",NA,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Perciformes","Sillaginidae","Sillago","ciliata",266.2,30,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Perciformes","Labridae","Suezichthys","devisi",65.5,15,1,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S214",-32.7,152.2,2022-05-07,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","taeniatus",30.7,10,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -5178,7 +5131,6 @@
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","trachylepis",143.9,15,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",1053.7,13.8,13.5,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",73.4,15,1.2,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S215",-32.7,152.2,2022-05-08,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",435.1,20.8,2.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","ramsayi",141,20,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S215",-32.7,152.2,2022-05-08,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",48.1,11.2,1.2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5327,7 +5279,6 @@
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","guentheri",16.3,5.5,1.2,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","kleinii",22.4,7.5,1,15,56,21500,57,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","fuscus",203.1,20.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S220",-32.4,152.5,2022-06-24,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,62.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Chironemidae","Chironemus","marmoratus",88.8,13.8,2,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Pomacentridae","Chromis","hypsilepis",979.3,10,25,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S220",-32.4,152.5,2022-06-24,"Actinopterygii","Perciformes","Labridae","Coris","dorsomacula",36.1,10.5,1.6,38,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5403,7 +5354,7 @@
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Enoplosidae","Enoplosus","armatus",9.7,7.5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Labridae","Halichoeres","brownfieldi",27.5,10,1,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1220.3,15.8,5.7,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",60,14.2,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",60,14.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",1.9,5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Gerreidae","Parequula","melbournensis",16.4,8.8,1,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S222",-32.3,115.7,2021-02-27,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",1060.7,19.4,3.2,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5420,7 +5371,7 @@
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Pomacentridae","Chromis","klunzingeri",14.3,7.5,1,6.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Coris","auricularis",118,14,2.8,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",1317.9,25,2.8,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",106.5,14.8,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",106.5,14.8,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",16.1,8,1.2,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",269.4,15.4,1.3,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S223",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",92.5,12.5,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5453,7 +5404,7 @@
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",1763.3,23.9,4,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2228.9,45.5,1.2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",143.9,15,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",114.5,13.5,1.8,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",114.5,13.5,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",211.1,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",9.7,2.5,40,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S224",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",966.8,15.4,3.5,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5482,7 +5433,7 @@
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",601.5,22.5,1.5,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",551.3,27.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",58.5,8.3,2,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",237.5,20.7,1.6,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",237.5,20.7,1.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",240.6,26.2,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",888.8,19.2,2.5,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S225",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",3,5,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5513,7 +5464,7 @@
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1528.6,40,1.3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",85.2,12.5,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",202.5,12.5,2,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",159.7,19.8,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",159.7,19.8,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",229.6,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",18.7,6.9,3.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S226",-32,115.4,2021-05-08,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",7.6,6.2,1.5,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5544,7 +5495,7 @@
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2128.4,38.3,2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Labroides","dimidiatus",7.1,7.5,1,14,23.2,17970,39,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",111.5,10,2.7,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",25,10,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",25,10,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",138.8,20,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",19.9,10,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S227",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",4.8,2.5,20,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5572,7 +5523,7 @@
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",302.4,20,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",650.1,30,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",1624.7,10,35,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",149.1,15.4,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",149.1,15.4,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",243.3,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",229.9,17,13.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S228",-32,115.6,2021-05-09,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",727.4,16.8,2.2,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5601,7 +5552,7 @@
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Halichoeres","brownfieldi",7.2,3.8,5,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",615.1,22.5,2.8,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",86.9,7.5,3,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",153.4,16.6,1.6,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",153.4,16.6,1.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",138.3,20,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",7,7.5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S229",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",748.4,15.6,2.1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5625,7 +5576,7 @@
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Enoplosidae","Enoplosus","armatus",154.9,15,2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Tetraodontiformes","Monacanthidae","Eubalichthys","cyanoura",676.5,35,1,42,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",644.9,30,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",276.3,22.2,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",276.3,22.2,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",476.6,35,1.2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",1.9,5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S230",-32,115.6,2022-06-25,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",1196.7,19.6,3.8,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5662,7 +5613,7 @@
 "S231",-32,115.5,2021-05-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",453,22.5,1.2,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S231",-32,115.5,2021-05-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S231",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",819.2,13.6,7.4,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S231",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",123.8,15,1.8,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S231",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",123.8,15,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S231",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",211.1,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S231",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",183,17.1,9.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S231",-32,115.5,2021-05-10,"Elasmobranchii","Orectolobiformes","Orectolobidae","Orectolobus","spp.",9211.3,150,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -5701,7 +5652,7 @@
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",143.9,15,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",1003.6,37.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",103.2,7.5,5,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",108.3,13.9,1.8,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",108.3,13.9,1.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",382.6,33.3,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",124.4,7.5,9.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S232",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",436.3,30,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5745,7 +5696,7 @@
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",453.2,21.7,1.3,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",143.9,15,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",819.9,26.7,1.7,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S233",-32,115.5,2022-05-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",110.8,16.2,1.7,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S233",-32,115.5,2022-05-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",110.8,16.2,1.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",211.1,25,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",1.9,5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S233",-32,115.5,2022-05-28,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",2,5,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5789,7 +5740,7 @@
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",223.2,17.5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",619.1,25,1.3,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",371.3,10.3,8.5,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",104.6,14,2.3,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",104.6,14,2.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",531.7,40,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",24.5,7.5,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S234",-32,115.5,2021-05-10,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",7,7.5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5818,7 +5769,7 @@
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Serranidae","Epinephelides","armatus",198.6,20,1,56,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",1287.2,33.3,1.3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",102.6,17.5,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",102.6,17.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",19.9,10,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",6.4,6.2,2,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",370.2,13.3,1.9,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5828,7 +5779,7 @@
 "S235",-32,115.5,2021-05-08,"Actinopterygii","Perciformes","Plesiopidae","Trachinops","brauni",2.2,3.8,2,8,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Apogonidae","Apogon","victoriae",19.3,7.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Arripidae","Arripis","georgianus",115,16.2,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S236",-32,115.5,2021-05-07,"Elasmobranchii","Carcharhiniformes","Scyliorhinidae","Aulohalaelurus","labiosus",581.6,62.5,1,67,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S236",-32,115.5,2021-05-07,"Elasmobranchii","Carcharhiniformes","Scyliorhinidae","Aulohalaelurus","labiosus",581.6,62.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Austrolabrus","maculatus",38.7,11.2,1.2,12.6,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","assarius",10,5,1.5,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","gibbosus",195.5,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -5844,7 +5795,7 @@
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",3382.1,29.5,4.8,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2285.8,50,1,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",85.2,12.5,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",100.1,14.2,2,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",100.1,14.2,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",159.1,16.2,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",15,8.2,1.1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S236",-32,115.5,2021-05-07,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",854.4,13.7,2.8,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5880,7 +5831,7 @@
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",452.4,25,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",889.5,35,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S237",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",115.9,14.2,1.5,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S237",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",115.9,14.2,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",501.3,12.5,8,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",5.2,5,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S237",-32,115.6,2021-05-07,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",768.6,40,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5914,7 +5865,7 @@
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",6565.7,41,7.2,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","flavolineata",1300.3,30,2,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",452.4,25,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",67.5,13.6,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",67.5,13.6,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Serranidae","Othos","dentex",1515.6,50,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",424.7,14.4,2.7,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S238",-32,115.6,2022-05-28,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",176.4,15,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5951,7 +5902,7 @@
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",302.4,20,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",476.3,25,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",97.8,8,3.4,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",109,17.3,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",109,17.3,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",110.6,15,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",95.3,17.5,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S239",-32,115.5,2021-05-09,"Actinopterygii","Perciformes","Pempheridae","Parapriacanthus","elongatus",4.2,5,2,14,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -5984,7 +5935,7 @@
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","galii",377.4,22.5,1,34,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",1300.3,30,2,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Kyphosidae","Neatypus","obliquus",20.6,7.5,1,22,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",129.3,19,1.4,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",129.3,19,1.4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",210.6,22,1.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Plesiopidae","Paraplesiops","meleagris",241,30,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S240",-32,115.5,2022-06-25,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",1479.6,16.3,6.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6008,8 +5959,7 @@
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",17.3,8.8,1,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",722.5,28.3,1.3,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",204.8,10.8,2.3,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",87.7,14.7,1.7,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S241",-31.9,115.8,2021-02-20,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",87.7,14.7,1.7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",210.6,23.8,1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",12.2,8.8,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S241",-31.9,115.8,2021-02-20,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",178.6,14.2,1.3,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6033,7 +5983,7 @@
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Labridae","Halichoeres","brownfieldi",100.7,8.8,3.9,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Odacidae","Heteroscarus","acroptilus",33.1,9.2,1.3,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",19.6,7.5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",90.1,11.6,2.1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",90.1,11.6,2.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",3.3,4.2,2,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",274.5,18.3,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S242",-31.8,115.8,2021-02-28,"Actinopterygii","Perciformes","Nemipteridae","Pentapodus","vitta",43.6,12.5,1,26,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6053,7 +6003,7 @@
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",2204.7,18.1,14.9,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",2240.7,30.5,3.8,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",1080,10,20,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",286.6,30,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",286.6,30,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",526.6,30,1.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",681.3,19.6,2,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Pempheridae","Pempheris","klunzingeri",117.2,9,11.8,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6063,7 +6013,6 @@
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Sparidae","Rhabdosargus","sarba",3082.4,17.5,17.5,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Monodactylidae","Schuettea","woodwardi",656.4,5,100,24,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","georgiana",243.4,19.6,1.5,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S243",-31.8,115.8,2021-03-13,"Cephalopoda","Sepioidea","Sepiidae","Sepia","apama",NA,30,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Perciformes","Kyphosidae","Tilodon","sexfasciatus",136.8,17.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S243",-31.8,115.8,2021-03-13,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Torquigener","pleurogramma",14.4,7.5,1,21,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Tetraodontiformes","Ostraciidae","Anoplocapros","lenticularis",501.6,25,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6082,7 +6031,7 @@
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",4519.5,62.5,1,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Tetraodontiformes","Monacanthidae","Meuschenia","hippocrepis",6.1,5,1,51,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",381.4,11.2,4,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",100.2,14.4,1.9,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",100.2,14.4,1.9,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Odacidae","Olisthops","cyanomelas",181.7,21.1,1.1,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",16.8,8.5,1.8,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S244",-31.8,115.7,2021-02-14,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",243.5,17.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -6918,7 +6867,6 @@
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","bigibbus",1528.1,29.2,2,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sectatrix",3071.6,25,6.7,40,NA,NA,NA,NA,"pelagic",NA,NA,"NO","Alzate2018",NA,NA
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Labridae","Labroides","dimidiatus",12.6,8.8,1,14,23.2,17970,39,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
-"S262",-31.5,159.1,2022-03-13,"Cephalopoda","Teuthoidea","Loliginidae","Loliginidae","spp.",NA,7.5,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Lutjanidae","Lutjanus","kasmira",208.8,20,1,40,31,19500,262,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Mullidae","Mulloidichthys","flavolineatus",61.7,15,1,40,60.1,21500,30,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S262",-31.5,159.1,2022-03-13,"Actinopterygii","Perciformes","Pomacentridae","Neoglyphidodon","polyacanthus",156.6,7.8,6.6,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -7028,7 +6976,6 @@
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","tricinctus",121.8,10.8,1.7,15,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","trifascialis",6.6,5,1,18,35.7,19500,28,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Labridae","Cheilio","inermis",79.6,25,1,50,56.1,23400,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S265",-31.5,159,2022-03-24,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,75,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Scaridae","Chlorurus","sordidus",603.4,23.1,1.6,40,NA,NA,NA,0.7,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Pomacentridae","Chromis","hypsilepis",531.1,10.4,8.7,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S265",-31.5,159,2022-03-24,"Actinopterygii","Perciformes","Pomacentridae","Chrysiptera","flavipinnis",39.2,5,10,8,19,2300,35,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
@@ -7646,7 +7593,6 @@
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Lutjanidae","Lutjanus","fulviflamma",12.4,7.5,1,35,23.3,17000,32,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Lutjanidae","Lutjanus","russellii",26.3,7.5,1.8,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",36.3,6,2,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S277",-30.6,153,2021-08-07,"Cephalopoda","Octopoda","Octopodidae","Octopus","tetricus",NA,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Terapontidae","Pelates","sexlineatus",34.2,8.8,2.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Kyphosidae","Scorpis","lineolata",2.1,5,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S277",-30.6,153,2021-08-07,"Actinopterygii","Perciformes","Siganidae","Siganus","fuscescens",60.4,7.5,5,32,19.2,8666,49,0.6,NA,"pelagic","YES","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -7849,7 +7795,6 @@
 "S282",-30,153.3,2021-06-07,"Actinopterygii","Perciformes","Mullidae","Mulloidichthys","vanicolensis",64.3,15,1,38,36.3,27631,108,NA,"pelagic","pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S282",-30,153.3,2021-06-07,"Actinopterygii","Beryciformes","Holocentridae","Myripristis","murdjan",71.4,12.5,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S282",-30,153.3,2021-06-07,"Actinopterygii","Perciformes","Labridae","Notolabrus","gymnogenis",139.6,20.4,1,23,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S282",-30,153.3,2021-06-07,"Cephalopoda","Octopoda","Octopodidae","Octopus","cyanea",NA,7.5,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S282",-30,153.3,2021-06-07,"Actinopterygii","Perciformes","Labridae","Ophthalmolepis","lineolatus",108.3,16.2,1.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S282",-30,153.3,2021-06-07,"Elasmobranchii","Orectolobiformes","Orectolobidae","Orectolobus","maculatus",13913.8,168.8,1,320,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S282",-30,153.3,2021-06-07,"Actinopterygii","Perciformes","Acanthuridae","Paracanthurus","hepatus",33.8,8.8,1,31,37,17945,38,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
@@ -8017,7 +7962,6 @@
 "S286",-29.1,167.9,2021-02-28,"Elasmobranchii","Carcharhiniformes","Carcharhinidae","Carcharhinus","obscurus",41390.9,187.5,1,420,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S286",-29.1,167.9,2021-02-28,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","ephippium",599.6,35,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S286",-29.1,167.9,2021-02-28,"Actinopterygii","Perciformes","Cheilodactylidae","Cheilodactylus","spectabilis",599.6,35,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"S286",-29.1,167.9,2021-02-28,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,87.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S286",-29.1,167.9,2021-02-28,"Actinopterygii","Perciformes","Pomacentridae","Chromis","fumea",7.8,4.2,2.3,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S286",-29.1,167.9,2021-02-28,"Actinopterygii","Perciformes","Pomacentridae","Chromis","hypsilepis",805.6,6,113.2,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S286",-29.1,167.9,2021-02-28,"Actinopterygii","Perciformes","Pomacentridae","Chrysiptera","notialis",963.3,4.7,253.3,9,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -8433,7 +8377,7 @@
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","cornelii",26520.8,33.6,33.4,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Kyphosidae","Kyphosus","sydneyanus",3145.6,45,1.8,80,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Blenniidae","Meiacanthus","grammistes",14.3,5,5,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",121.5,20,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",121.5,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",622.7,21.7,1.7,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",404.7,30,1,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S300",-28.9,114,2021-04-18,"Actinopterygii","Perciformes","Blenniidae","Plagiotremus","rhinorhynchos",0.9,5,1,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -8571,7 +8515,7 @@
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Blenniidae","Meiacanthus","grammistes",5.7,5,2,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Kyphosidae","Microcanthus","strigatus",144.7,11.2,3,16,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthus","chinensis",53.1,12.5,1,38,20,8957,9,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",52.8,15,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",52.8,15,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",336.7,20,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Serranidae","Plectropomus","leopardus",139.4,17.9,1.1,120,25.2,9157,97,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S304",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Pomacentridae","Pomacentrus","milleri",216.5,5.8,14.5,7.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -8627,7 +8571,6 @@
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Labridae","Labroides","dimidiatus",37.2,12.5,1,14,23.2,17970,39,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Blenniidae","Meiacanthus","grammistes",3.2,3.8,2,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Tetraodontiformes","Monacanthidae","Monacanthus","chinensis",95.1,11.2,2,38,20,8957,9,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S306",-28.7,113.8,2021-04-19,"Mammalia","Carnivora","Otariidae","Neophoca","cinerea",NA,150,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",574.7,19,4.8,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Perciformes","Serranidae","Plectropomus","leopardus",206,18.3,1.2,120,25.2,9157,97,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S306",-28.7,113.8,2021-04-19,"Actinopterygii","Siluriformes","Plotosidae","Plotosus","lineatus",158,5,100,32,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -8653,7 +8596,7 @@
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Pseudochromidae","Labracinus","lineatus",159.1,18.3,1.3,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Labridae","Labridae","spp.",2.6,5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Scaridae","Leptoscarus","vaigiensis",448.9,18.1,2.8,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",82.4,14.7,1.6,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",82.4,14.7,1.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Apogonidae","Ostorhinchus","aureus",0.5,2.5,1,14.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Apogonidae","Ostorhinchus","rueppellii",NA,7.5,6,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S307",-28.7,113.8,2021-04-16,"Actinopterygii","Perciformes","Pomacentridae","Parma","mccullochi",387.2,16.2,1.5,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -8750,7 +8693,6 @@
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Perciformes","Tripterygiidae","Enneapterygius","similis",0.4,2.5,2,3.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Perciformes","Serranidae","Epinephelus","fasciatus",198.6,20,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Perciformes","Serranidae","Epinephelus","malabaricus",4975.9,75,1,234,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S309",-28.6,153.6,2021-06-16,"Reptilia","Testudines","Cheloniidae","Eretmochelys","imbricata",NA,56.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Perciformes","Kyphosidae","Girella","elevata",8744.3,30,20,62,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Perciformes","Kyphosidae","Girella","tricuspidata",4372.2,30,10,71,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S309",-28.6,153.6,2021-06-16,"Actinopterygii","Anguilliformes","Muraenidae","Gymnothorax","thrysoideus",212.8,62.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -8889,7 +8831,7 @@
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Labridae","Labroides","dimidiatus",34.9,9.2,2.3,14,23.2,17970,39,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Lethrinidae","Lethrinus","nebulosus",961.4,32.2,1.8,86,32.7,17000,65,NA,NA,"pelagic","YES","YES","Luiz2013","Luiz2013",NA
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Blenniidae","Meiacanthus","grammistes",2.9,5,1,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",67.9,15.8,1,41,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
+"S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Labridae","Notolabrus","parilus",67.9,15.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Pinguipedidae","Parapercis","haackei",13.2,7.5,1.5,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Pomacentridae","Parma","occidentalis",866.3,23.8,1.8,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S312",-28.5,113.8,2021-04-17,"Actinopterygii","Perciformes","Mullidae","Parupeneus","spilurus",489.5,23.3,2,50,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -9064,7 +9006,6 @@
 "S315",-27.4,153.5,2021-06-18,"Actinopterygii","Perciformes","Monodactylidae","Monodactylus","argenteus",224.9,10,7,27,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S315",-27.4,153.5,2021-06-18,"Actinopterygii","Perciformes","Mullidae","Mulloidichthys","flavolineatus",920.7,30,3,40,60.1,21500,30,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S315",-27.4,153.5,2021-06-18,"Actinopterygii","Beryciformes","Holocentridae","Myripristis","murdjan",479.4,22.5,1.5,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S315",-27.4,153.5,2021-06-18,"Cephalopoda","Octopoda","Octopodidae","Octopus","cyanea",NA,50,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S315",-27.4,153.5,2021-06-18,"Elasmobranchii","Orectolobiformes","Orectolobidae","Orectolobus","maculatus",5538.1,125,1,320,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S315",-27.4,153.5,2021-06-18,"Actinopterygii","Tetraodontiformes","Ostraciidae","Ostracion","cubicus",349.2,20,1,15,44.3,20629,279,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S315",-27.4,153.5,2021-06-18,"Actinopterygii","Perciformes","Cirrhitidae","Paracirrhites","arcatus",22.5,8.8,1,14,49.7,20329,90,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -10153,7 +10094,6 @@
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Scaridae","Scarus","rivulatus",170.3,12.5,5.9,40,37,8639,38,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Scaridae","Scarus","schlegeli",216.3,14.6,4.1,38,30.4,11151,49,0.7,NA,"pelagic","YES","NO","Luiz2013","Luiz2013","Barneche2018"
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Nemipteridae","Scolopsis","bilineata",45,10,1.2,25,25,11737,24,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S332",-23.2,113.8,2021-08-06,"Cephalopoda","Myopsida","Loliginidae","Sepioteuthis","lessoniana",NA,17.5,14,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Siganidae","Siganus","argenteus",8.1,7.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Siganidae","Siganus","fuscescens",217.4,16.2,1.5,32,19.2,8666,49,0.6,NA,"pelagic","YES","NO","Luiz2013","Luiz2013","Barneche2018"
 "S332",-23.2,113.8,2021-08-06,"Actinopterygii","Perciformes","Siganidae","Siganus","trispilos",42.5,12.5,1,25,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -10311,7 +10251,6 @@
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Apogonidae","Cheilodipterus","isostigmus",21.9,10,1,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Apogonidae","Cheilodipterus","macrodon",428.7,25,1,25,16.3,19720,40,0.6,NA,"demersal","NO","YES","Luiz2013","Luiz2013","Barneche2018"
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Apogonidae","Cheilodipterus","quinquelineatus",12.5,7.1,1.7,13,18,20000,40,NA,NA,"demersal","YES","YES","Luiz2013","Luiz2013",NA
-"S335",-23.2,113.8,2021-08-07,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,87.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Scaridae","Chlorurus","microrhinos",15,7.5,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Scaridae","Chlorurus","sordidus",490.3,20.3,2.4,40,NA,NA,NA,0.7,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Pomacentridae","Chromis","atripectoralis",3.8,2.5,10,12,19,19000,28,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
@@ -10352,7 +10291,6 @@
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Scaridae","Scarus","prasiognathos",508.8,28.3,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Scaridae","Scarus","schlegeli",1023,24.6,3.3,38,30.4,11151,49,0.7,NA,"pelagic","YES","NO","Luiz2013","Luiz2013","Barneche2018"
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Nemipteridae","Scolopsis","bilineata",183.9,13.4,1.8,25,25,11737,24,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S335",-23.2,113.8,2021-08-07,"Cephalopoda","Myopsida","Loliginidae","Sepioteuthis","lessoniana",NA,32.5,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Siganidae","Siganus","virgatus",739.6,30,1,30,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Pomacentridae","Stegastes","obreptus",113,9.6,2.4,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S335",-23.2,113.8,2021-08-07,"Actinopterygii","Perciformes","Labridae","Stethojulis","bandanensis",7.5,5.6,1.5,15,30.7,20210,27,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -10873,7 +10811,6 @@
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Labridae","Cheilinus","chlorourus",188.1,15,1.7,36,27.1,19580,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Labridae","Cheilinus","trilobatus",272.5,21,1,40,29.6,19000,29,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Labridae","Cheilio","inermis",109.3,23.6,1.6,50,56.1,23400,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S344",-23.1,113.7,2021-08-12,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Scaridae","Chlorurus","sordidus",768,19.1,4,40,NA,NA,NA,0.7,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Labridae","Coris","aygula",1760,32.2,3.7,120,51.5,20158,28,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S344",-23.1,113.7,2021-08-12,"Actinopterygii","Perciformes","Labridae","Coris","caudimacula",3.8,7.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -11371,7 +11308,6 @@
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","dussumieri",1183,30,2,54,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","grammoptilus",832.1,25,2,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","triostegus",3477,20,10,27,47.4,27891,90,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
-"S350",-21.9,114.2,2021-08-08,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,150,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Gobiidae","Amblygobius","phalaena",0.4,2.5,1,15,19.7,13362,18,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Gobiidae","Asterropteryx","semipunctata",NA,2.5,1,6.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Blenniidae","Atrosalarias","holomelas",138.9,5.6,6.5,14.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -11388,7 +11324,6 @@
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Apogonidae","Cheilodipterus","macrodon",120.4,11,2,25,16.3,19720,40,0.6,NA,"demersal","NO","YES","Luiz2013","Luiz2013","Barneche2018"
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Apogonidae","Cheilodipterus","quinquelineatus",39.6,8.2,3.9,13,18,20000,40,NA,NA,"demersal","YES","YES","Luiz2013","Luiz2013",NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Chaetodontidae","Chelmon","marginalis",30.3,6.9,2.5,18,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S350",-21.9,114.2,2021-08-08,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,50,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Scaridae","Chlorurus","microrhinos",4.4,5,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Scaridae","Chlorurus","sordidus",1823,16.2,7.9,40,NA,NA,NA,0.7,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S350",-21.9,114.2,2021-08-08,"Actinopterygii","Perciformes","Labridae","Choerodon","cauteroma",1124.5,40,1,36,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -11781,7 +11716,6 @@
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Serranidae","Cephalopholis","cyanostigma",496.6,30,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","aureofasciatus",135.3,11,1.9,12.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Labridae","Cheilinus","chlorourus",31.1,9,1,36,27.1,19580,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
-"S355",-20.6,116.5,2021-06-04,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,87.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Scaridae","Chlorurus","rhakoura",129.6,15,1,44.2,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Labridae","Choerodon","cyanodus",477.5,26,1,70,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S355",-20.6,116.5,2021-06-04,"Actinopterygii","Perciformes","Labridae","Choerodon","schoenleinii",434.5,25,1,100,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -15630,7 +15564,6 @@
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",1910,22.5,5.9,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",1089.8,25,3.2,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",230.6,22.5,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S414",-12.6,124,2021-10-16,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,125,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Perciformes","Pomacanthidae","Apolemichthys","trimaculatus",564,19.2,1.3,26,24.2,15924,37,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Tetraodontiformes","Balistidae","Balistapus","undulatus",114.2,15,1,30,51.3,20629,48,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S414",-12.6,124,2021-10-16,"Actinopterygii","Tetraodontiformes","Balistidae","Balistoides","viridescens",7484.4,62.5,1.5,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -15713,7 +15646,6 @@
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","citrinellus",42.5,8.1,1.8,13,50.5,18549,35,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","lineolatus",535.6,30,1,30,54,18323,169,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Labridae","Cheilinus","trilobatus",777,35,1,40,29.6,19000,29,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
-"S415",-12.5,123.6,2021-10-15,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Pomacentridae","Chromis","lineata",2,2.5,5,7,33.8,20600,33,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Pomacentridae","Chromis","margaritifer",71.5,4.5,30,9,31.8,12196,18,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
 "S415",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Pomacentridae","Chromis","weberi",197.2,6.8,18.6,14,31.2,21650,37,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
@@ -15858,7 +15790,6 @@
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",423.8,8.3,17,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",4350.5,22.8,11.8,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",144.5,16.2,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S417",-12.5,123.6,2021-10-15,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,104.2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Gobiidae","Amblyeleotris","wheeleri",7.3,7.5,1,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","clarkii",13.1,5.7,2.4,15,12.2,14268,59,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S417",-12.5,123.6,2021-10-15,"Actinopterygii","Tetraodontiformes","Balistidae","Balistapus","undulatus",75.9,11,1.5,30,51.3,20629,48,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -15968,7 +15899,6 @@
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigricans",407.6,12.8,4.1,21,59.7,18153,66,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",189.1,8.7,5.7,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",403.2,27.5,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S418",-12.5,123.6,2021-10-15,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","clarkii",62.8,5,5,15,12.2,14268,59,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Perciformes","Labridae","Anampses","twistii",128.5,16.1,1.6,18,28.8,20000,25,0.7,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S418",-12.5,123.6,2021-10-15,"Actinopterygii","Tetraodontiformes","Balistidae","Balistapus","undulatus",112.2,12.1,1.7,30,51.3,20629,48,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -17282,7 +17212,6 @@
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","vagabundus",215.4,13.8,1.8,23,42.3,18323,30,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Labridae","Cheilinus","chlorourus",34.8,10,1,36,27.1,19580,29,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Labridae","Cheilinus","trilobatus",215.8,14.8,1.4,40,29.6,19000,29,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
-"S435",-12.2,123.1,2021-10-14,"Reptilia","Testudines","Cheloniidae","Chelonia","mydas",NA,7.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Scaridae","Chlorurus","sordidus",145.6,8.4,5.1,40,NA,NA,NA,0.7,NA,NA,NA,NA,"Fishbase2022",NA,"Barneche2018"
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Pomacentridae","Chromis","margaritifer",4.5,5,1.8,9,31.8,12196,18,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
 "S435",-12.2,123.1,2021-10-14,"Actinopterygii","Perciformes","Pomacentridae","Chromis","weberi",40.5,5.5,7,14,31.2,21650,37,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
@@ -17544,7 +17473,6 @@
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",182.9,9.7,5.6,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",317.6,18.8,1.8,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",959.9,43.3,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S439",-12,123.4,2021-10-10,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Gobiidae","Amblyeleotris","guttata",4.5,5,2,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Gobiidae","Amblyeleotris","wheeleri",4.5,5,2,10,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S439",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Pomacentridae","Amblyglyphidodon","curacao",431.8,6.4,21.8,11,15.7,7400,39,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
@@ -17669,7 +17597,6 @@
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","lineatus",370,20,2,38,39.5,17970,15,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigricans",159.7,9.2,5.8,21,59.7,18153,66,NA,"pelagic","pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",177,8.5,9.2,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
-"S440",-12,123.4,2021-10-10,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,93.8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Pomacentridae","Amblyglyphidodon","curacao",104,12.5,1,11,15.7,7400,39,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Tetraodontiformes","Balistidae","Balistapus","undulatus",69.4,11.2,1.5,30,51.3,20629,48,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S440",-12,123.4,2021-10-10,"Actinopterygii","Perciformes","Labridae","Bodianus","axillaris",138.2,13.8,1.2,20,23.5,21325,98,0.7,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -17932,7 +17859,6 @@
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",852.2,21.7,3.3,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",488.1,16.9,3.5,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",557.6,25,2,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S444",-11.7,124,2021-10-09,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Pomacanthidae","Apolemichthys","trimaculatus",236.1,13.8,1.5,26,24.2,15924,37,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Carangidae","Caranx","melampygus",29851.8,62.5,10,100,57.6,19720,190,NA,"pelagic","pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S444",-11.7,124,2021-10-09,"Actinopterygii","Perciformes","Pomacanthidae","Centropyge","bicolor",69.9,8.9,2,15,32,8957,24,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
@@ -18417,7 +18343,6 @@
 "S453",-11.3,133.8,2021-10-31,"Actinopterygii","Perciformes","Labridae","Thalassoma","lunare",87,7.5,7.4,45,50.1,20600,19,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S454",-11.2,134.8,2021-11-01,"Actinopterygii","Perciformes","Pomacentridae","Abudefduf","bengalensis",81.8,12.5,1,17,22.8,10500,5,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
 "S454",-11.2,134.8,2021-11-01,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","grammoptilus",2288.2,25,5.5,35,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S454",-11.2,134.8,2021-11-01,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,112.5,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S454",-11.2,134.8,2021-11-01,"Actinopterygii","Perciformes","Caesionidae","Caesio","cuning",5084.3,21.7,28.3,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S454",-11.2,134.8,2021-11-01,"Actinopterygii","Perciformes","Serranidae","Cephalopholis","boenak",29.9,8.8,2,26,31,13862,63,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S454",-11.2,134.8,2021-11-01,"Actinopterygii","Perciformes","Chaetodontidae","Chaetodon","aureofasciatus",104.2,11.2,1.5,12.5,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -19187,7 +19112,6 @@
 "S472",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","spp.",272.2,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S472",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","triostegus",616.4,11.2,8.8,27,47.4,27891,90,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S472",-10.4,144.4,2021-08-18,"Elasmobranchii","Myliobatiformes","Myliobatidae","Aetobatus","ocellatus",1114.2,75,1,300,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S472",-10.4,144.4,2021-08-18,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,62.5,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S472",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Labridae","Anampses","neoguinaicus",25.6,7,2.1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S472",-10.4,144.4,2021-08-18,"Actinopterygii","Tetraodontiformes","Tetraodontidae","Arothron","nigropunctatus",233.6,20,1,33,NA,NA,NA,NA,"pelagic",NA,NA,"NO","Alzate2018",NA,NA
 "S472",-10.4,144.4,2021-08-18,"Actinopterygii","Tetraodontiformes","Balistidae","Balistoides","viridescens",1286.9,40,1,75,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -19292,7 +19216,6 @@
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",447.8,10,15.6,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",1236.8,19.2,4,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",98.1,15,1,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S473",-10.4,144.4,2021-08-18,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,125,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","chrysopterus",32.2,7.5,2,17,17,8900,29,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Labridae","Anampses","neoguinaicus",38.3,12.5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S473",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Caesionidae","Caesio","caerulaurea",136.7,8.8,7,35,22,17390,45,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
@@ -19581,7 +19504,6 @@
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","blochii",1538.5,28.8,3,45,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigricauda",368.9,27.5,1,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","xanthopterus",674.4,30,1.4,70,52.5,NA,NA,NA,"pelagic",NA,NA,"NO","Alzate2018","Alzate2018",NA
-"S476",-10.4,144.4,2021-08-18,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,125,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Gobiidae","Amblyeleotris","steinitzi",2.7,3.8,2.5,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Pomacentridae","Amblyglyphidodon","leucogaster",26.6,7.5,1.9,13,16.4,10450,43,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S476",-10.4,144.4,2021-08-18,"Actinopterygii","Perciformes","Gobiidae","Amblygobius","phalaena",1.7,3.8,1,15,19.7,13362,18,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
@@ -19771,7 +19693,6 @@
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigricauda",1285.9,32.5,2.5,40,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",587,9,18.1,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",1247.6,24,3.4,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
-"S478",-10.4,144.5,2021-08-19,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,75,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","clarkii",4.9,5,1,15,12.2,14268,59,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","perideraion",0.6,2.5,1,10,14.3,7220,37,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S478",-10.4,144.5,2021-08-19,"Actinopterygii","Perciformes","Labridae","Anampses","neoguinaicus",77.7,8.9,3.4,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -20189,7 +20110,6 @@
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Perciformes","Acanthuridae","Naso","unicornis",475.8,27.5,1.5,70,73.9,18323,179,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Perciformes","Pomacentridae","Neoglyphidodon","nigroris",131.9,6.2,14.5,13,18.8,8480,21,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Perciformes","Pomacentridae","Neopomacentrus","azysron",38.1,3.8,54.2,8,22,14500,11,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
-"S482",-10.3,143.7,2021-08-21,"Cephalopoda","Octopoda","Octopodidae","Octopus","cyanea",NA,25,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Perciformes","Apogonidae","Ostorhinchus","compressus",NA,7.5,2.7,12,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Tetraodontiformes","Ostraciidae","Ostracion","cubicus",62.7,10,1,15,44.3,20629,279,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S482",-10.3,143.7,2021-08-21,"Actinopterygii","Perciformes","Labridae","Oxycheilinus","orientalis",3.2,5,1,20,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
@@ -20330,7 +20250,6 @@
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","olivaceus",1735.8,28.8,3,35,59.6,12355,43,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",724,25,2,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",5639.2,62.5,2,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S484",-10.1,129.5,2021-10-04,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,105,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Perciformes","Apogonidae","Apogon","notatus",4.8,3.8,4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Perciformes","Pomacanthidae","Apolemichthys","trimaculatus",499.9,16.2,2,26,24.2,15924,37,NA,NA,"pelagic","NO","NO","Luiz2013","Luiz2013",NA
 "S484",-10.1,129.5,2021-10-04,"Actinopterygii","Tetraodontiformes","Balistidae","Balistapus","undulatus",79.5,11.7,1.3,30,51.3,20629,48,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -20849,7 +20768,6 @@
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Pomacentridae","Dascyllus","trimaculatus",18.7,5.6,1.5,11,28,18700,54,NA,NA,"demersal","YES","NO","Luiz2013","Luiz2013",NA
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Blenniidae","Ecsenius","bicolor",3,4.2,1.7,11,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Blenniidae","Ecsenius","midas",2.3,5,1,13,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S489",-9.9,129.3,2021-10-04,"Reptilia","Squamata","Elapidae","Emydocephalus","annulatus",NA,75,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Serranidae","Epinephelus","bilobatus",533.6,32.5,1,33,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Labridae","Gomphosus","varius",6.7,6.9,1,30,56.6,11600,28,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
 "S489",-9.9,129.3,2021-10-04,"Actinopterygii","Perciformes","Labridae","Halichoeres","biocellatus",35.1,6.5,5.4,12,24.3,7959,28,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"
@@ -20910,7 +20828,6 @@
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","nigrofuscus",97.8,11.1,2.6,21,31,19500,25,NA,NA,"pelagic","YES","NO","Luiz2013","Luiz2013",NA
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Acanthuridae","Acanthurus","pyroferus",175.7,15.8,1.3,29,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Serranidae","Aethaloperca","rogaa",295.5,25,1,60,NA,NA,NA,NA,NA,NA,NA,NA,"Fishbase2022",NA,NA
-"S490",-9.9,129.4,2021-10-03,"Reptilia","Squamata","Elapidae","Aipysurus","laevis",NA,125,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Pomacentridae","Amblyglyphidodon","leucogaster",113.4,9.5,3.6,13,16.4,10450,43,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Pomacentridae","Amphiprion","clarkii",9.3,5,2,15,12.2,14268,59,NA,NA,"demersal","NO","NO","Luiz2013","Luiz2013",NA
 "S490",-9.9,129.4,2021-10-03,"Actinopterygii","Perciformes","Labridae","Anampses","caeruleopunctatus",65.5,15,1,42,25,23400,27,0.6,NA,"pelagic","NO","NO","Luiz2013","Luiz2013","Barneche2018"

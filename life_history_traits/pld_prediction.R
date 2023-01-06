@@ -1,7 +1,7 @@
 # PREDICT PLD
 
 # read libs
-library(tidyverse)
+library(dplyr)
 
 # clean memory
 rm(list=ls())
@@ -12,14 +12,18 @@ setwd("~/Documents/MSc_thesis")
 # import data
 trait_dat_raw = read_delim("/media/mari/Crucial X8/species_traits.csv", delim = ",")
 
+# we don't have data for these species:
 missing_bodysize = trait_dat_raw %>% 
-  filter(is.na(bodySize))
+  filter(is.na(bodySize)) # 109 are missing
 
-# subset data
+##### now: do we want to include sharkies as well?
+
+# subset data, here, we drop all sharkilies
 trait_dat = trait_dat_raw %>% 
-  select (family, genus, species, bodySize, PLD) %>% 
-  filter(!is.na(bodySize))
-
+  select (class, family, genus, species, bodySize, PLD) %>%
+  dplyr::filter(trait_dat_raw$class == "Actinopterygii") %>% 
+  filter(!is.na(bodySize)) 
+ 
 # Model 1
 mod1 = lm(trait_dat$PLD ~ trait_dat$family)
 summary(mod1)
