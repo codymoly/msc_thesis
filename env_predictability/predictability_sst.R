@@ -25,6 +25,9 @@ env_stats_cols = names(env_stats(
   time_series = test_csv$analysed_sst,
   dates = test_csv$date,
   delta = 1,
+  is_uneven = FALSE,
+  interpolate = FALSE,
+  show_warns = TRUE, 
   noise_method = 'spectrum'
 ))
 
@@ -50,7 +53,7 @@ for (statname in env_stats_cols) {
   rls_unique[statname] = NA
 }
 
-# iteratre through the time series CSVs to calculate the predictability of sst
+# iterate over the time series CSVs to calculate the predictability of sst
 for (i in 1:nrow(rls_unique)) {
   #if (rls_unique[i,2] != -9.99) {next}
   temp_filename = paste("/media/mari/Crucial X8/sst_csv/", as.character(rls_unique[i,"sst_filename"]), sep = "")
@@ -79,13 +82,18 @@ for (i in 1:nrow(rls_unique)) {
 # add postfix to statnames
 colnames(rls_unique)[6:24] = paste("sst", colnames(rls_unique)[6:24], sep = "_")
 
+# remove start date and filename
+final_sst = rls_unique %>% 
+  select(-c("ts_startdate", "sst_filename", "sst_series_n", "sst_n_na", "sst_prop_na",
+            "sst_n_yrs", "sst_n_months", "sst_n_days", "sst_frequency", "sst_nyquist_freq"))
+
 # sanity check
 ## count rows that have missing values
-nrow(na.omit(rls_unique))
+nrow(na.omit(rls_unique)) # yeah, no missing data
 ## write missing rows into dataframe
-NAS = rls_unique[!complete.cases(rls_unique), ]
-NAS_coord = NAS %>% select(longitude, latitude)
+#NAS = rls_unique[!complete.cases(rls_unique), ]
+#NAS_coord = NAS %>% select(longitude, latitude)
 
 # write new files
-#write.csv(rls_unique,"~/projects/msc_thesis/data/rls_2021_2022_avg.csv", row.names = FALSE)
-#write.csv(rls_unique,"/media/mari/Crucial X8/rls_2021_2022_avg.csv", row.names = FALSE)
+write.csv(final_sst,"~/projects/msc_thesis/data/env_stats_sst.csv", row.names = FALSE)
+write.csv(final_sst,"/media/mari/Crucial X8/env_stats_sst.csv", row.names = FALSE)
