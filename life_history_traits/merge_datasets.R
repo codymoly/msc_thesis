@@ -21,9 +21,11 @@ eggsize_raw = read.csv("https://raw.githubusercontent.com/dbarneche/fishEggSize/
 # RLS DATA
 ## separate species name in rls data
 rls_avg_sep = rls_avg %>% 
-  separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left")
+  separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left") %>% 
+  separate(valid_name, c("valid_genus", "valid_species"), extra = "merge", fill = "left")
+
 ## backup dataset if loop kills it later
-backup_rls = rls_avg_sep
+backup_rls_avg_sep = rls_avg_sep
 
 # PLD DATA
 pld_subset = pld_raw %>% 
@@ -55,7 +57,7 @@ pld_alz_subset$nocturnal = gsub('no', 'NO', pld_alz_subset$nocturnal)
 # FISHBASE DATA
 fb_bodysize = fb_raw %>%
   #select(-c("entry")) %>% 
-  separate(species_name, c("Genus", "Species"), extra = "merge", fill = "left") %>% 
+  separate(valid_name, c("valid_genus", "valid_species"), extra = "merge", fill = "left") %>% 
   rename(BodySize = Length) %>% 
   rename(ref_bodysize = Ref_bodysize)
 
@@ -108,11 +110,11 @@ trait_data_2 = trait_data
 # complement bodysize data from fishbase
 for (i in 1:nrow(trait_data_2)) {
   if (is.na(trait_data_2[i, "BodySize"])) {
-    curr_genus = trait_data_2[[i, "Genus"]]
-    curr_species = trait_data_2[[i, "Species"]]
+    curr_genus = trait_data_2[[i, "valid_genus"]]
+    curr_species = trait_data_2[[i, "valid_species"]]
     bodysize_rows = subset(fb_bodysize,
-                           fb_bodysize[, "Genus"] == curr_genus &
-                             fb_bodysize[, "Species"] == curr_species)
+                           fb_bodysize[, "valid_genus"] == curr_genus &
+                             fb_bodysize[, "valid_species"] == curr_species)
     
     if (is.na(trait_data_2[i, "BodySize"]) & nrow(bodysize_rows) > 0 & !is.na(bodysize_rows[1, "BodySize"])) {
       trait_data_2[i, "BodySize"] = bodysize_rows[1, "BodySize"]
@@ -136,8 +138,9 @@ trait_data_2 = trait_data_2 %>%
 
 ## change order of columns
 final_trait_data = trait_data_2[,c(
-  "ID", "latitude", "longitude", "survey_date",
+  "latitude", "longitude", "survey_date",
   "class", "order", "family", "genus", "species",
+  "valid_genus", "valid_species",
   "biomass_mean", "size_class_mean", "total_mean",
   "bodySize", "PLD", "rangeSize", "depthRange", "eggsize_mean", "egg",
   "spawningMode", "schooler", "nocturnal",
@@ -149,7 +152,7 @@ final_trait_data <- data.frame(lapply(final_trait_data, function(x) if(is.numeri
 
 # subset data with unique species
 unique_species = final_trait_data %>% 
-  select(-c("ID", "latitude", "longitude", "survey_date", "order", "biomass_mean", "size_class_mean", "total_mean")) %>% 
+  select(-c("latitude", "longitude", "survey_date", "order", "biomass_mean", "size_class_mean", "total_mean")) %>% 
   distinct(genus, species, .keep_all = TRUE) %>% 
   arrange(class, family, genus, species)
 

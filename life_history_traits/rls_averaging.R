@@ -11,32 +11,13 @@ rm(list=ls())
 setwd("~/projects/msc_thesis")
 
 # read RLS dataset
-rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
-
-# remove redundant animals
-rls_2021_2022 = rls_2021_2022 %>% 
-  dplyr::filter(rls_2021_2022$class == "Actinopterygii" | rls_2021_2022$class == "Elasmobranchii")
-
-# data exploration
-# n_distinct(rls_2021_2022$survey_id) # 1276, identifier for each survey, note that we don't differ between depths
-# n_distinct(rls_2021_2022$site_code) # 475, identifier for each location
-# n_distinct(rls_2021_2022$FID) # 91410, identifier for each line
-# # unique(rls_2021_2022$ecoregion)
-# nrow(unique(rls_2021_2022[c('latitude', 'longitude', 'survey_date')])) # 490 observations
-
-## remove brackets from species name, e.g., change Pomacentrus sp. [rhodonotus] to Pomacentrus rhodonotus
-## write function that explaces the different signs
-rmBrackets = function(spname){
-  return(str_replace_all(spname, "sp\\. \\[([^\\\\]*)\\]", "\\1"))
-}
-## apply function on species column in original file
-rls_2021_2022["species_name"] <- lapply(rls_2021_2022["species_name"], rmBrackets)
+rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022_clean.csv", delim = ",")
 
 # subset data 
 rls_sub = rls_2021_2022 %>% 
   select(
     latitude, longitude, survey_date, 
-    class, order, family, species_name, 
+    class, order, family, species_name, valid_name, aphia_id,
     size_class, total, biomass
   )
 
@@ -48,15 +29,15 @@ rls_avg = rls_sub %>%
     total_mean = round(mean(total), digits = 1),
     biomass_mean = round(mean(biomass), digits = 1)
     ) %>% 
-  mutate(ID = cur_group_id()) %>% # assign unique id number to each group
+  #mutate(ID = cur_group_id()) %>% # assign unique id number to each group
   ungroup()
 
-# add S for survey to each id
-rls_avg$ID = paste("S", rls_avg$ID, sep = "")
+# # add S for survey to each id
+# rls_avg$ID = paste("S", rls_avg$ID, sep = "")
 
 # extract taxonomic information for each species from original file
 taxonomy = rls_2021_2022 %>% 
-  select(class, order, family, species_name) %>% 
+  select(class, order, family, aphia_id, species_name, valid_name) %>% 
   distinct(species_name, .keep_all = TRUE)
 
 # add class, order, family to averaged rls dataframe

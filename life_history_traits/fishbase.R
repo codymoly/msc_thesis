@@ -20,8 +20,8 @@ rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ","
 
 # write unique species names into a list
 species_list = rls_avg %>%
-  distinct(species_name) %>%
-  pull(species_name) %>%
+  distinct(valid_name) %>%
+  pull(valid_name) %>%
   as.list
 
 # get fb traits
@@ -29,19 +29,19 @@ species_list = rls_avg %>%
 names(fb_tbl("species"))
 ## download length/ bodysize data for all RLS species
 fb_traits = fb_tbl("species", server = "fishbase") %>%
-  mutate(species_name = paste(Genus, Species)) %>%
-  filter(species_name %in% species_list) %>%
-  select(species_name, Length) %>% 
+  mutate(valid_name = paste(Genus, Species)) %>%
+  filter(valid_name %in% species_list) %>%
+  select(valid_name, Length) %>% 
   mutate(Ref_bodysize = rep("Fishbase2022", length(Length)))
 
 # check, because 99 species are missing in the fb trait dataframe
 ## write species list into dataframe
 species_df = rls_avg %>% 
-  distinct(species_name) %>% 
-  select(species_name)
+  distinct(valid_name) %>% 
+  select(valid_name)
 ## check which species (missing species) are in the list but not in fishbase
 ## it seems that some species just have 
-missing_species = setdiff(species_df, fb_traits["species_name"])
+missing_species = setdiff(species_df, fb_traits["valid_name"])
 
 # save data
 ## fb traits
