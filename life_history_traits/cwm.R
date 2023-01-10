@@ -17,6 +17,7 @@ species_traits = read_delim("/media/mari/Crucial X8/species_traits_imputed.csv",
 # prepare site data
 ## select columns of survey data
 rls_avg_subset = rls_avg %>% 
+  dplyr::filter(class != "Elasmobranchii") %>% 
   select(latitude, longitude, survey_date, species_name, biomass_mean, total_mean)
 
 # prepare trait data
@@ -24,11 +25,11 @@ rls_avg_subset = rls_avg %>%
 species_traits_copy = species_traits
 
 ## merge genus and species
-species_traits_copy$species_name <- paste(species_traits_copy$genus, species_traits_copy$species, sep = " ")
+species_traits_copy$species_name = paste(species_traits_copy$genus, species_traits_copy$species, sep = " ")
 
 ## select columns of trait data
 species_traits_subset = species_traits_copy %>% 
-  select(species_name, bodySize, PLD, rangeSize)
+  select(species_name, bodySize, PLD)
 
 ## merge datasets
 complete_trait_data = rls_avg_subset %>% 
@@ -43,10 +44,9 @@ trait_cwm = cwm_input %>%
   summarise(           # Coding for how we want our CWMs summarized
     bodysize_cwm_biomass = weighted.mean(bodySize, biomass_mean),   # Actual calculation of CWMs
     PLD_cwm_biomass = weighted.mean(PLD, biomass_mean),
-    rangesize_cwm_biomass = weighted.mean(rangeSize, biomass_mean),
     bodysize_cwm_total = weighted.mean(bodySize, total_mean),
     PLD_cwm_total = weighted.mean(PLD, total_mean),
-    rangesize_cwm_total = weighted.mean(rangeSize, total_mean),
+    total_biomass = sum(na.omit(biomass_mean)),
     sp_richness = specnumber(total_mean),
     shannon = diversity(total_mean,index = "shannon"),
     simpson = diversity(total_mean, index = "simpson"),
