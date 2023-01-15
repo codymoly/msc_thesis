@@ -20,7 +20,7 @@ trait_dat_raw = trait_dat_raw %>%
 # data exploration
 # subset data, here, we drop all sharkilies
 trait_subset = trait_dat_raw %>%  # drop elasmobranchs
-  select (class, family, genus, species, valid_genus, valid_species, bodySize, PLD, rangeSize)
+  select (class, family, genus, species, valid_genus, valid_species, bodySize, PLD, larvalDuration, rangeSize)
 
 # we don't have bodysize for these species:
 missing_bodysize = trait_subset %>% 
@@ -132,7 +132,8 @@ imputed_data = complete(test_pred)
 # add columns to document which values are imputed
 imputed_data = imputed_data %>% 
   mutate(ref_pld = rep("Imputed", length(imputed_data$PLD)),
-         ref_bodysize = rep("Imputed", length(imputed_data$bodySize))
+         ref_bodysize = rep("Imputed", length(imputed_data$bodySize)),
+         ref_larvalduration = rep("Imputed", length(imputed_data$larvalDuration))
          )
 
 # create new identifier
@@ -142,13 +143,16 @@ temp_data = trait_dat_raw %>%
 # transform id into character
 temp_data$sp_number = as.character(temp_data$sp_number)
 
+# convert ref column for ld into character
+temp_data$ref_larvalduration = as.character(temp_data$ref_larvalduration)
+
 # add id to original df
 imputed_data = imputed_data %>% 
   left_join(select(temp_data, genus, species, sp_number), by = c("genus","species"))
 
 # replace NAs
 for (i in 1:nrow(temp_data)) {
-  if (is.na(temp_data[i, "PLD"]) | is.na(temp_data[i, "bodySize"])) {
+  if (is.na(temp_data[i, "PLD"]) | is.na(temp_data[i, "bodySize"]) | is.na(temp_data[i, "larvalDuration"])) {
     curr_number = temp_data[[i, "sp_number"]]
     pld_rows = subset(imputed_data,
                       imputed_data[, "sp_number"] == curr_number)
@@ -162,13 +166,18 @@ for (i in 1:nrow(temp_data)) {
       temp_data[i, "bodySize"] = pld_rows[1, "bodySize"]
       temp_data[i, "ref_bodysize"] = pld_rows[1, "ref_bodysize"]
     }
+    
+    if (is.na(temp_data[i, "larvalDuration"]) & nrow(pld_rows) > 0 & !is.na(pld_rows[1, "larvalDuration"])) {
+      temp_data[i, "larvalDuration"] = pld_rows[1, "larvalDuration"]
+      temp_data[i, "ref_larvalduration"] = pld_rows[1, "ref_larvalduration"]
+    }
   }
 }
 
 # select relevant columns
 final_species_traits = temp_data %>% 
   select(class, family, genus, species, valid_genus, valid_species, 
-         bodySize, PLD, ref_bodysize, ref_pld)
+         bodySize, PLD, larvalDuration, ref_bodysize, ref_pld, ref_larvalduration)
 
 # save results
 write.csv(final_species_traits,"~/projects/msc_thesis/data/species_traits_imputed.csv", row.names = FALSE)

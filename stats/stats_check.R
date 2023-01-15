@@ -2,7 +2,6 @@
 
 # read libs
 library(tidyverse)
-library(corrplot)
 
 # clean memory
 rm(list=ls())
@@ -26,16 +25,15 @@ eco_env = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_
 eco_env = full_join(eco_env, chla_data, by = c("latitude", "longitude", "survey_date"))
 ## baaaaaam perfect match
 # double-check if we have incomplete cases...
-nrow(eco_env[complete.cases(eco_env),]) # 416
-nrow(eco_env[complete.cases(eco_env$chla_raw_mean),]) # 416
+nrow(eco_env[complete.cases(eco_env),]) # 201
+nrow(eco_env[complete.cases(eco_env$chla_raw_mean),]) # 201
 ## chla is missing for some sites 
 
-# check date of sites that have chla values
-years_with_chla = eco_env %>% 
-  filter(!is.na(chla_raw_mean)) %>% 
-  select(survey_date) %>% 
-  arrange(desc(survey_date))
-### that's weird, there shouldn't be sites with date > 31-07-2021...
+# # check date of sites that have chla values
+# years_with_chla = eco_env %>% 
+#   filter(!is.na(chla_raw_mean)) %>% 
+#   select(survey_date) %>% 
+#   arrange(desc(survey_date))
 
 # arrange by
 eco_env_copy = eco_env %>% 
@@ -62,23 +60,24 @@ if (save_completed_dataset == TRUE) {
 }
 
 ###### data visualisation
+boxplot(eco_env$sst_bounded_seasonality)
 
 # get variable names
 names(eco_env_copy)
 
 # quick correlation check
-pairs(~ sst_env_col + sst_raw_mean + sst_bounded_seasonality + bodysize_cwm_total + inv_simpson, data = eco_env_copy)
+pairs(~ chla_env_col + chla_raw_mean + chla_bounded_seasonality + bodysize_cwm_total + PLD_cwm_total + inv_simpson, data = eco_env_copy)
 
 # remove outliers from "sst_bounded_seasonality"
 ## calculate quantiles
-Q1 <- quantile(eco_env_copy$sst_bounded_seasonality, .25)
-Q3 <- quantile(eco_env_copy$sst_bounded_seasonality, .75)
-IQR <- IQR(eco_env_copy$sst_bounded_seasonality)
+Q1 <- quantile(eco_env_copy$chla_env_col, .25, na.rm = TRUE)
+Q3 <- quantile(eco_env_copy$chla_env_col, .75, na.rm = TRUE)
+IQR <- IQR(eco_env_copy$chla_env_col, na.rm = TRUE)
 
 ## only keep rows in dataframe that have values within 1.5*IQR of Q1 and Q3
-no_outliers <- subset(eco_env_copy, eco_env_copy$sst_bounded_seasonality> (Q1 - 1.5*IQR) & 
-                        eco_env_copy$sst_bounded_seasonality< (Q3 + 1.5*IQR))
+no_outliers <- subset(eco_env_copy, eco_env_copy$chla_env_col> (Q1 - 1.5*IQR) & 
+                        eco_env_copy$chla_env_col< (Q3 + 1.5*IQR))
 
 # correlation check without outliers from "sst_bounded_seasonality"
-pairs(~ sst_env_col + sst_raw_mean + sst_bounded_seasonality + bodysize_cwm_total + inv_simpson, data = no_outliers)
+pairs(~ chla_env_col + chla_raw_mean + chla_bounded_seasonality + bodysize_cwm_total + inv_simpson, data = no_outliers)
 

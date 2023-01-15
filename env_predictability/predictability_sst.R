@@ -13,6 +13,9 @@ rm(list=ls())
 # set working directory
 setwd("~/projects/msc_thesis")
 
+# save data in the end
+save_sst_predictability = FALSE
+
 # use envPred package with one time series to retrieve variables
 ## read file
 test_csv = read_delim("/media/mari/Crucial X8/sst_csv/-14.10_123.55.csv", delim = ",")
@@ -38,7 +41,7 @@ rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ","
 rls_unique = rls_avg %>% 
   select(longitude, latitude, survey_date) %>% 
   distinct() %>% 
-  mutate(ts_startdate = survey_date - 365.25*10) # create new column with start date for envPred (survey date - 10y)
+  mutate(ts_startdate = survey_date - years(10)) # create new column with start date for envPred (survey date - 10y)
 
 # write new column with latitude, longitude, and .csv
 ## write function that pastes all components
@@ -80,6 +83,7 @@ for (i in 1:nrow(rls_unique)) {
 }
 
 # add postfix to statnames
+names(rls_unique)
 colnames(rls_unique)[6:24] = paste("sst", colnames(rls_unique)[6:24], sep = "_")
 
 # remove start date and filename
@@ -95,5 +99,11 @@ nrow(na.omit(rls_unique)) # yeah, no missing data
 #NAS_coord = NAS %>% select(longitude, latitude)
 
 # write new files
-write.csv(final_sst,"~/projects/msc_thesis/data/env_stats_sst.csv", row.names = FALSE)
-write.csv(final_sst,"/media/mari/Crucial X8/env_stats_sst.csv", row.names = FALSE)
+if (save_sst_predictability == TRUE) {
+  write.csv(final_sst,"~/projects/msc_thesis/data/env_stats_sst.csv", row.names = FALSE)
+  write.csv(final_sst,"/media/mari/Crucial X8/env_stats_sst.csv", row.names = FALSE)
+} else {
+  print("Data not saved!")
+}
+
+

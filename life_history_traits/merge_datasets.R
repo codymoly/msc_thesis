@@ -58,8 +58,9 @@ pld_alz_subset$nocturnal = gsub('no', 'NO', pld_alz_subset$nocturnal)
 fb_bodysize = fb_raw %>%
   #select(-c("entry")) %>% 
   separate(valid_name, c("valid_genus", "valid_species"), extra = "merge", fill = "left") %>% 
-  rename(BodySize = Length) %>% 
-  rename(ref_bodysize = Ref_bodysize)
+  rename(BodySize = Length,
+         ref_bodysize = Ref_bodysize,
+         larvalDuration = LarvalDurationMod)
 
 # EGGSIZE DATA
 eggsize_subset = eggsize_raw %>% 
@@ -71,7 +72,10 @@ eggsize_subset = eggsize_raw %>%
   mutate(ref_eggsize = rep("Barneche2018", length(eggsize_mean)))
 
 # merge all datasets
-df_list <- list(rls_avg_sep, pld_subset, eggsize_subset, pld_alz_subset[c("Genus", "Species", "Egg")])      
+df_list <- list(rls_avg_sep, 
+                pld_subset, 
+                eggsize_subset, 
+                pld_alz_subset[c("Genus", "Species", "Egg")])      
 trait_data = df_list %>% 
   reduce(left_join, by = c("Genus", "Species"))
 
@@ -123,9 +127,19 @@ for (i in 1:nrow(trait_data_2)) {
   }
 }
 
+# edit from here.......... add larval duration
+fb_bodysize_uni = fb_bodysize %>% distinct(valid_genus, valid_species, .keep_all = TRUE)
+trait_data_3 = left_join(trait_data_2, 
+                         fb_bodysize_uni[c("valid_genus",
+                                           "valid_species",
+                                           "larvalDuration",
+                                           "Ref_larvalduration")
+                         ],
+                         by = c("valid_genus", "valid_species"))
+
 # clean data
 ## rename column names
-trait_data_2 = trait_data_2 %>% 
+trait_data_3 = trait_data_3 %>% 
   rename(
     genus = Genus,
     species = Species,
@@ -133,18 +147,19 @@ trait_data_2 = trait_data_2 %>%
     bodySize = BodySize,
     depthRange = DepthRange,
     schooler = Schooler,
-    egg = Egg
+    egg = Egg,
+    ref_larvalduration = Ref_larvalduration
   )
 
 ## change order of columns
-final_trait_data = trait_data_2[,c(
+final_trait_data = trait_data_3[,c(
   "latitude", "longitude", "survey_date",
   "class", "order", "family", "genus", "species",
   "valid_genus", "valid_species",
   "biomass_mean", "size_class_mean", "total_mean",
-  "bodySize", "PLD", "rangeSize", "depthRange", "eggsize_mean", "egg",
+  "bodySize", "PLD", "larvalDuration", "rangeSize", "depthRange", "eggsize_mean", "egg",
   "spawningMode", "schooler", "nocturnal",
-  "ref_bodysize", "ref_pld", "ref_eggsize"      
+  "ref_bodysize", "ref_pld", "ref_larvalduration", "ref_eggsize"      
 )]
 
 # round values

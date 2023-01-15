@@ -6,12 +6,16 @@
 library(tidyverse)
 library(envPred)
 library(stringr)
+library(lubridate)
 
 # clean memory
 rm(list=ls())
 
 # set working directory
 setwd("~/projects/msc_thesis")
+
+# save data in the end
+save_chla_predictability = FALSE
 
 # use envPred package with one time series to retrieve variables
 ## read file
@@ -38,7 +42,7 @@ rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ","
 rls_unique = rls_avg %>% 
   select(longitude, latitude, survey_date) %>% 
   distinct() %>% 
-  mutate(ts_startdate = survey_date - 365.25*10) # create new column with start date for envPred (survey date - 10y)
+  mutate(ts_startdate = survey_date - years(10)) # create new column with start date for envPred (survey date - 10y)
 
 # write new column with latitude, longitude, and .csv
 ## write function that pastes all components
@@ -54,8 +58,12 @@ for (statname in env_stats_cols) {
 }
 
 # iterate over the time series CSVs to calculate the predictability of chla
+chloro_date_limit = as.Date("2021-07-31")
 for (i in 1:nrow(rls_unique)) {
-  #if (rls_unique[i,2] != -9.99) {next}
+  # skip all rows where survey date > 2021-07-31
+  if (rls_unique[i, "survey_date"] > chloro_date_limit)
+    next
+  
   temp_filename = paste("/media/mari/Crucial X8/chla_csv/", as.character(rls_unique[i,"chla_filename"]), sep = "")
   # create new column in the rls dataset with string containing the file names of the time series data
   if (!file.exists(temp_filename)) {
@@ -80,7 +88,10 @@ for (i in 1:nrow(rls_unique)) {
   }
 }
 
-# add postfix to statnames
+# complete cases
+nrow(rls_unique[complete.cases(rls_unique),])
+
+# add postfix to stat names
 names(rls_unique)
 colnames(rls_unique)[6:24] = paste("chla", colnames(rls_unique)[6:24], sep = "_")
 
@@ -94,5 +105,9 @@ final_chla = rls_unique %>%
 nrow(final_chla[!complete.cases(final_chla),]) # or nrow(na.omit(final_chla))
 
 # write new files
-write.csv(final_chla,"~/projects/msc_thesis/data/env_stats_chla.csv", row.names = FALSE)
-write.csv(final_chla,"/media/mari/Crucial X8/env_stats_chla.csv", row.names = FALSE)
+if (save_chla_predictability == TRUE) {
+  write.csv(final_chla,"~/projects/msc_thesis/data/env_stats_chla.csv", row.names = FALSE)
+  write.csv(final_chla,"/media/mari/Crucial X8/env_stats_chla.csv", row.names = FALSE)
+} else {
+  print("Data not saved!")
+}
