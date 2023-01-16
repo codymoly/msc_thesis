@@ -44,7 +44,7 @@ qualitiy_check[2,5] = n_distinct(pld_true$family) # number of families in data w
 # how many individuals were not identified on species level?
 species_no_id = without_elasmo %>% 
   dplyr::filter(is.na(bodySize)) %>% 
-  dplyr::filter(substr(species,1,2) != "sp")
+  dplyr::filter(substr(species,1,2) == "sp") # 64
 ## 23 species in 13 families (run: unique(species_notfound$family)) with no documented bodysize
 # how many not identified species are there per family
 sp_number_per_family = species_no_id %>%
