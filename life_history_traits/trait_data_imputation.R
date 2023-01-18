@@ -95,7 +95,7 @@ summary(mod_rs_2) ## 0.0929, 0.08948 .... impute no rangeSize
 
 # subset data
 trait_subset = without_elasmo %>%
-  select (class, family, genus, species, bodySize, PLD)
+  select (class, family, genus, species, bodySize) # in case, add pld!
 ## we drop rangesize, because we don't have good predictors for it
 
 # bodysize
@@ -155,21 +155,38 @@ temp_data$sp_number = as.character(temp_data$sp_number)
 imputed_data = imputed_data %>% 
   left_join(select(temp_data, genus, species, sp_number), by = c("genus","species"))
 
+# only bodysize version
+imputed_bodysize = imputed_bodysize %>% 
+  left_join(select(temp_data, genus, species, sp_number), by = c("genus","species"))
+
 # replace NAs
+# for (i in 1:nrow(temp_data)) {
+#   if (is.na(temp_data[i, "PLD"]) | is.na(temp_data[i, "bodySize"])) {
+#     curr_number = temp_data[[i, "sp_number"]]
+#     pld_rows = subset(imputed_data,
+#                       imputed_data[, "sp_number"] == curr_number)
+#     
+#     if (is.na(temp_data[i, "PLD"]) & nrow(pld_rows) > 0 & !is.na(pld_rows[1, "PLD"])) {
+#       temp_data[i, "PLD"] = pld_rows[1, "PLD"]
+#       temp_data[i, "ref_pld"] = pld_rows[1, "ref_pld"]
+#     }
+#     
+#     if (is.na(temp_data[i, "bodySize"]) & nrow(pld_rows) > 0 & !is.na(pld_rows[1, "bodySize"])) {
+#       temp_data[i, "bodySize"] = pld_rows[1, "bodySize"]
+#       temp_data[i, "ref_bodysize"] = pld_rows[1, "ref_bodysize"]
+#     }
+#   }
+# }
+
 for (i in 1:nrow(temp_data)) {
-  if (is.na(temp_data[i, "PLD"]) | is.na(temp_data[i, "bodySize"])) {
+  if (is.na(temp_data[i, "bodySize"])) {
     curr_number = temp_data[[i, "sp_number"]]
-    pld_rows = subset(imputed_data,
-                      imputed_data[, "sp_number"] == curr_number)
+    bs_rows = subset(imputed_bodysize,
+                     imputed_bodysize[, "sp_number"] == curr_number)
     
-    if (is.na(temp_data[i, "PLD"]) & nrow(pld_rows) > 0 & !is.na(pld_rows[1, "PLD"])) {
-      temp_data[i, "PLD"] = pld_rows[1, "PLD"]
-      temp_data[i, "ref_pld"] = pld_rows[1, "ref_pld"]
-    }
-    
-    if (is.na(temp_data[i, "bodySize"]) & nrow(pld_rows) > 0 & !is.na(pld_rows[1, "bodySize"])) {
-      temp_data[i, "bodySize"] = pld_rows[1, "bodySize"]
-      temp_data[i, "ref_bodysize"] = pld_rows[1, "ref_bodysize"]
+    if (is.na(temp_data[i, "bodySize"]) & nrow(bs_rows) > 0 & !is.na(bs_rows[1, "bodySize"])) {
+      temp_data[i, "bodySize"] = bs_rows[1, "bodySize"]
+      temp_data[i, "ref_bodysize"] = bs_rows[1, "ref_bodysize"]
     }
   }
 }
@@ -190,3 +207,19 @@ final_species_traits = temp_data %>%
 # save results
 write.csv(final_species_traits,"~/projects/msc_thesis/data/species_traits_imputed.csv", row.names = FALSE)
 write.csv(final_species_traits,"/media/mari/Crucial X8/species_traits_imputed.csv", row.names = FALSE)
+
+################# only bodysize
+# sanity check
+nrow(temp_data[complete.cases(temp_data$bodySize),]) # 1080, no missing bodysize data anymore
+# alt: summary(temp_data)
+unique(temp_data$ref_bodysize)
+## all references seem to fit
+
+# select relevant columns
+final_imputed_data = temp_data %>% 
+  select(class, family, genus, species, valid_genus, valid_species, 
+         bodySize, ref_bodysize)
+
+# save results
+write.csv(final_imputed_data,"~/projects/msc_thesis/data/species_traits_imputed.csv", row.names = FALSE)
+write.csv(final_imputed_data,"/media/mari/Crucial X8/species_traits_imputed.csv", row.names = FALSE)

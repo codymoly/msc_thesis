@@ -34,7 +34,7 @@ species_traits_copy$species_name = paste(species_traits_copy$genus, species_trai
 
 ## select columns of trait data
 species_traits_subset = species_traits_copy %>% 
-  select(species_name, bodySize, PLD)
+  select(species_name, bodySize) # in case, add pld
 
 # merge datasets
 rls_trait_data = rls_avg_subset %>% 
@@ -45,7 +45,7 @@ nrow(rls_trait_data[complete.cases(rls_trait_data),]) # 20260 complete cases
 nrow(rls_trait_data[complete.cases(rls_trait_data$biomass_mean),]) # 20260 complete cases with biomass
 nrow(rls_trait_data[complete.cases(rls_trait_data$total_mean),]) # 20633 complete cases with total counts
 nrow(rls_trait_data[complete.cases(rls_trait_data$bodySize),]) # 20633 complete cases with bodysize
-nrow(rls_trait_data[complete.cases(rls_trait_data$PLD),]) # 20633 complete cases with PLD
+#nrow(rls_trait_data[complete.cases(rls_trait_data$PLD),]) # 20633 complete cases with PLD
 
 ## copy merged dataset
 cwm_input = rls_trait_data
@@ -60,7 +60,7 @@ trait_cwm = cwm_input %>%
   group_by(latitude, longitude, survey_date) %>%   # Groups the summary file by Plot number
   summarise(           # Coding for how we want our CWMs summarized
     bodysize_cwm_total = weighted.mean(bodySize, total_mean),
-    PLD_cwm_total = weighted.mean(PLD, total_mean),
+    # PLD_cwm_total = weighted.mean(PLD, total_mean),
     total_biomass = sum(na.omit(biomass_mean)),
     sp_richness = specnumber(total_mean),
     shannon = diversity(total_mean,index = "shannon"),

@@ -18,6 +18,9 @@ sst_data = read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 chla_data = read_delim("/media/mari/Crucial X8/env_stats_chla.csv", delim = ",")
 
 
+summary(sst_data)
+summary(chla_data)
+
 ###### data preparation
 
 # merge data for analysis
@@ -81,3 +84,4 @@ no_outliers <- subset(eco_env_copy, eco_env_copy$chla_env_col> (Q1 - 1.5*IQR) &
 # correlation check without outliers from "sst_bounded_seasonality"
 pairs(~ chla_env_col + chla_raw_mean + chla_bounded_seasonality + bodysize_cwm_total + inv_simpson, data = no_outliers)
 
+pairs(~ chla_env_col + chla_bounded_seasonality + chla_raw_var + chla_predicted_var + chla_unpredicted_var + bodysize_cwm_total, data = no_outliers)

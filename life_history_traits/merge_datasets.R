@@ -59,8 +59,7 @@ fb_bodysize = fb_raw %>%
   #select(-c("entry")) %>% 
   separate(valid_name, c("valid_genus", "valid_species"), extra = "merge", fill = "left") %>% 
   rename(BodySize = Length,
-         ref_bodysize = Ref_bodysize,
-         larvalDuration = LarvalDurationMod)
+         ref_bodysize = Ref_bodysize)
 
 # EGGSIZE DATA
 eggsize_subset = eggsize_raw %>% 
@@ -71,8 +70,19 @@ eggsize_subset = eggsize_raw %>%
   ungroup() %>% 
   mutate(ref_eggsize = rep("Barneche2018", length(eggsize_mean)))
 
+# current state: we are only including bodysize in the analysis since data for other traits is scarce
+# therefore, we merge only the rls and fb data in the next step
+# the lines after that are only relevant if other traits are considered
+# merge rls and fb data
+df_list_1 = list(rls_avg_sep, 
+                fb_bodysize)      
+trait_data_only_bs = df_list_1 %>%
+  reduce(left_join, by = c("valid_genus", "valid_species"))
+
+#########################################
+
 # merge all datasets
-df_list <- list(rls_avg_sep, 
+df_list = list(rls_avg_sep, 
                 pld_subset, 
                 eggsize_subset, 
                 pld_alz_subset[c("Genus", "Species", "Egg")])      
@@ -179,3 +189,44 @@ write.csv(final_trait_data,"/media/mari/Crucial X8/species_traits_per_survey.csv
 ## only species and trait data
 write.csv(unique_species,"~/projects/msc_thesis/data/species_traits.csv", row.names = FALSE)
 write.csv(unique_species,"/media/mari/Crucial X8/species_traits.csv", row.names = FALSE)
+
+#########################################
+
+# clean data
+## rename column names
+rls_only_bodysize = trait_data_only_bs %>% 
+  rename(
+    genus = Genus,
+    species = Species,
+    bodySize = BodySize
+  )
+
+## change order of columns
+final_only_bodysize = rls_only_bodysize[,c(
+  "latitude", "longitude", "survey_date",
+  "class", "order", "family", "genus", "species",
+  "valid_genus", "valid_species",
+  "biomass_mean", "size_class_mean", "total_mean",
+  "bodySize", "ref_bodysize"      
+)]
+
+# round values
+final_only_bodysize = data.frame(lapply(final_only_bodysize, function(x) if(is.numeric(x)) round(x, 1) else x))
+
+# subset data with unique species
+unique_species_bs = final_only_bodysize %>% 
+  select(-c("latitude", "longitude", "survey_date", "order", "biomass_mean", "size_class_mean", "total_mean")) %>% 
+  distinct(genus, species, .keep_all = TRUE) %>% 
+  arrange(class, family, genus, species)
+
+#########################################
+
+# write data
+## full dataset with traits and survey sites
+write.csv(final_only_bodysize,"~/projects/msc_thesis/data/species_traits_per_survey.csv", row.names = FALSE)
+write.csv(final_only_bodysize,"/media/mari/Crucial X8/species_traits_per_survey.csv", row.names = FALSE)
+
+## only species and trait data
+write.csv(unique_species_bs,"~/projects/msc_thesis/data/species_traits.csv", row.names = FALSE)
+write.csv(unique_species_bs,"/media/mari/Crucial X8/species_traits.csv", row.names = FALSE)
+
