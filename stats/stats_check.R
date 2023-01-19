@@ -34,7 +34,7 @@ eco_env_copy = eco_env %>%
   arrange(survey_date, latitude, longitude)
 ## take row number as numbering
 eco_env_copy = eco_env_copy %>%
-  mutate(new_survey_id = row_number())
+  dplyr::mutate(new_survey_id = row_number())
 ## transform number into character
 eco_env_copy$new_survey_id = as.character(eco_env_copy$new_survey_id)
 ## add s for survey to each element
@@ -108,3 +108,4 @@ pairs(~ sst_raw_mean +
         bodysize_cwm_total +
         sp_richness,
       data = nas_replaced)
+

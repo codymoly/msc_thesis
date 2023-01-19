@@ -117,7 +117,7 @@ imputed_bodysize$impute_bodysize_final = round(imputed_bodysize$impute_bodysize_
 ## select columns
 imputed_bodysize = imputed_bodysize %>%
   select(-c("bodySize", "imp_bodySize", "imp_bodySize_2")) %>%
-  rename(bodySize = impute_bodysize_final) %>%
+  dplyr::rename(bodySize = impute_bodysize_final) %>%
   mutate(ref_bodysize = rep("Imputed", length(imputed_bodysize$species)))
 
 
@@ -142,11 +142,11 @@ imputed_data = complete(test_pred)
 
 # add columns to document which values are imputed
 imputed_data = imputed_data %>% 
-  mutate(ref_pld = rep("Imputed", length(imputed_data$PLD)))
+  dplyr::mutate(ref_pld = rep("Imputed", length(imputed_data$PLD)))
 
 # create new identifier
 temp_data = without_elasmo %>% 
-  mutate(sp_number = row_number())
+  dplyr::mutate(sp_number = row_number())
 
 # transform id into character
 temp_data$sp_number = as.character(temp_data$sp_number)

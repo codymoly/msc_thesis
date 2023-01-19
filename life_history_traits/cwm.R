@@ -58,7 +58,7 @@ nrow(cwm_input[complete.cases(cwm_input$total_mean),]) # 20633, complete
 # caluclate cwms
 trait_cwm = cwm_input %>%
   group_by(latitude, longitude, survey_date) %>%   # Groups the summary file by Plot number
-  summarise(           # Coding for how we want our CWMs summarized
+  dplyr::summarise(           # Coding for how we want our CWMs summarized
     bodysize_cwm_total = weighted.mean(bodySize, total_mean),
     # PLD_cwm_total = weighted.mean(PLD, total_mean),
     total_biomass = sum(na.omit(biomass_mean)),

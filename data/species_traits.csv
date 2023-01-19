@@ -174,7 +174,7 @@
 "Actinopterygii","Carangidae","Elagatis","bipinnulata","Elagatis","bipinnulata",180,"Fishbase2022"
 "Actinopterygii","Carangidae","Gnathanodon","speciosus","Gnathanodon","speciosus",120,"Fishbase2022"
 "Actinopterygii","Carangidae","Pseudocaranx","dentex","Pseudocaranx","dentex",122,"Fishbase2022"
-"Actinopterygii","Carangidae","Pseudocaranx","georgianus","Pseudocaranx","georgianus",NA,NA
+"Actinopterygii","Carangidae","Pseudocaranx","georgianus","Pseudocaranx","georgianus",122,"Fishbase2022"
 "Actinopterygii","Carangidae","Pseudocaranx","spp.",NA,NA,NA,NA
 "Actinopterygii","Carangidae","Pseudocaranx","wrighti","Pseudocaranx","wrighti",70,"Fishbase2022"
 "Actinopterygii","Carangidae","Scomberoides","lysan","Scomberoides","lysan",110,"Fishbase2022"
@@ -235,13 +235,13 @@
 "Actinopterygii","Chaetodontidae","Heniochus","singularius","Heniochus","singularius",30,"Fishbase2022"
 "Actinopterygii","Chaetodontidae","Heniochus","varius","Heniochus","varius",19,"Fishbase2022"
 "Actinopterygii","Chaetodontidae","Parachaetodon","ocellatus","Parachaetodon","ocellatus",18,"Fishbase2022"
-"Actinopterygii","Cheilodactylidae","Cheilodactylus","ephippium","Cheilodactylus","ephippium",NA,NA
+"Actinopterygii","Cheilodactylidae","Cheilodactylus","ephippium","Cheilodactylus","ephippium",20,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Cheilodactylus","francisi","Goniistius","francisi",27.4,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Cheilodactylus","fuscus","Morwong","fuscus",65,"Fishbase2022"
-"Actinopterygii","Cheilodactylidae","Cheilodactylus","gibbosus","Cheilodactylus","gibbosus",NA,NA
+"Actinopterygii","Cheilodactylidae","Cheilodactylus","gibbosus","Cheilodactylus","gibbosus",30,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Cheilodactylus","rubrolabiatus","Goniistius","rubrolabiatus",NA,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Cheilodactylus","spectabilis","Chirodactylus","spectabilis",100,"Fishbase2022"
-"Actinopterygii","Cheilodactylidae","Cheilodactylus","vestitus","Cheilodactylus","vestitus",NA,NA
+"Actinopterygii","Cheilodactylidae","Cheilodactylus","vestitus","Cheilodactylus","vestitus",35,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Dactylophora","nigricans","Dactylophora","nigricans",120,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Nemadactylus","douglasii","Nemadactylus","douglasii",81,"Fishbase2022"
 "Actinopterygii","Cheilodactylidae","Nemadactylus","macropterus","Nemadactylus","macropterus",70,"Fishbase2022"
@@ -731,7 +731,7 @@
 "Actinopterygii","Platycephalidae","Platycephalus","bassensis","Platycephalus","bassensis",46,"Fishbase2022"
 "Actinopterygii","Platycephalidae","Platycephalus","fuscus","Platycephalus","fuscus",120,"Fishbase2022"
 "Actinopterygii","Platycephalidae","Platycephalus","speculator","Platycephalus","speculator",90,"Fishbase2022"
-"Actinopterygii","Platycephalidae","Thysanophrys","cirronasa","Thysanophrys","cirronasa",NA,NA
+"Actinopterygii","Platycephalidae","Thysanophrys","cirronasa","Thysanophrys","cirronasa",38,"Fishbase2022"
 "Actinopterygii","Plesiopidae","Assessor","flavissimus","Assessor","flavissimus",6,"Fishbase2022"
 "Actinopterygii","Plesiopidae","Assessor","macneilli","Assessor","macneilli",6,"Fishbase2022"
 "Actinopterygii","Plesiopidae","Calloplesiops","altivelis","Calloplesiops","altivelis",20,"Fishbase2022"
@@ -772,7 +772,7 @@
 "Actinopterygii","Pomacentridae","Abudefduf","whitleyi","Abudefduf","whitleyi",14,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Acanthochromis","polyacanthus","Acanthochromis","polyacanthus",14,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Amblyglyphidodon","aureus","Amblyglyphidodon","aureus",13,"Fishbase2022"
-"Actinopterygii","Pomacentridae","Amblyglyphidodon","batunai","Amblyglyphidodon","batunaorum",NA,NA
+"Actinopterygii","Pomacentridae","Amblyglyphidodon","batunai","Amblyglyphidodon","batunaorum",10,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Amblyglyphidodon","curacao","Amblyglyphidodon","curacao",11,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Amblyglyphidodon","leucogaster","Amblyglyphidodon","leucogaster",13,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Amphiprion","akindynos","Amphiprion","akindynos",9,"Fishbase2022"
@@ -794,7 +794,7 @@
 "Actinopterygii","Pomacentridae","Chromis","cinerascens","Chromis","cinerascens",13,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Chromis","fumea","Chromis","fumea",10,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Chromis","hypsilepis","Chromis","hypsilepis",16,"Fishbase2022"
-"Actinopterygii","Pomacentridae","Chromis","iomelas","Pycnochromis","iomelas",NA,NA
+"Actinopterygii","Pomacentridae","Chromis","iomelas","Pycnochromis","iomelas",8,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Chromis","kennensis","Chromis","kennensis",NA,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Chromis","klunzingeri","Chromis","klunzingeri",6.5,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Chromis","lepidolepis","Chromis","lepidolepis",9,"Fishbase2022"
@@ -849,7 +849,7 @@
 "Actinopterygii","Pomacentridae","Parma","victoriae","Parma","victoriae",20,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Plectroglyphidodon","dickii","Plectroglyphidodon","dickii",11,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Plectroglyphidodon","johnstonianus","Plectroglyphidodon","johnstonianus",14,"Fishbase2022"
-"Actinopterygii","Pomacentridae","Plectroglyphidodon","lacrymatus","Stegastes","lacrymatus",NA,NA
+"Actinopterygii","Pomacentridae","Plectroglyphidodon","lacrymatus","Stegastes","lacrymatus",10,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Plectroglyphidodon","leucozonus","Plectroglyphidodon","leucozonus",12,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Pomacentrus","adelus","Pomacentrus","adelus",8.5,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Pomacentrus","alexanderae","Pomacentrus","alexanderae",9,"Fishbase2022"
@@ -880,7 +880,7 @@
 "Actinopterygii","Pomacentridae","Premnas","biaculeatus","Premnas","biaculeatus",17,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Stegastes","albifasciatus","Stegastes","albifasciatus",13,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Stegastes","apicalis","Stegastes","apicalis",15,"Fishbase2022"
-"Actinopterygii","Pomacentridae","Stegastes","fasciolatus","Plectroglyphidodon","fasciolatus",NA,NA
+"Actinopterygii","Pomacentridae","Stegastes","fasciolatus","Plectroglyphidodon","fasciolatus",16.5,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Stegastes","gascoynei","Stegastes","gascoynei",15,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Stegastes","nigricans","Stegastes","nigricans",14,"Fishbase2022"
 "Actinopterygii","Pomacentridae","Stegastes","obreptus","Stegastes","obreptus",12,"Fishbase2022"

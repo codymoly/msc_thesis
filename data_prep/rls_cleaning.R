@@ -45,11 +45,11 @@ rmBrackets = function(spname){
   return(str_replace_all(spname, "sp\\. \\[([^\\\\]*)\\]", "\\1"))
 }
 ## apply function on species column in original file
-rls_2021_2022["species_name"] <- lapply(rls_2021_2022["species_name"], rmBrackets)
+rls_no_elas["species_name"] <- lapply(rls_no_elas["species_name"], rmBrackets)
 
 # get accepted species names
 ## select unique species
-unique_species_names = rls_2021_2022 %>%
+unique_species_names = rls_no_elas %>%
   distinct(species_name)
 ## correct typo
 unique_species_names$species_name[unique_species_names$species_name == "Tripterygiidae Ningaloo"] = "Tripterygiidae ningaloo"
@@ -60,6 +60,10 @@ species_vector = unique_species_names %>%
   pull()
 ## get accepted names from worms database...
 worms_data = wormsbynames(species_vector)
+
+worms_data_cons = wormsconsolidate(worms_data)
+
+worms_data_acc = wormsaccepted(worms_data_cons)
 ## ...and subset aphia_id, species name, and accepted name
 worms_valid = worms_data %>% 
   select(AphiaID, scientificname, valid_name) %>% 

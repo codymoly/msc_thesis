@@ -32,7 +32,7 @@ pld_subset = pld_raw %>%
   select(-c("Family", "Region", "Multi-Habitat", "Transpacific", "Reference")) %>% 
   mutate(ref_pld = rep("Luiz2013", length(pld_raw$Genus)),
          ref_bodysize = rep("Luiz2013", length(pld_raw$Genus))) %>% 
-  rename(RangeSize = `Range size (km)`,
+  dplyr::rename(RangeSize = `Range size (km)`,
          BodySize = `Body size (cm)`,
          PLD = `Mean PLD (days)`,
          DepthRange = `Depth range (m)`,
@@ -58,7 +58,7 @@ pld_alz_subset$nocturnal = gsub('no', 'NO', pld_alz_subset$nocturnal)
 fb_bodysize = fb_raw %>%
   #select(-c("entry")) %>% 
   separate(valid_name, c("valid_genus", "valid_species"), extra = "merge", fill = "left") %>% 
-  rename(BodySize = Length,
+  dplyr::rename(BodySize = Length,
          ref_bodysize = Ref_bodysize)
 
 # EGGSIZE DATA
@@ -78,6 +78,8 @@ df_list_1 = list(rls_avg_sep,
                 fb_bodysize)      
 trait_data_only_bs = df_list_1 %>%
   reduce(left_join, by = c("valid_genus", "valid_species"))
+
+wtf = trait_data_only_bs %>% filter(is.na(BodySize)) %>% distinct(Genus, Species)
 
 #########################################
 
@@ -195,7 +197,7 @@ write.csv(unique_species,"/media/mari/Crucial X8/species_traits.csv", row.names 
 # clean data
 ## rename column names
 rls_only_bodysize = trait_data_only_bs %>% 
-  rename(
+  dplyr::rename(
     genus = Genus,
     species = Species,
     bodySize = BodySize
