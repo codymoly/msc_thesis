@@ -72,6 +72,7 @@ for (i in 1:nrow(rls_unique)) {
            temp_sst_data$date <= rls_unique[[i, "survey_date"]]
            ) # subset each time series based on relative time range
   envpred_statistics = env_stats(time_series = pred_range$analysed_sst,
+                                 is_uneven = FALSE,
                                  dates = pred_range$date,
                                  delta = 1,
                                  noise_method = 'spectrum'

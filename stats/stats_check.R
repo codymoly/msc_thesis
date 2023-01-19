@@ -17,10 +17,6 @@ eco_data = read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 chla_data = read_delim("/media/mari/Crucial X8/env_stats_chla.csv", delim = ",")
 
-
-summary(sst_data)
-summary(chla_data)
-
 ###### data preparation
 
 # merge data for analysis
@@ -32,17 +28,10 @@ nrow(eco_env[complete.cases(eco_env),]) # 201
 nrow(eco_env[complete.cases(eco_env$chla_raw_mean),]) # 201
 ## chla is missing for some sites 
 
-# # check date of sites that have chla values
-# years_with_chla = eco_env %>% 
-#   filter(!is.na(chla_raw_mean)) %>% 
-#   select(survey_date) %>% 
-#   arrange(desc(survey_date))
-
-# arrange by
+# create unique survey id
+## arrange by site
 eco_env_copy = eco_env %>% 
   arrange(survey_date, latitude, longitude)
-
-# create unique survey id
 ## take row number as numbering
 eco_env_copy = eco_env_copy %>%
   mutate(new_survey_id = row_number())
@@ -59,29 +48,63 @@ if (save_completed_dataset == TRUE) {
   write.csv(eco_env_copy,"~/projects/msc_thesis/data/survey_cwm_envpred_data.csv", row.names = FALSE)
   write.csv(eco_env_copy,"/media/mari/Crucial X8/survey_cwm_envpred_data.csv", row.names = FALSE)
 } else {
-  print("Protego!")
+  print("Data not saved!")
 }
 
-###### data visualisation
-boxplot(eco_env$sst_bounded_seasonality)
+
+##### data exploration
 
 # get variable names
 names(eco_env_copy)
-
-# quick correlation check
-pairs(~ chla_env_col + chla_raw_mean + chla_bounded_seasonality + bodysize_cwm_total + PLD_cwm_total + inv_simpson, data = eco_env_copy)
+summary(eco_env_copy)
+## some sites have sst values <= 0, this might be due to the fill values in the cds dataset
+nas_replaced = eco_env_copy # save copy
+nm1 = grep('sst', names(nas_replaced)) # choose columns
+nas_replaced[nm1] = lapply(nas_replaced[nm1], function(x) 
+  replace(x, nas_replaced$sst_raw_mean <= 0, NA)) # replace values <= 0 with NAs in sst data
+## sanity check
+summary(nas_replaced)
 
 # remove outliers from "sst_bounded_seasonality"
 ## calculate quantiles
-Q1 <- quantile(eco_env_copy$chla_env_col, .25, na.rm = TRUE)
-Q3 <- quantile(eco_env_copy$chla_env_col, .75, na.rm = TRUE)
-IQR <- IQR(eco_env_copy$chla_env_col, na.rm = TRUE)
+Q1 <- quantile(nas_replaced$chla_env_col, .25, na.rm = TRUE)
+Q3 <- quantile(nas_replaced$chla_env_col, .75, na.rm = TRUE)
+IQR <- IQR(nas_replaced$chla_env_col, na.rm = TRUE)
+## replace outliers in chla_env_col
+nas_replaced$chla_env_col[nas_replaced$chla_env_col > (Q3 + 2*IQR)] = NA
 
-## only keep rows in dataframe that have values within 1.5*IQR of Q1 and Q3
-no_outliers <- subset(eco_env_copy, eco_env_copy$chla_env_col> (Q1 - 1.5*IQR) & 
-                        eco_env_copy$chla_env_col< (Q3 + 1.5*IQR))
 
-# correlation check without outliers from "sst_bounded_seasonality"
-pairs(~ chla_env_col + chla_raw_mean + chla_bounded_seasonality + bodysize_cwm_total + inv_simpson, data = no_outliers)
+##### visual inspection
 
-pairs(~ chla_env_col + chla_bounded_seasonality + chla_raw_var + chla_predicted_var + chla_unpredicted_var + bodysize_cwm_total, data = no_outliers)
+# sst
+pairs(~ sst_raw_mean + 
+        sst_raw_var + 
+        sst_raw_cv + 
+        sst_predicted_var + 
+        sst_unpredicted_var + 
+        sst_unbounded_seasonality +
+        sst_bounded_seasonality +
+        sst_env_col, 
+      data = nas_replaced)
+
+# chla
+pairs(~ chla_raw_mean + 
+        chla_raw_var + 
+        chla_raw_cv + 
+        chla_predicted_var + 
+        chla_unpredicted_var + 
+        chla_unbounded_seasonality +
+        chla_bounded_seasonality +
+        chla_env_col, 
+      data = nas_replaced)
+
+# all
+pairs(~ sst_raw_mean + 
+        sst_unbounded_seasonality +
+        sst_env_col +
+        chla_raw_mean + 
+        chla_unbounded_seasonality +
+        chla_env_col +
+        bodysize_cwm_total +
+        sp_richness,
+      data = nas_replaced)

@@ -29,10 +29,10 @@ env_stats_cols = names(env_stats(
   time_series = test_csv$chloro_a,
   dates = test_csv$date,
   delta = 1,
-  is_uneven = TRUE,
+  is_uneven = FALSE,
   interpolate = FALSE,
   show_warns = TRUE, 
-  noise_method = 'lomb_scargle'
+  noise_method = 'spectrum'
 ))
 
 # read averaged RLS dataset
@@ -78,9 +78,9 @@ for (i in 1:nrow(rls_unique)) {
     ) # subset each time series based on relative time range
   envpred_statistics = env_stats(time_series = pred_range$chloro_a,
                                  dates = pred_range$date,
-                                 is_uneven = TRUE,
+                                 is_uneven = FALSE,
                                  delta = 1,
-                                 noise_method = 'lomb_scargle'
+                                 noise_method = 'spectrum'
   ) # calculate and write environmental statistics of envPred into a dataframe
   
   for (statname in env_stats_cols) { # write each statistic into a new column in rls_unique
