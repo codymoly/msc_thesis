@@ -28,6 +28,17 @@ rls_2021_2022 = rls_2021_2022 %>%
 # # unique(rls_2021_2022$ecoregion)
 # nrow(unique(rls_2021_2022[c('latitude', 'longitude', 'survey_date')])) # 490 observations
 
+# number of families and species incl. elasmos
+nrow(unique(rls_2021_2022["family"])) # 104
+nrow(unique(rls_2021_2022["species_name"])) # 1121
+
+# number of families and species excl. elasmos
+rls_no_elas = rls_2021_2022 %>% 
+  dplyr::filter(rls_2021_2022$class == "Actinopterygii")
+
+nrow(unique(rls_no_elas["family"])) # 89
+nrow(unique(rls_no_elas["species_name"])) # 1081
+
 ## remove brackets from species name, e.g., change Pomacentrus sp. [rhodonotus] to Pomacentrus rhodonotus
 ## write function that explaces the different signs
 rmBrackets = function(spname){
@@ -37,15 +48,15 @@ rmBrackets = function(spname){
 rls_2021_2022["species_name"] <- lapply(rls_2021_2022["species_name"], rmBrackets)
 
 # get accepted species names
-## select unqie species
+## select unique species
 unique_species_names = rls_2021_2022 %>%
   distinct(species_name)
-## correct type
+## correct typo
 unique_species_names$species_name[unique_species_names$species_name == "Tripterygiidae Ningaloo"] = "Tripterygiidae ningaloo"
 
 ## transform into vector
 species_vector = unique_species_names %>% 
-  #slice_head(n = 5) %>% 
+  #slice_head(n = 5) %>% # only to test how worms works for 5 species
   pull()
 ## get accepted names from worms database...
 worms_data = wormsbynames(species_vector)
