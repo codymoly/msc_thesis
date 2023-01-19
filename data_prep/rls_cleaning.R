@@ -11,6 +11,9 @@ rm(list=ls())
 # set working directory
 setwd("~/projects/msc_thesis")
 
+# conditional stuff
+save_date = FALSE
+
 # read RLS dataset
 rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
 
@@ -55,5 +58,9 @@ worms_valid = worms_data %>%
 
 clean_rls_data = left_join(rls_2021_2022, worms_valid, by = "species_name")
 
-write.csv(clean_rls_data,"~/projects/msc_thesis/data/rls_2021_2022_clean.csv", row.names = FALSE)
-write.csv(clean_rls_data,"/media/mari/Crucial X8/rls_2021_2022_clean.csv", row.names = FALSE)
+if (save_data == TRUE) {
+  write.csv(clean_rls_data,"~/projects/msc_thesis/data/rls_2021_2022_clean.csv", row.names = FALSE)
+  write.csv(clean_rls_data,"/media/mari/Crucial X8/rls_2021_2022_clean.csv", row.names = FALSE)
+} else {
+  print("Data not saved!")
+}
