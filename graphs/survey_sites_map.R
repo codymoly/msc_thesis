@@ -21,19 +21,18 @@ ggplot(fortify(aus), aes(y = lat, x = long, group = group)) +
   geom_point(data = rls_dist,
              aes(x = longitude, y = latitude),
              inherit.aes = FALSE,
-             color = "#1A85FF",
-             size = 4) +
+             color = "black", # blue: #1A85FF, pink: #D41159
+             size = 7) +
   theme_classic() +
   theme(
-    axis.title.x = element_text(size = 22, face= "bold"),
-    axis.title.y = element_text(size = 22, face= "bold"),
-    axis.text = element_text(size = 16, face= "bold")
-    #axis.title = element_blank(),
-    #legend.title = element_blank(),
-    #axis.text.x = element_blank(),
-    #axis.text.y = element_blank(),
-    #axis.ticks = element_blank(),
-    #axis.line = element_blank()
+    #axis.title.x = element_text(size = 22, face= "bold"),
+    #axis.title.y = element_text(size = 22, face= "bold"),
+    #axis.text = element_text(size = 16, face= "bold"),
+    axis.title = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.line = element_blank()
   ) +
   xlab("Longitude") +
   ylab("Latitude") 

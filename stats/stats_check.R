@@ -88,11 +88,7 @@ nas_replaced$chla_env_col[nas_replaced$chla_env_col > (Q3 + 2*IQR)] = NA
 
 # sst
 pairs(~ sst_raw_mean + 
-        sst_raw_var + 
-        sst_raw_cv + 
-        sst_predicted_var + 
-        sst_unpredicted_var + 
-        sst_unbounded_seasonality +
+        sst_raw_var +
         sst_bounded_seasonality +
         sst_env_col, 
       data = nas_replaced)
@@ -110,17 +106,15 @@ pairs(~ chla_raw_mean +
 
 # all
 pairs(~ sst_raw_mean + 
-        sst_unbounded_seasonality +
+        sst_bounded_seasonality +
         sst_env_col +
-        chla_raw_mean + 
-        chla_unbounded_seasonality +
-        chla_env_col +
         bodysize_cwm_total +
         sp_richness +
         latitude,
       data = nas_replaced)
 
-summary(lm(eco_env_copy$bodysize_cwm_total ~ eco_env_copy$sst_env_col + eco_env_copy$sst_raw_mean))
+summary(lm(eco_env_copy$bodysize_cwm_total ~ eco_env_copy$sst_env_col*eco_env_copy$sst_bounded_seasonality))
+summary(lm(eco_env_copy$sp_richness ~ eco_env_copy$bodysize_cwm_total))
 
 # 
 
