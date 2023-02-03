@@ -10,11 +10,14 @@ rm(list=ls())
 # set working directory
 setwd("~/projects/msc_thesis")
 
+# conditional code
+save_my_data = FALSE
+
 # read RLS dataset
-rls_2021_2022 = read_delim("/media/mari/Crucial X8/RLS_2021_2022_clean.csv", delim = ",")
+rls_2019_2022 = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
 
 # subset data 
-rls_sub = rls_2021_2022 %>% 
+rls_sub = rls_2019_2022 %>% 
   select(
     latitude, longitude, survey_date, 
     class, order, family, species_name, valid_name, aphia_id,
@@ -36,7 +39,7 @@ rls_avg = rls_sub %>%
 # rls_avg$ID = paste("S", rls_avg$ID, sep = "")
 
 # extract taxonomic information for each species from original file
-taxonomy = rls_2021_2022 %>% 
+taxonomy = rls_2019_2022 %>% 
   select(class, order, family, aphia_id, species_name, valid_name) %>% 
   distinct(species_name, .keep_all = TRUE)
 
@@ -44,5 +47,10 @@ taxonomy = rls_2021_2022 %>%
 rls_avg = left_join(rls_avg, taxonomy, by = "species_name")
 
 # write into csv
-write.csv(rls_avg,"~/projects/msc_thesis/data/rls_2021_2022_avg.csv", row.names = FALSE)
-write.csv(rls_avg,"/media/mari/Crucial X8/rls_2021_2022_avg.csv", row.names = FALSE)
+if (save_my_data ==TRUE) {
+  write.csv(rls_avg,"~/projects/msc_thesis/data/rls_2019_2022_avg.csv", row.names = FALSE)
+  write.csv(rls_avg,"/media/mari/Crucial X8/rls_2019_2022_avg.csv", row.names = FALSE)
+} else {
+  print("Data not saved!")
+}
+

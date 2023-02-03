@@ -11,48 +11,46 @@ rm(list=ls())
 setwd("~/Documents/MSc_thesis")
 
 # import data
-rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
-species_traits = read_delim("/media/mari/Crucial X8/species_traits_imputed.csv", delim = ",")
+rls_avg = read_delim("/media/mari/Crucial X8/rls_2019_2022_avg.csv", delim = ",")
+species_length = read_delim("/media/mari/Crucial X8/species_bodysize_imputed.csv", delim = ",")
 
 # prepare site data
 ## select columns of survey data
 rls_avg_subset = rls_avg %>% 
-  dplyr::filter(class == "Actinopterygii") %>% 
   select(latitude, longitude, survey_date, species_name, biomass_mean, total_mean)
 
 nrow(rls_avg_subset 
      %>% select(latitude, longitude, survey_date) 
      %>% distinct()
-     ) # despite removing all rows with elasmobranchs, we have 490 survey sites
+     ) # we have 1249 survey sites
 
 # prepare trait data
 ## copdy df
-species_traits_copy = species_traits
+species_length_copy = species_length
 
 ## merge genus and species (as in the initial RLS dataset)
-species_traits_copy$species_name = paste(species_traits_copy$genus, species_traits_copy$species, sep = " ")
+species_length_copy$species_name = paste(species_length_copy$genus, species_length_copy$species, sep = " ")
 
 ## select columns of trait data
-species_traits_subset = species_traits_copy %>% 
-  select(species_name, bodySize) # in case, add pld
+species_length_subset = species_length_copy %>% 
+  select(species_name, bodySize)
 
 # merge datasets
 rls_trait_data = rls_avg_subset %>% 
-  left_join(species_traits_subset, by = c("species_name"))
+  left_join(species_length_subset, by = c("species_name"))
 
 # data check-up, total cases: 20633
-nrow(rls_trait_data[complete.cases(rls_trait_data),]) # 20260 complete cases
-nrow(rls_trait_data[complete.cases(rls_trait_data$biomass_mean),]) # 20260 complete cases with biomass
-nrow(rls_trait_data[complete.cases(rls_trait_data$total_mean),]) # 20633 complete cases with total counts
-nrow(rls_trait_data[complete.cases(rls_trait_data$bodySize),]) # 20633 complete cases with bodysize
-#nrow(rls_trait_data[complete.cases(rls_trait_data$PLD),]) # 20633 complete cases with PLD
+nrow(rls_trait_data[complete.cases(rls_trait_data),]) # 51064 complete cases
+nrow(rls_trait_data[complete.cases(rls_trait_data$biomass_mean),]) # 51064 complete cases with biomass
+nrow(rls_trait_data[complete.cases(rls_trait_data$total_mean),]) # 51968 complete cases with total counts
+nrow(rls_trait_data[complete.cases(rls_trait_data$bodySize),]) # 51968 complete cases with bodysize
 
 ## copy merged dataset
 cwm_input = rls_trait_data
 
 ## check if biomass and total counts are complete
-nrow(cwm_input[complete.cases(cwm_input$biomass_mean),]) # 20260, incomplete
-nrow(cwm_input[complete.cases(cwm_input$total_mean),]) # 20633, complete
+nrow(cwm_input[complete.cases(cwm_input$biomass_mean),]) # 51064, incomplete
+nrow(cwm_input[complete.cases(cwm_input$total_mean),]) # 51968, complete
 ## --> use total observations for weighted means
 
 # caluclate cwms

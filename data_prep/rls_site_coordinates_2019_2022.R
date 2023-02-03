@@ -13,7 +13,7 @@ rm(list=ls())
 setwd("~/projects/msc_thesis")
 
 # save coordinate data?
-save_coords = FALSE
+save_my_data = FALSE
 
 # read RLS dataset, skip rows containing metadata (1-71)
 #rls_raw = read_delim("/media/mari/Crucial X8/RLS_20190101_20221120.csv", skip = 71, delim = ",")
@@ -25,7 +25,7 @@ survey_coordinates_2019_2022 = rls_2019_2022 %>%
   distinct()
 
 ## write coordinates in csv
-if (save_coords == TRUE) {
+if (save_my_data == TRUE) {
   write.csv(survey_coordinates_2019_2022,"~/projects/msc_thesis/data/survey_coordinates_2019_2022.csv", row.names = FALSE)
   write.csv(survey_coordinates_2019_2022,"/media/mari/Crucial X8/survey_coordinates_2019_2022.csv", row.names = FALSE)
 } else {

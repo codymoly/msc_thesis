@@ -11,15 +11,10 @@ rm(list=ls())
 setwd("~/Documents/MSc_thesis")
 
 # conditional code execution
-save_trait_data = FALSE
+save_my_data = FALSE
 
 # import data
-## from hard drive
-rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
-
-# # select column with species names, only for uploading list on github
-# species_names = select(rls_avg, species_name)
-# write.csv(species_names,"~/projects/msc_thesis/data/rls_species_names.csv", row.names = FALSE)
+rls_avg = read_delim("/media/mari/Crucial X8/rls_2019_2022_avg.csv", delim = ",")
 
 # write unique species names into a list
 species_list = rls_avg %>%
@@ -27,23 +22,9 @@ species_list = rls_avg %>%
   pull(valid_name) %>%
   as.list
 
-# # get fb larvae traits
-# species_vec = rls_avg %>%
-#   distinct(valid_name) %>% 
-#   pull(valid_name)
-#
-# larvae_traits = larvae(
-#   species_list = species_vec,
-#   fields = NULL,
-#   server = getOption("FISHBASE_API", "fishbase"))
-# 
-# larvae_traits_sub = larvae_traits %>% 
-#   select(Species, starts_with("LarvalDurationMod")) %>% 
-#   rename(valid_name = Species,
-#          Ref_larvalduration = LarvalDurationModRef)
-
 ## check available variables
 names(fb_tbl("species"))
+
 ## download length/ bodysize data for all RLS species
 fb_traits = fb_tbl("species", server = "fishbase") %>%
   mutate(valid_name = paste(Genus, Species)) %>%
@@ -51,47 +32,48 @@ fb_traits = fb_tbl("species", server = "fishbase") %>%
   select(valid_name, Length) %>% 
   mutate(Ref_bodysize = rep("Fishbase2022", length(Length)))
 
-# # merge larvae and length data
-#fb_traits_compl = full_join(fb_traits, larvae_traits_sub, by = "valid_name")
-
-# 10 species are missing
 ## write species list into dataframe
 species_df = rls_avg %>% 
   distinct(valid_name) %>% 
   select(valid_name)
+
 ## check which species (missing species) are in the list but not in the fishbase dataframe
-missing_species = setdiff(species_df, fb_traits["valid_name"])
+missing_species = setdiff(species_df, fb_traits["valid_name"]) # 22 are missing
 
 ## dump solution, manual search for the unaccepted species and sizes
-Length = c(122, 35, 38, 30, 20, 16.5, 8, 10, 10)
-valid_name = c("Pseudocaranx georgianus",
-               "Cheilodactylus vestitus",
-               "Thysanophrys cirronasa",
-               "Cheilodactylus gibbosus",
-               "Cheilodactylus ephippium",
-               "Plectroglyphidodon fasciolatus",
+## numbers are taken from fishbase with validation of the name in WORMS
+## in some cases, fishbase does not deliver the valid name, thus the species couldn't be found
+Length = c(10, 36, 6, 6, 6, 10.2, 7, 8, 7.5, 9, 10, 4.9, 12, 11, 15, 16.5, 15, 70, 9, 17, 10)
+valid_name = c("Stegastes lacrymatus",
+               "Scorpaenopsis oxycephalus",
+               "Pycnochromis vanderbilti",
+               "Pycnochromis retrofasciatus",
+               "Pycnochromis nigrurus",
+               "Pycnochromis margaritifer",
+               "Pycnochromis lineatus",
                "Pycnochromis iomelas",
-               "Stegastes lacrymatus",
+               "Pycnochromis caudalis",
+               "Pycnochromis atripes",
+               "Pycnochromis amboinensis",
+               "Pycnochromis agilis",
+               "Plectroglyphidodon obreptus",
+               "Plectroglyphidodon insularis",
+               "Plectroglyphidodon gascoynei",
+               "Plectroglyphidodon fasciolatus",
+               "Plectroglyphidodon apicalis",
+               "Ferdauia orthogrammus", # Carangoides ferdau, unaccepted
+               "Azurina lepidolepis",
+               "Amphiprion biaculeatus", # Chaetodon biaculeatus, unaccepted
                "Amblyglyphidodon batunaorum")
-Ref_bodysize = rep("Fishbase2022", 9)
+Ref_bodysize = rep("Fishbase2022", 21)
 
 manual_fb_traits = data.frame(valid_name, Length, Ref_bodysize)
 
 fb_traits_final = rbind(fb_traits, manual_fb_traits)
 
-# Pseudocaranx georgianus 122
-# Cheilodactylus vestitus 35
-# Thysanophrys cirronasa 38
-# Cheilodactylus gibbosus 30
-# Cheilodactylus ephippium 20
-# Plectroglyphidodon fasciolatus 16.5
-# Pycnochromis iomelas 8
-# Stegastes lacrymatus 10
-# Amblyglyphidodon batunaorum 10
-
 # save data
 ## fb traits
-if (save_trait_data == TRUE) {
+if (save_my_data == TRUE) {
   write.csv(fb_traits_final,"~/projects/msc_thesis/data/fishbase_bodysize.csv", row.names = FALSE)
   write.csv(fb_traits_final,"/media/mari/Crucial X8/fishbase_bodysize.csv", row.names = FALSE)
 } else {

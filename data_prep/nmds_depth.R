@@ -10,7 +10,7 @@ rm(list=ls())
 setwd("~/projects/msc_thesis")
 
 # read raw rls data
-rls_raw = read_delim("/media/mari/Crucial X8/RLS_2021_2022.csv", skip = 71, delim = ",")
+rls_raw = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
 
 # subset data 
 rls_sub = rls_raw %>%
@@ -73,9 +73,16 @@ nmds_dat %>%
   corrplot(method = "number")
 
 # mediation analysis
-summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude))) # z-transformation
+summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude)))
+## scale(nmds_dat$latitude) 8.849e-01  3.311e-02   26.73   <2e-16 ***
+## Multiple R-squared:  0.783,	Adjusted R-squared:  0.7819 
 summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$depth)))
+## scale(nmds_dat$depth) 2.166e-01  6.938e-02   3.121  0.00207 **
+## Multiple R-squared:  0.04689,	Adjusted R-squared:  0.04208
 summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude) + scale(nmds_dat$depth)))
+## scale(nmds_dat$latitude)  8.857e-01  3.426e-02  25.849   <2e-16 ***
+## scale(nmds_dat$depth)    -3.374e-03  3.426e-02  -0.098    0.922
+## Multiple R-squared:  0.783,	Adjusted R-squared:  0.7808
 
 # plot nMDS
 ## turn depth and latitude into discrete variables
