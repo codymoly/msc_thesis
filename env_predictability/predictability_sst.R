@@ -6,6 +6,7 @@
 library(tidyverse)
 library(envPred)
 library(stringr)
+library(lubridate)
 
 # clean memory
 rm(list=ls())
@@ -14,11 +15,11 @@ rm(list=ls())
 setwd("~/projects/msc_thesis")
 
 # save data in the end
-save_sst_predictability = FALSE
+save_my_data = TRUE
 
 # use envPred package with one time series to retrieve variables
 ## read file
-test_csv = read_delim("/media/mari/Crucial X8/sst_csv/-14.10_123.55.csv", delim = ",")
+test_csv = read_delim("/media/mari/Crucial X8/sst_csv_2/-14.10_123.55.csv", delim = ",")
 ## select column with temperature measurements and the minimum time period
 test_csv = test_csv %>%
   select(date, analysed_sst) %>%
@@ -35,13 +36,15 @@ env_stats_cols = names(env_stats(
 ))
 
 # read averaged RLS dataset
-rls_avg = read_delim("/media/mari/Crucial X8/rls_2021_2022_avg.csv", delim = ",")
+rls_avg = read_delim("/media/mari/Crucial X8/rls_2019_2022_avg.csv", delim = ",")
 
 # select distinct combinations of lat, long, AND survey date
 rls_unique = rls_avg %>% 
   select(longitude, latitude, survey_date) %>% 
   distinct() %>% 
-  mutate(ts_startdate = survey_date - years(10)) # create new column with start date for envPred (survey date - 10y)
+  mutate(ts_startdate = add_with_rollback(survey_date, years(-10))) 
+# create new column with start date for envPred (survey date - 10y), 
+# add_with_rollback() deals with leap years
 
 # write new column with latitude, longitude, and .csv
 ## write function that pastes all components
@@ -59,7 +62,7 @@ for (statname in env_stats_cols) {
 # iterate over the time series CSVs to calculate the predictability of sst
 for (i in 1:nrow(rls_unique)) {
   #if (rls_unique[i,2] != -9.99) {next}
-  temp_filename = paste("/media/mari/Crucial X8/sst_csv/", as.character(rls_unique[i,"sst_filename"]), sep = "")
+  temp_filename = paste("/media/mari/Crucial X8/sst_csv_2/", as.character(rls_unique[i,"sst_filename"]), sep = "")
   # create new column in the rls dataset with string containing the file names of the time series data
   if (!file.exists(temp_filename)) {
     print(paste(temp_filename, "not found", sep = " "))
@@ -100,7 +103,7 @@ nrow(na.omit(rls_unique)) # yeah, no missing data
 #NAS_coord = NAS %>% select(longitude, latitude)
 
 # write new files
-if (save_sst_predictability == TRUE) {
+if (save_my_data == TRUE) {
   write.csv(final_sst,"~/projects/msc_thesis/data/env_stats_sst.csv", row.names = FALSE)
   write.csv(final_sst,"/media/mari/Crucial X8/env_stats_sst.csv", row.names = FALSE)
 } else {

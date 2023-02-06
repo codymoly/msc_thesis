@@ -13,13 +13,13 @@ rm(list=ls())
 setwd("~/Documents/MSc_thesis")
 
 # conditional executions
-save_completed_dataset = FALSE
+save_my_data = FALSE
 
 # import data
 eco_data = read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 chla_data = read_delim("/media/mari/Crucial X8/env_stats_chla.csv", delim = ",")
-grid_coords = read_delim("/media/mari/Crucial X8/grid_coords.csv", delim = ",")
+#grid_coords = read_delim("/media/mari/Crucial X8/grid_coords.csv", delim = ",")
 
 ###### data preparation
 
@@ -29,7 +29,7 @@ eco_env = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_
 ## add chla
 eco_env = full_join(eco_env, chla_data, by = c("latitude", "longitude", "survey_date"))
 ## add grid data
-eco_env = left_join(eco_env, grid_coords, by = c("latitude", "longitude"))
+#eco_env = left_join(eco_env, grid_coords, by = c("latitude", "longitude"))
 ## baaaaaam perfect match
 # double-check if we have incomplete cases...
 nrow(eco_env[complete.cases(eco_env),]) # 201
@@ -52,7 +52,7 @@ eco_env_copy = eco_env_copy %>%
   select(new_survey_id, everything())
 
 # save dataset
-if (save_completed_dataset == TRUE) {
+if (save_my_data == TRUE) {
   write.csv(eco_env_copy,"~/projects/msc_thesis/data/survey_cwm_envpred_data.csv", row.names = FALSE)
   write.csv(eco_env_copy,"/media/mari/Crucial X8/survey_cwm_envpred_data.csv", row.names = FALSE)
 } else {
@@ -90,7 +90,7 @@ nas_replaced$chla_env_col[nas_replaced$chla_env_col > (Q3 + 2*IQR)] = NA
 pairs(~ sst_raw_mean + 
         sst_raw_var +
         sst_bounded_seasonality +
-        sst_env_col, 
+        sst_env_col,
       data = nas_replaced)
 
 # chla
