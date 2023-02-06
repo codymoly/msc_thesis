@@ -34,8 +34,8 @@ rls_names =
 rls_names
 
 # choose random cases since the df is biiiiggg
-set.seed(200)
-rls_rsub = sample_n(rls_wide, 200)
+set.seed(600)
+rls_rsub = sample_n(rls_wide, 600)
 
 # select abundance data
 rls_species =
@@ -74,30 +74,66 @@ nmds_dat %>%
 
 # mediation analysis
 summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude)))
-## scale(nmds_dat$latitude) 8.849e-01  3.311e-02   26.73   <2e-16 ***
-## Multiple R-squared:  0.783,	Adjusted R-squared:  0.7819 
+# Residuals:
+#   Min       1Q   Median       3Q      Max 
+# -1.53200 -0.30097  0.04741  0.29363  1.14365 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)    
+# (Intercept)              1.175e-16  1.811e-02    0.00        1    
+# scale(nmds_dat$latitude) 8.965e-01  1.812e-02   49.47   <2e-16 ***
+#   ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 0.4435 on 598 degrees of freedom
+# Multiple R-squared:  0.8036,	Adjusted R-squared:  0.8033 
+# F-statistic:  2447 on 1 and 598 DF,  p-value: < 2.2e-16 
 summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$depth)))
-## scale(nmds_dat$depth) 2.166e-01  6.938e-02   3.121  0.00207 **
-## Multiple R-squared:  0.04689,	Adjusted R-squared:  0.04208
+# Residuals:
+#   Min      1Q  Median      3Q     Max 
+# -2.3918 -0.9376 -0.1260  1.0483  1.9904 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)  
+# (Intercept)           5.091e-17  4.073e-02   0.000   1.0000  
+# scale(nmds_dat$depth) 8.080e-02  4.076e-02   1.982   0.0479 *
+#   ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 0.9976 on 598 degrees of freedom
+# Multiple R-squared:  0.006528,	Adjusted R-squared:  0.004867 
+# F-statistic:  3.93 on 1 and 598 DF,  p-value: 0.0479
 summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude) + scale(nmds_dat$depth)))
-## scale(nmds_dat$latitude)  8.857e-01  3.426e-02  25.849   <2e-16 ***
-## scale(nmds_dat$depth)    -3.374e-03  3.426e-02  -0.098    0.922
-## Multiple R-squared:  0.783,	Adjusted R-squared:  0.7808
+# Residuals:
+#   Min       1Q   Median       3Q      Max 
+# -1.59569 -0.29749  0.05933  0.28820  1.17645 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)    
+# (Intercept)              1.258e-16  1.802e-02   0.000     1.00    
+# scale(nmds_dat$latitude) 8.947e-01  1.805e-02  49.570   <2e-16 ***
+#   scale(nmds_dat$depth)    4.664e-02  1.805e-02   2.584     0.01 *  
+#   ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 0.4414 on 597 degrees of freedom
+# Multiple R-squared:  0.8058,	Adjusted R-squared:  0.8052 
+# F-statistic:  1239 on 2 and 597 DF,  p-value: < 2.2e-16
 
-# plot nMDS
-## turn depth and latitude into discrete variables
-nmds_dat$depth = as.character(nmds_dat$depth)
-nmds_dat$latitude = as.character(nmds_dat$latitude)
-## depth
-ggplot(data = nmds_dat,
-       mapping = aes(x = MDS1, y = MDS2, colour = depth)) +
-  geom_point(size = 2.5) +
-  scale_colour_viridis_d() +
-  theme_classic()
-## latitude
-ggplot(data = nmds_dat,
-       mapping = aes(x = MDS1, y = MDS2, colour = latitude)) +
-  geom_point(size = 2.5) +
-  scale_colour_viridis_d() +
-  theme_classic()
+# # plot nMDS
+# ## turn depth and latitude into discrete variables
+# nmds_dat$depth = as.character(nmds_dat$depth)
+# nmds_dat$latitude = as.character(nmds_dat$latitude)
+# ## depth
+# ggplot(data = nmds_dat,
+#        mapping = aes(x = MDS1, y = MDS2, colour = depth)) +
+#   geom_point(size = 2.5) +
+#   scale_colour_viridis_d() +
+#   theme_classic()
+# ## latitude
+# ggplot(data = nmds_dat,
+#        mapping = aes(x = MDS1, y = MDS2, colour = latitude)) +
+#   geom_point(size = 2.5) +
+#   scale_colour_viridis_d() +
+#   theme_classic()
 

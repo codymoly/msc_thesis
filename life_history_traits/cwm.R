@@ -56,15 +56,16 @@ nrow(cwm_input[complete.cases(cwm_input$total_mean),]) # 51968, complete
 
 # caluclate cwms
 trait_cwm = cwm_input %>%
-  group_by(latitude, longitude, survey_date) %>%   # Groups the summary file by Plot number
-  dplyr::summarise(           # Coding for how we want our CWMs summarized
+  group_by(latitude, longitude, survey_date) %>%  
+  dplyr::summarise(
     number_total = sum(na.omit(total_mean)),
-    sp_richness = specnumber(total_mean),
+    sp_richness = specnumber(species_name),
     bodysize_cwm_total = weighted.mean(bodySize, total_mean),
     bodysize_cwv_total = weighted.var(bodySize, total_mean),
-    total_biomass = sum(na.omit(biomass_mean))#,
+    total_biomass = sum(na.omit(biomass_mean)),
     #bodysize_cwm_biomass = weighted.mean(bodySize, biomass_mean, na.rm = TRUE),
-    #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE)
+    #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE),
+    shannon = diversity(total_mean,index = "shannon")
   ) %>% 
   ungroup()
 

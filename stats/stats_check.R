@@ -86,6 +86,21 @@ nas_replaced$chla_env_col[nas_replaced$chla_env_col > (Q3 + 2*IQR)] = NA
 
 ##### visual inspection
 
+compl_dat = nas_replaced %>% 
+  dplyr::filter(survey_date > "2019-12-31")#,
+               # latitude < -30)
+
+Q1 <- quantile(compl_dat$bodysize_cwv_total, .25, na.rm = TRUE)
+Q3 <- quantile(compl_dat$bodysize_cwv_total, .75, na.rm = TRUE)
+IQR <- IQR(compl_dat$bodysize_cwv_total, na.rm = TRUE)
+## replace outliers in chla_env_col
+compl_dat$bodysize_cwv_total[compl_dat$bodysize_cwv_total > (Q3 + 2*IQR)] = NA
+
+compl_dat_1 = compl_dat %>% 
+  dplyr::filter(survey_date > "2019-12-31",
+                latitude > -25,
+                longitude > 140)
+
 # sst
 pairs(~ sst_raw_mean + 
         sst_raw_var +
@@ -96,25 +111,32 @@ pairs(~ sst_raw_mean +
 # chla
 pairs(~ chla_raw_mean + 
         chla_raw_var + 
-        chla_raw_cv + 
-        chla_predicted_var + 
-        chla_unpredicted_var + 
-        chla_unbounded_seasonality +
         chla_bounded_seasonality +
-        chla_env_col, 
-      data = nas_replaced)
+        chla_env_col + 
+        bodysize_cwm_total +
+        sp_richness,
+      data = every_six)
 
 # all
-pairs(~ sst_raw_mean + 
+pairs(~ #sst_raw_mean + 
+        #sst_raw_var +
         sst_bounded_seasonality +
         sst_env_col +
         bodysize_cwm_total +
-        sp_richness +
-        latitude,
-      data = nas_replaced)
+        bodysize_cwv_total, #+
+        #sp_richness +
+        #shannon,
+      data = compl_dat_1)
 
-summary(lm(eco_env_copy$bodysize_cwm_total ~ eco_env_copy$sst_env_col*eco_env_copy$sst_bounded_seasonality))
+pairs(~ sst_raw_var +
+        sst_bounded_seasonality +
+        sst_env_col +
+        bodysize_cwv_total,
+      data = compl_dat)
+
+summary(lm(every_six$bodysize_cwm_total ~ every_six$sst_env_col*every_six$sst_bounded_seasonality))
 summary(lm(eco_env_copy$sp_richness ~ eco_env_copy$bodysize_cwm_total))
+summary(lm(compl_dat_1$bodysize_cwm_total ~ compl_dat$sst_env_col*compl_dat$latitude))
 
 # 
 
