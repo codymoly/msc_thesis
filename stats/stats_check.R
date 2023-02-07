@@ -77,6 +77,8 @@ binned_subset = eco_env_binned %>%
   sample_n(1) %>% 
   ungroup()
 
+# spatial distribution of the subsample
+plot(binned_subset$longitude, binned_subset$latitude)
 
 ###### know your data
 
@@ -116,6 +118,13 @@ IQR <- IQR(binned_subset_2$bodysize_cwv_total, na.rm = TRUE)
 ## replace outliers in chla_env_col
 binned_subset_2$bodysize_cwv_total[binned_subset_2$bodysize_cwv_total > (Q3 + 2*IQR)] = NA
 
+## biomass needs a little treatment
+Q1 <- quantile(binned_subset_2$total_biomass, .25, na.rm = TRUE)
+Q3 <- quantile(binned_subset_2$total_biomass, .75, na.rm = TRUE)
+IQR <- IQR(binned_subset_2$total_biomass, na.rm = TRUE)
+## replace outliers in chla_env_col
+binned_subset_2$total_biomass[binned_subset_2$total_biomass > (Q3 + 2*IQR)] = NA
+
 ## plot again
 pairs(~ sst_raw_mean +
         sst_raw_var +
@@ -124,7 +133,7 @@ pairs(~ sst_raw_mean +
         bodysize_cwm_total +
         bodysize_cwv_total +
         sp_richness +
-        shannon,
+        total_biomass,
       data = binned_subset_2) # yepp
 
 # spatial distribution of the subsample
@@ -192,6 +201,7 @@ annotate_figure(bio_plot,
 
 # bodysize
 summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_raw_mean))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_raw_var))
 summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_env_col))
 summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_bounded_seasonality))
 summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_colwell_p))
@@ -212,12 +222,12 @@ summary(lm(binned_subset_2$sp_richness ~
              binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col*binned_subset_2$sst_bounded_seasonality))
 
 # shannon
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$bodysize_cwm_total))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_env_col))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_bounded_seasonality))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_colwell_p))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col))
-summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_bounded_seasonality))
-summary(lm(binned_subset_2$shannon ~ 
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_raw_mean))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_raw_var))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_colwell_p))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$total_biomass ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$total_biomass ~ 
              binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col*binned_subset_2$sst_bounded_seasonality))
