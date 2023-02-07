@@ -19,201 +19,205 @@ save_my_data = FALSE
 eco_data = read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 chla_data = read_delim("/media/mari/Crucial X8/env_stats_chla.csv", delim = ",")
-#grid_coords = read_delim("/media/mari/Crucial X8/grid_coords.csv", delim = ",")
+
 
 ###### data preparation
 
-# merge data for analysis
+# merge environmental and biological data 
 ## eco + sst
 eco_env = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
 ## add chla
 eco_env = full_join(eco_env, chla_data, by = c("latitude", "longitude", "survey_date"))
-## add grid data
-#eco_env = left_join(eco_env, grid_coords, by = c("latitude", "longitude"))
-## baaaaaam perfect match
-# double-check if we have incomplete cases...
+
+# we still have missing data in 2009, thus filter cases with envpred > 2009
+eco_env = eco_env %>% 
+  dplyr::filter(survey_date > "2019-12-31")
+
+# check complete cases
 nrow(eco_env[complete.cases(eco_env),]) # 201
+nrow(eco_env[complete.cases(eco_env$sst_raw_mean),]) # 1249
 nrow(eco_env[complete.cases(eco_env$chla_raw_mean),]) # 201
-## chla is missing for some sites 
 
 # create unique survey id
 ## arrange by site
-eco_env_copy = eco_env %>% 
+eco_env = eco_env %>% 
   arrange(survey_date, latitude, longitude)
 ## take row number as numbering
-eco_env_copy = eco_env_copy %>%
+eco_env = eco_env %>%
   dplyr::mutate(new_survey_id = row_number())
 ## transform number into character
-eco_env_copy$new_survey_id = as.character(eco_env_copy$new_survey_id)
+eco_env$new_survey_id = as.character(eco_env$new_survey_id)
 ## add s for survey to each element
-eco_env_copy$new_survey_id = paste("S", eco_env_copy$new_survey_id, sep="")
+eco_env$new_survey_id = paste("S", eco_env$new_survey_id, sep="")
 ## move column with survey name to start
-eco_env_copy = eco_env_copy %>%
+eco_env = eco_env %>%
   select(new_survey_id, everything())
 
 # save dataset
 if (save_my_data == TRUE) {
-  write.csv(eco_env_copy,"~/projects/msc_thesis/data/survey_cwm_envpred_data.csv", row.names = FALSE)
-  write.csv(eco_env_copy,"/media/mari/Crucial X8/survey_cwm_envpred_data.csv", row.names = FALSE)
+  write.csv(eco_env,"~/projects/msc_thesis/data/survey_cwm_envpred_data.csv", row.names = FALSE)
+  write.csv(eco_env,"/media/mari/Crucial X8/survey_cwm_envpred_data.csv", row.names = FALSE)
 } else {
   print("Data not saved!")
 }
 
-# create dataframe with only one site per grid
-ecoenv_red = eco_env_copy %>% distinct(nw, .keep_all = TRUE)
-eco_env_copy = ecoenv_red
-##### data exploration
 
-# get variable names
-names(eco_env_copy)
-summary(eco_env_copy)
+###### create lon-lat bins and subsample
+
+# create coordinate bins
+eco_env_binned = eco_env %>% 
+  mutate(lon_bin = cut(longitude, breaks = (168-113)/0.5),
+         lat_bin = cut(latitude, breaks = (168-113)/0.5)
+         )
+
+# subsample binned sites
+set.seed(200)
+binned_subset = eco_env_binned %>% 
+  group_by(lon_bin, lat_bin) %>% 
+  sample_n(1) %>% 
+  ungroup()
+
+
+###### know your data
+
+# distribution
+summary(binned_subset)
+plot(density(binned_subset$number_total))
+### skewed variables: number_total, bodysize_cwm_total, bodysize_cwv_total, total_biomass,
+### sst_raw_mean, sst_raw_var, sst_bounded_seasonality, sst_colwell_p
+
+# outliers and other ugly things
 ## some sites have sst values <= 0, this might be due to the fill values in the cds dataset
-nas_replaced = eco_env_copy # save copy
-nm1 = grep('sst', names(nas_replaced)) # choose columns
-nas_replaced[nm1] = lapply(nas_replaced[nm1], function(x) 
-  replace(x, nas_replaced$sst_raw_mean <= 0, NA)) # replace values <= 0 with NAs in sst data
+binned_subset_2 = binned_subset # save copy
+nm1 = grep('sst', names(binned_subset_2)) # choose columns
+binned_subset_2[nm1] = lapply(binned_subset_2[nm1], function(x) 
+  replace(x, binned_subset_2$sst_raw_mean <= 0, NA)) # replace values <= 0 with NAs in sst data
+
 ## sanity check
-summary(nas_replaced)
+summary(binned_subset_2) # good
+plot(density(na.omit(binned_subset_2$sst_raw_mean)))
+nrow(binned_subset_2[complete.cases(binned_subset_2$sst_raw_mean),]) # 133 sites are left
 
-# remove outliers from "sst_bounded_seasonality"
-## calculate quantiles
-Q1 <- quantile(nas_replaced$chla_env_col, .25, na.rm = TRUE)
-Q3 <- quantile(nas_replaced$chla_env_col, .75, na.rm = TRUE)
-IQR <- IQR(nas_replaced$chla_env_col, na.rm = TRUE)
-## replace outliers in chla_env_col
-nas_replaced$chla_env_col[nas_replaced$chla_env_col > (Q3 + 2*IQR)] = NA
-
-
-##### visual inspection
-
-compl_dat = nas_replaced %>% 
-  dplyr::filter(survey_date > "2019-12-31")#,
-               # latitude < -30)
-
-Q1 <- quantile(compl_dat$bodysize_cwv_total, .25, na.rm = TRUE)
-Q3 <- quantile(compl_dat$bodysize_cwv_total, .75, na.rm = TRUE)
-IQR <- IQR(compl_dat$bodysize_cwv_total, na.rm = TRUE)
-## replace outliers in chla_env_col
-compl_dat$bodysize_cwv_total[compl_dat$bodysize_cwv_total > (Q3 + 2*IQR)] = NA
-
-compl_dat_1 = compl_dat %>% 
-  dplyr::filter(survey_date > "2019-12-31",
-                latitude > -25,
-                longitude > 140)
-
-# sst
-pairs(~ sst_raw_mean + 
+## plot to visually identify outliers
+pairs(~ sst_raw_mean +
         sst_raw_var +
         sst_bounded_seasonality +
-        sst_env_col,
-      data = nas_replaced)
-
-# chla
-pairs(~ chla_raw_mean + 
-        chla_raw_var + 
-        chla_bounded_seasonality +
-        chla_env_col + 
+        sst_env_col +
         bodysize_cwm_total +
-        sp_richness,
-      data = every_six)
+        bodysize_cwv_total +
+        sp_richness +
+        shannon,
+      data = binned_subset_2)
 
-# all
-pairs(~ #sst_raw_mean + 
-        #sst_raw_var +
+## bodysize_cwv_total needs a little treatment
+Q1 <- quantile(binned_subset_2$bodysize_cwv_total, .25, na.rm = TRUE)
+Q3 <- quantile(binned_subset_2$bodysize_cwv_total, .75, na.rm = TRUE)
+IQR <- IQR(binned_subset_2$bodysize_cwv_total, na.rm = TRUE)
+## replace outliers in chla_env_col
+binned_subset_2$bodysize_cwv_total[binned_subset_2$bodysize_cwv_total > (Q3 + 2*IQR)] = NA
+
+## plot again
+pairs(~ sst_raw_mean +
+        sst_raw_var +
         sst_bounded_seasonality +
         sst_env_col +
         bodysize_cwm_total +
-        bodysize_cwv_total, #+
-        #sp_richness +
-        #shannon,
-      data = compl_dat_1)
+        bodysize_cwv_total +
+        sp_richness +
+        shannon,
+      data = binned_subset_2) # yepp
 
-pairs(~ sst_raw_var +
-        sst_bounded_seasonality +
-        sst_env_col +
-        bodysize_cwv_total,
-      data = compl_dat)
+# spatial distribution of the subsample
+plot(binned_subset_2$longitude, binned_subset$latitude)
 
-summary(lm(every_six$bodysize_cwm_total ~ every_six$sst_env_col*every_six$sst_bounded_seasonality))
-summary(lm(eco_env_copy$sp_richness ~ eco_env_copy$bodysize_cwm_total))
-summary(lm(compl_dat_1$bodysize_cwm_total ~ compl_dat$sst_env_col*compl_dat$latitude))
-
-# 
-
-a = ggplot(nas_replaced, aes(x = "", y = sst_raw_mean)) +
+## let's have a closer look
+### sst stuff
+sst1 = ggplot(binned_subset_2, aes(x = "", y = sst_raw_mean)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-b = ggplot(nas_replaced, aes(x = "", y = sst_unbounded_seasonality)) +
+sst2 = ggplot(binned_subset_2, aes(x = "", y = sst_bounded_seasonality)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-c = ggplot(nas_replaced, aes(x = "", y = sst_env_col)) +
+sst3 = ggplot(binned_subset_2, aes(x = "", y = sst_env_col)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-d = ggplot(nas_replaced, aes(x = "", y = sst_colwell_p)) +
+sst4 = ggplot(binned_subset_2, aes(x = "", y = sst_colwell_p)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-sst_plot = ggarrange(a, b, c, d, 
-                      ncol = 2, nrow = 2)
+sst_plot = ggarrange(sst1, sst2, sst3, sst4, 
+                     ncol = 2, nrow = 2)
 annotate_figure(sst_plot,
                 top = text_grob("SST",
-                color = "black", face = "bold", size = 16)
-                )
-
-
-e = ggplot(nas_replaced, aes(x = "", y = chla_raw_mean)) +
-  geom_boxplot(outlier.shape = NA) +
-  stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
-  geom_jitter(shape=16, position=position_jitter(0.1))
-
-f = ggplot(nas_replaced, aes(x = "", y = chla_unbounded_seasonality)) +
-  geom_boxplot(outlier.shape = NA) +
-  stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
-  geom_jitter(shape=16, position=position_jitter(0.1))
-
-g = ggplot(nas_replaced, aes(x = "", y = chla_env_col)) +
-  geom_boxplot(outlier.shape = NA) +
-  stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
-  geom_jitter(shape=16, position=position_jitter(0.1))
-
-h = ggplot(nas_replaced, aes(x = "", y = chla_colwell_p)) +
-  geom_boxplot(outlier.shape = NA) +
-  stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
-  geom_jitter(shape=16, position=position_jitter(0.1))
-
-chl_plot = ggarrange(e, f, g, h, 
-                     ncol = 2, nrow = 2)
-annotate_figure(chl_plot,
-                top = text_grob("ChlA",
                                 color = "black", face = "bold", size = 16)
 )
 
-
-i = ggplot(nas_replaced, aes(x = "", y = bodysize_cwm_total)) +
+### community stuff
+com1 = ggplot(binned_subset_2, aes(x = "", y = bodysize_cwm_total)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-j = ggplot(nas_replaced, aes(x = "", y = total_biomass)) +
+com2 = ggplot(binned_subset_2, aes(x = "", y = total_biomass)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-k = ggplot(nas_replaced, aes(x = "", y = sp_richness)) +
+com3 = ggplot(binned_subset_2, aes(x = "", y = sp_richness)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
   geom_jitter(shape=16, position=position_jitter(0.1))
 
-bio_plot = ggarrange(i, j, k, 
+com4 = ggplot(binned_subset_2, aes(x = "", y = shannon)) +
+  geom_boxplot(outlier.shape = NA) +
+  stat_summary(fun.y=mean, geom="point", shape=13, size=12) +
+  geom_jitter(shape=16, position=position_jitter(0.1))
+
+bio_plot = ggarrange(com1, com2, com3, com4,
                      ncol = 2, nrow = 2)
 annotate_figure(bio_plot,
-                top = text_grob("CWM bodysize, biomass, species richness",
+                top = text_grob("CWM bodysize, biomass, species richness, shannon",
                                 color = "black", face = "bold", size = 16)
 )
+
+
+##### models
+
+# bodysize
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_raw_mean))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_colwell_p))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$bodysize_cwm_total ~ 
+             binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col*binned_subset_2$sst_bounded_seasonality))
+
+# richness
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$bodysize_cwm_total))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_raw_mean))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_colwell_p))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$sp_richness ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$sp_richness ~ 
+             binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col*binned_subset_2$sst_bounded_seasonality))
+
+# shannon
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$bodysize_cwm_total))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_colwell_p))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col))
+summary(lm(binned_subset_2$shannon ~ binned_subset_2$sst_raw_mean*binned_subset_2$sst_bounded_seasonality))
+summary(lm(binned_subset_2$shannon ~ 
+             binned_subset_2$sst_raw_mean*binned_subset_2$sst_env_col*binned_subset_2$sst_bounded_seasonality))
