@@ -67,10 +67,55 @@ if (save_my_data == TRUE) {
 ###### create lon-lat bins and subsample
 
 # create coordinate bins
+range(eco_env$longitude) # 113.17 167.99
+range(eco_env$latitude) # -43.53 -9.88
+
 eco_env_binned = eco_env %>% 
   mutate(lon_bin = cut(longitude, breaks = (168-113)/0.5),
          lat_bin = cut(latitude, breaks = (168-113)/0.5)
          )
+
+# round to the next 0.5, for neg. values we make sure that e.g. -30.75 is rounded to -30.5
+eco_env_binned_2 = eco_env %>% 
+  mutate(lon_bin = round(2*longitude, digits = 0)/2,
+         lat_bin = round(2*latitude+0.001, digits = 0)/2)
+
+# fancy shit
+library(geosphere)
+fancy_shit = eco_env
+columns = names(eco_env) 
+chosen_rows = data.frame(matrix(nrow = 0, ncol = length(columns))) 
+colnames(chosen_rows) = columns
+chosen_rows[1,] = eco_env[1,]
+
+for (i in 2:nrow(fancy_shit)) {
+  for (ii in 1:nrow(chosen_rows)) {
+    distance = distm(c(fancy_shit$longitude[[i]], fancy_shit$latitude[[i]]), # calculate distance between each row 
+                         c(chosen_rows$longitude[[ii]], chosen_rows$latitude[[ii]]),
+                     fun = distHaversine)
+    if (distance < 30000) { # min dist of ca. 30km assuming a spherical object, thus worse near equ. and poles
+      break
+    }
+    if (ii == nrow(chosen_rows)) {
+      chosen_rows <- rbind(chosen_rows, fancy_shit[i,])
+    }
+  }
+}
+
+library(sf)
+library(ggplot2)
+library(maps)
+library(mapdata)
+
+nm1 = grep('sst', names(chosen_rows)) # choose columns
+chosen_rows[nm1] = lapply(chosen_rows[nm1], function(x) 
+  replace(x, chosen_rows$sst_raw_mean <= 0, NA)) 
+
+aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
+ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = as_tibble(chosen_rows), aes(x = longitude, y = latitude, colour = sp_richness), size = 6)
+
 
 # subsample binned sites
 set.seed(200)
@@ -79,8 +124,23 @@ binned_subset = eco_env_binned %>%
   sample_n(1) %>% 
   ungroup()
 
+set.seed(200)
+binned_subset_0.5 = eco_env_binned_2 %>% 
+  group_by(lon_bin, lat_bin) %>% 
+  sample_n(1) %>% 
+  ungroup()
+
 # spatial distribution of the subsample
-plot(binned_subset$longitude, binned_subset$latitude)
+checki = binned_subset_0.5 %>% dplyr::filter(binned_subset_0.5$longitude < 120,
+                                             binned_subset_0.5$latitude > -28) %>% 
+  select(longitude, latitude, lon_bin, lat_bin)
+
+
+
+ggplot(data = checki, aes(longitude, latitude)) +
+  geom_point() +
+  geom_point(aes(lon_bin, lat_bin, colour = "red")) +
+  theme_linedraw()
 
 ###### know your data
 
