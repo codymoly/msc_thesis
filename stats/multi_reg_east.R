@@ -1,17 +1,24 @@
-# FIRST EXAMINATION OF RELATION BETWEEN TRAITS AND ENVIRONMENTAL STUFF
+# BINNING, OUTLIERS, AND LINEAR MODEL
 
 # read libs
 library(tidyverse)
+## calculation of distances in km between sites
+library(geosphere)
 library(grid)
 library(gridExtra)
 library(ggpubr)
-library(geosphere)
-library(car)
-library(MuMIn)
+library(broom)
+library(corrplot)
+## plot Australia map and sites
 library(sf)
 library(ggplot2)
 library(maps)
 library(mapdata)
+## vif
+library(car)
+## dredging
+library(MuMIn)
+
 
 # clean memory
 rm(list=ls())
@@ -23,37 +30,37 @@ setwd("~/Documents/MSc_thesis")
 save_my_data = FALSE
 
 # import data
-eco_data = read_delim("/media/mari/Crucial X8/cwm_depth_data.csv", delim = ",")
-sst_data = read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
+eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
+sst_data = readr::read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
+# chla_data = readr::read_delim("/media/mari/Crucial X8/env_stats_chla.csv", delim = ",")
 
 
 ###### data preparation
 
 # merge environmental and biological data 
-## eco + sst
 eco_env = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
 
-# we still have missing data in 2009, thus filter cases with envpred > 2009
+# filter sites between 2020 and 2022 (for sites < 2020, the predictability contained missing months)
 eco_env = eco_env %>% 
-  dplyr::filter(survey_date > "2019-12-31") %>% 
-  dplyr::filter(latitude > -30) %>% 
-  dplyr::filter(longitude > 120) %>% 
-  dplyr::filter(depth_bin != "(20,30]")
-  
+   dplyr::filter(survey_date > "2019-12-31") %>% 
+   dplyr::filter(latitude > -30) %>% 
+   dplyr::filter(longitude > 120)
+
 # create unique survey id
-## arrange by site
+## arrange by site and add row number as new ID
 eco_env = eco_env %>% 
-  arrange(survey_date, latitude, longitude)
-## take row number as numbering
-eco_env = eco_env %>%
+  dplyr::arrange(survey_date, latitude, longitude) %>%
   dplyr::mutate(new_survey_id = row_number())
+
 ## transform number into character
 eco_env$new_survey_id = as.character(eco_env$new_survey_id)
-## add s for survey to each element
+
+## add S for survey to each element in new_survey_id
 eco_env$new_survey_id = paste("S", eco_env$new_survey_id, sep="")
-## move column with survey name to start
+
+## move column with survey name to start of the dataframe
 eco_env = eco_env %>%
-  select(new_survey_id, everything())
+  dplyr::select(new_survey_id, everything())
 
 # save dataset
 if (save_my_data == TRUE) {
@@ -64,7 +71,15 @@ if (save_my_data == TRUE) {
 }
 
 
-###### create lon-lat bins and subsample
+###### remove fill values in SST and outliers
+
+# summarise data
+summary(eco_env)
+
+# check distribution of each variable
+hist(na.omit(eco_env$even_total))
+### certain outliers: number_total, bodysize_cwv_total, total_biomass, sst_raw_mean, sst_bounded_seasonality
+### slightly skewed: bodysize_cwm_total, sst_raw_var, sst_env_col, sst_colwell_p
 
 # fill values
 eco_env_out = eco_env # save copy
@@ -119,12 +134,7 @@ eco_env_out = eco_env_out[complete.cases(eco_env_out),]
 
 ###### create lon-lat bins and subsample
 
-# coordinate bins and subsampling (we want to ensure a certain distance between the sites to be included)
-## check range of the coordinates
-range(eco_env_out$longitude) # 113.17 167.99
-range(eco_env_out$latitude) # -43.53 -9.88
-
-## option 3 BINS and SUBSAMPLE: choose sites that have a minimum distance of ~30km from each other
+# BINS and SUBSAMPLE: choose sites that have a minimum distance of ~30km from each other
 out_copy = eco_env_out # use copy for the following steps
 column_names = names(out_copy) # write column names into an object
 subset_km = data.frame(matrix(nrow = 0, ncol = length(column_names))) # write an empty dataframe
@@ -136,7 +146,7 @@ for (i in 2:nrow(out_copy)) {
     distance = geosphere::distm(c(out_copy$longitude[[i]], out_copy$latitude[[i]]),
                                 c(subset_km$longitude[[ii]], subset_km$latitude[[ii]]),
                                 fun = distHaversine) # calculate distance between each row
-    if (distance < 5000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
+    if (distance < 5000) { # min. dist of ~5km assuming a spherical object, thus precision isworse near equ. and poles
       break
     }
     if (ii == nrow(subset_km)) {
@@ -170,6 +180,7 @@ pairs(~ sst_raw_mean +
         bodysize_cwm_total +
         bodysize_cwv_total +
         shannon +
+        even_total +
         sp_richness +
         total_biomass,
       data = final_sites)
@@ -188,19 +199,38 @@ final_sites %>%
   cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
-## scale our variables
-final_sites_scaled = final_sites 
-final_sites_scaled[6:22] <- lapply(final_sites_scaled[6:22], function(x) c(scale(x)))
-final_sites = final_sites_scaled # or final_sites
-
 # variance inflation factor to assess multicolinearity
 #create vector of VIF values
 vif_values = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
-                    data = final_sites_scaled))
+                    data = final_sites))
 vif_values
 
 
 ###### statistics
+
+# # if necessary, log-transform data
+# final_sites_log = final_sites %>% 
+#   mutate(
+#     number_total_log = log(number_total),
+#     bodysize_cwm_total_log = log(bodysize_cwm_total),
+#     bodysize_cwv_total_log = log(bodysize_cwv_total),
+#     total_biomass_log = log(total_biomass),
+#     sst_raw_mean_log = log(sst_raw_mean),
+#     sst_raw_var_log = log(sst_raw_var),
+#     sst_bounded_seasonality_log = log(sst_bounded_seasonality),
+#     sst_colwell_p_log = log(sst_colwell_p)
+#   ) %>% 
+#   select(-c("number_total", "bodysize_cwm_total", "bodysize_cwv_total",
+#             "total_biomass", "sst_raw_mean", "sst_raw_var", "sst_bounded_seasonality", "sst_colwell_p"))
+# 
+# # defining the respective dataset
+# final_sites = final_sites # or final_sites_log
+
+## scale our variables
+final_sites_scaled = final_sites 
+final_sites_scaled[5:22] <- lapply(final_sites_scaled[5:22], function(x) c(scale(x)))
+final_sites = final_sites_scaled # or final_sites
+
 
 # linear model BODY SIZE CWM ***************************************************
 ## build potentially interesting models
@@ -231,6 +261,78 @@ plot(cwm_models$cwm8)
 ## dredging to find the best model
 options(na.action = "na.fail")
 dredged_cwm_object = MuMIn::dredge(global.model = cwm_models$cwm8)
-confset.d4 <- get.models(dredged_cwm_object, subset = delta < 3)
-best_fit = confset.d4[[1]]
-summary(best_fit)
+getCall(dredged_cwm_object, 752)
+
+## if we take a multi-model approach
+#summary(MuMIn::model.avg(dredged_cwm_object))
+get.models(dredged_cwm_object, subset = delta < 3)[[4]]
+summary(lm(formula = bodysize_cwm_total ~ sst_bounded_seasonality + sst_env_col + 
+             sst_raw_mean + sst_raw_var + sst_bounded_seasonality:sst_raw_mean + 
+             sst_bounded_seasonality:sst_raw_var + sst_env_col:sst_raw_mean + 
+             sst_raw_mean:sst_raw_var + 1, data = final_sites))
+
+## scientific model: what effect do env col and seasonality have on cwm?
+sci_cwm = lm(bodysize_cwm_total ~ sst_env_col, data = final_sites)
+summary(sci_cwm) # ß coefficent = sst_env_col: 2.264e-02 , not really interpretable 
+# no general effect of env col on cwm
+#--> we have to include mean, ie, high means/ low means differently affect the effect of env col
+
+sci_cwm_2 = lm(bodysize_cwm_total ~ sst_bounded_seasonality, data = final_sites)
+summary(sci_cwm_2)
+
+sci_cwm_3 = lm(bodysize_cwm_total ~ sst_env_col * sst_raw_mean, data = final_sites)
+summary(sci_cwm_3)
+
+sci_cwm_4 = lm(bodysize_cwm_total ~ sst_bounded_seasonality * sst_raw_mean, data = final_sites)
+summary(sci_cwm_4) # je höher der mean, desto steiler cwm über seasonality
+### contextabhängige effekt von seasonality: scale(sst_bounded_seasonality):scale(sst_raw_mean)  0.16594
+
+
+# linear model SPECIES RICHNESS ***************************************************
+## build potentially interesting models
+rich_models <- list(
+  rich1 = lm(sp_richness ~ sst_raw_mean, data = final_sites),
+  rich2 = lm(sp_richness ~ sst_raw_var, data = final_sites),
+  rich3 = lm(sp_richness ~ sst_env_col, data = final_sites),
+  rich4 = lm(sp_richness ~ sst_bounded_seasonality, data = final_sites),
+  rich5 = lm(sp_richness ~ sst_raw_mean + sst_raw_var, data = final_sites),
+  rich6 = lm(sp_richness ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, data = final_sites),
+  rich7 = lm(sp_richness ~ sst_raw_mean * sst_raw_var, data = final_sites),
+  rich8 = lm(sp_richness ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites))
+
+## compare multiple models
+compare_rich_models = rbind(broom::glance(rich_models$rich1),
+                            broom::glance(rich_models$rich2),
+                            broom::glance(rich_models$rich3),
+                            broom::glance(rich_models$rich4),
+                            broom::glance(rich_models$rich5),
+                            broom::glance(rich_models$rich6),
+                            broom::glance(rich_models$rich7),
+                            broom::glance(rich_models$rich8) # we will use this for the following steps
+)
+
+## qqplot
+plot(rich_models$rich8)
+
+## dredging to find the best model
+options(na.action = "na.fail")
+dredged_rich_object = MuMIn::dredge(global.model = rich_models$rich8)
+
+## if we take a multi-model approach
+MuMIn::model.avg(dredged_rich_object)
+
+## scientific model: what effect do env col and seasonality have on cwm?
+sci_rich = lm(sp_richness ~ sst_env_col, data = final_sites)
+summary(sci_rich) # ß coefficent = sst_env_col: 2.264e-02 , not really interpretable 
+# no general effect of env col on cwm
+#--> we have to include mean, ie, high means/ low means differently affect the effect of env col
+
+sci_rich_2 = lm(sp_richness ~ sst_bounded_seasonality, data = final_sites)
+summary(sci_rich_2)
+
+sci_rich_3 = lm(sp_richness ~ sst_env_col * sst_raw_mean, data = final_sites)
+summary(sci_rich_3)
+
+sci_rich_4 = lm(sp_richness ~ sst_bounded_seasonality * sst_raw_mean, data = final_sites)
+summary(sci_rich_4)
+

@@ -12,6 +12,11 @@ setwd("~/projects/msc_thesis")
 # read raw rls data
 rls_raw = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
 
+# rls_raw = rls_raw %>% 
+#   dplyr::filter(survey_date > "2019-12-31") %>% 
+#   dplyr::filter(latitude > -30) %>% 
+#   dplyr::filter(longitude > 120)
+
 # subset data 
 rls_sub = rls_raw %>%
   select(site_code, latitude, longitude, survey_date, depth,
@@ -61,7 +66,12 @@ stressplot(nmds_rls)
 nmds_dat = tibble::as_tibble(nmds_rls$points)
 
 # write site information into a separate dataframe
-site_dat = select(rls_rsub, site_code, latitude, longitude, survey_date, depth, block)
+rls_sub_binned = rls_rsub %>% 
+  mutate(depth_bin = cut(depth, breaks = c(0,10,20,30)),
+         lat_bin = cut(latitude, breaks = c(-5,-15,-25,-35,-45))
+  )
+
+site_dat = select(rls_sub_binned, site_code, latitude, longitude, survey_date, depth, depth_bin, lat_bin, block)
 
 # bind both dfs
 nmds_dat = dplyr::bind_cols(nmds_dat, site_dat)
@@ -121,19 +131,16 @@ summary(lm(scale(nmds_dat$MDS1) ~ scale(nmds_dat$latitude) + scale(nmds_dat$dept
 # F-statistic:  1239 on 2 and 597 DF,  p-value: < 2.2e-16
 
 # # plot nMDS
-# ## turn depth and latitude into discrete variables
-# nmds_dat$depth = as.character(nmds_dat$depth)
-# nmds_dat$latitude = as.character(nmds_dat$latitude)
-# ## depth
-# ggplot(data = nmds_dat,
-#        mapping = aes(x = MDS1, y = MDS2, colour = depth)) +
-#   geom_point(size = 2.5) +
-#   scale_colour_viridis_d() +
-#   theme_classic()
-# ## latitude
-# ggplot(data = nmds_dat,
-#        mapping = aes(x = MDS1, y = MDS2, colour = latitude)) +
-#   geom_point(size = 2.5) +
-#   scale_colour_viridis_d() +
-#   theme_classic()
+## depth
+ggplot(data = nmds_dat,
+       mapping = aes(x = MDS1, y = MDS2, colour = depth_bin)) +
+  geom_point(size = 2.5) +
+  scale_colour_viridis_d() +
+  theme_classic()
+## latitude
+ggplot(data = nmds_dat,
+       mapping = aes(x = MDS1, y = MDS2, colour = lat_bin)) +
+  geom_point(size = 2.5) +
+  scale_colour_viridis_d() +
+  theme_classic()
 

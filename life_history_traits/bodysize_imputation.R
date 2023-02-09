@@ -3,6 +3,7 @@
 # load libraries
 library(tidyverse)
 library(simputation)
+library(car)
 
 # clean memory
 rm(list=ls())
@@ -67,8 +68,13 @@ int_bs_rls = left_join(trait_dat_raw, rls_sub, by = c("valid_genus", "valid_spec
 # size class explains a lot
 summary(lm(int_bs_rls$bodySize ~ int_bs_rls$size_class))
 
+# check multicollinearity between size class and family
+vif(lm(bodySize ~ size_class + family, 
+       data = int_bs_rls))
+
 # together with family, baaammm
 summary(lm(int_bs_rls$bodySize ~ int_bs_rls$size_class + int_bs_rls$family))
+
 
 ###### data imputation
 ## we use size class and family as predictors
