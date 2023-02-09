@@ -14,6 +14,10 @@ library(sf)
 library(ggplot2)
 library(maps)
 library(mapdata)
+## vif
+library(car)
+## dredging
+library(MuMIn)
 
 
 # clean memory
@@ -176,7 +180,7 @@ for (i in 2:nrow(out_copy)) {
     distance = geosphere::distm(c(out_copy$longitude[[i]], out_copy$latitude[[i]]),
                                 c(subset_km$longitude[[ii]], subset_km$latitude[[ii]]),
                                 fun = distHaversine) # calculate distance between each row
-    if (distance < 20000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
+    if (distance < 30000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
       break
     }
     if (ii == nrow(subset_km)) {
@@ -229,26 +233,37 @@ final_sites %>%
   cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
+# variance inflation factor to assess multicolinearity
+#create vector of VIF values
+vif_values = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+                    data = final_sites_scaled))
+vif_values
+
 
 ###### statistics
 
-# if necessary, log-transform data
-final_sites_log = final_sites %>% 
-  mutate(
-    number_total_log = log(number_total),
-    bodysize_cwm_total_log = log(bodysize_cwm_total),
-    bodysize_cwv_total_log = log(bodysize_cwv_total),
-    total_biomass_log = log(total_biomass),
-    sst_raw_mean_log = log(sst_raw_mean),
-    sst_raw_var_log = log(sst_raw_var),
-    sst_bounded_seasonality_log = log(sst_bounded_seasonality),
-    sst_colwell_p_log = log(sst_colwell_p)
-  ) %>% 
-  select(-c("number_total", "bodysize_cwm_total", "bodysize_cwv_total",
-            "total_biomass", "sst_raw_mean", "sst_raw_var", "sst_bounded_seasonality", "sst_colwell_p"))
+# # if necessary, log-transform data
+# final_sites_log = final_sites %>% 
+#   mutate(
+#     number_total_log = log(number_total),
+#     bodysize_cwm_total_log = log(bodysize_cwm_total),
+#     bodysize_cwv_total_log = log(bodysize_cwv_total),
+#     total_biomass_log = log(total_biomass),
+#     sst_raw_mean_log = log(sst_raw_mean),
+#     sst_raw_var_log = log(sst_raw_var),
+#     sst_bounded_seasonality_log = log(sst_bounded_seasonality),
+#     sst_colwell_p_log = log(sst_colwell_p)
+#   ) %>% 
+#   select(-c("number_total", "bodysize_cwm_total", "bodysize_cwv_total",
+#             "total_biomass", "sst_raw_mean", "sst_raw_var", "sst_bounded_seasonality", "sst_colwell_p"))
+# 
+# # defining the respective dataset
+# final_sites = final_sites # or final_sites_log
 
-# defining the respective dataset
-final_sites = final_sites # or final_sies_log
+## scale our variables
+final_sites_scaled = final_sites 
+final_sites_scaled[5:22] <- lapply(final_sites_scaled[5:22], function(x) c(scale(x)))
+final_sites = final_sites_scaled # or final_sites
 
 
 # linear model BODY SIZE CWM ***************************************************
@@ -256,18 +271,12 @@ final_sites = final_sites # or final_sies_log
 cwm_models <- list(
   cwm1 = lm(bodysize_cwm_total ~ sst_raw_mean, data = final_sites),
   cwm2 = lm(bodysize_cwm_total ~ sst_raw_var, data = final_sites),
-  cwm3 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var, data = final_sites),
-  cwm4 = lm(bodysize_cwm_total ~ sst_env_col, data = final_sites),
-  cwm5 = lm(bodysize_cwm_total ~ sst_bounded_seasonality, data = final_sites),
-  cwm6 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_env_col, data = final_sites),
-  cwm7 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_bounded_seasonality, data = final_sites),
-  cwm8 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var +
-              sst_raw_mean * sst_env_col * sst_bounded_seasonality, data = final_sites),
-  cwm9 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var +
-              sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites),
-  cwm10 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites),
-  cwm11 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_env_col * sst_bounded_seasonality, data = final_sites)
-)
+  cwm3 = lm(bodysize_cwm_total ~ sst_env_col, data = final_sites),
+  cwm4 = lm(bodysize_cwm_total ~ sst_bounded_seasonality, data = final_sites),
+  cwm5 = lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var, data = final_sites),
+  cwm6 = lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, data = final_sites),
+  cwm7 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var, data = final_sites),
+  cwm8 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites))
 
 ## compare multiple models
 compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
@@ -277,48 +286,81 @@ compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
                          broom::glance(cwm_models$cwm5),
                          broom::glance(cwm_models$cwm6),
                          broom::glance(cwm_models$cwm7),
-                         broom::glance(cwm_models$cwm8),
-                         broom::glance(cwm_models$cwm9),
-                         broom::glance(cwm_models$cwm10),
-                         broom::glance(cwm_models$cwm11)
+                         broom::glance(cwm_models$cwm8) # we will use this for the following steps
 )
 
-## stepwise regression (dregde) of model 10
-step(cwm_models$cwm10) # call the suggested model...
+## qqplot
+plot(cwm_models$cwm8)
 
-## cross validation 
-null_cwm = lm(bodysize_cwm_total ~ 1, data = final_sites)
-null_cwm_2 = lm(bodysize_cwm_total ~ sst_raw_mean, data = final_sites)
-null_cwm_3 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var, data = final_sites)
-dredge_cwm = lm(formula = bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + 
-                  sst_env_col + sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality + 
-                  sst_raw_var:sst_bounded_seasonality + sst_env_col:sst_bounded_seasonality, 
-                data = final_sites)
+## dredging to find the best model
+options(na.action = "na.fail")
+dredged_cwm_object = MuMIn::dredge(global.model = cwm_models$cwm8)
 
-## summarise null models and dredged model
-summary(null_cwm)
-summary(null_cwm_2)
-summary(null_cwm_3)
-summary(dredge_cwm)
-
-## double-check AIC value (step() workd on the AIC values, i.e., the lower the better)
-AIC(null_cwm)
-AIC(null_cwm_2)
-AIC(null_cwm_3)
-AIC(dredge_cwm)
+## if we take a multi-model approach
+MuMIn::model.avg(dredged_cwm_object)
 
 ## scientific model: what effect do env col and seasonality have on cwm?
 sci_cwm = lm(bodysize_cwm_total ~ sst_env_col, data = final_sites)
-summary(sci_cwm) # ß coefficent = sst_env_col: 6.800 , not really interpretable
-
-### standardised version
-sci_cwm_2 = lm(scale(bodysize_cwm_total) ~ scale(sst_env_col), data = final_sites)
-summary(sci_cwm_2) # no general effect of env col on cwm
+summary(sci_cwm) # ß coefficent = sst_env_col: 2.264e-02 , not really interpretable 
+# no general effect of env col on cwm
 #--> we have to include mean, ie, high means/ low means differently affect the effect of env col
-sci_cwm_3 = lm(scale(bodysize_cwm_total) ~ scale(sst_env_col) + scale(sst_raw_mean), data = final_sites)
+
+sci_cwm_2 = lm(bodysize_cwm_total ~ sst_bounded_seasonality, data = final_sites)
+summary(sci_cwm_2)
+
+sci_cwm_3 = lm(bodysize_cwm_total ~ sst_env_col * sst_raw_mean, data = final_sites)
 summary(sci_cwm_3)
 
-sci_cwm_4 = lm(scale(bodysize_cwm_total) ~ scale(sst_bounded_seasonality) * scale(sst_raw_mean), data = final_sites)
+sci_cwm_4 = lm(bodysize_cwm_total ~ sst_bounded_seasonality * sst_raw_mean, data = final_sites)
 summary(sci_cwm_4) # je höher der mean, desto steiler cwm über seasonality
 ### contextabhängige effekt von seasonality: scale(sst_bounded_seasonality):scale(sst_raw_mean)  0.16594
+
+
+# linear model SPECIES RICHNESS ***************************************************
+## build potentially interesting models
+rich_models <- list(
+  rich1 = lm(sp_richness ~ sst_raw_mean, data = final_sites),
+  rich2 = lm(sp_richness ~ sst_raw_var, data = final_sites),
+  rich3 = lm(sp_richness ~ sst_env_col, data = final_sites),
+  rich4 = lm(sp_richness ~ sst_bounded_seasonality, data = final_sites),
+  rich5 = lm(sp_richness ~ sst_raw_mean + sst_raw_var, data = final_sites),
+  rich6 = lm(sp_richness ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, data = final_sites),
+  rich7 = lm(sp_richness ~ sst_raw_mean * sst_raw_var, data = final_sites),
+  rich8 = lm(sp_richness ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites))
+
+## compare multiple models
+compare_rich_models = rbind(broom::glance(rich_models$rich1),
+                           broom::glance(rich_models$rich2),
+                           broom::glance(rich_models$rich3),
+                           broom::glance(rich_models$rich4),
+                           broom::glance(rich_models$rich5),
+                           broom::glance(rich_models$rich6),
+                           broom::glance(rich_models$rich7),
+                           broom::glance(rich_models$rich8) # we will use this for the following steps
+)
+
+## qqplot
+plot(rich_models$rich8)
+
+## dredging to find the best model
+options(na.action = "na.fail")
+dredged_rich_object = MuMIn::dredge(global.model = rich_models$rich8)
+
+## if we take a multi-model approach
+MuMIn::model.avg(dredged_rich_object)
+
+## scientific model: what effect do env col and seasonality have on cwm?
+sci_rich = lm(sp_richness ~ sst_env_col, data = final_sites)
+summary(sci_rich) # ß coefficent = sst_env_col: 2.264e-02 , not really interpretable 
+# no general effect of env col on cwm
+#--> we have to include mean, ie, high means/ low means differently affect the effect of env col
+
+sci_rich_2 = lm(sp_richness ~ sst_bounded_seasonality, data = final_sites)
+summary(sci_rich_2)
+
+sci_rich_3 = lm(sp_richness ~ sst_env_col * sst_raw_mean, data = final_sites)
+summary(sci_rich_3)
+
+sci_rich_4 = lm(sp_richness ~ sst_bounded_seasonality * sst_raw_mean, data = final_sites)
+summary(sci_rich_4)
 
