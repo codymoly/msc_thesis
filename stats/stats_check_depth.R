@@ -35,10 +35,10 @@ eco_env = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_
 
 # we still have missing data in 2009, thus filter cases with envpred > 2009
 eco_env = eco_env %>% 
-  dplyr::filter(survey_date > "2019-12-31") %>% 
-  dplyr::filter(latitude > -30) %>% 
-  dplyr::filter(longitude > 120) %>% 
-  dplyr::filter(depth_bin != "(20,30]")
+  dplyr::filter(survey_date > "2019-12-31") #%>% 
+ # dplyr::filter(latitude > -30) %>% 
+  #dplyr::filter(longitude > 120) %>% 
+  #dplyr::filter(depth_bin != "(20,30]")
   
 # create unique survey id
 ## arrange by site
@@ -136,7 +136,7 @@ for (i in 2:nrow(out_copy)) {
     distance = geosphere::distm(c(out_copy$longitude[[i]], out_copy$latitude[[i]]),
                                 c(subset_km$longitude[[ii]], subset_km$latitude[[ii]]),
                                 fun = distHaversine) # calculate distance between each row
-    if (distance < 5000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
+    if (distance < 30000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
       break
     }
     if (ii == nrow(subset_km)) {
@@ -195,9 +195,15 @@ final_sites = final_sites_scaled # or final_sites
 
 # variance inflation factor to assess multicolinearity
 #create vector of VIF values
-vif_values = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+vif(lm(bodysize_cwm_total ~ longitude + latitude + sst_raw_mean + depth_bin + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
                     data = final_sites_scaled))
-vif_values
+
+vif(lm(bodysize_cwm_total ~ latitude + sst_raw_mean + depth_bin + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+       data = final_sites_scaled))
+
+vif(lm(bodysize_cwm_total ~ sst_raw_mean + depth_bin + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+                    data = final_sites_scaled))
+
 
 
 ###### statistics

@@ -1,5 +1,5 @@
 # RLS DATA
-## cleaning, retrieving accepted species names
+## cleaning, subset sites, retrieving accepted species names
 
 # load libraries
 library(worms)
