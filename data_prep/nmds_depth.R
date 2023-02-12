@@ -14,6 +14,7 @@ setwd("~/projects/msc_thesis")
 # read raw rls data
 rls_raw = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
 coords_30 = read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
+traities = read_delim("/media/mari/Crucial X8/species_traits_imputed.csv", delim = ",") 
 
 
 ###### subset sites with minimum distance of 30km
@@ -21,24 +22,45 @@ coords_30 = read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
 # join both datasets
 rls_30 = dplyr::left_join(coords_30, rls_raw, by = c("latitude", "longitude"))
 
+# subset traities
+bodysize = traities %>% 
+  dplyr::mutate(species_name = paste(genus, species, sep = " ")) %>% 
+  dplyr:: select(species_name, bodySize)
+
 # select relevant columns
 rls_sub = rls_30 %>%
-  dplyr::filter(survey_date > "2019-12-31") %>% 
-  select(site_code, latitude, longitude, survey_date, hour, depth,
-         block, species_name, total
+  dplyr::filter(survey_date > "2019-12-31",
+                block == 1) %>% 
+  dplyr::select(site_code, latitude, longitude, survey_date, hour, depth,
+         species_name, total
         )
 
 
+###### join body size data
+rls_sub_bs = left_join(rls_sub, bodysize, by = "species_name")
+
 ###### preparing the data for the nMDS
 
-# tranform species list into columns
-rls_wide = rls_sub%>%
+# tranform bodysize list into columns
+rls_wide_bs = rls_sub_bs %>%
+  pivot_wider(names_from = species_name,
+              values_from = bodySize,
+              names_sep = "_",
+              values_fill = list(total = 0),
+              values_fn = list(total = mean)
+  )
+
+# tranform total list into columns
+rls_wide_species = rls_sub %>%
   pivot_wider(names_from = species_name,
               values_from = total,
               names_sep = "_",
               values_fill = list(total = 0),
               values_fn = list(total = mean)
               )
+
+# define final set
+rls_wide = 
 
 # choose only one random observation per coordinate pair
 set.seed(300)

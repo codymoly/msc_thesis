@@ -19,13 +19,14 @@ rls_2019_2022 = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", del
 # subset data 
 rls_sub = rls_2019_2022 %>% 
   select(
-    latitude, longitude, survey_date, depth,
+    latitude, longitude, area, survey_date, depth,
     class, order, family, species_name, valid_name, aphia_id,
     size_class, total, biomass
-  )
+  ) %>%
+  filter(survey_date > "2019-12-31")
 
 # depth bins
-rls_sub_binned = rls_sub %>% 
+rls_sub_binned = rls_sub %>%
   mutate(depth_bin = cut(depth, breaks = c(0,10,20,30))
   )
 
@@ -49,8 +50,8 @@ rls_avg_depth = left_join(rls_avg_depth, taxonomy, by = "species_name")
 
 # write into csv
 if (save_my_data ==TRUE) {
-  write.csv(rls_avg_depth,"~/projects/msc_thesis/data/rls_2019_2022_avg_depth.csv", row.names = FALSE)
-  write.csv(rls_avg_depth,"/media/mari/Crucial X8/rls_2019_2022_avg_depth.csv", row.names = FALSE)
+  write.csv(rls_avg_depth,"~/projects/msc_thesis/data/rls_2020_2022_avg_depth.csv", row.names = FALSE)
+  write.csv(rls_avg_depth,"/media/mari/Crucial X8/rls_2020_2022_avg_depth.csv", row.names = FALSE)
 } else {
   print("Data not saved!")
 }

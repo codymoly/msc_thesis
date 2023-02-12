@@ -12,7 +12,7 @@ rm(list=ls())
 setwd("~/Documents/MSc_thesis")
 
 # import data
-rls_avg = read_delim("/media/mari/Crucial X8/rls_2019_2022_avg_depth.csv", delim = ",")
+rls_avg = read_delim("/media/mari/Crucial X8/rls_2020_2022_avg_depth.csv", delim = ",")
 species_length = read_delim("/media/mari/Crucial X8/species_bodysize_imputed.csv", delim = ",")
 
 # prepare site data
@@ -58,16 +58,17 @@ nrow(cwm_input[complete.cases(cwm_input$total_mean),]) # 51968, complete
 trait_cwm = cwm_input %>%
   group_by(latitude, longitude, survey_date, depth_bin) %>%  
   dplyr::summarise(
+    shannon = diversity(total_mean,index = "shannon"),
     number_total = sum(na.omit(total_mean)),
-    sp_richness = specnumber(species_name),
-    bodysize_cwm_total = weighted.mean(bodySize, total_mean),
-    bodysize_cwv_total = weighted.var(bodySize, total_mean),
+    sp_richness = vegan::specnumber(species_name),
+    even_total = shannon/log(number_total),
+    bodysize_cwm_total = stats::weighted.mean(bodySize, total_mean),
+    bodysize_cwv_total = modi::weighted.var(bodySize, total_mean),
     total_biomass = sum(na.omit(biomass_mean)),
     #bodysize_cwm_biomass = weighted.mean(bodySize, biomass_mean, na.rm = TRUE),
-    #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE),
-    shannon = diversity(total_mean,index = "shannon")
+    #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE)
   ) %>% 
-  ungroup()
+  dplyr::ungroup()
 
 # check if data is missing
 nrow(trait_cwm[!complete.cases(trait_cwm),]) # nice, no missing data
