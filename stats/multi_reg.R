@@ -33,13 +33,18 @@ setwd("~/Documents/MSc_thesis")
 # conditional executions
 save_my_data = FALSE
 
-# import data
+# import datas
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = readr::read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 coords_30 = readr::read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
-
+rls_area = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")
 
 ###### joining data
+
+# select area
+rls_area_2 = rls_area %>% 
+  dplyr::select(longitude, latitude, area) %>% 
+  distinct(longitude, latitude, .keep_all = TRUE)
 
 # merge environmental and biological data 
 eco_sst = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
@@ -93,6 +98,9 @@ eco_env$new_survey_id = paste("S", eco_env$new_survey_id, sep="")
 ## move column with survey name to start of the dataframe
 eco_env = eco_env %>%
   dplyr::select(new_survey_id, everything())
+
+# add area
+eco_env = dplyr::left_join(eco_env, rls_area_2, by = c("latitude", "longitude"))
 
 # save dataset
 if (save_my_data == TRUE) {
@@ -149,8 +157,10 @@ hist(final_sites$sst_colwell_p) # change variable...
 ###### scaling and data normalisation
 
 # scale our variables
+final_sites = final_sites %>%
+  dplyr::select(area, everything())
 final_sites_scaled = final_sites 
-final_sites_scaled[5:22] <- lapply(final_sites_scaled[5:22], function(x) c(scale(x)))
+final_sites_scaled[6:33] <- lapply(final_sites_scaled[6:33], function(x) c(scale(x)))
 
 # which transformation will it be?
 final_sites = final_sites_scaled # or final_sites_log
@@ -159,19 +169,30 @@ final_sites = final_sites_scaled # or final_sites_log
 ###### exploratory stats
 
 # quick overview how the variables are related
-pairs(~ sst_raw_mean +
-        sst_raw_var +
-        sst_bounded_seasonality +
-        sst_env_col +
-        bodysize_cwm_total +
-        even_total +
-        sp_richness,
-      data = final_sites)
+only_for_corplot = final_sites %>% 
+  rename(SSTmean = sst_raw_mean,
+         SSTvariance = sst_raw_var,
+         SSTnoiseColour = sst_env_col,
+         SSTseasonality = sst_bounded_seasonality,
+         CWMbodysize = bodysize_cwm_total,
+         CWVbodysize = bodysize_cwv_total)
+
+pairs(~ SSTmean +
+        SSTvariance +
+        SSTnoiseColour +
+        SSTseasonality +
+        CWMbodysize +
+        CWVbodysize, #+
+        #even_total +
+        #sp_richness +
+        #total_biomass,
+      data = only_for_corplot,
+      cex.labels = 1.5)
 
 # correlation between predictors
-final_sites %>%
+only_for_corplot %>%
   na.omit() %>% 
-  select(latitude, longitude, sst_raw_mean, sst_raw_var, sst_env_col, sst_bounded_seasonality) %>%
+  dplyr::select(SSTmean, SSTvariance, SSTnoiseColour, SSTseasonality) %>%
   cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
@@ -203,7 +224,9 @@ cwm_models <- list(
   cwm6 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
               sst_env_col + sst_bounded_seasonality +
               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  cwm7 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_env_col + sst_raw_mean:sst_env_col, data = final_sites))
+  cwm7 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+  cwm8 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality,
+            data = final_sites))
 
 ## compare multiple models
 compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
@@ -211,11 +234,41 @@ compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
                          broom::glance(cwm_models$cwm3),
                          broom::glance(cwm_models$cwm4),
                          broom::glance(cwm_models$cwm5),
-                         broom::glance(cwm_models$cwm6) # we will use this for the following steps
+                         broom::glance(cwm_models$cwm6),
+                         broom::glance(cwm_models$cwm7),
+                         broom::glance(cwm_models$cwm8)# we will use this for the following steps
 )
 
 ## qqplot
 plot(cwm_models$cwm4)
+
+plot(x=predict(cwm_models$cwm3), y= final_sites$bodysize_cwm_log,
+     xlab='Predicted Values',
+     ylab='Observed Values (log)',
+     main='Predicted vs. Observed Values')
+abline(a=0, b=1)
+
+# cwm dredging
+## dredging to find the best model
+## global model
+global.model = cwm_models$cwm6
+
+## dredging
+options(na.action = "na.fail")
+dredged_cwm_object = MuMIn::dredge(global.model)
+dredged_cwm_object
+model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
+best_fit = model.sub[[2]]
+summary(best_fit)
+avg.model = model.avg(model.sub)
+
+### mixed model
+mixed6 = lmer(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+            sst_env_col + sst_bounded_seasonality +
+            sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality +
+            (1 | area), 
+            data = final_sites)
+summary(mixed6)
 
 
 # linear model BODY SIZE CWV ***************************************************

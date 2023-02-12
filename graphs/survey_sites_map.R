@@ -4,11 +4,11 @@ library(maps)
 library(mapdata)
 library(sp)
 
-aus<-map("worldHires", "Australia", fill=TRUE, xlim=c(110,160),
+aus = maps::map("worldHires", "Australia", fill=TRUE, xlim=c(110,160),
          ylim=c(-45,-5), mar=c(0,0,0,0))
 
 library(tidyverse) # load first the other lips and execute map() before tidyverse
-rls = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
+coords_30 = readr::read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
 
 rls_dist = rls %>% 
   select(latitude, longitude, survey_date) %>% 
@@ -18,11 +18,11 @@ rls_dist = rls %>%
 ### australia map
 ggplot(fortify(aus), aes(y = lat, x = long, group = group)) + 
   geom_polygon(alpha = 0.5) +
-  geom_point(data = rls_dist,
+  geom_point(data = coords_30,
              aes(x = longitude, y = latitude),
              inherit.aes = FALSE,
-             color = "purple", # blue: #1A85FF, pink: #D41159
-             size = 4) +
+             color = "black", # blue: #1A85FF, pink: #D41159
+             size = 3) +
   theme_minimal() + # theme_bw() +
   theme(
     axis.title.x = element_text(size = 22, face= "bold"),
