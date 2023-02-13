@@ -2,17 +2,12 @@
 
 # read libs
 library(tidyverse)
+library(ggplot2)
 library(grid)
 library(gridExtra)
 library(ggpubr)
 library(broom)
 library(corrplot)
-
-# plot Australia map and sites
-library(sf)
-library(ggplot2)
-library(maps)
-library(mapdata)
 
 ## vif
 library(car)
@@ -20,9 +15,9 @@ library(car)
 ## dredging
 library(MuMIn)
 ## lmer
-library(lme4)
+# library(lme4)
 ## standardise model
-library(arm)
+# library(arm)
 
 # clean memory
 rm(list=ls())
@@ -32,19 +27,15 @@ setwd("~/Documents/MSc_thesis")
 
 # conditional executions
 save_my_data = FALSE
+plot_survey_map = FALSE
 
 # import datas
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = readr::read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 coords_30 = readr::read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
-rls_area = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")
+rls_area_raw = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")
 
 ###### joining data
-
-# select area
-rls_area_2 = rls_area %>% 
-  dplyr::select(longitude, latitude, area) %>% 
-  distinct(longitude, latitude, .keep_all = TRUE)
 
 # merge environmental and biological data 
 eco_sst = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
@@ -53,8 +44,18 @@ eco_sst = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_
 eco_sst = eco_sst %>% 
   dplyr::filter(survey_date > "2019-12-31")
 
+# select area from second RLS dataset
+rls_area = rls_area_raw %>% 
+  dplyr::select(longitude, latitude, area) %>% 
+  distinct(longitude, latitude, .keep_all = TRUE)
+
 # join both datasets
 eco_sst_30 = dplyr::left_join(coords_30, eco_sst, by = c("latitude", "longitude"))
+eco_sst_30 = dplyr::left_join(eco_sst_30, rls_area, by = c("latitude", "longitude"))
+
+# let's have look if the data is grouped by area...
+ggplot(data = eco_sst_30, aes(x = sst_env_col, y = bodysize_cwm_total, colour = area)) + 
+  geom_point()
 
 
 ###### get rid of NAs and outliers
@@ -99,8 +100,18 @@ eco_env$new_survey_id = paste("S", eco_env$new_survey_id, sep="")
 eco_env = eco_env %>%
   dplyr::select(new_survey_id, everything())
 
-# add area
-eco_env = dplyr::left_join(eco_env, rls_area_2, by = c("latitude", "longitude"))
+# plot map with sites
+if (plot_survey_map == TRUE) {
+  library(sf)
+  library(maps)
+  library(mapdata)
+  aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
+  ggplot(data = aussi) + 
+    geom_sf() + 
+    geom_point(data = eco_env, aes(x = longitude, y = latitude, colour = sst_env_col), size = 3)
+} else {
+  print("No map!")
+}
 
 # save dataset
 if (save_my_data == TRUE) {
@@ -110,17 +121,15 @@ if (save_my_data == TRUE) {
   print("Data not saved!")
 }
 
-# summarise data
-summary(eco_env)
+###### log transformation
 
 # check distribution of each variable
-hist(na.omit(eco_env$even_total))
-### certain outliers: number_total, bodysize_cwv_total, total_biomass, sst_raw_mean, sst_bounded_seasonality
-### slightly skewed: bodysize_cwm_total, sst_raw_var, sst_env_col, sst_colwell_p
+hist(na.omit(eco_env$sst_env_col))
+### skewed: bodysize_cwv_total, total_biomass, sst_raw_mean, bodysize_cwm_total, sst_raw_var
 
 # transform
-eco_env_bu = eco_env
-eco_env = eco_env_bu
+eco_env_backup = eco_env
+eco_env = eco_env_backup
 eco_env = eco_env %>% 
   mutate(bodysize_cwm_sqrt = sqrt(bodysize_cwm_total),
          bodysize_cwv_sqrt = sqrt(bodysize_cwv_total),
@@ -133,86 +142,58 @@ eco_env = eco_env %>%
          even_log = log(even_total),
          biomass_log = log(total_biomass))
 
+# scale our variables
+## move area to the beginning of the dataframe
+eco_env = eco_env %>%
+  dplyr::select(area, everything())
 
-###### get know your data
-
-# how many sites do we have now?
-## defining which subset will be the final one: subset_num, subset_deg, subset_km
+## copy copy copy
 final_sites = eco_env
 
-## count
-nrow(final_sites)
-
-# plot map with sites
-aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
-ggplot(data = aussi) + 
-  geom_sf() + 
-  geom_point(data = as_tibble(final_sites), aes(x = longitude, y = latitude, colour = sst_env_col), size = 3)
-### replace data with respective binned dataframe
-
-# check distribution
-hist(final_sites$sst_colwell_p) # change variable...
+## standardise 
+final_sites[6:33] <- lapply(final_sites[6:33], function(x) c(scale(x)))
 
 
-###### scaling and data normalisation
-
-# scale our variables
-final_sites = final_sites %>%
-  dplyr::select(area, everything())
-final_sites_scaled = final_sites 
-final_sites_scaled[6:33] <- lapply(final_sites_scaled[6:33], function(x) c(scale(x)))
-
-# which transformation will it be?
-final_sites = final_sites_scaled # or final_sites_log
-
-
-###### exploratory stats
+###### examine collinearity
 
 # quick overview how the variables are related
+## rename variables to make it more readable
 only_for_corplot = final_sites %>% 
   rename(SSTmean = sst_raw_mean,
          SSTvariance = sst_raw_var,
          SSTnoiseColour = sst_env_col,
          SSTseasonality = sst_bounded_seasonality,
          CWMbodysize = bodysize_cwm_total,
-         CWVbodysize = bodysize_cwv_total)
+         CWVbodysize = bodysize_cwv_total,
+         Richness = sp_richness)
 
+# plot all variables
 pairs(~ SSTmean +
         SSTvariance +
         SSTnoiseColour +
         SSTseasonality +
         CWMbodysize +
-        CWVbodysize, #+
-        #even_total +
-        #sp_richness +
-        #total_biomass,
+        CWVbodysize +
+        Richness,
       data = only_for_corplot,
       cex.labels = 1.5)
 
 # correlation between predictors
 only_for_corplot %>%
-  na.omit() %>% 
   dplyr::select(SSTmean, SSTvariance, SSTnoiseColour, SSTseasonality) %>%
   cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
 # variance inflation factor to assess multicollinearity
-vif_values = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
-                    data = final_sites_scaled))
-vif_values
-
-vif_values = vif(lm(bodysize_cwv_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
-                    data = final_sites_scaled))
-vif_values
-
+vif_cwm = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+                    data = final_sites))
+vif_cwm
 
 ###### linear models
+# note: v1*v2 = v1 + v2 + v1:v2
 
 # linear model BODY SIZE CWM ***************************************************
 ## build potentially interesting models
-
-# v1*v2 = v1 + v2 + v1:v2
-
 cwm_models <- list(
   cwm1 = lm(bodysize_cwm_log ~ sst_raw_mean, data = final_sites),
   cwm2 = lm(bodysize_cwm_log  ~ sst_raw_var, data = final_sites),
@@ -238,44 +219,59 @@ compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
                          broom::glance(cwm_models$cwm7),
                          broom::glance(cwm_models$cwm8)# we will use this for the following steps
 )
+compare_cwm_models
 
-## qqplot
-plot(cwm_models$cwm4)
+## check residual distribution of the best model
+plot(cwm_models$cwm3)
 
-plot(x=predict(cwm_models$cwm3), y= final_sites$bodysize_cwm_log,
-     xlab='Predicted Values',
-     ylab='Observed Values (log)',
-     main='Predicted vs. Observed Values')
-abline(a=0, b=1)
+## summarise
+summary(cwm_models$cwm3)
+### calculation for log-transformed response variables (exp(slope)-1)*100 
+### i.e., for every one-unit increase in the mean, bodysize_cwm decreases by about 49%
 
-# cwm dredging
-## dredging to find the best model
-## global model
+## cwm dredging
+### global model (the model with all predictors)
 global.model = cwm_models$cwm6
 
-## dredging
+### dredging
 options(na.action = "na.fail")
 dredged_cwm_object = MuMIn::dredge(global.model)
 dredged_cwm_object
-model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
-best_fit = model.sub[[2]]
-summary(best_fit)
-avg.model = model.avg(model.sub)
 
-### mixed model
-mixed6 = lmer(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-            sst_env_col + sst_bounded_seasonality +
-            sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality +
-            (1 | area), 
-            data = final_sites)
-summary(mixed6)
+### get the top models
+model.sub <- get.models(dredged_cwm_object, subset = delta < 1)
+best_fit = model.sub[[1]]
+
+### summarise best fitting model
+summary(best_fit)
+
+# ### if the top models are too similar
+# avg.model = model.avg(model.sub)
+# summary(avg.model)
+
+## plot predicted versus observed models
+## either take best model from compare_cwm_models or the best dredged
+pred_obs_cwm = data.frame(actual = final_sites$bodysize_cwm_log, predicted=predict(best_fit))
+ggplot(pred_obs_cwm, aes(x = predicted, y= actual)) +
+  geom_point() +
+  geom_abline() +
+  labs(x='predicted values', y='observed values', title='CWM body size: predicted vs. observed values (log-transformed)') +
+  theme_classic() +
+  theme(plot.title=element_text(size=18, face= "bold"),
+        legend.title=element_blank(),
+        legend.text = element_text(size = 18, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 18, face= "bold"),
+        axis.text.y = element_text(size = 18, face= "bold"),
+        axis.line = element_line(colour = 'black', size = 1),
+        axis.ticks.length=unit(.25, "cm")) +
+  xlim(-2.8, 2.8) +
+  ylim(-2.8, 2.8)
 
 
 # linear model BODY SIZE CWV ***************************************************
 ## build potentially interesting models
-
-# v1*v2 = v1 + v2 + v1:v2
-
 cwv_models <- list(
   cwv1 = lm(bodysize_cwv_log ~ sst_raw_mean, data = final_sites),
   cwv2 = lm(bodysize_cwv_log  ~ sst_raw_var, data = final_sites),
@@ -296,25 +292,66 @@ compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
                            broom::glance(cwv_models$cwv5),
                            broom::glance(cwv_models$cwv6) # we will use this for the following steps
 )
+compare_cwv_models
 
-## qqplot
-plot(cwv_models$cwv4)
+## check residual distribution of the best model
+plot(cwv_models$cwm3)
+
+## summarise
+summary(cwv_models$cwm3)
+
+## cwm dredging
+### global model (the model with all predictors)
+global.model.cwv = cwv_models$cwv6
+
+### dredging
+options(na.action = "na.fail")
+dredged_cwv_object = MuMIn::dredge(global.model.cwv)
+dredged_cwv_object
+
+### get the top models
+model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 1)
+best_fit.cwv = model.sub.cwv[[1]]
+
+### summarise best fitting model
+summary(best_fit.cwv)
+
+# ### if the top models are too similar
+# avg.model.cwv = model.avg(model.sub.cwv)
+# summary(avg.model.cwv)
+
+## plot predicted versus observed models
+## either take best model from compare_cwm_models or the best dredged
+pred_obs_cwv = data.frame(actual = final_sites$bodysie_cwv_log, predicted=predict(best_fit.cwv))
+ggplot(pred_obs_cwv, aes(x = predicted, y= actual)) +
+  geom_point() +
+  geom_abline() +
+  labs(x='predicted values', y='observed values', title='CWV: predicted vs. observed values (log-transformed)') +
+  theme_classic() +
+  theme(plot.title=element_text(size=18, face= "bold"),
+        legend.title=element_blank(),
+        legend.text = element_text(size = 18, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 18, face= "bold"),
+        axis.text.y = element_text(size = 18, face= "bold"),
+        axis.line = element_line(colour = 'black', size = 1),
+        axis.ticks.length=unit(.25, "cm")) +
+  xlim(-2.8, 2.8) +
+  ylim(-2.8, 2.8)
 
 
 # linear model richness ***************************************************
 ## build potentially interesting models
-
-# v1*v2 = v1 + v2 + v1:v2
-
 rich_models <- list(
-  rich1 = lm(sp_richness_sqrt ~ sst_raw_mean, data = final_sites),
-  rich2 = lm(sp_richness_sqrt  ~ sst_raw_var, data = final_sites),
-  rich3 = lm(sp_richness_sqrt   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  rich4 = lm(sp_richness_sqrt   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+  rich1 = lm(sp_richness_log ~ sst_raw_mean, data = final_sites),
+  rich2 = lm(sp_richness_log ~ sst_raw_var, data = final_sites),
+  rich3 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
+  rich4 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  rich5 = lm(sp_richness_sqrt   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+  rich5 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  rich6 = lm(sp_richness_sqrt   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+  rich6 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
               sst_env_col + sst_bounded_seasonality +
               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
 
@@ -326,138 +363,50 @@ compare_rich_models = rbind(broom::glance(rich_models$rich1),
                            broom::glance(rich_models$rich5),
                            broom::glance(rich_models$rich6) # we will use this for the following steps
 )
+compare_rich_models
 
-## qqplot
+## check residual distribution of the best model
 plot(rich_models$rich5)
 
+## summarise
+summary(rich_models$rich5)
 
-# linear model evennness ***************************************************
-## build potentially interesting models
-## take non-transformed evennness
+## cwm dredging
+### global model (the model with all predictors)
+global.model.rich = rich_models$rich6
 
-even_models <- list(
-  even1 = lm(even_total ~ sst_raw_mean, data = final_sites),
-  even2 = lm(even_total  ~ sst_raw_var, data = final_sites),
-  even3 = lm(even_total   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  even4 = lm(even_total   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  even5 = lm(even_total   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  even6 = lm(even_total   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_env_col + sst_bounded_seasonality +
-               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
+### dredging
+options(na.action = "na.fail")
+dredged_rich_object = MuMIn::dredge(global.model.rich)
+dredged_rich_object
 
-## compare multiple models
-compare_even_models = rbind(broom::glance(even_models$even1),
-                            broom::glance(even_models$even2),
-                            broom::glance(even_models$even3),
-                            broom::glance(even_models$even4),
-                            broom::glance(even_models$even5),
-                            broom::glance(even_models$even6) # we will use this for the following steps
-)
+### get the top models
+model.sub.rich <- get.models(dredged_rich_object, subset = delta < 1)
+best_fit.rich = model.sub.rich[[1]]
 
-## qqplot
-plot(even_models$even5)
+### summarise best fitting model
+summary(best_fit.rich)
 
+# ### if the top models are too similar
+# avg.model.rich = model.avg(model.sub.rich)
+# summary(avg.model.rich)
 
-# linear model biomass ***************************************************
-## build potentially interesting models
-
-# v1*v2 = v1 + v2 + v1:v2
-
-biom_models <- list(
-  biom1 = lm(biomass_log ~ sst_raw_mean, data = final_sites),
-  biom2 = lm(biomass_log  ~ sst_raw_var, data = final_sites),
-  biom3 = lm(biomass_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  biom4 = lm(biomass_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  biom5 = lm(biomass_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  biom6 = lm(biomass_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-               sst_env_col + sst_bounded_seasonality +
-               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
-
-## compare multiple models
-compare_biom_models = rbind(broom::glance(biom_models$biom1),
-                            broom::glance(biom_models$biom2),
-                            broom::glance(biom_models$biom3),
-                            broom::glance(biom_models$biom4),
-                            broom::glance(biom_models$biom5),
-                            broom::glance(biom_models$biom6) # we will use this for the following steps
-)
-
-## qqplot
-plot(biom_models$biom4)
-
-
-
-
-
-# ## dredging to find the best model
-# options(na.action = "na.fail")
-# dredged_cwm_object = MuMIn::dredge(global.model = cwm_models$cwm6)
-# confset.d4 <- get.models(dredged_cwm_object, subset = delta < 3)
-# best_fit = confset.d4[[3]]
-# summary(best_fit)
-# 
-# options(na.action = "na.fail")
-# dredged_cwm_object = MuMIn::dredge(global.model = cwm_models$cwm8)
-# MuMIn::dredge(global.model = cwm_models$cwm8)
-# confset.d4 <- get.models(dredged_cwm_object, subset = delta < 3)
-# best_fit = confset.d4[[5]]
-# summary(best_fit)
-# 
-# ## if we take a multi-model approach
-# MuMIn::model.avg(dredged_cwm_object)
-# 
-# 
-# ## model averaging approach
-# 
-# # linear model BODY SIZE CWM ***************************************************
-# ## build potentially interesting models
-# cwm_models <- list(
-#   cwm1 = lm(bodysize_cwm_total ~ sst_raw_mean, data = final_sites),
-#   cwm2 = lm(bodysize_cwm_total ~ sst_raw_var, data = final_sites),
-#   cwm3 = lm(bodysize_cwm_total ~ sst_env_col, data = final_sites),
-#   cwm4 = lm(bodysize_cwm_total ~ sst_bounded_seasonality, data = final_sites),
-#   cwm5 = lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, data = final_sites),
-#   cwm6 = lm(bodysize_cwm_total ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality, data = final_sites))
-# 
-# ## compare multiple models
-# compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
-#                            broom::glance(cwm_models$cwm2),
-#                            broom::glance(cwm_models$cwm3),
-#                            broom::glance(cwm_models$cwm4),
-#                            broom::glance(cwm_models$cwm5),
-#                            broom::glance(cwm_models$cwm6) # we will use this for the following steps
-# )
-# 
-# 
-# ## dredging to find the best model
-# ## global model
-# global.model = cwm_models$cwm6
-# 
-# plot(global.model)
-# 
-# ## standardize model
-# stdz.model = standardize(global.model, standardize.y = FALSE)
-# 
-# plot(stdz.model)
-# 
-# ## dredging
-# options(na.action = "na.fail")
-# dredged_cwm_object = MuMIn::dredge(stdz.model)
-# 
-# ## subset top models
-# best.models <- get.models(dredged_cwm_object, subset = delta < 2)
-# 
-# ## average subset
-# model.avg(best.models)
-# summary(model.avg(best.models))
-# 
-# 
-# 
-# 
-# mmm = lm(sqrt(bodysize_cwm_total) ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, data = final_sites)
-# plot(mmm)
-# # transform before standardise
+## plot predicted versus observed models
+## either take best model from compare_cwm_models or the best dredged
+pred_obs_rich = data.frame(actual = final_sites$sp_richness_log, predicted=predict(best_fit.rich))
+ggplot(pred_obs_rich, aes(x = predicted, y= actual)) +
+  geom_point() +
+  geom_abline() +
+  labs(x='predicted values', y='observed values', title='Species richness: predicted vs. observed values (log-transformed)') +
+  theme_classic() +
+  theme(plot.title=element_text(size=18, face= "bold"),
+        legend.title=element_blank(),
+        legend.text = element_text(size = 18, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 18, face= "bold"),
+        axis.text.y = element_text(size = 18, face= "bold"),
+        axis.line = element_line(colour = 'black', size = 1),
+        axis.ticks.length=unit(.25, "cm")) +
+  xlim(-3.8, 2) +
+  ylim(-3.8, 2)
