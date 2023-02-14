@@ -108,7 +108,7 @@ if (plot_survey_map == TRUE) {
   aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
   ggplot(data = aussi) + 
     geom_sf() + 
-    geom_point(data = eco_env, aes(x = longitude, y = latitude, colour = sst_env_col), size = 3)
+    geom_point(data = eco_env, aes(x = longitude, y = latitude, colour = sp_richness), size = 3)
 } else {
   print("No map!")
 }
@@ -295,10 +295,10 @@ compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
 compare_cwv_models
 
 ## check residual distribution of the best model
-plot(cwv_models$cwm3)
+plot(cwv_models$cwv6)
 
 ## summarise
-summary(cwv_models$cwm3)
+summary(cwv_models$cwv6)
 
 ## cwm dredging
 ### global model (the model with all predictors)
