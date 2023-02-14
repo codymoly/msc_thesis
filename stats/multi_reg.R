@@ -25,11 +25,12 @@ rm(list=ls())
 # set working directory
 setwd("~/Documents/MSc_thesis")
 
-# conditional executions
+# conditional code
+plot_by_area = FALSE
 save_my_data = FALSE
 plot_survey_map = FALSE
 
-# import datas
+# import datasets
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
 sst_data = readr::read_delim("/media/mari/Crucial X8/env_stats_sst.csv", delim = ",")
 coords_30 = readr::read_delim("/media/mari/Crucial X8/coords_30km.csv", delim = ",")
@@ -38,7 +39,7 @@ rls_area_raw = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv",
 ###### joining data
 
 # merge environmental and biological data 
-eco_sst = full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
+eco_sst = dplyr::full_join(eco_data, sst_data, by = c("latitude", "longitude", "survey_date"))
 
 # filter sites between 2020 and 2022 (for sites < 2020, the predictability contained missing months)
 eco_sst = eco_sst %>% 
@@ -47,15 +48,32 @@ eco_sst = eco_sst %>%
 # select area from second RLS dataset
 rls_area = rls_area_raw %>% 
   dplyr::select(longitude, latitude, area) %>% 
-  distinct(longitude, latitude, .keep_all = TRUE)
+  dplyr::distinct(longitude, latitude, .keep_all = TRUE)
 
 # join both datasets
 eco_sst_30 = dplyr::left_join(coords_30, eco_sst, by = c("latitude", "longitude"))
 eco_sst_30 = dplyr::left_join(eco_sst_30, rls_area, by = c("latitude", "longitude"))
 
 # let's have look if the data is grouped by area...
-ggplot(data = eco_sst_30, aes(x = sst_env_col, y = bodysize_cwm_total, colour = area)) + 
-  geom_point()
+if (plot_by_area == TRUE) {
+  cwm_area = ggplot(data = eco_sst_30, aes(x = sst_env_col, y = bodysize_cwm_total, colour = area)) + 
+    geom_point() +
+    theme(legend.position="none")
+  cwv_area = ggplot(data = eco_sst_30, aes(x = sst_env_col, y = bodysize_cwv_total, colour = area)) + 
+    geom_point() +
+    theme(legend.position="none")
+  richn_area = ggplot(data = eco_sst_30, aes(x = sst_env_col, y = sp_richness, colour = area)) + 
+    geom_point()
+  
+  area_plot = ggarrange(cwm_area, cwv_area, richn_area, 
+                       ncol = 2, nrow = 2)
+  annotate_figure(area_plot,
+                  top = text_grob("CWM, CWV, and species richness grouped by area",
+                                  color = "black", face = "bold", size = 16))
+                  } else {
+  print("No plots with vars grouped by area!")
+}
+
 
 
 ###### get rid of NAs and outliers
@@ -131,7 +149,7 @@ hist(na.omit(eco_env$sst_env_col))
 eco_env_backup = eco_env
 eco_env = eco_env_backup
 eco_env = eco_env %>% 
-  mutate(bodysize_cwm_sqrt = sqrt(bodysize_cwm_total),
+  dplyr::mutate(bodysize_cwm_sqrt = sqrt(bodysize_cwm_total),
          bodysize_cwv_sqrt = sqrt(bodysize_cwv_total),
          sp_richness_sqrt = sqrt(sp_richness),
          even_sqrt = sqrt(even_total),
@@ -159,7 +177,7 @@ final_sites[6:33] <- lapply(final_sites[6:33], function(x) c(scale(x)))
 # quick overview how the variables are related
 ## rename variables to make it more readable
 only_for_corplot = final_sites %>% 
-  rename(SSTmean = sst_raw_mean,
+  dplyr::rename(SSTmean = sst_raw_mean,
          SSTvariance = sst_raw_var,
          SSTnoiseColour = sst_env_col,
          SSTseasonality = sst_bounded_seasonality,
@@ -181,11 +199,17 @@ pairs(~ SSTmean +
 # correlation between predictors
 only_for_corplot %>%
   dplyr::select(SSTmean, SSTvariance, SSTnoiseColour, SSTseasonality) %>%
-  cor(x = ., method = c("spearman")) %>%
+  stats::cor(x = ., method = c("spearman")) %>%
+  corrplot::corrplot(method = "number")
+
+# correlationplot between response variables
+only_for_corplot %>%
+  dplyr::select(CWMbodysize, CWVbodysize, Richness) %>%
+  stats::cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
 # variance inflation factor to assess multicollinearity
-vif_cwm = vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+vif_cwm = car::vif(lm(bodysize_cwm_total ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
                     data = final_sites))
 vif_cwm
 
@@ -193,45 +217,47 @@ vif_cwm
 # note: v1*v2 = v1 + v2 + v1:v2
 
 # linear model BODY SIZE CWM ***************************************************
-## build potentially interesting models
-cwm_models <- list(
-  cwm1 = lm(bodysize_cwm_log ~ sst_raw_mean, data = final_sites),
-  cwm2 = lm(bodysize_cwm_log  ~ sst_raw_var, data = final_sites),
-  cwm3 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  cwm4 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  cwm5 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  cwm6 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_bounded_seasonality +
-              sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  cwm7 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  cwm8 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality,
-            data = final_sites))
+# ## build potentially interesting models
+# cwm_models <- list(
+#   cwm1 = lm(bodysize_cwm_log ~ sst_raw_mean, data = final_sites),
+#   cwm2 = lm(bodysize_cwm_log  ~ sst_raw_var, data = final_sites),
+#   cwm3 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
+#   cwm4 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+#   cwm5 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
+#   cwm6 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_bounded_seasonality +
+#               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
+#   cwm7 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+#   cwm8 = lm(bodysize_cwm_log  ~ sst_raw_mean + sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality,
+#             data = final_sites))
+# 
+# ## compare multiple models
+# compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
+#                          broom::glance(cwm_models$cwm2),
+#                          broom::glance(cwm_models$cwm3),
+#                          broom::glance(cwm_models$cwm4),
+#                          broom::glance(cwm_models$cwm5),
+#                          broom::glance(cwm_models$cwm6),
+#                          broom::glance(cwm_models$cwm7),
+#                          broom::glance(cwm_models$cwm8)# we will use this for the following steps
+# )
+# compare_cwm_models
 
-## compare multiple models
-compare_cwm_models = rbind(broom::glance(cwm_models$cwm1),
-                         broom::glance(cwm_models$cwm2),
-                         broom::glance(cwm_models$cwm3),
-                         broom::glance(cwm_models$cwm4),
-                         broom::glance(cwm_models$cwm5),
-                         broom::glance(cwm_models$cwm6),
-                         broom::glance(cwm_models$cwm7),
-                         broom::glance(cwm_models$cwm8)# we will use this for the following steps
-)
-compare_cwm_models
+# check residual distribution of the best model
+# plot(cwm_models$cwm3)
 
-## check residual distribution of the best model
-plot(cwm_models$cwm3)
-
-## summarise
-summary(cwm_models$cwm3)
-### calculation for log-transformed response variables (exp(slope)-1)*100 
-### i.e., for every one-unit increase in the mean, bodysize_cwm decreases by about 49%
+# ## summarise
+# summary(cwm_models$cwm3)
+# ### calculation for log-transformed response variables (exp(slope)-1)*100 
+# ### i.e., for every one-unit increase in the mean, bodysize_cwm decreases by about 49%
 
 ## cwm dredging
 ### global model (the model with all predictors)
-global.model = cwm_models$cwm6
+global.model = lm(bodysize_cwm_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+                  data = final_sites)
+plot(global.model)
 
 ### dredging
 options(na.action = "na.fail")
@@ -239,15 +265,15 @@ dredged_cwm_object = MuMIn::dredge(global.model)
 dredged_cwm_object
 
 ### get the top models
-model.sub <- get.models(dredged_cwm_object, subset = delta < 1)
+model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
 best_fit = model.sub[[1]]
 
 ### summarise best fitting model
 summary(best_fit)
 
-# ### if the top models are too similar
-# avg.model = model.avg(model.sub)
-# summary(avg.model)
+### if the top models are too similar
+avg.model = model.avg(model.sub)
+summary(avg.model)
 
 ## plot predicted versus observed models
 ## either take best model from compare_cwm_models or the best dredged
@@ -271,38 +297,40 @@ ggplot(pred_obs_cwm, aes(x = predicted, y= actual)) +
 
 
 # linear model BODY SIZE CWV ***************************************************
-## build potentially interesting models
-cwv_models <- list(
-  cwv1 = lm(bodysize_cwv_log ~ sst_raw_mean, data = final_sites),
-  cwv2 = lm(bodysize_cwv_log  ~ sst_raw_var, data = final_sites),
-  cwv3 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  cwv4 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  cwv5 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  cwv6 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_bounded_seasonality +
-              sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
-
-## compare multiple models
-compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
-                           broom::glance(cwv_models$cwv2),
-                           broom::glance(cwv_models$cwv3),
-                           broom::glance(cwv_models$cwv4),
-                           broom::glance(cwv_models$cwv5),
-                           broom::glance(cwv_models$cwv6) # we will use this for the following steps
-)
-compare_cwv_models
-
-## check residual distribution of the best model
-plot(cwv_models$cwv6)
-
-## summarise
-summary(cwv_models$cwv6)
+# ## build potentially interesting models
+# cwv_models <- list(
+#   cwv1 = lm(bodysize_cwv_log ~ sst_raw_mean, data = final_sites),
+#   cwv2 = lm(bodysize_cwv_log  ~ sst_raw_var, data = final_sites),
+#   cwv3 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
+#   cwv4 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+#   cwv5 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
+#   cwv6 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_bounded_seasonality +
+#               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
+# 
+# ## compare multiple models
+# compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
+#                            broom::glance(cwv_models$cwv2),
+#                            broom::glance(cwv_models$cwv3),
+#                            broom::glance(cwv_models$cwv4),
+#                            broom::glance(cwv_models$cwv5),
+#                            broom::glance(cwv_models$cwv6) # we will use this for the following steps
+# )
+# compare_cwv_models
+# 
+# ## check residual distribution of the best model
+# plot(cwv_models$cwv6)
+# 
+# ## summarise
+# summary(cwv_models$cwv6)
 
 ## cwm dredging
 ### global model (the model with all predictors)
-global.model.cwv = cwv_models$cwv6
+global.model.cwv = lm(bodysize_cwv_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+                  data = final_sites)
+plot(global.model.cwv)
 
 ### dredging
 options(na.action = "na.fail")
@@ -310,15 +338,15 @@ dredged_cwv_object = MuMIn::dredge(global.model.cwv)
 dredged_cwv_object
 
 ### get the top models
-model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 1)
+model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 2)
 best_fit.cwv = model.sub.cwv[[1]]
 
 ### summarise best fitting model
 summary(best_fit.cwv)
 
-# ### if the top models are too similar
-# avg.model.cwv = model.avg(model.sub.cwv)
-# summary(avg.model.cwv)
+### if the top models are too similar
+avg.model.cwv = model.avg(model.sub.cwv)
+summary(avg.model.cwv)
 
 ## plot predicted versus observed models
 ## either take best model from compare_cwm_models or the best dredged
@@ -342,38 +370,40 @@ ggplot(pred_obs_cwv, aes(x = predicted, y= actual)) +
 
 
 # linear model richness ***************************************************
-## build potentially interesting models
-rich_models <- list(
-  rich1 = lm(sp_richness_log ~ sst_raw_mean, data = final_sites),
-  rich2 = lm(sp_richness_log ~ sst_raw_var, data = final_sites),
-  rich3 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-  rich4 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-  rich5 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-  rich6 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-              sst_env_col + sst_bounded_seasonality +
-              sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
-
-## compare multiple models
-compare_rich_models = rbind(broom::glance(rich_models$rich1),
-                           broom::glance(rich_models$rich2),
-                           broom::glance(rich_models$rich3),
-                           broom::glance(rich_models$rich4),
-                           broom::glance(rich_models$rich5),
-                           broom::glance(rich_models$rich6) # we will use this for the following steps
-)
-compare_rich_models
-
-## check residual distribution of the best model
-plot(rich_models$rich5)
-
-## summarise
-summary(rich_models$rich5)
+# ## build potentially interesting models
+# rich_models <- list(
+#   rich1 = lm(sp_richness_log ~ sst_raw_mean, data = final_sites),
+#   rich2 = lm(sp_richness_log ~ sst_raw_var, data = final_sites),
+#   rich3 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
+#   rich4 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+#   rich5 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
+#   rich6 = lm(sp_richness_log ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+#               sst_env_col + sst_bounded_seasonality +
+#               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
+# 
+# ## compare multiple models
+# compare_rich_models = rbind(broom::glance(rich_models$rich1),
+#                            broom::glance(rich_models$rich2),
+#                            broom::glance(rich_models$rich3),
+#                            broom::glance(rich_models$rich4),
+#                            broom::glance(rich_models$rich5),
+#                            broom::glance(rich_models$rich6) # we will use this for the following steps
+# )
+# compare_rich_models
+# 
+# ## check residual distribution of the best model
+# plot(rich_models$rich5)
+# 
+# ## summarise
+# summary(rich_models$rich5)
 
 ## cwm dredging
 ### global model (the model with all predictors)
-global.model.rich = rich_models$rich6
+global.model.rich = lm(sp_richness_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+                      data = final_sites)
+plot(global.model.rich)
 
 ### dredging
 options(na.action = "na.fail")
@@ -381,15 +411,15 @@ dredged_rich_object = MuMIn::dredge(global.model.rich)
 dredged_rich_object
 
 ### get the top models
-model.sub.rich <- get.models(dredged_rich_object, subset = delta < 1)
+model.sub.rich <- get.models(dredged_rich_object, subset = delta < 2)
 best_fit.rich = model.sub.rich[[1]]
 
 ### summarise best fitting model
 summary(best_fit.rich)
 
-# ### if the top models are too similar
-# avg.model.rich = model.avg(model.sub.rich)
-# summary(avg.model.rich)
+### if the top models are too similar
+avg.model.rich = model.avg(model.sub.rich)
+summary(avg.model.rich)
 
 ## plot predicted versus observed models
 ## either take best model from compare_cwm_models or the best dredged
