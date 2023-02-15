@@ -23,12 +23,12 @@ library(MuMIn)
 rm(list=ls())
 
 # set working directory
-setwd("~/Documents/MSc_thesis")
+setwd("~/Documents/MSc_thesis/Figures")
 
 # conditional code
 plot_by_area = FALSE
-save_my_data = FALSE
-plot_survey_map = FALSE
+save_to_github = FALSE
+save_to_local = TRUE
 
 # import datasets
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
@@ -118,26 +118,19 @@ eco_env$new_survey_id = paste("S", eco_env$new_survey_id, sep="")
 eco_env = eco_env %>%
   dplyr::select(new_survey_id, everything())
 
-# plot map with sites
-if (plot_survey_map == TRUE) {
-  library(sf)
-  library(maps)
-  library(mapdata)
-  aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
-  ggplot(data = aussi) + 
-    geom_sf() + 
-    geom_point(data = eco_env, aes(x = longitude, y = latitude, colour = sp_richness), size = 3)
-} else {
-  print("No map!")
-}
-
 # save dataset
-if (save_my_data == TRUE) {
-  write.csv(eco_env,"~/projects/msc_thesis/data/survey_cwm_envpred_data.csv", row.names = FALSE)
-  write.csv(eco_env,"/media/mari/Crucial X8/survey_cwm_envpred_data.csv", row.names = FALSE)
+if (save_to_github == TRUE) {
+  write.csv(eco_env,"~/projects/msc_thesis/data/sst_trait_data.csv", row.names = FALSE)
 } else {
   print("Data not saved!")
 }
+
+if (save_to_local == TRUE) {
+  write.csv(eco_env,"/media/mari/Crucial X8/sst_trait_data.csv", row.names = FALSE)
+} else {
+  print("Data not saved!")
+}
+
 
 ###### log transformation
 
