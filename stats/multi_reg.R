@@ -177,13 +177,13 @@ final_sites[6:33] <- lapply(final_sites[6:33], function(x) c(scale(x)))
 # quick overview how the variables are related
 ## rename variables to make it more readable
 only_for_corplot = final_sites %>% 
-  dplyr::rename(SSTmean = sst_raw_mean,
-         SSTvariance = sst_raw_var,
-         SSTnoiseColour = sst_env_col,
-         SSTseasonality = sst_bounded_seasonality,
-         CWMbodysize = bodysize_cwm_total,
-         CWVbodysize = bodysize_cwv_total,
-         Richness = sp_richness)
+  dplyr::rename(`SST mean` = sst_raw_mean,
+                `SST variance` = sst_raw_var,
+                `SST noise colour` = sst_env_col,
+                `SST seasonality` = sst_bounded_seasonality,
+                `CWM body size` = bodysize_cwm_total,
+                `CWV body size` = bodysize_cwv_total,
+                `species richness` = sp_richness)
 
 # plot all variables
 pairs(~ SSTmean +
@@ -193,12 +193,12 @@ pairs(~ SSTmean +
         CWMbodysize +
         CWVbodysize +
         Richness,
-      data = only_for_corplot,
+      data = final_sites,
       cex.labels = 1.5)
 
 # correlation between predictors
 only_for_corplot %>%
-  dplyr::select(SSTmean, SSTvariance, SSTnoiseColour, SSTseasonality) %>%
+  dplyr::select(`SST mean`, `SST variance`, `SST noise colour`, `SST seasonality`) %>%
   stats::cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
@@ -267,9 +267,12 @@ dredged_cwm_object
 ### get the top models
 model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
 best_fit = model.sub[[1]]
+model96 = model.sub[[1]]
+model7040 = model.sub[[2]]
 
 ### summarise best fitting model
-summary(best_fit)
+summary(model96) # plot seas and col, 
+anova(model96, model7040)
 
 ### if the top models are too similar
 avg.model = model.avg(model.sub)
@@ -328,7 +331,7 @@ ggplot(pred_obs_cwm, aes(x = predicted, y= actual)) +
 
 ## cwm dredging
 ### global model (the model with all predictors)
-global.model.cwv = lm(bodysize_cwv_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+global.model.cwv = lm(bodysize_cwv_log ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
                   data = final_sites)
 plot(global.model.cwv)
 
@@ -340,6 +343,9 @@ dredged_cwv_object
 ### get the top models
 model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 2)
 best_fit.cwv = model.sub.cwv[[1]]
+cwv7040  = model.sub.cwv[[1]]
+cwv32768  = model.sub.cwv[[2]]
+anova(cwv7040, cwv32768)
 
 ### summarise best fitting model
 summary(best_fit.cwv)
@@ -413,6 +419,8 @@ dredged_rich_object
 ### get the top models
 model.sub.rich <- get.models(dredged_rich_object, subset = delta < 2)
 best_fit.rich = model.sub.rich[[1]]
+best_fit.rich.2 = model.sub.rich[[2]]
+anova(best_fit.rich, best_fit.rich.2)
 
 ### summarise best fitting model
 summary(best_fit.rich)
@@ -420,7 +428,7 @@ summary(best_fit.rich)
 ### if the top models are too similar
 avg.model.rich = model.avg(model.sub.rich)
 summary(avg.model.rich)
-
+# path analysis, strucutural equation modelling
 ## plot predicted versus observed models
 ## either take best model from compare_cwm_models or the best dredged
 pred_obs_rich = data.frame(actual = final_sites$sp_richness_log, predicted=predict(best_fit.rich))

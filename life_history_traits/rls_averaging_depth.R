@@ -27,7 +27,7 @@ rls_sub = rls_2019_2022 %>%
 
 # depth bins
 rls_sub_binned = rls_sub %>%
-  mutate(depth_bin = cut(depth, breaks = c(0,10,20,30))
+  mutate(depth_bin = cut(depth, breaks = c(0,15,30))
   )
 
 # average size_class, total, biomass for each species per survey, i.e., unique combinations of latitude, longitude, and survey_date
