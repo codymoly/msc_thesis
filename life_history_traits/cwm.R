@@ -21,7 +21,7 @@ species_length = readr::read_delim("/media/mari/Crucial X8/species_bodysize_impu
 # site data
 ## select columns of survey data
 rls_avg_subset = rls_avg %>% 
-  dplyr::select(latitude, longitude, survey_date, species_name, valid_name, biomass_mean, total_mean)
+  dplyr::select(latitude, longitude, survey_date, species_name, valid_name, biomass_mean, total_mean, size_class_mean)
 
 ## count sites
 nrow(rls_avg_subset 
@@ -65,7 +65,9 @@ trait_cwm = cwm_input %>%
     even_total = shannon/log(number_total),
     bodysize_cwm_total = stats::weighted.mean(bodySize, total_mean),
     bodysize_cwv_total = modi::weighted.var(bodySize, total_mean),
-    total_biomass = sum(na.omit(biomass_mean)),
+    size_class_cwm = stats::weighted.mean(size_class_mean, total_mean),
+    size_class_cwv = modi::weighted.var(size_class_mean, total_mean),
+    total_biomass = sum(na.omit(biomass_mean))
     #bodysize_cwm_biomass = weighted.mean(bodySize, biomass_mean, na.rm = TRUE),
     #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE)
   ) %>% 
