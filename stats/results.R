@@ -3,9 +3,14 @@
 # read libs
 library(tidyverse)
 library(ggplot2)
+library(ggbreak)
 library(grid)
 library(gridExtra)
 library(ggpubr)
+library(sf)
+library(maps)
+library(mapdata)
+library(viridis)
 
 # clean memory
 rm(list=ls())
@@ -14,13 +19,13 @@ rm(list=ls())
 setwd("~/Documents/MSc_thesis/Figures")
 
 # conditional code
-plot_survey_map = TRUE
+plot_survey_map =FALSE
 
 # import datasets
 final_dataset = readr::read_delim("/media/mari/Crucial X8/sst_trait_data.csv", delim = ",")
-sites30 = readr::read_delim("/media/mari/Crucial X8/sst_trait_data.csv", delim = ",")
+# final_dataset = final_dataset %>% dplyr::select(-c("new_survey_id", "area"))
 rls_area_raw = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_avg.csv", delim = ",")
-final_dataset = final_dataset %>% dplyr::select(-c("new_survey_id", "area"))
+
 
 ###### data exploration
 
@@ -28,6 +33,219 @@ final_dataset = final_dataset %>% dplyr::select(-c("new_survey_id", "area"))
 final_dataset["sst_raw_mean"] = final_dataset["sst_raw_mean"] - 273.15
 
 summary(final_dataset)
+
+
+###### violin plots of SST variables
+
+final_long = final_dataset %>%
+  select(latitude, longitude, survey_date, sst_raw_mean, sst_raw_var, sst_bounded_seasonality, sst_env_col) %>%
+  pivot_longer(cols = c("sst_raw_mean", "sst_raw_var", "sst_bounded_seasonality", "sst_env_col"),
+               names_to = "sst_variable",
+               values_to = "value")
+
+mean_data = final_long %>% filter(sst_variable == "sst_raw_mean")
+mean_plot = ggplot(data = mean_data, mapping = aes(x = sst_variable["sst_raw_mean"], y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("a) SST mean (°C)") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(min(mean_data$value), max(mean_data$value)))
+
+vari_data = final_long %>% filter(sst_variable == "sst_raw_var")
+var_plot = ggplot(data = vari_data, mapping = aes(x = sst_variable["sst_raw_var"], y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("b) SST variance (°C²)") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(min(vari_data$value), max(vari_data$value)))
+
+col_data = final_long %>% filter(sst_variable == "sst_env_col")
+col_plot = ggplot(data = col_data, mapping = aes(x = sst_variable["sst_env_col"], y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("c) SST colour") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(min(col_data$value), max(col_data$value)))
+
+sea_data = final_long %>% filter(sst_variable == "sst_bounded_seasonality")
+sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_seasonality"], y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("d) SST seasonality") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(min(sea_data$value), max(sea_data$value)))
+
+ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1) # Rplot_sst_summary, 1100, 600
+
+###### maps for sst
+aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
+
+mean_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_raw_mean), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nmean \n(°C)")
+
+var_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_raw_var), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nvariance \n(°C²)")
+
+col_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_env_col), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \ncolour")
+
+sea_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_bounded_seasonality), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nseaso-\nnality",
+                       breaks = c(0.7, 0.8, 0.9, 1.0),
+                       labels = c("0.7", "0.8", "0.9", "1.0"))
+
+sst_maps = ggarrange(mean_map, var_map, col_map, sea_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
+ggpubr::annotate_figure(sst_maps,
+                fig.lab.size = 14,
+                fig.lab.face = "bold",
+                left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
+                bottom = textGrob("Longitude", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
+
+
+###### violin plots of CWM, CWV, and species richness
+bio_long = final_dataset %>%
+  select(latitude, longitude, survey_date, size_class_cwm, size_class_cwv, sp_richness) %>%
+  pivot_longer(cols = c("size_class_cwm", "size_class_cwv", "sp_richness"),
+               names_to = "bio_variable",
+               values_to = "value")
+
+cwm_data = bio_long %>% filter(bio_variable == "size_class_cwm")
+cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("a) Size class CWM (cm)") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(0, 30))
+
+cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv")
+cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("b) Size class CWV (cm²)") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(0, 900)) +
+  ggbreak::scale_y_break(c(200, 870), scales = 0.2, space = 0.2)
+
+richi_data = bio_long %>% filter(bio_variable == "sp_richness")
+richi_plot = ggplot(data = richi_data, mapping = aes(x = bio_variable, y = value)) + 
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  ggtitle("c) Species richness") +
+  theme(plot.title = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
+  scale_y_continuous(limits = c(0, 140))
+
+ggarrange(cwm_plot, cwv_plot, richi_plot, ncol = 3, nrow = 1) 
+cwm_plot + cwv_plot + richi_plot
 
 # remove outlier from csv to make it plotable
 final_dataset_outl = final_dataset %>% 
@@ -66,10 +284,6 @@ ggplot(data = aussi) +
 
 # plot map with sites
 if (plot_survey_map == TRUE) {
-  library(sf)
-  library(maps)
-  library(mapdata)
-  library(viridis)
   
   aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
   
@@ -139,11 +353,20 @@ if (plot_survey_map == TRUE) {
 
 ##### taxa
 # filter sites between 2020 and 2022 (for sites < 2020, the predictability contained missing months)
-sites30_coords = sites30 %>% 
-  dplyr::select(latitude, longitude, survey_date)
+sites30_coords = final_dataset %>% 
+  dplyr::select(new_survey_id, latitude, longitude, survey_date, area)
 
 # join both datasets
 rls_30 = dplyr::left_join(sites30_coords, rls_area_raw, by = c("latitude", "longitude", "survey_date"))
+
+#
+family_data = rls_30 %>% 
+  group_by(area, family) %>% 
+  summarise(mean_size_fam = round(mean(size_class_mean), digits = 2),
+            mean_count_fam = round(mean(total_mean), digits = 2))
+
+ggplot(data = family_data) +
+  geom_bar(aes(x = area))
 
 # explore
 length(unique(rls_30[["family"]])) # 74
@@ -151,3 +374,7 @@ length(unique(rls_30[["valid_name"]])) # 834
 rls_30 %>% select(valid_name) %>% filter(!is.na(valid_name)) %>% n_distinct() # 833 on species level
 on_fam_lev = rls_30 %>% select(family, valid_name) %>% filter(is.na(valid_name)) # 52 individuals on fam level...
 length(unique(on_fam_lev[["family"]])) # ... in 18 families
+
+# subset for family plot
+
+

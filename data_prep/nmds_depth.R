@@ -71,12 +71,12 @@ rls_bodysize = left_join(rls_30, bodysize, by = "species_name")
 ###### check latitudinal distribution grouped by time and depth
 bodysize_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, colour = depth_bin)) + 
   geom_point() +
-  xlab("Latitude") +
+  xlab("Latitude (°)") +
   ylab("Body size (cm)") +
   theme_classic() +
-  scale_colour_manual(name = "Depth bins",
+  scale_colour_manual(name = "Depth bins (m)",
                       values = c("#56B4E9", "#E69F00", "#009E73"),
-                        labels = c("≤ 10m", "10 - 20m", "20 - 30m")) +
+                      labels = c("(0-10]", "(10-20]", "(20-30]")) +
   theme(legend.position = "top",
         legend.direction = "horizontal",
         legend.background = element_blank(),
@@ -92,7 +92,7 @@ bodysize_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, col
 
 bodysize_time = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, colour = hour_bin)) + 
   geom_point() +
-  xlab("Latitude") +
+  xlab("Latitude (°)") +
   ylab("Body size (cm)") +
   theme_classic() +
   scale_colour_manual(name = "Time bins (24-h clock)",
@@ -113,13 +113,13 @@ bodysize_time = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, colo
 
 total_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = total_avg, colour = depth_bin)) + 
   geom_point() +
-  xlab("Latitude") +
+  xlab("Latitude (°)") +
   ylab("Number of species") +
   ylim(c(0,2200)) +
   theme_classic() +
-  scale_colour_manual(name = "Depth bins",
+  scale_colour_manual(name = "Depth bins (m)",
                       values = c("#56B4E9", "#E69F00", "#009E73"),
-                      labels = c("≤ 10m", "10 - 20m", "20 - 30m")) +
+                      labels = c("(0-10]", "(10-20]", "(20-30]")) +
   theme(legend.position = "top",
         legend.direction = "horizontal",
         legend.background = element_blank(),
@@ -135,7 +135,7 @@ total_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = total_avg, colou
 
 total_time = ggplot(data = rls_bodysize, aes(x = latitude, y = total_avg, colour = hour_bin)) + 
   geom_point() +
-  xlab("Latitude") +
+  xlab("Latitude (°)") +
   ylab("Number of species") +
   ylim(c(0,2200)) +
   theme_classic() +
@@ -305,39 +305,51 @@ nmds_total_dat %>%
 
 ## plot nMDS
 ### latitude
-ggplot(data = nmds_total_dat,
+nmds_lati = ggplot(data = nmds_total_dat,
        mapping = aes(x = MDS1, y = MDS2, colour = lat_bin)) +
   geom_point(size = 2.5) +
-  scale_colour_viridis_d() +
   theme_classic() +
   ggtitle("Latitude bins") +
   theme(legend.position="right") +
   theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(text = element_text(size=16)) +
-  grid()
+  grid() +
+  scale_colour_manual(name = "Latitude bins (°)",
+                      values = c("#56B4E9", "#E69F00", "#000000", "#009E73"),
+                      labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59"))
 
 ### day time
-ggplot(data = nmds_total_dat,
+nmds_time = ggplot(data = nmds_total_dat,
        mapping = aes(x = MDS1, y = MDS2, colour = hour_bin)) +
   geom_point(size = 2.5) +
-  scale_colour_viridis_d() +
   theme_classic() +
-  ggtitle("Daytime bins") +
+  ggtitle("Daytime") +
   theme(legend.position="right") +
   theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(text = element_text(size=16)) +
-  grid()
+  grid() +
+  scale_colour_manual(name = "Time bins \n(24-h clock)",
+                      values = c("#56B4E9", "#E69F00", "#000000", "#009E73"),
+                      labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59"))
 
 ### depth
-ggplot(data = nmds_total_dat,
+nmds_depth = ggplot(data = nmds_total_dat,
        mapping = aes(x = MDS1, y = MDS2, colour = depth_bin)) +
   geom_point(size = 2.5) +
-  scale_colour_viridis_d() +
   theme_classic() +
-  ggtitle("Depth bins") +
+  ggtitle("Depth") +
   theme(legend.position="right") +
   theme(plot.title = element_text(size = 16, face = "bold")) +
   theme(text = element_text(size=16)) +
-  grid()
+  grid() +
+  scale_colour_manual(name = "Depth bins (m)",
+                      values = c("#56B4E9", "#E69F00", "#000000"),
+                      labels = c("(0-10]", "(10-20]", "(20-30]"))
+
+nmds_plots = ggarrange(nmds_depth, nmds_time,
+                          ncol = 1, nrow = 2)
+annotate_figure(nmds_plots,
+                top = text_grob("nMDS: community composition based on species abundance along depth and time bins",
+                                color = "black", face = "bold", size = 14))
 
 
