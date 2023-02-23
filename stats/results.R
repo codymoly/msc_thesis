@@ -205,7 +205,7 @@ cwm_data = bio_long %>% filter(bio_variable == "size_class_cwm")
 cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("a) Size class CWM (cm)") +
+  ggtitle("Size class CWM (cm)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -215,11 +215,11 @@ cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) +
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(0, 30))
 
-cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv")
+cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv", value < 800)
 cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("b) Size class CWV (cm²)") +
+  ggtitle("Size class CWV (cm²)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -227,14 +227,14 @@ cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) +
         axis.title.y = element_blank(),
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.2, "cm")) +
-  scale_y_continuous(limits = c(0, 900)) +
-  ggbreak::scale_y_break(c(200, 870), scales = 0.2, space = 0.2)
+  scale_y_continuous(limits = c(0, 180)) #+
+  #ggbreak::scale_y_break(c(200, 870), scales = 0.2, space = 0.2)
 
 richi_data = bio_long %>% filter(bio_variable == "sp_richness")
 richi_plot = ggplot(data = richi_data, mapping = aes(x = bio_variable, y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("c) Species richness") +
+  ggtitle("Species richness") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -244,12 +244,158 @@ richi_plot = ggplot(data = richi_data, mapping = aes(x = bio_variable, y = value
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(0, 140))
 
-ggarrange(cwm_plot, cwv_plot, richi_plot, ncol = 3, nrow = 1) 
-cwm_plot + cwv_plot + richi_plot
+### only size measurs
+ggarrange(cwm_plot, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"))
+
+### all
+ggarrange(cwm_plot, cwv_plot, richi_plot, ncol = 3, nrow = 1, labels = c("A", "B", "C")) 
+
+
+###### maps for community traits
 
 # remove outlier from csv to make it plotable
 final_dataset_outl = final_dataset %>% 
   dplyr::filter(size_class_cwv < 800)
+
+# create table fpr plot
+
+aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
+
+cwm_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = size_class_cwm), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)", option="magma")
+
+cwv_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset_outl, aes(x = longitude, y = latitude, colour =size_class_cwv), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)", option="magma")
+
+richi_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sp_richness), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Species \nrichness", option="magma")
+
+eve_map = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = even_total), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.direction = "vertical",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Evenness", option="magma")
+
+### all
+com_maps = ggarrange(cwm_map, cwv_map, richi_map, eve_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
+ggpubr::annotate_figure(com_maps,
+                        fig.lab.size = 14,
+                        fig.lab.face = "bold",
+                        left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
+                        bottom = textGrob("Longitude", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
+
+#### only size classes
+cwm_map_2 = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = size_class_cwm), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = c(.84,.88),
+        legend.direction = "horizontal",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)", option="magma")
+
+cwv_map_2 = ggplot(data = aussi) + 
+  geom_sf() + 
+  geom_point(data = final_dataset_outl, aes(x = longitude, y = latitude, colour =size_class_cwv), size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_classic() +
+  theme(legend.position = c(.84,.88),
+        legend.direction = "horizontal",
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 10, face= "bold"),
+        legend.title = element_text(size = 10, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.25, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)", option="magma")
+
+com_maps_size = ggarrange(cwm_map_2, cwv_map_2, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 7.5)
+ggpubr::annotate_figure(com_maps_size,
+                        fig.lab.size = 14,
+                        fig.lab.face = "bold",
+                        left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
+                        bottom = textGrob("Longitude", vjust = -6.3, gp = gpar(cex = 1.5, fontface="bold")))
 
 
 ###### plot sites

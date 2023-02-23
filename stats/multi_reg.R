@@ -152,7 +152,7 @@ eco_env = eco_env %>%
          bodysize_cwm_log = log(bodysize_cwm_total),
          bodysize_cwv_log = log(bodysize_cwv_total),
          sp_richness_log = log(sp_richness),
-         even_log = log(even_total),
+         even_log = log(even_total+0.01),
          biomass_log = log(total_biomass),
          sizeclass_cwm_log = log(size_class_cwm),
          sizeclass_cwv_log = log(size_class_cwv))
@@ -256,125 +256,125 @@ vif_cwm
 
 ## cwm dredging
 ### global model (the model with all predictors)
-global.model = lm(bodysize_cwm_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
-                  data = final_sites)
-plot(global.model)
-
-### dredging
-options(na.action = "na.fail")
-dredged_cwm_object = MuMIn::dredge(global.model)
-dredged_cwm_object
-
-### get the top models
-model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
-best_fit = model.sub[[1]]
-model96 = model.sub[[1]]
-model7040 = model.sub[[2]]
-
-### summarise best fitting model
-summary(model96) # plot seas and col, 
-anova(model96, model7040)
-
-### if the top models are too similar
-avg.model = model.avg(model.sub)
-summary(avg.model)
-
-## plot predicted versus observed models
-## either take best model from compare_cwm_models or the best dredged
-pred_obs_cwm = data.frame(actual = final_sites$bodysize_cwm_log, predicted = predict(best_fit))
-ggplot(pred_obs_cwm, aes(x = predicted, y = actual)) +
-  geom_point() +
-  geom_abline() +
-  labs(x='predicted values', y='observed values', title='CWM body size: predicted vs. observed values (log-transformed)') +
-  theme_classic() +
-  theme(plot.title=element_text(size=18, face= "bold"),
-        legend.title=element_blank(),
-        legend.text = element_text(size = 18, face= "bold"),
-        axis.title.x = element_text(size = 18, face= "bold"),
-        axis.title.y = element_text(size = 18, face= "bold"),
-        axis.text.x = element_text(size = 18, face= "bold"),
-        axis.text.y = element_text(size = 18, face= "bold"),
-        axis.line = element_line(linewidth = 1),
-        axis.ticks.length=unit(.25, "cm")) +
-  xlim(-2.8, 2.8) +
-  ylim(-2.8, 2.8)
-
-
-# linear model BODY SIZE CWV ***************************************************
-# ## build potentially interesting models
-# cwv_models <- list(
-#   cwv1 = lm(bodysize_cwv_log ~ sst_raw_mean, data = final_sites),
-#   cwv2 = lm(bodysize_cwv_log  ~ sst_raw_var, data = final_sites),
-#   cwv3 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
-#   cwv4 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-#               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
-#   cwv5 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-#               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
-#   cwv6 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
-#               sst_env_col + sst_bounded_seasonality +
-#               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
+# global.model = lm(bodysize_cwm_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+#                   data = final_sites)
+# plot(global.model)
 # 
-# ## compare multiple models
-# compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
-#                            broom::glance(cwv_models$cwv2),
-#                            broom::glance(cwv_models$cwv3),
-#                            broom::glance(cwv_models$cwv4),
-#                            broom::glance(cwv_models$cwv5),
-#                            broom::glance(cwv_models$cwv6) # we will use this for the following steps
-# )
-# compare_cwv_models
+# ### dredging
+# options(na.action = "na.fail")
+# dredged_cwm_object = MuMIn::dredge(global.model)
+# dredged_cwm_object
 # 
-# ## check residual distribution of the best model
-# plot(cwv_models$cwv6)
+# ### get the top models
+# model.sub <- get.models(dredged_cwm_object, subset = delta < 2)
+# best_fit = model.sub[[1]]
+# model96 = model.sub[[1]]
+# model7040 = model.sub[[2]]
 # 
-# ## summarise
-# summary(cwv_models$cwv6)
-
-## cwv dredging
-### global model (the model with all predictors)
-global.model.cwv = lm(bodysize_cwv_log ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
-                  data = final_sites)
-plot(global.model.cwv)
-
-### dredging
-options(na.action = "na.fail")
-dredged_cwv_object = MuMIn::dredge(global.model.cwv)
-dredged_cwv_object
-
-### get the top models
-model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 2)
-best_fit.cwv = model.sub.cwv[[1]]
-cwv7040  = model.sub.cwv[[1]]
-cwv32768  = model.sub.cwv[[2]]
-anova(cwv7040, cwv32768)
-
-### summarise best fitting model
-summary(best_fit.cwv)
-
-### if the top models are too similar
-avg.model.cwv = model.avg(model.sub.cwv)
-summary(avg.model.cwv)
-
-## plot predicted versus observed models
-## either take best model from compare_cwm_models or the best dredged
-pred_obs_cwv = data.frame(actual = final_sites$bodysize_cwv_log, predicted = predict(best_fit.cwv))
-ggplot(pred_obs_cwv, aes(x = predicted, y = actual)) +
-  geom_point() +
-  geom_abline() +
-  labs(x='predicted values', y='observed values', title='CWV: predicted vs. observed values (log-transformed)') +
-  theme_classic() +
-  theme(plot.title=element_text(size=18, face= "bold"),
-        legend.title=element_blank(),
-        legend.text = element_text(size = 18, face= "bold"),
-        axis.title.x = element_text(size = 18, face= "bold"),
-        axis.title.y = element_text(size = 18, face= "bold"),
-        axis.text.x = element_text(size = 18, face= "bold"),
-        axis.text.y = element_text(size = 18, face= "bold"),
-        axis.line = element_line(linewidth = 1),
-        axis.ticks.length=unit(.25, "cm")) +
-  xlim(-2.8, 2.8) +
-  ylim(-2.8, 2.8)
-
+# ### summarise best fitting model
+# summary(model96) # plot seas and col, 
+# anova(model96, model7040)
+# 
+# ### if the top models are too similar
+# avg.model = model.avg(model.sub)
+# summary(avg.model)
+# 
+# ## plot predicted versus observed models
+# ## either take best model from compare_cwm_models or the best dredged
+# pred_obs_cwm = data.frame(actual = final_sites$bodysize_cwm_log, predicted = predict(best_fit))
+# ggplot(pred_obs_cwm, aes(x = predicted, y = actual)) +
+#   geom_point() +
+#   geom_abline() +
+#   labs(x='predicted values', y='observed values', title='CWM body size: predicted vs. observed values (log-transformed)') +
+#   theme_classic() +
+#   theme(plot.title=element_text(size=18, face= "bold"),
+#         legend.title=element_blank(),
+#         legend.text = element_text(size = 18, face= "bold"),
+#         axis.title.x = element_text(size = 18, face= "bold"),
+#         axis.title.y = element_text(size = 18, face= "bold"),
+#         axis.text.x = element_text(size = 18, face= "bold"),
+#         axis.text.y = element_text(size = 18, face= "bold"),
+#         axis.line = element_line(linewidth = 1),
+#         axis.ticks.length=unit(.25, "cm")) +
+#   xlim(-2.8, 2.8) +
+#   ylim(-2.8, 2.8)
+# 
+# 
+# # linear model BODY SIZE CWV ***************************************************
+# # ## build potentially interesting models
+# # cwv_models <- list(
+# #   cwv1 = lm(bodysize_cwv_log ~ sst_raw_mean, data = final_sites),
+# #   cwv2 = lm(bodysize_cwv_log  ~ sst_raw_var, data = final_sites),
+# #   cwv3 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var, data = final_sites),
+# #   cwv4 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+# #               sst_env_col + sst_raw_mean:sst_env_col, data = final_sites),
+# #   cwv5 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+# #               sst_bounded_seasonality + sst_raw_mean:sst_bounded_seasonality, data = final_sites),
+# #   cwv6 = lm(bodysize_cwv_log   ~ sst_raw_mean + sst_raw_var + sst_raw_mean:sst_raw_var +
+# #               sst_env_col + sst_bounded_seasonality +
+# #               sst_raw_mean:sst_env_col + sst_raw_mean:sst_bounded_seasonality, data = final_sites))
+# # 
+# # ## compare multiple models
+# # compare_cwv_models = rbind(broom::glance(cwv_models$cwv1),
+# #                            broom::glance(cwv_models$cwv2),
+# #                            broom::glance(cwv_models$cwv3),
+# #                            broom::glance(cwv_models$cwv4),
+# #                            broom::glance(cwv_models$cwv5),
+# #                            broom::glance(cwv_models$cwv6) # we will use this for the following steps
+# # )
+# # compare_cwv_models
+# # 
+# # ## check residual distribution of the best model
+# # plot(cwv_models$cwv6)
+# # 
+# # ## summarise
+# # summary(cwv_models$cwv6)
+# 
+# ## cwv dredging
+# ### global model (the model with all predictors)
+# global.model.cwv = lm(bodysize_cwv_log ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+#                   data = final_sites)
+# plot(global.model.cwv)
+# 
+# ### dredging
+# options(na.action = "na.fail")
+# dredged_cwv_object = MuMIn::dredge(global.model.cwv)
+# dredged_cwv_object
+# 
+# ### get the top models
+# model.sub.cwv <- get.models(dredged_cwv_object, subset = delta < 2)
+# best_fit.cwv = model.sub.cwv[[1]]
+# cwv7040  = model.sub.cwv[[1]]
+# cwv32768  = model.sub.cwv[[2]]
+# anova(cwv7040, cwv32768)
+# 
+# ### summarise best fitting model
+# summary(best_fit.cwv)
+# 
+# ### if the top models are too similar
+# avg.model.cwv = model.avg(model.sub.cwv)
+# summary(avg.model.cwv)
+# 
+# ## plot predicted versus observed models
+# ## either take best model from compare_cwm_models or the best dredged
+# pred_obs_cwv = data.frame(actual = final_sites$bodysize_cwv_log, predicted = predict(best_fit.cwv))
+# ggplot(pred_obs_cwv, aes(x = predicted, y = actual)) +
+#   geom_point() +
+#   geom_abline() +
+#   labs(x='predicted values', y='observed values', title='CWV: predicted vs. observed values (log-transformed)') +
+#   theme_classic() +
+#   theme(plot.title=element_text(size=18, face= "bold"),
+#         legend.title=element_blank(),
+#         legend.text = element_text(size = 18, face= "bold"),
+#         axis.title.x = element_text(size = 18, face= "bold"),
+#         axis.title.y = element_text(size = 18, face= "bold"),
+#         axis.text.x = element_text(size = 18, face= "bold"),
+#         axis.text.y = element_text(size = 18, face= "bold"),
+#         axis.line = element_line(linewidth = 1),
+#         axis.ticks.length=unit(.25, "cm")) +
+#   xlim(-2.8, 2.8) +
+#   ylim(-2.8, 2.8)
+# 
 
 # linear model richness ***************************************************
 # ## build potentially interesting models
@@ -532,7 +532,7 @@ pred_obs_sc_cwm = data.frame(actual = final_sites$sizeclass_cwm_log, predicted =
 cwm.mod1 = ggplot(pred_obs_sc_cwm, aes(x = predicted, y = actual)) +
   geom_point() +
   geom_abline() +
-  labs(x='predicted values', y='observed values', title='Highest-ranked model based on AICc') +
+  labs(x='predicted values', y='observed values', title='Optimal model based on AICc') +
   theme_classic() +
   theme(plot.title=element_text(size=18, face= "bold"),
         legend.title=element_blank(),
@@ -550,7 +550,7 @@ cwm_pred_plot = ggarrange(cwm.mod0, cwm.mod1,
                       ncol = 2, nrow = 1)
 annotate_figure(cwm_pred_plot,
                 top = text_grob("Size class CWM (log-transformed): predicted vs. observed values",
-                                color = "black", face = "bold", size = 20))
+                                color = "black", face = "bold", size = 22))
 
 ## size class cwv dredging
 ### global model (the model with all predictors)
@@ -606,7 +606,7 @@ pred_obs_sc_cwv = data.frame(actual = final_sites$sizeclass_cwv_sqrt, predicted 
 cwv.mod1 = ggplot(pred_obs_sc_cwv, aes(x = predicted, y = actual)) +
   geom_point() +
   geom_abline() +
-  labs(x='predicted values', y='observed values', title='Highest-ranked model based on AICc') +
+  labs(x='predicted values', y='observed values', title='Optimal model based on AICc') +
   theme_classic() +
   theme(plot.title=element_text(size=18, face= "bold"),
         legend.title=element_blank(),
@@ -624,5 +624,69 @@ cwv_pred_plot = ggarrange(cwv.mod0, cwv.mod1,
                           ncol = 2, nrow = 1)
 annotate_figure(cwv_pred_plot,
                 top = text_grob("Size class CWV (square root-transformed): predicted vs. observed values",
-                                color = "black", face = "bold", size = 20))
+                                color = "black", face = "bold", size = 22))
 
+## evenness dredging
+### global model (the model with all predictors)
+null_mod_eve = lm(even_total  ~ sst_raw_mean, data = final_sites)
+summary(null_mod_eve)
+plot(null_mod_eve)
+
+global.model.eve = lm(even_total  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+                       data = final_sites)
+plot(global.model.eve)
+
+### dredging
+options(na.action = "na.fail")
+dredged_eve_object = MuMIn::dredge(global.model.eve)
+dredged_eve_object
+
+### get the top models
+model.sub.eve <- get.models(dredged_eve_object, subset = delta < 2)
+best_fit.eve = model.sub.eve[[1]]
+
+### summarise best fitting model
+summary(best_fit.eve)
+
+# plot resis
+pred_null_eve = data.frame(actual = final_sites$even_total, predicted = predict(null_mod_eve))
+eve.mod0 = ggplot(pred_null_eve, aes(x = predicted, y = actual)) +
+  geom_point() +
+  geom_abline() +
+  labs(x='predicted values', y='observed values', title='Null model') +
+  theme_classic() +
+  theme(plot.title=element_text(size=18, face= "bold"),
+        legend.title=element_blank(),
+        legend.text = element_text(size = 18, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 18, face= "bold"),
+        axis.text.y = element_text(size = 18, face= "bold"),
+        axis.line = element_line(linewidth = 1),
+        axis.ticks.length=unit(.25, "cm")) +
+  xlim(-3, 3) +
+  ylim(-3, 3)
+
+pred_obs_eve = data.frame(actual = final_sites$even_total, predicted = predict(best_fit.eve))
+eve.mod1 = ggplot(pred_obs_eve, aes(x = predicted, y = actual)) +
+  geom_point() +
+  geom_abline() +
+  labs(x='predicted values', y='observed values', title='Highest-ranked model based on AICc') +
+  theme_classic() +
+  theme(plot.title=element_text(size=18, face= "bold"),
+        legend.title=element_blank(),
+        legend.text = element_text(size = 18, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 18, face= "bold"),
+        axis.text.y = element_text(size = 18, face= "bold"),
+        axis.line = element_line(linewidth = 1),
+        axis.ticks.length=unit(.25, "cm")) +
+  xlim(-3, 3) +
+  ylim(-3, 3)
+
+eve_pred_plot = ggarrange(eve.mod0, eve.mod1, 
+                           ncol = 2, nrow = 1)
+annotate_figure(eve_pred_plot,
+                top = text_grob("Evenness: predicted vs. observed values",
+                                color = "black", face = "bold", size = 20))
