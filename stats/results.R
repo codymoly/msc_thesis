@@ -47,7 +47,7 @@ mean_data = final_long %>% filter(sst_variable == "sst_raw_mean")
 mean_plot = ggplot(data = mean_data, mapping = aes(x = sst_variable["sst_raw_mean"], y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("a) SST mean (°C)") +
+  ggtitle("SST mean (°C)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -61,7 +61,7 @@ vari_data = final_long %>% filter(sst_variable == "sst_raw_var")
 var_plot = ggplot(data = vari_data, mapping = aes(x = sst_variable["sst_raw_var"], y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("b) SST variance (°C²)") +
+  ggtitle("SST variance (°C²)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -75,7 +75,7 @@ col_data = final_long %>% filter(sst_variable == "sst_env_col")
 col_plot = ggplot(data = col_data, mapping = aes(x = sst_variable["sst_env_col"], y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("c) SST colour") +
+  ggtitle("SST colour") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -89,7 +89,7 @@ sea_data = final_long %>% filter(sst_variable == "sst_bounded_seasonality")
 sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_seasonality"], y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("d) SST seasonality") +
+  ggtitle("SST seasonality") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -99,7 +99,7 @@ sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_s
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(min(sea_data$value), max(sea_data$value)))
 
-ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1) # Rplot_sst_summary, 1100, 600
+ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1, labels = c("A", "B", "C", "D")) # Rplot_sst_summary, 1100, 600
 
 ###### maps for sst
 aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
@@ -122,7 +122,14 @@ mean_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \nmean \n(°C)")
+  scale_colour_viridis(name = "SST \nmean \n(°C)",
+                       option = "magma",
+                       breaks = c(round(min(final_dataset$sst_raw_mean), digits = 1), 
+                                  round(mean(final_dataset$sst_raw_mean), digits = 1), 
+                                  round(max(final_dataset$sst_raw_mean), digits = 1)),
+                       labels = c(round(min(final_dataset$sst_raw_mean), digits = 1), 
+                                  round(mean(final_dataset$sst_raw_mean), digits = 1), 
+                                  round(max(final_dataset$sst_raw_mean), digits = 1)))
 
 var_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -142,7 +149,13 @@ var_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \nvariance \n(°C²)")
+  scale_colour_viridis(name = "SST \nvariance \n(°C²)", option = "magma",
+                       breaks = c(round(min(final_dataset$sst_raw_var), digits = 2), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 2), 
+                                  round(max(final_dataset$sst_raw_var), digits = 2)),
+                       labels = c(round(min(final_dataset$sst_raw_var), digits = 2), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 2), 
+                                  round(max(final_dataset$sst_raw_var), digits = 2)))
 
 col_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -162,7 +175,13 @@ col_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \ncolour")
+  scale_colour_viridis(name = "SST \ncolour", option = "magma",
+                       breaks = c(round(min(final_dataset$sst_env_col), digits = 2), 
+                                  round(mean(final_dataset$sst_env_col), digits = 2), 
+                                  round(max(final_dataset$sst_env_col), digits = 2)),
+                       labels = c(round(min(final_dataset$sst_env_col), digits = 2), 
+                                  round(mean(final_dataset$sst_env_col), digits = 2), 
+                                  round(max(final_dataset$sst_env_col), digits = 2)))
 
 sea_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -183,8 +202,13 @@ sea_map = ggplot(data = aussi) +
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "SST \nseaso-\nnality",
-                       breaks = c(0.7, 0.8, 0.9, 1.0),
-                       labels = c("0.7", "0.8", "0.9", "1.0"))
+                       option = "magma",
+                       breaks = c(round(min(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(mean(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(max(final_dataset$sst_bounded_seasonality), digits = 2)),
+                       labels = c(round(min(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(mean(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(max(final_dataset$sst_bounded_seasonality), digits = 2)))
 
 sst_maps = ggarrange(mean_map, var_map, col_map, sea_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
 ggpubr::annotate_figure(sst_maps,
@@ -279,7 +303,7 @@ cwm_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)", option="magma")
+  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)")
 
 cwv_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -299,7 +323,7 @@ cwv_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)", option="magma")
+  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)")
 
 richi_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -319,7 +343,7 @@ richi_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Species \nrichness", option="magma")
+  scale_colour_viridis(name = "Species \nrichness")
 
 eve_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -339,7 +363,7 @@ eve_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Evenness", option="magma")
+  scale_colour_viridis(name = "Evenness")
 
 ### all
 com_maps = ggarrange(cwm_map, cwv_map, richi_map, eve_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
@@ -368,7 +392,7 @@ cwm_map_2 = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)", option="magma")
+  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)")
 
 cwv_map_2 = ggplot(data = aussi) + 
   geom_sf() + 
@@ -388,14 +412,14 @@ cwv_map_2 = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)", option="magma")
+  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)")
 
 com_maps_size = ggarrange(cwm_map_2, cwv_map_2, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 7.5)
 ggpubr::annotate_figure(com_maps_size,
                         fig.lab.size = 14,
                         fig.lab.face = "bold",
                         left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
-                        bottom = textGrob("Longitude", vjust = -6.3, gp = gpar(cex = 1.5, fontface="bold")))
+                        bottom = textGrob("Longitude", vjust = -6.1, gp = gpar(cex = 1.5, fontface="bold")))
 
 
 ###### plot sites
