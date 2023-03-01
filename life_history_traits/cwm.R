@@ -63,10 +63,10 @@ trait_cwm = cwm_input %>%
     number_total = sum(na.omit(total_mean)),
     sp_richness = vegan::specnumber(species_name),
     even_total = shannon/log(number_total),
-    bodysize_cwm_total = stats::weighted.mean(bodySize, total_mean),
-    bodysize_cwv_total = modi::weighted.var(bodySize, total_mean),
-    size_class_cwm = stats::weighted.mean(size_class_mean, total_mean),
-    size_class_cwv = modi::weighted.var(size_class_mean, total_mean),
+    bodysize_cwm_total = stats::weighted.mean(bodySize, total_mean, na.rm = TRUE),
+    bodysize_cwv_total = modi::weighted.var(bodySize, total_mean, na.rm = TRUE),
+    size_class_cwm = stats::weighted.mean(size_class_mean, total_mean, na.rm = TRUE),
+    size_class_cwv = modi::weighted.var(size_class_mean, total_mean, na.rm = TRUE),
     total_biomass = sum(na.omit(biomass_mean))
     #bodysize_cwm_biomass = weighted.mean(bodySize, biomass_mean, na.rm = TRUE),
     #bodysize_cwv_biomass = weighted.var(bodySize, biomass_mean, na.rm = TRUE)

@@ -28,7 +28,7 @@ setwd("~/Documents/MSc_thesis/Figures")
 # conditional code
 plot_by_area = FALSE
 save_to_github = FALSE
-save_to_local = TRUE
+save_to_local = FALSE
 
 # import datasets
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
@@ -102,6 +102,9 @@ eco_env = eco_env_out %>%
   dplyr::slice_sample(n = 1) %>% 
   dplyr::ungroup()
 
+# remove systematic outlier
+eco_env = eco_env %>% dplyr::filter(size_class_cwv < 800)
+
 # create unique survey id
 ## arrange by site and add row number as new ID
 eco_env = eco_env %>% 
@@ -141,7 +144,7 @@ hist(na.omit(eco_env$sst_env_col))
 # transform
 eco_env_backup = eco_env
 eco_env = eco_env_backup
-eco_env = eco_env %>% 
+eco_env = eco_env %>%
   dplyr::mutate(bodysize_cwm_sqrt = sqrt(bodysize_cwm_total),
          bodysize_cwv_sqrt = sqrt(bodysize_cwv_total),
          sp_richness_sqrt = sqrt(sp_richness),
@@ -157,7 +160,7 @@ eco_env = eco_env %>%
          sizeclass_cwm_log = log(size_class_cwm),
          sizeclass_cwv_log = log(size_class_cwv))
 
-# scale our variables
+# # scale our variables
 ## move area to the beginning of the dataframe
 eco_env = eco_env %>%
   dplyr::select(area, everything())
@@ -165,8 +168,12 @@ eco_env = eco_env %>%
 ## copy copy copy
 final_sites = eco_env
 
+## remove outlier in cvw?
+hist(final_sites$size_class_cwv)
+
 ## standardise 
-final_sites[6:39] <- lapply(final_sites[6:39], function(x) c(scale(x)))
+# final_sites[6:39] <- lapply(final_sites[6:39], function(x) c(scale(x)))
+final_sites[6:39] <- lapply(final_sites[6:39], function(x) c((x - min(x))/(max(x) - min(x))))
 
 
 ###### examine collinearity
@@ -203,11 +210,11 @@ only_for_corplot %>%
   stats::cor(x = ., method = c("spearman")) %>%
   corrplot::corrplot(method = "number")
 
-# correlationplot between response variables
-only_for_corplot %>%
-  dplyr::select(`CWM body size`, `CWV body size`, `species richness`, `CWM size class`, `CWV size class`) %>%
-  stats::cor(x = ., method = c("spearman")) %>%
-  corrplot::corrplot(method = "number")
+# # correlationplot between response variables
+# only_for_corplot %>%
+#   dplyr::select(`CWM body size`, `CWV body size`, `species richness`, `CWM size class`, `CWV size class`) %>%
+#   stats::cor(x = ., method = c("spearman")) %>%
+#   corrplot::corrplot(method = "number")
 
 # variance inflation factor to assess multicollinearity
 vif_cwm = car::vif(lm(total_biomass ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
@@ -406,80 +413,81 @@ vif_cwm
 # ## summarise
 # summary(rich_models$rich5)
 
-## richness dredging
-### global model (the model with all predictors)
-null_mod_rich = lm(sp_richness_log  ~ sst_raw_mean, data = final_sites)
-summary(null_mod_rich)
-
-global.model.rich = lm(sp_richness_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
-                      data = final_sites)
-plot(global.model.rich)
-
-### dredging
-options(na.action = "na.fail")
-dredged_rich_object = MuMIn::dredge(global.model.rich)
-dredged_rich_object
-
-### get the top models
-model.sub.rich <- get.models(dredged_rich_object, subset = delta < 2)
-best_fit.rich = model.sub.rich[[1]]
-best_fit.rich.2 = model.sub.rich[[2]]
-anova(best_fit.rich, best_fit.rich.2)
-
-### summarise best fitting model
-summary(best_fit.rich)
-
-### if the top models are too similar
-avg.model.rich = model.avg(model.sub.rich)
-summary(avg.model.rich)
-# path analysis, strucutural equation modelling
-## plot predicted versus observed models
-## either take best model from compare_cwm_models or the best dredged
-pred_null_rich = data.frame(actual = final_sites$sp_richness_log, predicted = predict(null_mod_rich))
-rich.mod0 = ggplot(pred_null_rich, aes(x = predicted, y = actual)) +
-  geom_point() +
-  geom_abline() +
-  labs(x='predicted values', y='observed values', title='Null model') +
-  theme_classic() +
-  theme(plot.title=element_text(size=18, face= "bold"),
-        legend.title=element_blank(),
-        legend.text = element_text(size = 18, face= "bold"),
-        axis.title.x = element_text(size = 18, face= "bold"),
-        axis.title.y = element_text(size = 18, face= "bold"),
-        axis.text.x = element_text(size = 18, face= "bold"),
-        axis.text.y = element_text(size = 18, face= "bold"),
-        axis.line = element_line(linewidth = 1),
-        axis.ticks.length=unit(.25, "cm")) +
-  xlim(-3.8, 2) +
-  ylim(-3.8, 2)
-
-pred_obs_rich = data.frame(actual = final_sites$sp_richness_log, predicted = predict(best_fit.rich))
-rich.mod1 = ggplot(pred_obs_rich, aes(x = predicted, y = actual)) +
-  geom_point() +
-  geom_abline() +
-  labs(x='predicted values', y='observed values', title='Highest-ranked model based on AICc') +
-  theme_classic() +
-  theme(plot.title=element_text(size=18, face= "bold"),
-        legend.title=element_blank(),
-        legend.text = element_text(size = 18, face= "bold"),
-        axis.title.x = element_text(size = 18, face= "bold"),
-        axis.title.y = element_text(size = 18, face= "bold"),
-        axis.text.x = element_text(size = 18, face= "bold"),
-        axis.text.y = element_text(size = 18, face= "bold"),
-        axis.line = element_line(linewidth = 1),
-        axis.ticks.length=unit(.25, "cm")) +
-  xlim(-3.8, 2) +
-  ylim(-3.8, 2)
-
-rich_pred_plot = ggarrange(rich.mod0, rich.mod1, 
-                          ncol = 2, nrow = 1)
-annotate_figure(rich_pred_plot,
-                top = text_grob("Species richness (log-transformed): predicted vs. observed values",
-                                color = "black", face = "bold", size = 20))
+# ## richness dredging
+# ### global model (the model with all predictors)
+# null_mod_rich = lm(sp_richness_log  ~ sst_raw_mean, data = final_sites)
+# summary(null_mod_rich)
+# 
+# global.model.rich = lm(sp_richness_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+#                       data = final_sites)
+# plot(global.model.rich)
+# 
+# ### dredging
+# options(na.action = "na.fail")
+# dredged_rich_object = MuMIn::dredge(global.model.rich)
+# dredged_rich_object
+# 
+# ### get the top models
+# model.sub.rich <- get.models(dredged_rich_object, subset = delta < 2)
+# best_fit.rich = model.sub.rich[[1]]
+# best_fit.rich.2 = model.sub.rich[[2]]
+# anova(best_fit.rich, best_fit.rich.2)
+# 
+# ### summarise best fitting model
+# summary(best_fit.rich)
+# 
+# ### if the top models are too similar
+# avg.model.rich = model.avg(model.sub.rich)
+# summary(avg.model.rich)
+# # path analysis, strucutural equation modelling
+# ## plot predicted versus observed models
+# ## either take best model from compare_cwm_models or the best dredged
+# pred_null_rich = data.frame(actual = final_sites$sp_richness_log, predicted = predict(null_mod_rich))
+# rich.mod0 = ggplot(pred_null_rich, aes(x = predicted, y = actual)) +
+#   geom_point() +
+#   geom_abline() +
+#   labs(x='predicted values', y='observed values', title='Null model') +
+#   theme_classic() +
+#   theme(plot.title=element_text(size=18, face= "bold"),
+#         legend.title=element_blank(),
+#         legend.text = element_text(size = 18, face= "bold"),
+#         axis.title.x = element_text(size = 18, face= "bold"),
+#         axis.title.y = element_text(size = 18, face= "bold"),
+#         axis.text.x = element_text(size = 18, face= "bold"),
+#         axis.text.y = element_text(size = 18, face= "bold"),
+#         axis.line = element_line(linewidth = 1),
+#         axis.ticks.length=unit(.25, "cm")) +
+#   xlim(-3.8, 2) +
+#   ylim(-3.8, 2)
+# 
+# pred_obs_rich = data.frame(actual = final_sites$sp_richness_log, predicted = predict(best_fit.rich))
+# rich.mod1 = ggplot(pred_obs_rich, aes(x = predicted, y = actual)) +
+#   geom_point() +
+#   geom_abline() +
+#   labs(x='predicted values', y='observed values', title='Highest-ranked model based on AICc') +
+#   theme_classic() +
+#   theme(plot.title=element_text(size=18, face= "bold"),
+#         legend.title=element_blank(),
+#         legend.text = element_text(size = 18, face= "bold"),
+#         axis.title.x = element_text(size = 18, face= "bold"),
+#         axis.title.y = element_text(size = 18, face= "bold"),
+#         axis.text.x = element_text(size = 18, face= "bold"),
+#         axis.text.y = element_text(size = 18, face= "bold"),
+#         axis.line = element_line(linewidth = 1),
+#         axis.ticks.length=unit(.25, "cm")) +
+#   xlim(-3.8, 2) +
+#   ylim(-3.8, 2)
+# 
+# rich_pred_plot = ggarrange(rich.mod0, rich.mod1, 
+#                           ncol = 2, nrow = 1)
+# annotate_figure(rich_pred_plot,
+#                 top = text_grob("Species richness (log-transformed): predicted vs. observed values",
+#                                 color = "black", face = "bold", size = 20))
 
 ## size class cwm dredging
 ### global model (the model with all predictors)
 null_mod_cwm = lm(sizeclass_cwm_log  ~ sst_raw_mean, data = final_sites)
+plot(null_mod_cwm)
 summary(null_mod_cwm)
 
 global.model.class.cwm = lm(sizeclass_cwm_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
@@ -501,7 +509,7 @@ summary(best_fit.sc.cwm)
 summary(best_fit.sc.cwm.2)
 
 ####
-anova(model.sub.sc.cwm[[1]], model.sub.sc.cwm[[5]])
+anova(model.sub.sc.cwm[[1]], model.sub.sc.cwm[[2]])
 
 ### model averaging on models with aicc <2
 averaged_class_cwm = model.avg(model.sub.sc.cwm)
@@ -554,7 +562,8 @@ annotate_figure(cwm_pred_plot,
 
 ## size class cwv dredging
 ### global model (the model with all predictors)
-null_mod_cwv = lm(sizeclass_cwv_sqrt  ~ sst_raw_mean, data = final_sites)
+null_mod_cwv = lm(sizeclass_cwv_sqrt ~ sst_raw_mean, data = final_sites)
+plot(null_mod_cwv)
 summary(null_mod_cwv)
 
 global.model.class.cwv = lm(sizeclass_cwv_sqrt  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
@@ -575,7 +584,7 @@ best_fit.sc.cwv.3 = model.sub.sc.cwv[[3]]
 ### summarise best fitting model
 anova(best_fit.sc.cwv, best_fit.sc.cwv.3) # 0.1882
 summary(best_fit.sc.cwv)
-summary(best_fit.sc.cwv.2)
+summary(best_fit.sc.cwv.3)
 
 ### if the top models are too similar
 avg.model.sc.cwv = model.avg(model.sub.sc.cwv)

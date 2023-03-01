@@ -24,19 +24,29 @@ rls_sub = rls_2019_2022 %>%
     size_class, total, biomass
   )
 
+# check zeros in size class
+summary(rls_sub$size_class)
+rls_sub["size_class"] = lapply(rls_sub["size_class"], function(x) 
+  replace(x, rls_sub$size_class == 0.0, NA)) # replace values <= 0 with NAs in sst data
+summary(rls_sub$size_class) # 92 NAs
+
+# Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#     2.5     7.5    10.0    13.5    20.0   300.0      92
+
 # average size_class, total, biomass for each species per survey, i.e., unique combinations of latitude, longitude, and survey_date
 rls_avg = rls_sub %>% 
   group_by(latitude, longitude, survey_date, species_name) %>% 
   summarise(
-    size_class_mean = round(mean(size_class), digits = 1),
+    size_class_mean = round(mean(size_class, na.rm = TRUE), digits = 1),
     total_mean = round(mean(total), digits = 1),
     biomass_mean = round(mean(biomass), digits = 1)
     ) %>% 
   #mutate(ID = cur_group_id()) %>% # assign unique id number to each group
   ungroup()
 
-# # add S for survey to each id
-# rls_avg$ID = paste("S", rls_avg$ID, sep = "")
+# replace nans
+rls_avg_backup = rls_avg
+rls_avg$size_class_mean[is.nan(rls_avg$size_class_mean)] = NA
 
 # extract taxonomic information for each species from original file
 taxonomy = rls_2019_2022 %>% 

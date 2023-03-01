@@ -12,7 +12,7 @@ setwd("~/projects/msc_thesis")
 
 # read RLS dataset
 rls_2019_2022 = read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")
-
+rls_2020_2022 = rls_2019_2022 %>% filter(survey_date > "2019-12-31")
 # check variable names of the dataset
 names(rls_2019_2022)
 

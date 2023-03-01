@@ -114,6 +114,8 @@ mean_map = ggplot(data = aussi) +
         legend.direction = "vertical",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
+        legend.box.margin = margin(1, 1, 6, 1),
+        legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
@@ -124,10 +126,10 @@ mean_map = ggplot(data = aussi) +
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "SST \nmean \n(°C)",
                        option = "magma",
-                       breaks = c(round(min(final_dataset$sst_raw_mean), digits = 1), 
+                       breaks = c(14.0, 
                                   round(mean(final_dataset$sst_raw_mean), digits = 1), 
                                   round(max(final_dataset$sst_raw_mean), digits = 1)),
-                       labels = c(round(min(final_dataset$sst_raw_mean), digits = 1), 
+                       labels = c("14.0", 
                                   round(mean(final_dataset$sst_raw_mean), digits = 1), 
                                   round(max(final_dataset$sst_raw_mean), digits = 1)))
 
@@ -140,6 +142,8 @@ var_map = ggplot(data = aussi) +
   theme(legend.position = "right",
         legend.direction = "vertical",
         legend.background = element_blank(),
+        legend.box.margin = margin(1, 1, 6, 1),
+        legend.spacing.y = unit(0.5, 'cm'),
         legend.box.background = element_rect(colour = "black"),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
@@ -150,12 +154,12 @@ var_map = ggplot(data = aussi) +
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "SST \nvariance \n(°C²)", option = "magma",
-                       breaks = c(round(min(final_dataset$sst_raw_var), digits = 2), 
-                                  round(mean(final_dataset$sst_raw_var), digits = 2), 
-                                  round(max(final_dataset$sst_raw_var), digits = 2)),
-                       labels = c(round(min(final_dataset$sst_raw_var), digits = 2), 
-                                  round(mean(final_dataset$sst_raw_var), digits = 2), 
-                                  round(max(final_dataset$sst_raw_var), digits = 2)))
+                       breaks = c(round(min(final_dataset$sst_raw_var), digits = 3), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 3), 
+                                  round(max(final_dataset$sst_raw_var), digits = 5)),
+                       labels = c(round(min(final_dataset$sst_raw_var), digits = 1), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 1), 
+                                  round(max(final_dataset$sst_raw_var), digits = 1)))
 
 col_map = ggplot(data = aussi) + 
   geom_sf() + 
@@ -167,6 +171,8 @@ col_map = ggplot(data = aussi) +
         legend.direction = "vertical",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
+        legend.box.margin = margin(1, 1, 6, 1),
+        legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
@@ -193,6 +199,8 @@ sea_map = ggplot(data = aussi) +
         legend.direction = "vertical",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
+        legend.box.margin = margin(1, 1, 6, 1),
+        legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
@@ -203,12 +211,13 @@ sea_map = ggplot(data = aussi) +
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "SST \nseaso-\nnality",
                        option = "magma",
-                       breaks = c(round(min(final_dataset$sst_bounded_seasonality), digits = 2), 
-                                  round(mean(final_dataset$sst_bounded_seasonality), digits = 2), 
-                                  round(max(final_dataset$sst_bounded_seasonality), digits = 2)),
+                       breaks = c(round(min(final_dataset$sst_bounded_seasonality), digits = 5), 
+                                  round(mean(final_dataset$sst_bounded_seasonality), digits = 3), 
+                                  round(max(final_dataset$sst_bounded_seasonality), digits = 3)),
                        labels = c(round(min(final_dataset$sst_bounded_seasonality), digits = 2), 
                                   round(mean(final_dataset$sst_bounded_seasonality), digits = 2), 
-                                  round(max(final_dataset$sst_bounded_seasonality), digits = 2)))
+                                  "0.97")
+                       )
 
 sst_maps = ggarrange(mean_map, var_map, col_map, sea_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
 ggpubr::annotate_figure(sst_maps,
@@ -277,10 +286,6 @@ ggarrange(cwm_plot, cwv_plot, richi_plot, ncol = 3, nrow = 1, labels = c("A", "B
 
 ###### maps for community traits
 
-# remove outlier from csv to make it plotable
-final_dataset_outl = final_dataset %>% 
-  dplyr::filter(size_class_cwv < 800)
-
 # create table fpr plot
 
 aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
@@ -291,39 +296,55 @@ cwm_map = ggplot(data = aussi) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
-  theme(legend.position = "right",
-        legend.direction = "vertical",
+  theme(legend.position = c(0.85,0.85),
+        legend.direction = "horizontal",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
-        legend.text = element_text(size = 10, face= "bold"),
-        legend.title = element_text(size = 10, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
+        legend.box.margin = margin(4, 18, 4, 4),
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.title.y = element_text(size = 16, face= "bold"),
         axis.text.x = element_text(size = 12, face= "bold"),
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)")
+  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)",
+                       breaks = c(round(min(final_dataset$size_class_cwm), digits = 5), 
+                                  round(mean(final_dataset$size_class_cwm), digits = 5), 
+                                  round(max(final_dataset$size_class_cwm), digits = 5)),
+                       labels = c(round(min(final_dataset$size_class_cwm), digits = 1), 
+                                  round(mean(final_dataset$size_class_cwm), digits = 1), 
+                                  round(max(final_dataset$size_class_cwm), digits = 1)))
 
 cwv_map = ggplot(data = aussi) + 
   geom_sf() + 
-  geom_point(data = final_dataset_outl, aes(x = longitude, y = latitude, colour =size_class_cwv), size = 3) +
+  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour =size_class_cwv), size = 3) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
-  theme(legend.position = "right",
-        legend.direction = "vertical",
+  theme(legend.position = c(0.85,0.85),
+        legend.direction = "horizontal",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
-        legend.text = element_text(size = 10, face= "bold"),
-        legend.title = element_text(size = 10, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
+        legend.box.margin = margin(4, 18, 4, 4),
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.title.y = element_text(size = 16, face= "bold"),
         axis.text.x = element_text(size = 12, face= "bold"),
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)")
+  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)",
+                       breaks = c(round(min(final_dataset$size_class_cwv), digits = 5), 
+                                  round(mean(final_dataset$size_class_cwv), digits = 5), 
+                                  round(max(final_dataset$size_class_cwv), digits = 5)),
+                       labels = c(round(min(final_dataset$size_class_cwv), digits = 1), 
+                                  round(mean(final_dataset$size_class_cwv), digits = 1), 
+                                  round(max(final_dataset$size_class_cwv), digits = 1)))
 
 richi_map = ggplot(data = aussi) + 
   geom_sf() + 
