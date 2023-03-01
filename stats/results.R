@@ -34,7 +34,6 @@ final_dataset["sst_raw_mean"] = final_dataset["sst_raw_mean"] - 273.15
 
 summary(final_dataset)
 
-
 ###### violin plots of SST variables
 
 final_long = final_dataset %>%
@@ -302,12 +301,12 @@ cwm_map = ggplot(data = aussi) +
         legend.box.background = element_rect(colour = "black"),
         legend.box.margin = margin(4, 18, 4, 4),
         legend.spacing.x = unit(0.5, 'cm'),
-        legend.text = element_text(size = 12, face= "bold"),
-        legend.title = element_text(size = 12, face= "bold"),
-        axis.title.x = element_text(size = 16, face= "bold"),
-        axis.title.y = element_text(size = 16, face= "bold"),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        legend.text = element_text(size = 14, face= "bold"),
+        legend.title = element_text(size = 14, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 14, face= "bold"),
+        axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)",
@@ -330,12 +329,12 @@ cwv_map = ggplot(data = aussi) +
         legend.box.background = element_rect(colour = "black"),
         legend.box.margin = margin(4, 18, 4, 4),
         legend.spacing.x = unit(0.5, 'cm'),
-        legend.text = element_text(size = 12, face= "bold"),
-        legend.title = element_text(size = 12, face= "bold"),
-        axis.title.x = element_text(size = 16, face= "bold"),
-        axis.title.y = element_text(size = 16, face= "bold"),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        legend.text = element_text(size = 14, face= "bold"),
+        legend.title = element_text(size = 14, face= "bold"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 14, face= "bold"),
+        axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)",
@@ -566,6 +565,290 @@ rls_30 %>% select(valid_name) %>% filter(!is.na(valid_name)) %>% n_distinct() # 
 on_fam_lev = rls_30 %>% select(family, valid_name) %>% filter(is.na(valid_name)) # 52 individuals on fam level...
 length(unique(on_fam_lev[["family"]])) # ... in 18 families
 
-# subset for family plot
+####### 3D plots for interactions
 
+# create bins
+hist(final_dataset$sst_env_col)
+binned_data = final_dataset %>% 
+  select(sst_raw_mean, sst_raw_var, sst_bounded_seasonality, sst_env_col, size_class_cwm, size_class_cwv) %>% 
+  dplyr::mutate(var_bin = cut(sst_raw_var, breaks = c(1.5,2.6,4.6,15.3)),
+                sea_bin = cut(sst_bounded_seasonality, breaks = c(0.7,0.85,0.92,0.97)),
+                col_bin = cut(sst_env_col, breaks = c(1.5,1.75,1.9,2.2)))
+
+# variance vs seasonality
+vari_1 = ggplot(data = binned_data, 
+                aes(x = sst_raw_var, y = size_class_cwm)) +
+  geom_point() +
+  geom_smooth(aes(colour = sea_bin),
+              method="lm",
+              se = TRUE,
+              alpha = 0.2,
+              linewidth = 2,
+              lineend = "round") +
+  xlab("SST variance (°C²)") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "top",
+        legend.background = element_blank(),
+        legend.direction = "horizontal",
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_manual(name = "SST seasonality",
+                        labels = c("low", "medium", "high"),
+                        values = c("#1E88E5", "#FFC107", "#D81B60")) 
+
+vari_2 = ggplot(data = binned_data, 
+                aes(x = sst_bounded_seasonality, y = size_class_cwm)) +
+  geom_point() +
+  geom_smooth(aes(colour = var_bin),
+              method="lm",
+              se = TRUE,
+              alpha = 0.2,
+              linewidth = 2,
+              lineend = "round") +
+  xlab("SST seasonality") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "top",
+        legend.background = element_blank(),
+        legend.direction = "horizontal",
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_manual(name = "SST variance",
+                      labels = c("low", "medium", "high"),
+                      values = c("#1E88E5", "#FFC107", "#D81B60"))
+
+ggarrange(vari_1, vari_2, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 2.5)
+
+# 
+vari_3 = ggplot(data = binned_data, 
+                aes(x = sst_raw_var, y = size_class_cwm)) +
+  geom_point() +
+  geom_smooth(aes(colour = col_bin),
+              method="lm",
+              se = TRUE,
+              alpha = 0.2,
+              linewidth = 2,
+              lineend = "round") +
+  xlab("SST variance (°C²)") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "top",
+        legend.background = element_blank(),
+        legend.direction = "horizontal",
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_manual(name = "SST colour",
+                      labels = c("low", "medium", "high"),
+                      values = c("#1E88E5", "#FFC107", "#D81B60")) 
+
+vari_4 = ggplot(data = binned_data, 
+                aes(x = sst_env_col, y = size_class_cwm)) +
+  geom_point() +
+  geom_smooth(aes(colour = var_bin),
+              method="lm",
+              se = TRUE,
+              alpha = 0.2,
+              linewidth = 2,
+              lineend = "round") +
+  xlab("SST colour") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "top",
+        legend.background = element_blank(),
+        legend.direction = "horizontal",
+        legend.box.background = element_rect(colour = "black"),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_manual(name = "SST variance",
+                      labels = c("low", "medium", "high"),
+                      values = c("#1E88E5", "#FFC107", "#D81B60"))
+
+ggarrange(vari_3, vari_4, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 2.5)
+
+ggarrange(vari_1, vari_2, vari_3, vari_4, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"), vjust = 2.5)
+
+
+#####  with continous axis
+# variance vs seasonality
+vari_1 = ggplot(data = binned_data, 
+                aes(x = sst_raw_var, y = size_class_cwm)) +
+  geom_point(aes(colour = sst_bounded_seasonality), size = 2) +
+  geom_smooth(aes(linetype = sea_bin),
+              colour = "black",
+              method="lm",
+              se = FALSE,
+              alpha = 0.2,
+              linewidth = 1,
+              lineend = "round") +
+  xlab("SST variance (°C²)") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nseasonality",
+                       option = "magma",
+                       breaks = c(min(final_dataset$sst_bounded_seasonality), 
+                                  mean(final_dataset$sst_bounded_seasonality), 
+                                  max(final_dataset$sst_bounded_seasonality)),
+                       labels = c(round(min(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(mean(final_dataset$sst_bounded_seasonality), digits = 2), 
+                                  round(max(final_dataset$sst_bounded_seasonality), digits = 2))) +
+scale_linetype_manual(name = "SST \nseasonality \nlevels",
+                          values = c("solid", "dotdash", "dotted"),
+                          labels = c("low", "medium", "high")) 
+
+
+vari_2 = ggplot(data = binned_data, 
+                aes(x = sst_bounded_seasonality, y = size_class_cwm)) +
+  geom_point(aes(colour = sst_raw_var), size = 2) +
+  geom_smooth(aes(linetype = var_bin),
+              colour = "black",
+              method="lm",
+              se = FALSE,
+              alpha = 0.2,
+              linewidth = 1,
+              lineend = "round") +
+  xlab("SST seasonality") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nvariance",
+                       option = "magma",
+                       breaks = c(min(final_dataset$sst_raw_var), 
+                                  mean(final_dataset$sst_raw_var), 
+                                  max(final_dataset$sst_raw_var)),
+                       labels = c(round(min(final_dataset$sst_raw_var), digits = 1), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 1), 
+                                  round(max(final_dataset$sst_raw_var), digits = 1))) +
+  scale_linetype_manual(name = "SST \nvariance \nlevels",
+                        values = c("solid", "dotdash", "dotted"),
+                        labels = c("low", "medium", "high"))
+
+# 
+vari_3 = ggplot(data = binned_data, 
+                aes(x = sst_raw_var, y = size_class_cwm)) +
+  geom_point(aes(colour = sst_env_col), size = 2) +
+  geom_smooth(aes(linetype = col_bin),
+              colour = "black",
+              method="lm",
+              se = FALSE,
+              alpha = 0.2,
+              linewidth = 1,
+              lineend = "round") +
+  xlab("SST variance (°C²)") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \ncolour",
+                       option = "magma",
+                       breaks = c(min(final_dataset$sst_env_col), 
+                                  mean(final_dataset$sst_env_col), 
+                                  max(final_dataset$sst_env_col)),
+                       labels = c(round(min(final_dataset$sst_env_col), digits = 2), 
+                                  round(mean(final_dataset$sst_env_col), digits = 2), 
+                                  round(max(final_dataset$sst_env_col), digits = 2))) +
+  scale_linetype_manual(name = "SST \ncolour \nlevels",
+                        values = c("solid", "dotdash", "dotted"),
+                        labels = c("low", "medium", "high")) 
+
+vari_4 = ggplot(data = binned_data, 
+                aes(x = sst_env_col, y = size_class_cwm)) +
+  geom_point(aes(colour = sst_raw_var), size = 2) +
+  geom_smooth(aes(linetype = var_bin),
+              colour = "black",
+              method="lm",
+              se = FALSE,
+              alpha = 0.2,
+              linewidth = 1,
+              lineend = "round") +
+  xlab("SST colour") +
+  ylab("CWM size class (cm)") +
+  theme_classic() +
+  theme(legend.position = "right",
+        legend.background = element_blank(),
+        legend.direction = "vertical",
+        legend.spacing.x = unit(0.5, 'cm'),
+        legend.text = element_text(size = 12, face= "bold"),
+        legend.title = element_text(size = 12, face= "bold"),
+        axis.title.x = element_text(size = 14, face= "bold"),
+        axis.title.y = element_text(size = 14, face= "bold"),
+        axis.text.x = element_text(size = 12, face= "bold"),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm"),
+        axis.line = element_line(linewidth = 0.8)) +
+  scale_colour_viridis(name = "SST \nvariance",
+                       option = "magma",
+                       breaks = c(min(final_dataset$sst_raw_var), 
+                                  mean(final_dataset$sst_raw_var), 
+                                  max(final_dataset$sst_raw_var)),
+                       labels = c(round(min(final_dataset$sst_raw_var), digits = 1), 
+                                  round(mean(final_dataset$sst_raw_var), digits = 1), 
+                                  round(max(final_dataset$sst_raw_var), digits = 1))) +
+  scale_linetype_manual(name = "SST \nvariance \nlevels",
+                        values = c("solid", "dotdash", "dotted"),
+                        labels = c("low", "medium", "high"))
+
+ggarrange(vari_3, vari_4, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 2.5)
+
+ggarrange(vari_1, vari_2, vari_3, vari_4, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"), vjust = 2.5)
 

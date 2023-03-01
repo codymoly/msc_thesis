@@ -143,7 +143,7 @@ hist(na.omit(eco_env$sst_env_col))
 
 # transform
 eco_env_backup = eco_env
-eco_env = eco_env_backup
+# eco_env = eco_env_backup
 eco_env = eco_env %>%
   dplyr::mutate(bodysize_cwm_sqrt = sqrt(bodysize_cwm_total),
          bodysize_cwv_sqrt = sqrt(bodysize_cwv_total),
@@ -169,7 +169,7 @@ eco_env = eco_env %>%
 final_sites = eco_env
 
 ## remove outlier in cvw?
-hist(final_sites$size_class_cwv)
+hist(final_sites$size_class_cwm)
 
 ## standardise 
 # final_sites[6:39] <- lapply(final_sites[6:39], function(x) c(scale(x)))
@@ -486,11 +486,11 @@ vif_cwm
 
 ## size class cwm dredging
 ### global model (the model with all predictors)
-null_mod_cwm = lm(sizeclass_cwm_log  ~ sst_raw_mean, data = final_sites)
+null_mod_cwm = lm(size_class_cwm  ~ sst_raw_mean, data = final_sites)
 plot(null_mod_cwm)
 summary(null_mod_cwm)
 
-global.model.class.cwm = lm(sizeclass_cwm_log  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+global.model.class.cwm = lm(size_class_cwm  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
                        data = final_sites)
 plot(global.model.class.cwm)
 
@@ -562,11 +562,11 @@ annotate_figure(cwm_pred_plot,
 
 ## size class cwv dredging
 ### global model (the model with all predictors)
-null_mod_cwv = lm(sizeclass_cwv_sqrt ~ sst_raw_mean, data = final_sites)
+null_mod_cwv = lm(size_class_cwv ~ sst_raw_mean, data = final_sites)
 plot(null_mod_cwv)
 summary(null_mod_cwv)
 
-global.model.class.cwv = lm(sizeclass_cwv_sqrt  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
+global.model.class.cwv = lm(size_class_cwv  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
                             data = final_sites)
 plot(global.model.class.cwv)
 
@@ -582,7 +582,7 @@ best_fit.sc.cwv.2 = model.sub.sc.cwv[[2]]
 best_fit.sc.cwv.3 = model.sub.sc.cwv[[3]]
 
 ### summarise best fitting model
-anova(best_fit.sc.cwv, best_fit.sc.cwv.3) # 0.1882
+anova(best_fit.sc.cwv, best_fit.sc.cwv.2) # 0.1882
 summary(best_fit.sc.cwv)
 summary(best_fit.sc.cwv.3)
 
@@ -699,3 +699,5 @@ eve_pred_plot = ggarrange(eve.mod0, eve.mod1,
 annotate_figure(eve_pred_plot,
                 top = text_grob("Evenness: predicted vs. observed values",
                                 color = "black", face = "bold", size = 20))
+
+
