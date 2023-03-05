@@ -701,3 +701,4 @@ annotate_figure(eve_pred_plot,
                                 color = "black", face = "bold", size = 20))
 
 
+write.csv(final_sites,"/media/mari/Crucial X8/sst_trait_data_norm.csv", row.names = FALSE)
