@@ -60,22 +60,4 @@ ggplot(data = aussi_2) +
         axis.line = element_line(linewidth = 0.8)) +
   scale_colour_viridis(name = "Body size CWM")
 
-ggplot(data = aussi_2) + 
-  geom_sf() + 
-  geom_rect(aes(xmin = 113.18, xmax = 167.96, ymin = -9.89, ymax = -43.45),
-            fill = "white", alpha = 0.00001, color = "black") + # -9.89°N, 167.96°E, -43.45°S, and 113.18°W
-  xlab("Longitude") +
-  ylab("Latitude") +
-  theme_classic() +
-  theme(legend.position = c(.9,.85),
-        legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
-        legend.text = element_text(size = 12, face= "bold"),
-        legend.title = element_text(size = 12, face= "bold"),
-        axis.title.x = element_text(size = 14, face= "bold"),
-        axis.title.y = element_text(size = 14, face= "bold"),
-        axis.text.x = element_text(size = 10, face= "bold"),
-        axis.text.y = element_text(size = 10, face= "bold"),
-        axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8))
 

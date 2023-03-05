@@ -394,45 +394,73 @@ ggpubr::annotate_figure(com_maps,
                         bottom = textGrob("Longitude", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
 
 #### only size classes
-cwm_map_2 = ggplot(data = aussi) + 
-  geom_sf() + 
-  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = size_class_cwm), size = 3) +
+#cwm_map_2 = 
+  ggplot(data = aussi) + 
+  geom_sf(colour = "gray25", linewidth = 0.7, fill = "gray60") + 
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = size_class_cwm), 
+             pch=21,
+             size = 3) +
   xlab("Longitude") +
   ylab("Latitude") +
+  xlim(c(112,168.5)) +
+  ylim(c(-44.5,-8.4)) +
   theme_classic() +
   theme(legend.position = c(.84,.88),
         legend.direction = "horizontal",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
-        legend.text = element_text(size = 10, face= "bold"),
-        legend.title = element_text(size = 10, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        legend.text = element_text(size = 14, face= "bold"),
+        legend.title = element_text(size = 14, face= "bold"),
+        legend.box.margin = margin(4, 18, 4, 4),
+        legend.spacing.x = unit(0.5, 'cm'),
+        axis.title.x = element_text(size = 20, face= "bold"),
+        axis.title.y = element_text(size = 20, face= "bold"),
+        axis.text.x = element_text(size = 16, face= "bold"),
+        axis.text.y = element_text(size = 16, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWM \n(cm)")
+  scale_fill_viridis_c(name = "Size \nclass \nCWM \n(cm)",
+                       breaks = c(round(min(final_dataset$size_class_cwm), digits = 5), 
+                                  round(mean(final_dataset$size_class_cwm), digits = 5), 
+                                  round(max(final_dataset$size_class_cwm), digits = 5)),
+                       labels = c(round(min(final_dataset$size_class_cwm), digits = 1), 
+                                  round(mean(final_dataset$size_class_cwm), digits = 1), 
+                                  round(max(final_dataset$size_class_cwm), digits = 1)))
 
-cwv_map_2 = ggplot(data = aussi) + 
-  geom_sf() + 
-  geom_point(data = final_dataset_outl, aes(x = longitude, y = latitude, colour =size_class_cwv), size = 3) +
+#cwv_map_2 = 
+  ggplot(data = aussi) + 
+  geom_sf(colour = "gray25", linewidth = 0.7,  fill = "gray60") + 
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = size_class_cwv),
+             pch=21,
+             size = 3) +
   xlab("Longitude") +
   ylab("Latitude") +
+  xlim(c(112,168.5)) +
+  ylim(c(-44.5,-8.4)) +
   theme_classic() +
   theme(legend.position = c(.84,.88),
         legend.direction = "horizontal",
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black"),
-        legend.text = element_text(size = 10, face= "bold"),
-        legend.title = element_text(size = 10, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        legend.text = element_text(size = 14, face= "bold"),
+        legend.title = element_text(size = 14, face= "bold"),
+        legend.box.margin = margin(4, 18, 4, 4),
+        legend.spacing.x = unit(0.5, 'cm'),
+        axis.title.x = element_text(size = 20, face= "bold"),
+        axis.title.y = element_text(size = 20, face= "bold"),
+        axis.text.x = element_text(size = 16, face= "bold"),
+        axis.text.y = element_text(size = 16, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "Size \nclass \nCWV \n(cm²)")
+  scale_fill_viridis_c(name = "Size \nclass \nCWV \n(cm²)",
+                       breaks = c(round(min(final_dataset$size_class_cwv), digits = 5), 
+                                  round(mean(final_dataset$size_class_cwv), digits = 5), 
+                                  round(max(final_dataset$size_class_cwv), digits = 5)),
+                       labels = c(round(min(final_dataset$size_class_cwv), digits = 1), 
+                                  round(mean(final_dataset$size_class_cwv), digits = 1), 
+                                  round(max(final_dataset$size_class_cwv), digits = 1)))
 
 com_maps_size = ggarrange(cwm_map_2, cwv_map_2, ncol = 2, nrow = 1, labels = c("A", "B"), vjust = 7.5)
 ggpubr::annotate_figure(com_maps_size,

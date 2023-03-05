@@ -31,3 +31,9 @@ if (save_my_data == TRUE) {
 } else {
   print("Data not saved!")
 }
+
+rls_2020_2022 = rls_2019_2022 %>% filter(class == "Actinopterygii", survey_date > "2019-12-31")
+min(rls_2020_2022$latitude) # -43.53
+max(rls_2020_2022$latitude) # -9.88
+min(rls_2020_2022$longitude) # 113.17
+max(rls_2020_2022$longitude) # 167.99
