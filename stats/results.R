@@ -103,9 +103,13 @@ ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1, labels = 
 ###### maps for sst
 aussi = st_as_sf(map("worldHires", "Australia", fill=TRUE, xlim=c(110,160), ylim=c(-45,-5), mar=c(0,0,0,0)))
 
-mean_map = ggplot(data = aussi) + 
+mean_map = 
+  ggplot(data = aussi) + 
   geom_sf() + 
-  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_raw_mean), size = 3) +
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = sst_raw_mean), 
+             pch=21,
+             size = 2) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
@@ -123,7 +127,7 @@ mean_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \nmean \n(°C)",
+  scale_fill_viridis_c(name = "SST \nmean \n(°C)",
                        option = "magma",
                        breaks = c(14.0, 
                                   round(mean(final_dataset$sst_raw_mean), digits = 1), 
@@ -132,9 +136,13 @@ mean_map = ggplot(data = aussi) +
                                   round(mean(final_dataset$sst_raw_mean), digits = 1), 
                                   round(max(final_dataset$sst_raw_mean), digits = 1)))
 
-var_map = ggplot(data = aussi) + 
+var_map = 
+  ggplot(data = aussi) + 
   geom_sf() + 
-  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_raw_var), size = 3) +
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = sst_raw_var), 
+             pch = 21,
+             size = 2) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
@@ -152,7 +160,7 @@ var_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \nvariance \n(°C²)", option = "magma",
+  scale_fill_viridis_c(name = "SST \nvariance \n(°C²)", option = "magma",
                        breaks = c(round(min(final_dataset$sst_raw_var), digits = 3), 
                                   round(mean(final_dataset$sst_raw_var), digits = 3), 
                                   round(max(final_dataset$sst_raw_var), digits = 5)),
@@ -162,7 +170,10 @@ var_map = ggplot(data = aussi) +
 
 col_map = ggplot(data = aussi) + 
   geom_sf() + 
-  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_env_col), size = 3) +
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = sst_env_col),
+             pch = 21,
+             size = 2) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
@@ -180,7 +191,7 @@ col_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \ncolour", option = "magma",
+  scale_fill_viridis_c(name = "SST \ncolour", option = "magma",
                        breaks = c(round(min(final_dataset$sst_env_col), digits = 2), 
                                   round(mean(final_dataset$sst_env_col), digits = 2), 
                                   round(max(final_dataset$sst_env_col), digits = 2)),
@@ -190,7 +201,10 @@ col_map = ggplot(data = aussi) +
 
 sea_map = ggplot(data = aussi) + 
   geom_sf() + 
-  geom_point(data = final_dataset, aes(x = longitude, y = latitude, colour = sst_bounded_seasonality), size = 3) +
+  geom_point(data = final_dataset, 
+             aes(x = longitude, y = latitude, fill = sst_bounded_seasonality), 
+             pch = 21,
+             size = 2) +
   xlab("Longitude") +
   ylab("Latitude") +
   theme_classic() +
@@ -208,7 +222,7 @@ sea_map = ggplot(data = aussi) +
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
         axis.line = element_line(linewidth = 0.8)) +
-  scale_colour_viridis(name = "SST \nseaso-\nnality",
+  scale_fill_viridis_c(name = "SST \nseaso-\nnality",
                        option = "magma",
                        breaks = c(round(min(final_dataset$sst_bounded_seasonality), digits = 5), 
                                   round(mean(final_dataset$sst_bounded_seasonality), digits = 3), 
@@ -400,7 +414,7 @@ ggpubr::annotate_figure(com_maps,
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = size_class_cwm), 
              pch=21,
-             size = 3) +
+             size = 4) +
   xlab("Longitude") +
   ylab("Latitude") +
   xlim(c(112,168.5)) +
@@ -434,7 +448,7 @@ ggpubr::annotate_figure(com_maps,
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = size_class_cwv),
              pch=21,
-             size = 3) +
+             size = 4) +
   xlab("Longitude") +
   ylab("Latitude") +
   xlim(c(112,168.5)) +
