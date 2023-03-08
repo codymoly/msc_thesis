@@ -153,7 +153,7 @@ ggplot() +
   geom_line(data = long_log, aes(x = x, y = values, group = variable, linetype = variable, colour ="red3"), 
             linewidth = 1.5, 
             lineend = "round") +
-  xlab("Log frequency⁻¹") +
+  xlab("Log frequency") +
   ylab("Log power spectral density") +
   theme(legend.position = "top",
         legend.direction = "horizontal",
@@ -169,9 +169,9 @@ ggplot() +
                         labels = c("Linear regression", "Power spectrum"),
                         values = c("dotted", "solid")) +
   scale_color_manual(name = "",
-                     labels = c("White noise", "Red noise"),
+                     labels = c("White noise", "Reddend noise"),
                      values = c("gray", "red3")) +
-  annotate(geom="text", x = 4.7, y = -1.5, label="𝛽 = 0",
+  annotate(geom="text", x = 4.85, y = -1.5, label="𝛽 = 0",
            color="gray", size = 8, fontface = 2) +
-  annotate(geom="text", x = 4.7, y = -14, label="|𝛽| > 0",
+  annotate(geom="text", x = 4.85, y = -14, label="0.5 < |𝛽| ≤ 2",
            color="red3", size = 8, fontface = 2)
