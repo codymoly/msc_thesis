@@ -153,12 +153,12 @@ ggplot() +
   geom_line(data = long_log, aes(x = x, y = values, group = variable, linetype = variable, colour ="red3"), 
             linewidth = 1.5, 
             lineend = "round") +
-  xlab("log frequency⁻¹") +
-  ylab("log spectral density") +
+  xlab("Log frequency⁻¹") +
+  ylab("Log power spectral density") +
   theme(legend.position = "top",
         legend.direction = "horizontal",
-        legend.title = element_text(size = 20, face= "bold"),
-        legend.text = element_text(size = 20, face= "bold"),
+        legend.title = element_text(size = 18, face= "bold"),
+        legend.text = element_text(size = 18, face= "bold"),
         axis.title.x = element_text(size = 20, face= "bold"),
         axis.title.y = element_text(size = 20, face= "bold"),
         axis.text.x = element_blank(),
@@ -166,12 +166,12 @@ ggplot() +
         axis.ticks = element_blank(),
         axis.line = element_line(linewidth = 1)) +
   scale_linetype_manual(name = "",
-                        labels = c("model approximation", "power spectra"),
+                        labels = c("Linear regression", "Power spectrum"),
                         values = c("dotted", "solid")) +
   scale_color_manual(name = "",
-                     labels = c("white noise", "red noise"),
+                     labels = c("White noise", "Red noise"),
                      values = c("gray", "red3")) +
   annotate(geom="text", x = 4.7, y = -1.5, label="𝛽 = 0",
-           color="gray", size = 8) +
-  annotate(geom="text", x = 4.7, y = -14, label="abs(𝛽) > 0",
-           color="red3", size = 8)
+           color="gray", size = 8, fontface = 2) +
+  annotate(geom="text", x = 4.7, y = -14, label="|𝛽| > 0",
+           color="red3", size = 8, fontface = 2)
