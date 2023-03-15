@@ -25,6 +25,7 @@ sf_oz <- ozmap_data("states", xlim=c(110,170), ylim=c(-45,-8), mar=c(0,0,0,0))
                                
 # map with coloured states and the study area
 ggplot(sf_oz, aes(fill = NAME)) +
+  theme_bw() +
   geom_sf(colour = "gray25", linewidth = 0.7) +
   geom_rect(aes(xmin = 112.5, xmax = 167.99, ymin = -8.8, ymax = -44, linetype = "-9.88°N, -43.53°S, \n167.99°E, 113.17°W"),
             color = "gray25",
@@ -36,7 +37,9 @@ ggplot(sf_oz, aes(fill = NAME)) +
   ylim(c(-44.5,-8.4)) +
   xlab("Longitude") +
   ylab("Latitude") +
-  theme(legend.spacing.y = unit(0.5, 'cm'),
+  theme(panel.grid = element_line(colour = "gray70", linetype = "solid"),
+        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 16, face= "bold"),
         legend.title = element_text(size = 16, face= "bold"),
         legend.box.background = element_rect(color = "white"),
@@ -44,8 +47,7 @@ ggplot(sf_oz, aes(fill = NAME)) +
         axis.title.y = element_text(size = 18, face= "bold"),
         axis.text.x = element_text(size = 14, face= "bold"),
         axis.text.y = element_text(size = 14, face= "bold"),
-        axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.ticks.length=unit(.25, "cm")) +
   scale_fill_manual(name = "States",
                     values = c("white", "#D55E00", "#F0E442", "gray20", "#009E73", "#0072B2","#56B4E9", "#CC79A7", "#E69F00")) +
   scale_linetype_manual(name = "Study area",
@@ -61,6 +63,7 @@ ggplot(sf_oz, aes(fill = NAME)) +
 
 # map with final survey sites
 ggplot(sf_oz) +
+  theme_bw() +
   geom_sf(colour = "gray25", linewidth = 0.7, fill = "gray50") +
   coord_sf(crs = "+proj=lonlat +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs") +
   #theme_dark() +
@@ -72,7 +75,9 @@ ggplot(sf_oz) +
   ylim(c(-44.5,-8.4)) +
   xlab("Longitude") +
   ylab("Latitude") +
-  theme(legend.position = c(.8,.925),
+  theme(panel.grid = element_line(colour = "gray70", linetype = "dashed"),
+        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        legend.position = c(.8,.925),
         legend.title = element_blank(),
         legend.key=element_blank(),
         legend.box.margin = margin(1, 1, 6, 1),
@@ -83,13 +88,56 @@ ggplot(sf_oz) +
         axis.title.y = element_text(size = 20, face= "bold"),
         axis.text.x = element_text(size = 16, face= "bold"),
         axis.text.y = element_text(size = 16, face= "bold"),
-        axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.ticks.length=unit(.25, "cm")) +
   scale_fill_manual(labels = "RLS & ATRC survey sites \nwith pairwise distance ≥ 30km", 
                       values = "steelblue1") +
   ggsn::scalebar(sf_oz, dist_unit = "km", 
                  dist = 400, # units of scale bar
                  st.size = 5, # general size
+                 height = 0.04, # height of the scale bar relative to y-axis
+                 model = 'WGS84', 
+                 transform = TRUE, # input as dec deg
+                 location = "bottomright", # proximate location
+                 anchor = c(x = 164, y = -41)) # percise position
+
+
+# map with coloured states together with the study area and sites
+ggplot(sf_oz) +
+  theme_bw() +
+  geom_sf(aes(fill = NAME), colour = "gray25", linewidth = 0.7) +
+  geom_rect(aes(xmin = 112.5, xmax = 168.2, ymin = -8.8, ymax = -44, linetype = "-9.88°N, -43.53°S, \n167.99°E, 113.17°W"),
+            color = "gray25",
+            fill = NA,
+            size = 0.7,
+            show.legend = TRUE) +
+  geom_point(data = coords_30, aes(x = longitude, y = latitude, color = "black"),
+             size = 2) +
+  coord_sf(crs = "+proj=lonlat +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs") +
+  xlim(c(112,168.5)) +
+  ylim(c(-44.5,-8.4)) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme(panel.grid = element_line(colour = "white", linetype = "solid"),
+        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        legend.spacing.y = unit(0.5, 'cm'),
+        legend.text = element_text(size = 16, face= "bold"),
+        legend.title = element_text(size = 16, face= "bold"),
+        legend.box.background = element_rect(color = "white"),
+        axis.title.x = element_text(size = 18, face= "bold"),
+        axis.title.y = element_text(size = 18, face= "bold"),
+        axis.text.x = element_text(size = 14, face= "bold"),
+        axis.text.y = element_text(size = 14, face= "bold"),
+        axis.ticks.length=unit(.25, "cm")) +
+  scale_fill_manual(name = "States",
+                    values = c("white", "#D55E00", "#F0E442", "gray40", "#009E73", "#0072B2","#56B4E9", "#CC79A7", "#E69F00")) +
+  scale_linetype_manual(name = "Study area",
+                        values = "dashed") +
+  scale_colour_manual(name = "Survey sites",
+                      labels = "RLS & ATRC survey sites \nwith pairwise distance ≥ 30km", 
+                      values = "black") +
+  ggsn::scalebar(sf_oz, dist_unit = "km", 
+                 dist = 400, # units of scale bar
+                 st.size = 4, # general size
                  height = 0.04, # height of the scale bar relative to y-axis
                  model = 'WGS84', 
                  transform = TRUE, # input as dec deg

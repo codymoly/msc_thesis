@@ -217,7 +217,7 @@ only_for_corplot %>%
 #   corrplot::corrplot(method = "number")
 
 # variance inflation factor to assess multicollinearity
-vif_cwm = car::vif(lm(total_biomass ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
+vif_cwm = car::vif(lm(size_class_cwm ~ sst_raw_mean + sst_raw_var + sst_env_col + sst_bounded_seasonality, 
                     data = final_sites))
 vif_cwm
 
@@ -487,33 +487,44 @@ vif_cwm
 ## size class cwm dredging
 ### global model (the model with all predictors)
 null_mod_cwm = lm(size_class_cwm  ~ sst_raw_mean, data = final_sites)
-plot(null_mod_cwm)
+# plot(null_mod_cwm)
 summary(null_mod_cwm)
 
+var_mod_cwm = lm(size_class_cwm  ~ sst_raw_mean * sst_raw_var, data = final_sites)
+# plot(null_mod_cwm)
+summary(var_mod_cwm)
+
+
 global.model.class.cwm = lm(size_class_cwm  ~ sst_raw_mean * sst_raw_var * sst_env_col * sst_bounded_seasonality,
-                       data = final_sites)
-plot(global.model.class.cwm)
+                            data = final_sites)
+# plot(global.model.class.cwm)
 
 ### dredging
 options(na.action = "na.fail")
-dredged_sc_cwm_object = MuMIn::dredge(global.model.class.cwm)
+dredged_sc_cwm_object = MuMIn::dredge(global.model.class.cwm, extra = c("R^2", "adjR^2"))
 dredged_sc_cwm_object
 
 ### get the top models
 model.sub.sc.cwm <- get.models(dredged_sc_cwm_object, subset = delta < 2) # delta 0.00 and 1.25
 best_fit.sc.cwm = model.sub.sc.cwm[[1]]
 best_fit.sc.cwm.2 = model.sub.sc.cwm[[2]]
+best_fit.sc.cwm.2 = model.sub.sc.cwm[[3]]
+
+### aics
+AICc(null_mod_cwm) # -113.7783
+AICc(global.model.class.cwm) # -122.8208
 
 ### summarise best fitting model
 summary(best_fit.sc.cwm)
 summary(best_fit.sc.cwm.2)
 
-####
-anova(model.sub.sc.cwm[[1]], model.sub.sc.cwm[[2]])
-
 ### model averaging on models with aicc <2
 averaged_class_cwm = model.avg(model.sub.sc.cwm)
-summary(averaged_class_cwm)
+sum.avg.mod = summary(averaged_class_cwm)
+sum.avg.mod
+sw(averaged_class_cwm)
+confint(sum.avg.mod)
+# full = TRUE
 
 # path analysis, strucutural equation modelling
 ## plot predicted versus observed models
@@ -572,7 +583,7 @@ plot(global.model.class.cwv)
 
 ### dredging
 options(na.action = "na.fail")
-dredged_sc_cwv_object = MuMIn::dredge(global.model.class.cwv)
+dredged_sc_cwv_object = MuMIn::dredge(global.model.class.cwv, extra = c("R^2", "adjR^2"))
 dredged_sc_cwv_object
 
 ### get the top models
@@ -581,14 +592,23 @@ best_fit.sc.cwv = model.sub.sc.cwv[[1]]
 best_fit.sc.cwv.2 = model.sub.sc.cwv[[2]]
 best_fit.sc.cwv.3 = model.sub.sc.cwv[[3]]
 
+### aics
+AICc(null_mod_cwv) # -31.91236
+AICc(global.model.class.cwv) # -24.63129
+
 ### summarise best fitting model
-anova(best_fit.sc.cwv, best_fit.sc.cwv.2) # 0.1882
+anova(best_fit.sc.cwv, best_fit.sc.cwv.3) # 0.1454
 summary(best_fit.sc.cwv)
-summary(best_fit.sc.cwv.3)
+summary(best_fit.sc.cwv.2)
+
 
 ### if the top models are too similar
 avg.model.sc.cwv = model.avg(model.sub.sc.cwv)
-summary(avg.model.sc.cwv)
+sum.avg.mod.cwv = summary(avg.model.sc.cwv)
+sum.avg.mod.cwv
+sw(avg.model.sc.cwv)
+confint(sum.avg.mod.cwv)
+
 
 # path analysis, strucutural equation modelling
 ## plot predicted versus observed models

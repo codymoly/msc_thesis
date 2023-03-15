@@ -125,10 +125,112 @@ decomps = ggarrange(original, detrended, season, noise_p,
                     vjust = 2.3,
                     hjust = -1.5)
 ggpubr::annotate_figure(decomps,
-                        fig.lab.size = 18,
+                        fig.lab.size = 20,
                         fig.lab.face = "bold",
                         left = textGrob("SST", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
                         bottom = textGrob("TIME = 10 YEARS", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
+
+# same in black and white
+original = 
+  ggplot() +
+  theme_classic() +
+  geom_line(data = long_ts, aes(x = x, y = values, group = variable, linetype = variable), 
+            linewidth = 1.5, 
+            lineend = "round") +
+  ggtitle(label = "A - Raw time series with linear trend") +
+  xlab("Time") +
+  ylab("SST") +
+  theme(title = element_text(size = 14, face= "bold"),
+        legend.position = c(0.7, 0.1),
+        legend.direction = "horizontal",
+        legend.text = element_text(size = 16, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.line = element_line(linewidth = 1)) +
+  scale_linetype_manual(name = "",
+                     labels = c("linear trend", "raw signal"),
+                     values = c("dotted", "solid"))
+
+# detrended ts
+long_detrend = detrend_ts %>% pivot_longer(cols = c("y", "trend"),
+                                           names_to = "variable",
+                                           values_to = "values")
+
+detrended = 
+  ggplot() +
+  theme_classic() +
+  geom_line(data = long_detrend %>% filter(variable == "y"), aes(x = x, y = values, colour = variable), 
+            linewidth = 1.5, 
+            lineend = "round",
+            show.legend = FALSE) +
+  ggtitle(label = "B - Detrended time series") +
+  xlab("Time") +
+  ylab("SST") +
+  theme(title = element_text(size = 14, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.line = element_line(linewidth = 1)) +
+  scale_color_manual(name = "",
+                     labels = "",
+                     values = "black")
+
+
+season = 
+  ggplot() +
+  theme_classic() +
+  geom_line(data = seasonal_trend, aes(x = x, y = y, colour = "black"), 
+            linewidth = 1.5, 
+            lineend = "round", 
+            show.legend = FALSE) +
+  ggtitle(label = "C - Seasonal trend") +
+  xlab("Time") +
+  ylab("SST") +
+  theme(title = element_text(size = 14, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.line = element_line(linewidth = 1)) +
+  scale_color_manual(name = "",
+                     labels = "",
+                     values = "black")
+
+noise_p = 
+  ggplot() +
+  theme_classic() +
+  geom_line(data = noise, aes(x = x, y = y, colour = "black"), 
+            linewidth = 1.5, 
+            lineend = "round",
+            show.legend = FALSE) +
+  ggtitle(label = "D - Residual time series (noise)") +
+  xlab("Time") +
+  ylab("SST") +
+  theme(title = element_text(size = 14, face= "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.line = element_line(linewidth = 1)) +
+  scale_color_manual(name = "",
+                     labels = "",
+                     values = "black")
+
+
+decomps = ggarrange(original, detrended, season, noise_p,
+                    ncol = 2, nrow = 2)
+ggpubr::annotate_figure(decomps,
+                        fig.lab.size = 20,
+                        fig.lab.face = "bold",
+                        left = textGrob("SST", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
+                        bottom = textGrob("Time = 10 years", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
 
 ## log log
 # original ts
