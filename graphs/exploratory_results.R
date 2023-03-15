@@ -51,7 +51,7 @@ sf_oz <- ozmap_data("states", xlim=c(110,170), ylim=c(-45,-8), mar=c(0,0,0,0))
 
 mean_map = 
   ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray70") + 
+  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray80") + 
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = sst_raw_mean), 
              pch=21,
@@ -64,17 +64,17 @@ mean_map =
   theme(legend.position = "right",
         legend.direction = "vertical",
         legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.box.margin = margin(1, 1, 6, 1),
         legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.text.x = element_text(size = 10, face= "bold"),
+        axis.text.y = element_text(size = 10, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.line = element_line(colour = "gray30", linewidth = 0.6)) +
   scale_fill_viridis_c(name = "SST \nmean \n(°C)",
                        option = "magma",
                        breaks = c(14.0, 
@@ -86,7 +86,7 @@ mean_map =
 
 var_map = 
   ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray70") + 
+  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray80") + 
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = sst_raw_var), 
              pch = 21,
@@ -101,15 +101,15 @@ var_map =
         legend.background = element_blank(),
         legend.box.margin = margin(1, 1, 6, 1),
         legend.spacing.y = unit(0.5, 'cm'),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.text.x = element_text(size = 10, face= "bold"),
+        axis.text.y = element_text(size = 10, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.line = element_line(colour = "gray30", linewidth = 0.6)) +
   scale_fill_viridis_c(name = "SST \nvariance \n(°C²)", option = "magma",
                        breaks = c(round(min(final_dataset$sst_raw_var), digits = 3), 
                                   round(mean(final_dataset$sst_raw_var), digits = 3), 
@@ -120,7 +120,7 @@ var_map =
 
 col_map = 
   ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray70") +
+  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray80") +
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = sst_env_col),
              pch = 21,
@@ -133,17 +133,17 @@ col_map =
   theme(legend.position = "right",
         legend.direction = "vertical",
         legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.box.margin = margin(1, 1, 6, 1),
         legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.text.x = element_text(size = 10, face= "bold"),
+        axis.text.y = element_text(size = 10, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.line = element_line(colour = "gray30", linewidth = 0.6)) +
   scale_fill_viridis_c(name = "SST \ncolour", option = "magma",
                        breaks = c(round(min(final_dataset$sst_env_col), digits = 2), 
                                   round(mean(final_dataset$sst_env_col), digits = 2), 
@@ -154,7 +154,7 @@ col_map =
 
 sea_map = 
   ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray70") + 
+  geom_sf(colour = "gray25", linewidth = 0.4, fill = "gray80") + 
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = sst_bounded_seasonality), 
              pch = 21,
@@ -167,17 +167,17 @@ sea_map =
   theme(legend.position = "right",
         legend.direction = "vertical",
         legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.box.margin = margin(1, 1, 6, 1),
         legend.spacing.y = unit(0.5, 'cm'),
         legend.text = element_text(size = 10, face= "bold"),
         legend.title = element_text(size = 10, face= "bold"),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.text.x = element_text(size = 10, face= "bold"),
+        axis.text.y = element_text(size = 10, face= "bold"),
         axis.ticks.length=unit(.25, "cm"),
-        axis.line = element_line(linewidth = 0.8)) +
+        axis.line = element_line(colour = "gray30", linewidth = 0.6)) +
   scale_fill_viridis_c(name = "SST \nseaso-\nnality",
                        option = "magma",
                        breaks = c(round(min(final_dataset$sst_bounded_seasonality), digits = 5), 
@@ -190,10 +190,10 @@ sea_map =
 
 sst_maps = ggarrange(mean_map, var_map, col_map, sea_map, ncol = 2, nrow = 2, labels = c("A", "B", "C", "D"))
 ggpubr::annotate_figure(sst_maps,
-                        fig.lab.size = 14,
+                        fig.lab.size = 12,
                         fig.lab.face = "bold",
-                        left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.5, fontface="bold")),
-                        bottom = textGrob("Longitude", vjust = 0.1, gp = gpar(cex = 1.5, fontface="bold")))
+                        left = textGrob("Latitude", rot = 90, gp = gpar(cex = 1.2, fontface="bold")),
+                        bottom = textGrob("Longitude", vjust = 0.1, gp = gpar(cex = 1.2, fontface="bold")))
 
 
 ###### maps for community traits
@@ -201,7 +201,7 @@ ggpubr::annotate_figure(sst_maps,
 # cwm 
 cwm_map = 
   ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.7, fill = "gray70") +
+  geom_sf(colour = "gray20", linewidth = 0.5, fill = "gray80") +
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = size_class_cwm), 
              pch=21,
@@ -216,15 +216,15 @@ cwm_map =
         legend.position = c(.84,.88),
         legend.direction = "horizontal",
         legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.text = element_text(size = 14, face= "bold"),
         legend.title = element_text(size = 14, face= "bold"),
         legend.box.margin = margin(4, 18, 4, 4),
         legend.spacing.x = unit(0.5, 'cm'),
-        axis.title.x = element_text(size = 20, face= "bold"),
-        axis.title.y = element_text(size = 20, face= "bold"),
-        axis.text.x = element_text(size = 16, face= "bold"),
-        axis.text.y = element_text(size = 16, face= "bold"),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.title.y = element_text(size = 16, face= "bold"),
+        axis.text.x = element_text(size = 14, face= "bold"),
+        axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm")) +
   scale_fill_viridis_c(direction = -1,
                        name = "CWM \nsize \nclass \n(cm)",
@@ -238,7 +238,7 @@ cwm_map =
 # cwv
 cwv_map =
 ggplot(data = sf_oz) + 
-  geom_sf(colour = "gray25", linewidth = 0.7, fill = "gray70") +
+  geom_sf(colour = "gray20", linewidth = 0.5, fill = "gray80") +
   geom_point(data = final_dataset, 
              aes(x = longitude, y = latitude, fill = size_class_cwv),
              pch=21,
@@ -253,18 +253,18 @@ ggplot(data = sf_oz) +
         legend.position = c(.84,.88),
         legend.direction = "horizontal",
         legend.background = element_blank(),
-        legend.box.background = element_rect(colour = "black"),
+        legend.box.background = element_rect(colour = "gray30"),
         legend.text = element_text(size = 14, face= "bold"),
         legend.title = element_text(size = 14, face= "bold"),
         legend.box.margin = margin(4, 18, 4, 4),
         legend.spacing.x = unit(0.5, 'cm'),
-        axis.title.x = element_text(size = 20, face= "bold"),
-        axis.title.y = element_text(size = 20, face= "bold"),
-        axis.text.x = element_text(size = 16, face= "bold"),
-        axis.text.y = element_text(size = 16, face= "bold"),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.title.y = element_text(size = 16, face= "bold"),
+        axis.text.x = element_text(size = 14, face= "bold"),
+        axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm")) +
   scale_fill_viridis_c(direction = -1,
-                       name = "CWV \nsize \nclass \n(cm)",
+                       name = "CWV \nsize \nclass \n(cm²)",
                        breaks = c(round(min(final_dataset$size_class_cwv), digits = 5), 
                                   round(mean(final_dataset$size_class_cwv), digits = 5), 
                                   round(max(final_dataset$size_class_cwv), digits = 5)),
@@ -286,12 +286,12 @@ final_long = final_dataset %>%
 mean_data = final_long %>% filter(sst_variable == "sst_raw_mean")
 mean_plot = ggplot(data = mean_data, mapping = aes(x = sst_variable["sst_raw_mean"], y = value)) + 
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.8) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
   ggtitle("SST mean (°C)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
-        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
@@ -303,12 +303,12 @@ mean_plot = ggplot(data = mean_data, mapping = aes(x = sst_variable["sst_raw_mea
 vari_data = final_long %>% filter(sst_variable == "sst_raw_var")
 var_plot = ggplot(data = vari_data, mapping = aes(x = sst_variable["sst_raw_var"], y = value)) +
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.8) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
   ggtitle("SST variance (°C²)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
-        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
@@ -320,12 +320,12 @@ var_plot = ggplot(data = vari_data, mapping = aes(x = sst_variable["sst_raw_var"
 col_data = final_long %>% filter(sst_variable == "sst_env_col")
 col_plot = ggplot(data = col_data, mapping = aes(x = sst_variable["sst_env_col"], y = value)) + 
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.8) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A0', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
   ggtitle("SST colour") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
-        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
@@ -337,12 +337,12 @@ col_plot = ggplot(data = col_data, mapping = aes(x = sst_variable["sst_env_col"]
 sea_data = final_long %>% filter(sst_variable == "sst_bounded_seasonality")
 sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_seasonality"], y = value)) + 
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.8) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
   ggtitle("SST seasonality") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
-        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
@@ -351,7 +351,9 @@ sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_s
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(min(sea_data$value), max(sea_data$value)))
 
-ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1, labels = c("A", "B", "C", "D"))
+ggarrange(mean_plot, var_plot, col_plot, sea_plot, 
+          ncol = 4, nrow = 1, 
+          labels = c("A", "B", "C", "D"))
 
 
 ###### violin plots of CWM, CWV, and species richness
@@ -365,8 +367,8 @@ cwm_data = bio_long %>% filter(bio_variable == "size_class_cwm")
 cwm_plot = 
   ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) +
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width = 0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width = 0.2, colour = "black", lwd = 0.6) +
   ggtitle("") +
   labs(x = "CWM size class (cm)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
@@ -384,19 +386,19 @@ cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv", value < 800)
 cwv_plot = 
   ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) + 
   theme_bw() +
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width = 0.2, colour = "black", lwd = 0.6) +
   ggtitle("") +
   labs(x = "CWV size class (cm²)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
-    panel.grid = element_line(colour = "white", linetype = "dashed"),
-    panel.border = element_rect(colour = "gray30", linewidth = 1),
-    axis.title.x = element_text(size = 16, face= "bold"),
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank(),
-    axis.title.y = element_blank(),
-    axis.text.y = element_text(size = 12, face= "bold"),
-    axis.ticks.length=unit(.2, "cm")) +
+        panel.grid = element_line(colour = "white", linetype = "dashed"),
+        panel.border = element_rect(colour = "gray30", linewidth = 1),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
+        axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(0, 180))
 
 ggarrange(cwm_plot, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"))
@@ -467,17 +469,18 @@ bio_long = final_dataset %>%
                values_to = "value")
 
 cwm_data = bio_long %>% filter(bio_variable == "size_class_cwm")
-cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) + 
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("Size class CWM (cm)") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
+cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) +
+  theme_bw() +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
+  labs(x = "Size class CWM (cm)") +
+  theme(panel.grid = element_line(colour = "white", linetype = "dashed"),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
+        axis.title.x = element_text(size = 14, face= "bold"),
         axis.ticks.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(0, 30))
 
@@ -486,7 +489,7 @@ cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) +
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
   ggtitle("Size class CWV (cm²)") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
+  theme(plot.title = element_text(size = 14, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),

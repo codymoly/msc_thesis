@@ -259,10 +259,10 @@ ggplot() +
   ylab("Log power spectral density") +
   theme(legend.position = "top",
         legend.direction = "horizontal",
-        legend.title = element_text(size = 18, face= "bold"),
-        legend.text = element_text(size = 18, face= "bold"),
-        axis.title.x = element_text(size = 20, face= "bold"),
-        axis.title.y = element_text(size = 20, face= "bold"),
+        legend.title = element_text(size = 14, face= "bold"),
+        legend.text = element_text(size = 14, face= "bold"),
+        axis.title.x = element_text(size = 16, face= "bold"),
+        axis.title.y = element_text(size = 16, face= "bold"),
         axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
@@ -274,6 +274,6 @@ ggplot() +
                      labels = c("White noise", "Reddend noise"),
                      values = c("gray", "red3")) +
   annotate(geom="text", x = 4.85, y = -1.5, label="𝛽 = 0",
-           color="gray", size = 8, fontface = 2) +
+           color="gray", size = 6, fontface = 2) +
   annotate(geom="text", x = 4.85, y = -14, label="0.5 < |𝛽| ≤ 2",
-           color="red3", size = 8, fontface = 2)
+           color="red3", size = 6, fontface = 2)
