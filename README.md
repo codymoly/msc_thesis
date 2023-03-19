@@ -1,8 +1,15 @@
 ![logo](./msc_logo.png)
 
-# Master's thesis: linking environmental predictability and life-history traits of coral reef fish in Australia
+# Beyond the mean: assessing the role of temperature variability and predictability for shaping the size structure of reef fish communities
+## Master's thesis, Department of Marine Sciences, Gothenburg University
 
 This repository contains scripts, data links, and compiled data I use for my master's thesis. Dependencies are listed in the [requirements.txt](https://github.com/codymoly/msc_thesis/blob/main/requirements.txt).
+
+## Summary
+In this study, I investigated the effect of the variability and predictability of sea surface temperature (SST) on the size structure of reef fish communities in Australia using multiple linear regression analysis. Predicting the community-weighted mean (CWM) and variance (CWV) of body size (i.e., length), I compared the predictive performance of models containing different metrics of SST as predictors: mean, variance, seasonality, and the colour of noise (defined from the literature).
+
+## Current state
+Building hypotheses to test the effect of different metrics of sea surface temperature variability and predictability.
 
 ## Data sources
 
@@ -13,14 +20,3 @@ This repository contains scripts, data links, and compiled data I use for my mas
 * [Sea surface temperature data](https://cds.climate.copernicus.eu/cdsapp#!/dataset/satellite-sea-surface-temperature?tab=form)
 * [Chlorophyll-a data](https://cds.climate.copernicus.eu/cdsapp#!/dataset/satellite-ocean-colour?tab=form)
 
-## References
-
-Barneche, D. R., Burgess, S. C. & Marshall, D. J. (2018). Global environmental drivers of marine fish egg size. Global Ecology and Biogeography, 27(8), 890-898. https://doi.org/10.1111/geb.12748
-
-ECMWF (2022). Public Website, https://cds.climate.copernicus.eu/#!/home
-
-FishBase (2022). Public Website, https://www.fishbase.se/search.php
-
-Luiz, O. J., Allen, A. P., Robertsson, D. R. & Madin, J. S. (2013). Adult and larval traits as determinants of geographic range size among tropical reef fishes. Proceedings of the National Academy of Sciences of the United States of America, 110(41), 16498-16502. https://doi.org/10.1073/pnas.1304074110
-
-Reef Life Survey (2022). Public Website, www.reeflifesurvey.com

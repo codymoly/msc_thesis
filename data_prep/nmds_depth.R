@@ -13,7 +13,7 @@ library(corrplot)
 rm(list=ls())
 
 # set working directory
-setwd("~/projects/msc_thesis")
+setwd("~/Documents/MSc_thesis/Figures")
 
 # read raw rls data
 rls_raw = read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
@@ -51,178 +51,6 @@ rls_subset = rls_subset %>%
 
 # subset sites with minimum distance of 30km
 rls_30 = dplyr::left_join(coords_30, rls_subset, by = c("latitude", "longitude"))
-
-
-# choose only one random observation per coordinate pair (BODY SIZE)
-# set.seed(300)
-# rls_30 = rls_30 %>%
-#   dplyr::group_by(latitude, longitude) %>%
-#   dplyr::slice_sample(n = 1) %>%
-#   dplyr::ungroup()
-### copy this code for the other scripts to make sure that we always sample the same sites
-
-
-# ###### check latitudinal distribution grouped by time and depth
-# bodysize_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, colour = depth_bin)) + 
-#   geom_point() +
-#   xlab("Latitude (°)") +
-#   ylab("Body size (cm)") +
-#   theme_classic() +
-#   scale_colour_manual(name = "Depth bins (m)",
-#                       values = c("#56B4E9", "#E69F00", "#009E73"),
-#                       labels = c("(0-10]", "(10-20]", "(20-30]")) +
-#   theme(legend.position = "top",
-#         legend.direction = "horizontal",
-#         legend.background = element_blank(),
-#         legend.box.background = element_rect(colour = "black"),
-#         legend.text = element_text(size = 8, face= "bold"),
-#         legend.title = element_text(size = 8, face= "bold"),
-#         axis.title.x = element_text(size = 10, face= "bold"),
-#         axis.title.y = element_text(size = 10, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1)) 
-# 
-# bodysize_time = ggplot(data = rls_bodysize, aes(x = latitude, y = bodySize, colour = hour_bin)) + 
-#   geom_point() +
-#   xlab("Latitude (°)") +
-#   ylab("Body size (cm)") +
-#   theme_classic() +
-#   scale_colour_manual(name = "Time bins (24-h clock)",
-#                       values = c("#000000", "#56B4E9", "#E69F00", "#009E73"),
-#                       labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59")) +
-#   theme(legend.position = "top",
-#         legend.direction = "horizontal",
-#         legend.background = element_blank(),
-#         legend.box.background = element_rect(colour = "black"),
-#         legend.text = element_text(size = 8, face= "bold"),
-#         legend.title = element_text(size = 8, face= "bold"),
-#         axis.title.x = element_text(size = 10, face= "bold"),
-#         axis.title.y = element_text(size = 10, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# total_depth = ggplot(data = rls_bodysize, aes(x = latitude, y = total_avg, colour = depth_bin)) + 
-#   geom_point() +
-#   xlab("Latitude (°)") +
-#   ylab("Number of species") +
-#   ylim(c(0,2200)) +
-#   theme_classic() +
-#   scale_colour_manual(name = "Depth bins (m)",
-#                       values = c("#56B4E9", "#E69F00", "#009E73"),
-#                       labels = c("(0-10]", "(10-20]", "(20-30]")) +
-#   theme(legend.position = "top",
-#         legend.direction = "horizontal",
-#         legend.background = element_blank(),
-#         legend.box.background = element_rect(colour = "black"),
-#         legend.text = element_text(size = 8, face= "bold"),
-#         legend.title = element_text(size = 8, face= "bold"),
-#         axis.title.x = element_text(size = 10, face= "bold"),
-#         axis.title.y = element_text(size = 10, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1)) 
-# 
-# total_time = ggplot(data = rls_bodysize, aes(x = latitude, y = total_avg, colour = hour_bin)) + 
-#   geom_point() +
-#   xlab("Latitude (°)") +
-#   ylab("Number of species") +
-#   ylim(c(0,2200)) +
-#   theme_classic() +
-#   scale_colour_manual(name = "Time bins (24-h clock)",
-#                       values = c("#000000", "#56B4E9", "#E69F00", "#009E73"),
-#                       labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59")) +
-#   theme(legend.position = "top",
-#         legend.direction = "horizontal",
-#         legend.background = element_blank(),
-#         legend.box.background = element_rect(colour = "black"),
-#         legend.text = element_text(size = 8, face= "bold"),
-#         legend.title = element_text(size = 8, face= "bold"),
-#         axis.title.x = element_text(size = 10, face= "bold"),
-#         axis.title.y = element_text(size = 10, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# bodysize_plot = ggarrange(bodysize_depth, bodysize_time, total_depth, total_time,
-#                       ncol = 2, nrow = 2)
-# annotate_figure(bodysize_plot,
-#                 top = text_grob("Body size and species numbers over latitude grouped by depth or time",
-#                                 color = "black", face = "bold", size = 14))
-# 
-# # trait over depth
-# size_depth = ggplot(data = rls_bodysize, aes(x = depth, y = bodySize)) + 
-#   geom_point() +
-#   ggtitle("Body size vs. depth") +
-#   xlab("Depth (m)") +
-#   ylab("Body size (cm)") +
-#   theme_classic() +
-#   theme(title = element_text(size = 12, face= "bold"),
-#         axis.title.x = element_text(size = 12, face= "bold"),
-#         axis.title.y = element_text(size = 12, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# size_time = ggplot(data = rls_bodysize, aes(x = hour, y = bodySize)) + 
-#   geom_point() +
-#   ggtitle("Body size vs. day time of survey") +
-#   xlab("Time (24-h clock)") +
-#   ylab("Body size (cm)") +
-#   theme_classic() +
-#   theme(title = element_text(size = 12, face= "bold"),
-#         axis.title.x = element_text(size = 12, face= "bold"),
-#         axis.title.y = element_text(size = 12, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# num_depth = ggplot(data = rls_bodysize, aes(x = depth, y = bodySize)) + 
-#   geom_point() +
-#   ggtitle("Number of species vs. depth") +
-#   xlab("Depth (m)") +
-#   ylab("Number of species") +
-#   theme_classic() +
-#   theme(title = element_text(size = 12, face= "bold"),
-#         axis.title.x = element_text(size = 12, face= "bold"),
-#         axis.title.y = element_text(size = 12, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# num_time = ggplot(data = rls_bodysize, aes(x = hour, y = bodySize)) + 
-#   geom_point() +
-#   ggtitle("Number of species vs. day time of survey") +
-#   xlab("Time (24-h clock)") +
-#   ylab("Number of species") +
-#   theme_classic() +
-#   theme(title = element_text(size = 12, face= "bold"),
-#         axis.title.x = element_text(size = 12, face= "bold"),
-#         axis.title.y = element_text(size = 12, face= "bold"),
-#         axis.text.x = element_text(size = 10, face= "bold"),
-#         axis.text.y = element_text(size = 10, face= "bold"),
-#         axis.ticks.length=unit(.25, "cm"),
-#         axis.line = element_line(colour = 'black', size = 1))
-# 
-# ggarrange(size_depth, size_time, num_depth, num_time,
-#                           ncol = 2, nrow = 2)
-# 
-# # linear model
-# mod1 = lm(bodySize ~ depth, data = rls_bodysize)
-# summary(mod1)
-# mod2 = lm(bodySize ~ latitude, data = rls_bodysize)
-# summary(mod2)
-# mod3 = lm(log(bodySize) ~ latitude + depth, data = rls_bodysize)
-# summary(mod3)
-# plot(mod3)
 
 
 ###### preparing the data for the nMDS
@@ -329,7 +157,7 @@ nmds_time = ggplot(data = nmds_total_dat,
   theme(text = element_text(size=16)) +
   grid() +
   scale_colour_manual(name = "Time bins \n(24-h clock)",
-                      values = c("#474AE2", "#C70363", "#FFCF00", "#000000"),
+                      values = c("#474AE2", "#C70363", "#FFCF00", "#43C540"),
                       labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59"))
 
 ### depth 
@@ -426,7 +254,7 @@ nmds_time = ggplot(data = nmds_total_dat,
   theme(text = element_text(size=16)) +
   grid() +
   scale_colour_manual(name = "Time bins \n(24-h clock)",
-                      values = c("#474AE2", "#C70363", "#FFCF00", "#000000"),
+                      values = c("#474AE2", "#C70363", "#FFCF00", "#43C540"),
                       labels = c("04:00 - 07:59", "08:00 - 11:59", "12:00 - 15:59", "16:00 - 19:59"))
 
 ### depth

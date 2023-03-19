@@ -1,5 +1,5 @@
-# COMBINE DATA FROM RLS (ABUNDANCE), LUIZ ET AL. (PLD), AND BARNECHE ET AL. (EGGSIZE)
-######### test script
+####### DEPRICATED: COMBINE DATA FROM RLS AND FISHBASE
+
 # read libs
 library(tidyverse)
 

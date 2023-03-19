@@ -1,3 +1,4 @@
+###### EXPLORATORY RESULTS
 ###### CWM AND CWV MAPS AND VIOLIN PLOTS (AND 3D INTERACTIONS, DEPRICATED)
 
 # libraries
@@ -227,7 +228,7 @@ cwm_map =
         axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm")) +
   scale_fill_viridis_c(direction = -1,
-                       name = "CWM \nsize \nclass \n(cm)",
+                       name = "CWM \nsize \n(cm)",
                        breaks = c(round(min(final_dataset$size_class_cwm), digits = 5), 
                                   round(mean(final_dataset$size_class_cwm), digits = 5), 
                                   round(max(final_dataset$size_class_cwm), digits = 5)),
@@ -264,7 +265,7 @@ ggplot(data = sf_oz) +
         axis.text.y = element_text(size = 14, face= "bold"),
         axis.ticks.length=unit(.25, "cm")) +
   scale_fill_viridis_c(direction = -1,
-                       name = "CWV \nsize \nclass \n(cm²)",
+                       name = "CWV \nsize \n(cm²)",
                        breaks = c(round(min(final_dataset$size_class_cwv), digits = 5), 
                                   round(mean(final_dataset$size_class_cwv), digits = 5), 
                                   round(max(final_dataset$size_class_cwv), digits = 5)),
@@ -370,7 +371,7 @@ cwm_plot =
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
   geom_boxplot(width = 0.2, colour = "black", lwd = 0.6) +
   ggtitle("") +
-  labs(x = "CWM size class (cm)") +
+  labs(x = "CWM size (cm)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
         panel.border = element_rect(colour = "gray30", linewidth = 1),
@@ -389,7 +390,7 @@ cwv_plot =
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
   geom_boxplot(width = 0.2, colour = "black", lwd = 0.6) +
   ggtitle("") +
-  labs(x = "CWV size class (cm²)") +
+  labs(x = "CWV size (cm²)") +
   theme(plot.title = element_text(size = 16, face= "bold"),
         panel.grid = element_line(colour = "white", linetype = "dashed"),
         panel.border = element_rect(colour = "gray30", linewidth = 1),
@@ -404,63 +405,6 @@ cwv_plot =
 ggarrange(cwm_plot, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"))
 
 
-
-###### density plots of SST variables
-mean_dens = ggplot(data = final_dataset, mapping = aes(x = sst_raw_mean)) + 
-  geom_density(fill="gray20", color="#e9ecef", alpha=0.8) + 
-  theme_classic() +
-  labs(x = "SST mean (°C)",
-       y = "Density") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_text(size = 14, face= "bold"),
-        axis.title.y = element_text(size = 14, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
-        axis.ticks.length=unit(.2, "cm")) 
-
-var_plot = ggplot(data = vari_data, mapping = aes(x = sst_variable["sst_raw_var"], y = value)) + 
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("SST variance (°C²)") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 12, face= "bold"),
-        axis.ticks.length=unit(.2, "cm")) +
-  scale_y_continuous(limits = c(min(vari_data$value), max(vari_data$value)))
-
-col_data = final_long %>% filter(sst_variable == "sst_env_col")
-col_plot = ggplot(data = col_data, mapping = aes(x = sst_variable["sst_env_col"], y = value)) + 
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("SST colour") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 12, face= "bold"),
-        axis.ticks.length=unit(.2, "cm")) +
-  scale_y_continuous(limits = c(min(col_data$value), max(col_data$value)))
-
-sea_data = final_long %>% filter(sst_variable == "sst_bounded_seasonality")
-sea_plot = ggplot(data = sea_data, mapping = aes(x = sst_variable["sst_bounded_seasonality"], y = value)) + 
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("SST seasonality") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.y = element_text(size = 12, face= "bold"),
-        axis.ticks.length=unit(.2, "cm")) +
-  scale_y_continuous(limits = c(min(sea_data$value), max(sea_data$value)))
-
-ggarrange(mean_plot, var_plot, col_plot, sea_plot, ncol = 4, nrow = 1, labels = c("A", "B", "C", "D"))
-
-
 ###### violin plots of CWM, CWV, and species richness
 bio_long = final_dataset %>%
   select(latitude, longitude, survey_date, size_class_cwm, size_class_cwv, sp_richness) %>%
@@ -473,7 +417,7 @@ cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) +
   theme_bw() +
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
-  labs(x = "Size class CWM (cm)") +
+  labs(x = "CWM of size (cm)") +
   theme(panel.grid = element_line(colour = "white", linetype = "dashed"),
         panel.border = element_rect(colour = "gray30", linewidth = 0.6),
         axis.title.x = element_text(size = 14, face= "bold"),
@@ -488,7 +432,7 @@ cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv", value < 800)
 cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) + 
   geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
   geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("Size class CWV (cm²)") +
+  ggtitle("CWV of size (cm²)") +
   theme(plot.title = element_text(size = 14, face= "bold"),
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -500,26 +444,45 @@ cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) +
 
 ggarrange(cwm_plot, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"))
 
-###### density plots of size stuff
-cwm_dens = ggplot(data = final_dataset, mapping = aes(x = size_class_cwm)) + 
-  geom_density(fill="gray20", color="#e9ecef", alpha=0.8) + 
-  theme_classic() +
-  labs(x = "CWM of size class",
-       y = "Density") +
-  theme(plot.title = element_text(size = 16, face= "bold"),
-        axis.title.x = element_text(size = 14, face= "bold"),
-        axis.title.y = element_text(size = 14, face= "bold"),
-        axis.text.x = element_text(size = 12, face= "bold"),
-        axis.text.y = element_text(size = 12, face= "bold"),
-        axis.ticks.length=unit(.2, "cm"))
 
-
-###### combine map and violin in one for size class
+###### combine map and violin in one for size class CWM and CWV
 ggarrange(cwm_map, cwm_plot, ncol = 2, nrow = 1, labels = c("A", "B"),
           widths = c(1.125, 0.5), heights = c(1, -4))
 
 ggarrange(cwv_map, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"),
           widths = c(1.125, 0.5), heights = c(1, -4))
+
+
+###### density plots + boxplot
+# ggplot(data = final_dataset, mapping = aes(x = sst_raw_mean)) + 
+#   geom_density(fill="gray20", color="#e9ecef", alpha=0.8) + 
+#   theme_classic() +
+#   labs(x = "SST mean (°C)",
+#        y = "Density") +
+#   theme(plot.title = element_text(size = 16, face= "bold"),
+#         axis.title.x = element_text(size = 14, face= "bold"),
+#         axis.title.y = element_text(size = 14, face= "bold"),
+#         axis.text.y = element_text(size = 12, face= "bold"),
+#         axis.ticks.length=unit(.2, "cm")) 
+# 
+# ggplot(data = final_dataset) +
+#   geom_flat_violin(mapping = aes(x = sst_raw_mean),
+#                    position = position_nudge(x = .2),
+#                    alpha = 0.7) +
+#   geom_point(aes(color = verified_income),
+#              position = position_jitter(w = .15)) +
+#   geom_boxplot(width = .25) + # New code added here
+#   coord_flip()
+# 
+# ggplot(final_long, aes(x = value, y = -0.5)) +
+#   geom_boxplot(aes(fill = sst_variable)) +
+#   geom_density(aes(x = value, colour = sst_variable), linewidth = 1, inherit.aes = FALSE) +
+#   stat_boxplot(varwidth = FALSE, aes(fill = sst_variable)) +
+#   stat_boxplot(varwidth = FALSE, aes(fill = sst_variable)) +
+#   stat_boxplot(varwidth = FALSE, aes(fill = sst_variable)) +
+#   facet_wrap(sst_variable ~ ., scales = "free") +
+#   scale_fill_discrete()
+
 
 # ####### 3D plots for interactions
 # 

@@ -1,5 +1,4 @@
-# RLS DATA, 2019-2022
-## exploration
+###### RLS DATA EXPLORATION 2019-2022
 
 # load libraries
 library(tidyverse)
@@ -8,7 +7,7 @@ library(tidyverse)
 rm(list=ls())
 
 # set working directory
-setwd("~/projects/msc_thesis")
+setwd("~/Documents/MSc_thesis/Figures")
 
 # read RLS dataset
 rls_2019_2022 = read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")

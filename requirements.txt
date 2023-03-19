@@ -1,8 +1,29 @@
-R version 4.1.2 (2021-11-01)
 Ubuntu 22.04.1 LTS
 
+Python 3.8.10
+cdo==1.5.7
+cdsapi==0.5.1
+netcdf4==1.6.2
+pandas==1.3.5
+cdo (CLI, debian)==1.9.9 
+
+R==4.1.2
+R Studio==4.0.4
+car==3.1.0
+corrplot==0.92
+dplyr==1.0.10
 envPred==1.0.1
-ncdf4==1.19
-raster==3.6.3
-rerddap==1.1.0
-tidyverse==1.3.2
+grid==4.1.2
+gridExtra==2.3
+ggplot2==3.4.0
+ggpubr==0.5.0
+ggsn==0.5.0
+mapdata==2.3.1
+maps==3.4.1
+modi==0.1.0
+MuMIn==1.46.0
+ozmaps==0.4.5
+sf==1.0.9
+stats==4.1.2
+tidyr==1.2.1
+viridis==0.6.2

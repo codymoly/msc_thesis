@@ -1,0 +1,134 @@
+####### FINAL SUBSET OF RSL ATRC SURVEY SITES
+# goal: select sites with a minimum distance of 30km
+
+# load libraries
+library(tidyverse)
+library(geosphere)
+
+# clean memory
+rm(list=ls())
+
+# set working directory
+setwd("~/Documents/MSc_thesis/Figures")
+
+# save data
+save_to_github = FALSE
+save_to_local = FALSE
+
+# read RLS dataset
+rls_cleaned = readr::read_delim("/media/mari/Crucial X8/rls_2019_2022_clean.csv", delim = ",")
+
+
+###### data preparation
+
+# filter observations > 2019-12-31, because we have some missing SST data for 2009,
+# the envPred stats will be calculated based on 10 years respectively to each survey date
+rls_cleaned = rls_cleaned %>% 
+  dplyr::filter(rls_cleaned$survey_date > "2019-12-31")
+
+# select unique coordinate pairs
+unique_coords = rls_cleaned %>% 
+  select(latitude, longitude) %>% 
+  distinct()
+
+
+###### subset survey sites based on pairwise distance
+
+# select only pairs that a minimum distance of </= 30km
+column_names = names(unique_coords) # write column names into an object
+rls_sites_30 = data.frame(matrix(nrow = 0, ncol = length(column_names))) # write an empty dataframe
+colnames(rls_sites_30) = column_names # assign column names of initial dataframe to the empty one
+rls_sites_30[1,] = unique_coords[1,] # write the first row of the initial dataframe into the empty one
+
+for (i in 2:nrow(unique_coords)) {
+  for (ii in 1:nrow(rls_sites_30)) {
+    distance = geosphere::distm(c(unique_coords$longitude[[i]], unique_coords$latitude[[i]]),
+                                c(rls_sites_30$longitude[[ii]], rls_sites_30$latitude[[ii]]),
+                                fun = distHaversine) # calculate distance between each row
+    if (distance < 30000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
+      break
+    }
+    if (ii == nrow(rls_sites_30)) {
+      rls_sites_30 = rbind(rls_sites_30, unique_coords[i,])
+    }
+  }
+}
+
+
+###### sanity check
+
+# merge new sites with original dataframe
+rls_dist = dplyr::left_join(rls_sites_30, rls_cleaned, by = c("latitude", "longitude"))
+
+# quick check on how many sites we have left
+nrow(unique(rls_dist[c('latitude', 'longitude', 'survey_date')])) # 179 observations
+# # alternative:
+# # rls_dist %>% select(latitude, longitude, survey_date) %>% n_distinct()
+
+
+###### save data
+
+# github
+if (save_to_github == TRUE) {
+  write.csv(rls_sites_30,"~/projects/msc_thesis/data/coords_30km.csv", row.names = FALSE)
+} else {
+  print("Data not saved to Gitty!")
+}
+
+# local
+if (save_to_local == TRUE) {
+  write.csv(rls_sites_30,"/media/mari/Crucial X8/coords_30km.csv", row.names = FALSE)
+} else {
+  print("Data not saved to Loci!")
+}
+
+
+###### alternative: distance 0f 10km
+
+# # select only pairs that a minimum distance of ~10km
+# column_names = names(unique_coords) # write column names into an object
+# rls_sites_10 = data.frame(matrix(nrow = 0, ncol = length(column_names))) # write an empty dataframe
+# colnames(rls_sites_10) = column_names # assign column names of initial dataframe to the empty one
+# rls_sites_10[1,] = unique_coords[1,] # write the first row of the initial dataframe into the empty one
+# 
+# for (i in 2:nrow(unique_coords)) {
+#   for (ii in 1:nrow(rls_sites_10)) {
+#     distance = geosphere::distm(c(unique_coords$longitude[[i]], unique_coords$latitude[[i]]),
+#                                 c(rls_sites_10$longitude[[ii]], rls_sites_10$latitude[[ii]]),
+#                                 fun = distHaversine) # calculate distance between each row
+#     if (distance < 10000) { # min. dist of ~30km assuming a spherical object, thus precision isworse near equ. and poles
+#       break
+#     }
+#     if (ii == nrow(rls_sites_10)) {
+#       rls_sites_10 = rbind(rls_sites_10, unique_coords[i,])
+#     }
+#   }
+# }
+# 
+# 
+# ###### sanity check
+# 
+# # merge new sites with original dataframe
+# rls_dist = dplyr::left_join(rls_sites_10, rls_cleaned, by = c("latitude", "longitude"))
+# 
+# # quick check on how many sites we have left
+# nrow(unique(rls_dist[c('latitude', 'longitude', 'survey_date')])) # 280 observations
+# # # alternative:
+# # # rls_dist %>% select(latitude, longitude, survey_date) %>% n_distinct()
+# 
+# 
+# ###### save data
+# 
+# # github
+# if (save_to_github == TRUE) {
+#   write.csv(rls_sites_10,"~/projects/msc_thesis/data/coords_10km.csv", row.names = FALSE)
+# } else {
+#   print("Data not saved to Gitty!")
+# }
+# 
+# # local
+# if (save_to_local == TRUE) {
+#   write.csv(rls_sites_10,"/media/mari/Crucial X8/coords_10km.csv", row.names = FALSE)
+# } else {
+#   print("Data not saved to Loci!")
+# }

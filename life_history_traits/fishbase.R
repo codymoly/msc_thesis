@@ -1,4 +1,4 @@
-# FISHBASE: GET TRAIT DATA
+####### DEPRICATED: FISHBASE: GET TRAIT DATA
 
 # read libs
 library(rfishbase)

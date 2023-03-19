@@ -1,5 +1,5 @@
-# RLS DATA
-## cleaning, subset sites, retrieving accepted species names
+###### RLS DATA CLEANING
+# goal: cleaning, retrieving accepted species names
 
 # load libraries
 library(worms)
@@ -10,12 +10,12 @@ library(stringr)
 rm(list=ls())
 
 # set working directory
-setwd("~/projects/msc_thesis")
+setwd("~/Documents/MSc_thesis/Figures")
 
 # conditional stuff
 find_suspect_worms = FALSE
 save_species_data = FALSE
-save_site_data = TRUE
+save_site_data = FALSE
 
 # read RLS dataset
 rls_2019_2022_raw = read_delim("/media/mari/Crucial X8/rls_2019_2022_upd.csv", skip = 71, delim = ",")
@@ -148,7 +148,6 @@ worms_valid_2 = worms_data_2 %>%
 
 ## create dataframe with initial species names and worms data
 species_data_2 = left_join(unique_species_names_2, worms_valid_2, by = "species_name")
-
 
 
 # sanity check
