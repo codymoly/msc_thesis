@@ -430,14 +430,16 @@ cwm_plot = ggplot(data = cwm_data, mapping = aes(x = bio_variable, y = value)) +
 
 cwv_data = bio_long %>% filter(bio_variable == "size_class_cwv", value < 800)
 cwv_plot = ggplot(data = cwv_data, mapping = aes(x = bio_variable, y = value)) + 
-  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 1) + 
-  geom_boxplot(width=0.2, colour = "black", lwd = 1) +
-  ggtitle("CWV of size (cm²)") +
-  theme(plot.title = element_text(size = 14, face= "bold"),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
+  theme_bw() +
+  geom_violin(trim = TRUE,  fill='#A4A4A4', color="black", lwd = 0.6) + 
+  geom_boxplot(width=0.2, colour = "black", lwd = 0.6) +
+  labs(x = "CWV of size (cm²)") +
+  theme(panel.grid = element_line(colour = "white", linetype = "dashed"),
+        panel.border = element_rect(colour = "gray30", linewidth = 0.6),
+        axis.title.x = element_text(size = 14, face= "bold"),
         axis.ticks.x = element_blank(),
         axis.title.y = element_blank(),
+        axis.text.x = element_blank(),
         axis.text.y = element_text(size = 12, face= "bold"),
         axis.ticks.length=unit(.2, "cm")) +
   scale_y_continuous(limits = c(0, 180))
@@ -451,6 +453,13 @@ ggarrange(cwm_map, cwm_plot, ncol = 2, nrow = 1, labels = c("A", "B"),
 
 ggarrange(cwv_map, cwv_plot, ncol = 2, nrow = 1, labels = c("A", "B"),
           widths = c(1.125, 0.5), heights = c(1, -4))
+
+###### same, change order
+ggarrange(cwm_plot, cwm_map, ncol = 2, nrow = 1, labels = c("A", "B"),
+          widths = c(0.5, 1.125), heights = c(-4, 1))
+
+ggarrange(cwv_plot, cwv_map, ncol = 2, nrow = 1, labels = c("A", "B"),
+          widths = c(0.5, 1.125), heights = c(-4, 1))
 
 
 ###### density plots + boxplot

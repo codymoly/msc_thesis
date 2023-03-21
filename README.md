@@ -1,7 +1,7 @@
 ![logo](./msc_logo.png)
 
-# Beyond the mean: assessing the role of temperature variability and predictability for shaping the size structure of reef fish communities
-## Master's thesis, Department of Marine Sciences, Gothenburg University
+# Beyond the mean: assessing the role of temperature variability and predictability in shaping the size structure of reef fish communities
+## Master's thesis, Department of Marine Sciences, University of Gothenburg
 
 This repository contains scripts, data links, and compiled data I use for my master's thesis. Dependencies are listed in the [requirements.txt](https://github.com/codymoly/msc_thesis/blob/main/requirements.txt).
 

@@ -24,7 +24,7 @@ setwd("~/Documents/MSc_thesis/Figures")
 plot_by_area = FALSE
 save_to_github = FALSE
 save_to_local = FALSE
-save_top_models
+save_top_models = FALSE
 
 # import datasets
 eco_data = readr::read_delim("/media/mari/Crucial X8/cwm_data.csv", delim = ",")
