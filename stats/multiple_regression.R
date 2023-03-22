@@ -232,7 +232,7 @@ dredged_sc_cwm_object
 
 ## get the top models based on cut-off: deltaAICc </= 2
 model.sub.sc.cwm <- get.models(dredged_sc_cwm_object, subset = delta < 2) # delta 0.00 and 1.25
-# best_fit.sc.cwm = model.sub.sc.cwm[[1]]
+best_fit.sc.cwm = model.sub.sc.cwm[[1]]
 
 ## AICc of null model and saturated model
 AICc(null_mod_cwm) # -113.7783
