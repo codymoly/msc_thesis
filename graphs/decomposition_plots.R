@@ -21,6 +21,7 @@ seasonal_trend = readr::read_delim("/media/mari/Crucial X8/concept_stuff/interpo
 noise = readr::read_delim("/media/mari/Crucial X8/concept_stuff/noise.csv", delim = ",")
 loglog = readr::read_delim("/media/mari/Crucial X8/concept_stuff/loglog_reg.csv", delim = ",")
 whitelog = readr::read_delim("/media/mari/Crucial X8/concept_stuff/white_noise_loglog_reg.csv", delim = ",")
+real_ts = readr::read_delim("/media/mari/Crucial X8/sst_csv/-40.85_145.50.csv", delim = ",")
 
 
 # create plot for raw time series with linear trend
@@ -175,3 +176,21 @@ ggplot() +
            color="gray", size = 6, fontface = 2) +
   annotate(geom="text", x = 4.85, y = -14, label="0.5 < |𝛽| ≤ 2",
            color="red3", size = 6, fontface = 2)
+
+###### defense graph
+ex_ts = real_ts %>% dplyr::filter(date > "2012-10-28")
+
+ggplot() +
+  theme_classic() +
+  geom_line(data = ex_ts, aes(x = date, y = analysed_sst-275.15), 
+            linewidth = 1.5, 
+            lineend = "round") + 
+  ggtitle(label = "Exemplary time series of sea surface temperature (SST) \nTasmania: 40.85°S; 145.50°E") +
+  xlab("Time (years)") +
+  ylab("SST (°C)") +
+  theme(title = element_text(size = 20, face= "bold"),
+        axis.title = element_text(size = 20, face= "bold"),
+        axis.text.x = element_text(size = 16, face= "bold"),
+        axis.text.y = element_text(size = 16, face= "bold"),
+        axis.ticks = element_line(linewidth = 1),
+        axis.line = element_line(linewidth = 1))
